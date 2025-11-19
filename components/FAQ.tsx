@@ -19,7 +19,7 @@ const Accordion: React.FC<AccordionProps> = ({
     <div className="w-full text-left items-center justify-between px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A]  font-medium text-[14px]">
       <button
         onClick={onClick}
-        className="flex w-full items-center justify-between p-4 text-left focus:outline-hidden "
+        className={`flex w-full items-center justify-between p-4 text-left focus:outline-hidden ${isActive ? "font-semibold text-[15px]" : ""}`}
       >
         {title}
         <ChevronDown
