@@ -63,11 +63,17 @@ export default function Sponsors() {
       </div>
 
       {/* CTA Button */}
-      <div className="flex justify-center mt-16">
-        <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl hover:opacity-90 transition">
-          Become a Sponsor
-        </button>
-      </div>
+      <a
+        href="https://tally.so/r/3NkdGb"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <div className="flex justify-center mt-16">
+            <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+                Become a Sponsor
+            </button>
+        </div>
+      </a>
     </section>
   );
 }
