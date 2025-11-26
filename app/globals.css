@@ -170,3 +170,41 @@
   font-style: normal;
 }
 
+@keyframes bus-enter {
+  /* Start VERY high + right */
+  0% {
+    transform: translate(210%, -55%) scale(0.42);
+    /* -95% = much higher than road, will ALWAYS appear from top */
+  }
+
+  20% {
+    transform: translate(160%, -45%) scale(0.48);
+  }
+
+  40% {
+    transform: translate(115%, -35%) scale(0.56);
+  }
+
+  60% {
+    transform: translate(70%, -25%) scale(0.63);
+  }
+
+  78% {
+    transform: translate(30%, -15%) scale(0.68);
+  }
+
+  92% {
+    transform: translate(8%, -5%) scale(0.695);
+  }
+
+  /* Final anchored position on road */
+  100% {
+    transform: translate(0, 0) scale(0.70);
+  }
+}
+
+
+.bus-enter-animation {
+  animation: bus-enter 15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
