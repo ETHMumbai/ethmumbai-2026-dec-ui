@@ -2,20 +2,21 @@
 
 import React from "react";
 import Image from "next/image";
+import TwitterLogo from "../public/assets/x-logo.png";
 
 const sponsors = [
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail" },
-  { logo: "/assets/sponsors/esp.svg", name: "ESP" },
-  { logo: "/assets/sponsors/polygon.svg", name: "Polygon" },
+  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://x.com/ArweaveEco" },
+  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
+  { logo: "/assets/sponsors/esp.svg", name: "ESP", twitter: "https://twitter.com/esp" },
+  { logo: "/assets/sponsors/polygon.svg", name: "Polygon", twitter: "https://twitter.com/0xPolygon" },
 
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail" },
-  { logo: "/assets/sponsors/esp.svg", name: "ESP" },
-  { logo: "/assets/sponsors/polygon.svg", name: "Polygon" },
+  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://twitter.com/arweave" },
+  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
+  { logo: "/assets/sponsors/esp.svg", name: "ESP", twitter: "https://twitter.com/esp" },
+  { logo: "/assets/sponsors/polygon.svg", name: "Polygon", twitter: "https://twitter.com/0xPolygon" },
 
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail" },
+  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://twitter.com/arweave" },
+  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
 ];
 
 export default function Sponsors() {
@@ -24,7 +25,7 @@ export default function Sponsors() {
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
         <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] font-medium text-center mb-8">
-        Past Sponsors
+          Past Sponsors
         </h2>
       </div>
 
@@ -40,14 +41,17 @@ export default function Sponsors() {
               aspect-[2.4/1]
               rounded-[10px]
               overflow-hidden
+              cursor-pointer
+              group
               ${i === 8 ? "lg:col-start-2" : ""}  
               ${i === 9 ? "lg:col-start-3" : ""} 
               bg-[url('/assets/sponsors/sponsors-card.png')]
               bg-cover
               bg-center
             `}
+            onClick={() => s.twitter && window.open(s.twitter, "_blank")}
           >
-            {/* Logo and name on top */}
+            {/* Logo and name */}
             <div className="absolute inset-0 flex items-center justify-center gap-4 z-10 px-6">
               <Image
                 src={s.logo}
@@ -58,6 +62,17 @@ export default function Sponsors() {
               />
               <span className="text-black text-2xl font-medium">{s.name}</span>
             </div>
+
+            {/* Twitter (X) icon, appears on hover */}
+            {/* <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 w-6 h-6">
+              <Image
+                src={TwitterLogo}
+                alt="Twitter logo"
+                width={24}
+                height={24}
+                className="object-contain"
+              /> */}
+            {/* </div> */}
           </div>
         ))}
       </div>
@@ -67,11 +82,11 @@ export default function Sponsors() {
         href="https://tally.so/r/3NkdGb"
         target="_blank"
         rel="noopener noreferrer"
-        >
+      >
         <div className="flex justify-center mt-16">
-            <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
-                Become a Sponsor
-            </button>
+          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+            Become a Sponsor
+          </button>
         </div>
       </a>
     </section>
