@@ -22,9 +22,9 @@ export default function Sponsors() {
   return (
     <section className="bg-[#3FA9F5] w-full py-10">
       {/* Title */}
-      <div className="flex pb-14 items-center justify-center w-full">
-        <h2 className="text-white text-5xl md:text-6xl font-[MPlusRounded1c] font-medium">
-          Past Sponsors
+      <div className="flex pb-6 items-center justify-center w-full">
+        <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] font-medium text-center mb-8">
+        Past Sponsors
         </h2>
       </div>
 
