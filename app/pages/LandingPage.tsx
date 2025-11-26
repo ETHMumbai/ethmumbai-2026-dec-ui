@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Stats from "@/components/Stats";
 import Overview from "@/components/Overview";
 import Sponsors from "@/components/Sponsors";
+import Partners from "@/components/Partners";
 
 export default function LandingPage() {
   return (
@@ -17,6 +18,7 @@ export default function LandingPage() {
         <Stats />
         <Overview />
         <Sponsors />
+        <Partners />
         <FAQ />
         <Footer />
       </main>
