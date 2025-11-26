@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Stats from "@/components/Stats";
 import Overview from "@/components/Overview";
+import Sponsors from "@/components/Sponsors";
 
 export default function LandingPage() {
   return (
@@ -15,6 +16,7 @@ export default function LandingPage() {
         <Hero />
         <Stats />
         <Overview />
+        <Sponsors />
         <FAQ />
         <Footer />
       </main>
