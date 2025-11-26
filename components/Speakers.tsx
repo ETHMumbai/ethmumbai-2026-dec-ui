@@ -5,12 +5,11 @@ import { speakers } from "../lib/speakersData";
 
 export default function Speakers() {
   return (
-    <section className="w-full bg-[#FFD600] py-16">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[48px] font-medium leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-16" style={{ fontFamily: 'Rounded Mplus 1c' }}>Speakers</h2>
+    <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-[48px] text-center font-medium leading-12 tracking-[-1px text-[#0A0A0A] mb-16 font-[MPlusRounded1c]"> Past Speakers and Judges</h2>
 
         {/* Speakers Grid */}
-        <div className="flex justify-center gap-4 md:gap-4 flex-wrap mb-12 max-w-[350px] sm:max-w-full mx-auto">
+        <div className="flex gap-4 md:gap-20 pl-14 flex-wrap mb-12 max-w-[350px] sm:max-w-full mx-auto">
           {speakers.map((speaker, index) => (
             <div
               key={index}
@@ -20,35 +19,20 @@ export default function Speakers() {
               <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">
                 {/* Red background container */}
                 <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
-                  {/* Image that extends above the box */}
+                  {/* Image */}
                   <Image
                     src={speaker.image}
                     alt={speaker.name}
                     width={150}
                     height={185}
                     className="absolute bottom-0 left-[50%] -translate-x-1/2 h-[118%] object-cover rounded-3xl"
-                    style={{ width: '112%', objectPosition: 'center 30%' }}
+                    style={{ width: '112%', objectPosition: 'center 30%', borderBottomLeftRadius: '28px' }}
                   />
                   
-                  {/* Clipping wrapper for X icon only */}
+                  {/* Clipping wrapper for hover effect */}
                   <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                    {/* Bottom bar with X icon - slides up on hover */}
-                    {speaker.xLink && (
-                      <a 
-                        href={speaker.xLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10 pointer-events-auto"
-                      >
-                        <svg 
-                          className="w-5 h-5 text-white" 
-                          fill="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                      </a>
-                    )}
+                    {/* Black gradient overlay - slides up to cover half the image on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
                   </div>
                 </div>
               </div>
@@ -77,7 +61,6 @@ export default function Speakers() {
             Apply to Speak
           </a>
         </div>
-      </div>
     </section>
   );
 }
