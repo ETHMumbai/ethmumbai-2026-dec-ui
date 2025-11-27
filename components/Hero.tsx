@@ -37,20 +37,32 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[1.5rem] flex items-center gap-4">
-          <button
-            className="bg-white text-[#E2231A] font-semibold text-base px-6 py-3
-                       rounded-[14px] hover:bg-gray-300 cursor-pointer transition-all duration-200"
+          <a
+            href="https://tally.so/r/nGW5Bz"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Apply to Speak
-          </button>
-
-          <button
-            className="bg-white border border-white text-[#E2231A]
-                       font-semibold text-base px-6 py-3 rounded-[14px]
-                       hover:bg-gray-300 cursor-pointer transition-all duration-200"
-          >
-            Apply to Sponsor
-          </button>
+            <button
+              className="bg-white text-[#E2231A] font-semibold text-base px-6 py-3
+                        rounded-[14px] hover:bg-gray-300 cursor-pointer transition-all duration-200"
+            >
+              Apply to Speak
+            </button>
+          </a>
+    
+          <a 
+            href="https://tally.so/r/3NkdGb"
+            target="_blank"
+            rel="noopener noreferrer"
+          >   
+            <button
+              className="bg-white border border-white text-[#E2231A]
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
+            >
+              Apply to Sponsor
+            </button>
+          </a>
         </div>
       </div>
 
