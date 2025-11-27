@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -15,33 +15,25 @@ import EthMumbaiLogo from "../public/assets/ethmumbai-logo.svg";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <nav className="fixed top-0 left-0 w-full h-16 md:h-[4.25rem] bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
-      <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
-        {/* Logo Section */}
-        
-          <Image
-            src={EthMumbaiLogo}
-            alt="ETHMumbai Logo"
-            width={128}
-            height={40}
-            
-          />
-          
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
-          <a href="#about" className="hover:text-black transition">
-            Conference
-          </a>
-          <a href="#schedule" className="hover:text-black transition">
-            Hackathon
-          </a>
-          <a href="#sponsors" className="hover:text-black transition">
-            Buy Tickets
-          </a>
-        </div>
+  // Disable scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
 
-        {/* Right Section — Socials */}
+  return (
+    <nav className="fixed top-0 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
+      <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
+        {/* Logo */}
+        <Image src={EthMumbaiLogo} alt="ETHMumbai Logo" width={128} height={40} />
+
+        {/* Socials (desktop) */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             {/* Twitter */}
@@ -53,20 +45,8 @@ export default function Navbar() {
                 border-2 border-transparent transition-all duration-300 ease-in-out
                 hover:bg-white hover:border-[#E2231A]"
             >
-              <Image
-                src={TwitterWhite}
-                alt="Twitter"
-                width={20}
-                height={20}
-                className="block group-hover:hidden"
-              />
-              <Image
-                src={TwitterLogo}
-                alt="Twitter"
-                width={20}
-                height={20}
-                className="hidden group-hover:block"
-              />
+              <Image src={TwitterWhite} alt="Twitter" width={20} height={20} className="block group-hover:hidden" />
+              <Image src={TwitterLogo} alt="Twitter" width={20} height={20} className="hidden group-hover:block" />
             </a>
 
             {/* Farcaster */}
@@ -78,20 +58,8 @@ export default function Navbar() {
                 border-2 border-transparent transition-all duration-300 ease-in-out
                 hover:bg-white hover:border-[#E2231A]"
             >
-              <Image
-                src={FarcasterWhite}
-                alt="Farcaster"
-                width={20}
-                height={20}
-                className="block group-hover:hidden"
-              />
-              <Image
-                src={FarcasterLogo}
-                alt="Farcaster"
-                width={20}
-                height={20}
-                className="hidden group-hover:block"
-              />
+              <Image src={FarcasterWhite} alt="Farcaster" width={20} height={20} className="block group-hover:hidden" />
+              <Image src={FarcasterLogo} alt="Farcaster" width={20} height={20} className="hidden group-hover:block" />
             </a>
 
             {/* Telegram */}
@@ -103,49 +71,98 @@ export default function Navbar() {
                 border-2 border-transparent transition-all duration-300 ease-in-out
                 hover:bg-white hover:border-[#E2231A]"
             >
-              <Image
-                src={TelegramWhite}
-                alt="Telegram"
-                width={20}
-                height={20}
-                className="block group-hover:hidden"
-              />
-              <Image
-                src={TelegramLogo}
-                alt="Telegram"
-                width={20}
-                height={20}
-                className="hidden group-hover:block"
-              />
+              <Image src={TelegramWhite} alt="Telegram" width={20} height={20} className="block group-hover:hidden" />
+              <Image src={TelegramLogo} alt="Telegram" width={20} height={20} className="hidden group-hover:block" />
             </a>
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 text-black"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        {/* Hamburger (mobile) */}
+        <button onClick={() => setMenuOpen(true)} className="md:hidden p-2 text-black">
+          <Menu size={22} />
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* FULL SCREEN MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
-          <div className="flex flex-col space-y-3 p-4 text-gray-800 text-sm font-medium">
-            <a href="#about" className="hover:text-black transition">
-              Conference
+        <div className="fixed inset-0 bg-white z-[100] flex flex-col min-h-screen">
+
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-4 pt-4 bg-white">
+            <Image src={EthMumbaiLogo} alt="ETHMumbai Logo" width={120} height={40} />
+
+            <button onClick={() => setMenuOpen(false)} className="p-2 text-[#E2231A]">
+              <X size={26} />
+            </button>
+          </div>
+
+          {/* Centered Buttons */}
+          <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
+            <a
+              href="https://tally.so/r/nGW5Bz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
+            >
+              Apply to Speak
             </a>
-            <a href="#schedule" className="hover:text-black transition">
-              Hackathon
+
+            <a
+              href="https://tally.so/r/3NkdGb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
+            >
+              Apply to Sponsor
             </a>
-            <a href="#sponsors" className="hover:text-black transition">
-              Buy Tickets
+          </div>
+
+          {/* SOCIAL ICONS AT BOTTOM */}
+          <div className="flex items-center justify-center gap-6 pb-10 bg-white">
+
+            {/* Twitter */}
+            <a
+              href="https://x.com/ethmumbai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-12 h-12 bg-[#E2231A] rounded-full flex items-center justify-center shadow-md 
+          border-2 border-transparent transition-all duration-300 ease-in-out
+          hover:bg-white hover:border-[#E2231A]"
+            >
+              <Image src={TwitterWhite} alt="Twitter" width={24} height={24} className="block group-hover:hidden" />
+              <Image src={TwitterLogo} alt="Twitter" width={24} height={24} className="hidden group-hover:block" />
             </a>
+
+            {/* Farcaster */}
+            <a
+              href="https://farcaster.xyz/ethmumbai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-12 h-12 bg-[#E2231A] rounded-full flex items-center justify-center shadow-md 
+          border-2 border-transparent transition-all duration-300 ease-in-out
+          hover:bg-white hover:border-[#E2231A]"
+            >
+              <Image src={FarcasterWhite} alt="Farcaster" width={24} height={24} className="block group-hover:hidden" />
+              <Image src={FarcasterLogo} alt="Farcaster" width={24} height={24} className="hidden group-hover:block" />
+            </a>
+
+            {/* Telegram */}
+            <a
+              href="https://t.me/ethmumbai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-12 h-12 bg-[#E2231A] rounded-full flex items-center justify-center shadow-md 
+          border-2 border-transparent transition-all duration-300 ease-in-out
+          hover:bg-white hover:border-[#E2231A]"
+            >
+              <Image src={TelegramWhite} alt="Telegram" width={24} height={24} className="block group-hover:hidden" />
+              <Image src={TelegramLogo} alt="Telegram" width={24} height={24} className="hidden group-hover:block" />
+            </a>
+
           </div>
         </div>
       )}
+
     </nav>
   );
 }

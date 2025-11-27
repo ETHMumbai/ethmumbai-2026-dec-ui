@@ -99,19 +99,9 @@ export default function Sponsors() {
                 fill
                 className="object-contain p-6"
               />
-              {/* <span className="text-black text-2xl font-medium">{s.name}</span> */}
             </div>
 
-            {/* Twitter (X) icon, appears on hover */}
-            {/* <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 w-6 h-6">
-              <Image
-                src={TwitterLogo}
-                alt="Twitter logo"
-                width={24}
-                height={24}
-                className="object-contain"
-              /> */}
-            {/* </div> */}
+            
           </div>
         ))}
       </div>
