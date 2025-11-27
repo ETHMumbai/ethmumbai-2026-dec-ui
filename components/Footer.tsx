@@ -101,14 +101,14 @@ const Footer = () => {
                 Apply to Sponsor
               </a>
 
-              <a
+              {/* <a
                 href="https://tally.so/r/3NkdGb"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Apply to Hack
-              </a>
+              </a> */}
               <a
                 href="mailto:hi@ethmumbai.in"
                 target="_blank"

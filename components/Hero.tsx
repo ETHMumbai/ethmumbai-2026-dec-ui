@@ -1,8 +1,57 @@
 "use client";
 
 import { Calendar } from "lucide-react";
+import { useRef, useEffect } from "react";
 
 export default function Hero() {
+  const balloonRef = useRef<HTMLImageElement | null>(null);
+
+  // Balloon Follow Logic
+  useEffect(() => {
+    let x = 0;
+    let y = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    const speed = 0.06; // smooth delayed follow
+
+    const animate = () => {
+      x += (targetX - x) * speed;
+      y += (targetY - y) * speed;
+
+      if (balloonRef.current) {
+        balloonRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      let clientX, clientY;
+
+      if (e instanceof TouchEvent) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+
+      // keeps balloon away from cursor
+      targetX = clientX - 40;
+      targetY = clientY - 80;
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("touchmove", handleMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+    };
+  }, []);
+
   return (
     <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Accent overlay */}
@@ -49,7 +98,7 @@ export default function Hero() {
               Apply to Speak
             </button>
           </a>
-    
+
           <a 
             href="https://tally.so/r/3NkdGb"
             target="_blank"
@@ -89,12 +138,17 @@ export default function Hero() {
       />
 
       {/* Floating Elements */}
+
+      {/* UPDATED FLOATING BALLOON — FOLLOW CURSOR */}
       <img
+        ref={balloonRef}
         src="/assets/hero/balloon.png"
         alt="Balloon"
-        className="absolute left-[26%] top-[49%] w-auto h-auto z-[5] pointer-events-none select-none"
+        className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none"
+        draggable={false}
       />
 
+      {/* original clouds & plane (unchanged) */}
       <img
         src="/assets/hero/cloud2.png"
         alt="Cloud"

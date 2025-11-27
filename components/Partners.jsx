@@ -15,12 +15,12 @@ const partners = [
     twitter: "https://x.com/ETHRome",
   },
   {
-    logo: "/assets/partners/ETHChicago.png",
+    logo: "/assets/partners/ethchicago.svg",
     name: "ETHChicago",
     twitter: "https://x.com/0xEthChicago",
   },
   {
-    logo: "/assets/partners/ETHBelgrade.png",
+    logo: "/assets/partners/ethbelgrade.svg",
     name: "ETHBelgrade",
     twitter: "https://x.com/ethbelgrade",
   },
@@ -28,7 +28,7 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="bg-white w-full py-10">
+    <section className="bg-white w-full pt-10 pb-20">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
         <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] font-medium text-center mb-8">
@@ -37,7 +37,7 @@ export default function Partners() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-14 gap-y-16 justify-items-center">
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[15vw] 2xl:px-[25vw] grid sm:grid-cols-2 gap-x-14 gap-y-10 justify-items-center">
         {partners.map((p, i) => (
           <div
             key={i}
@@ -47,9 +47,8 @@ export default function Partners() {
             <Image
               src={p.logo}
               alt={p.name}
-              width={140}
-              height={140}
-              className="object-contain"
+              fill
+              className="object-contain p-5"
             />
           </div>
         ))}

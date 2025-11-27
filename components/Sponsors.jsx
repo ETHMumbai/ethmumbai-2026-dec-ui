@@ -53,7 +53,7 @@ const sponsors = [
     twitter: "https://x.com/graphprotocol",
   },
   {
-    logo: "/assets/sponsors/Vara.png",
+    logo: "/assets/sponsors/VaraNetwork.png",
     name: "Vara",
     twitter: "https://x.com/VaraNetwork",
   },
@@ -100,8 +100,6 @@ export default function Sponsors() {
                 className="object-contain p-6"
               />
             </div>
-
-            
           </div>
         ))}
       </div>

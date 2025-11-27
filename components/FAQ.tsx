@@ -19,7 +19,7 @@ const Accordion: React.FC<AccordionProps> = ({
     <div className="w-full text-left items-center justify-between px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A]  font-medium text-[14px]">
       <button
         onClick={onClick}
-        className={`flex w-full items-center justify-between p-4 text-left focus:outline-hidden ${isActive ? "font-semibold text-[15px]" : ""}`}
+        className={`flex w-full items-center justify-between p-4 text-left cursor-pointer focus:outline-hidden ${isActive ? "font-semibold text-[15px]" : ""}`}
       >
         {title}
         <ChevronDown
@@ -87,7 +87,7 @@ const FAQ = () => {
     <section className="relative min-h-screen items-start justify-center bg-[#FFD600] py-16 px-4">
       <div className="mb-5">
         <h2
-          className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A]"
+          className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10"
           role="heading"
           aria-level={2}
         >
