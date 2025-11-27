@@ -1,6 +1,7 @@
 "use client";
 
 import { Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -68,12 +69,29 @@ export default function Hero() {
       />
 
       {/* Bus Layer — enters diagonally, scales, and stops */}
-      <img
+      <motion.img
         src="/assets/hero/bus.png"
         alt="Bus graphic"
+        initial={{ 
+          x: "calc(50vw + 100%)", 
+          y: 40,              
+          scale: 0.1,
+          opacity: 0.8,
+          rotate: 0 
+        }}
+        animate={{ 
+          x: 0,
+          y: 0,                
+          scale: 1,
+          opacity: 1
+        }}
+        transition={{
+          duration: 2.5,
+          ease: "easeOut",
+          delay: 0
+        }}
         className="absolute top-[5.8rem] left-1/2 -translate-x-1/2 
-                   w-auto h-auto z-[6] pointer-events-none select-none
-                   animate-[busEnter_8s_ease-out_forwards]"
+                   w-auto h-auto z-[6] pointer-events-none select-none"
       />
 
       {/* Floating Elements */}
