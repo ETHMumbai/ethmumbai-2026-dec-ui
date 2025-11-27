@@ -81,12 +81,12 @@ export default function Hero() {
         }}
         animate={{ 
           x: 0,
-          y: 0,                
+          y: 20,                
           scale: 1,
           opacity: 1
         }}
         transition={{
-          duration: 2.5,
+          duration: 3,
           ease: "easeOut",
           delay: 0
         }}
