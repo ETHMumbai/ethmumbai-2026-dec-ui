@@ -5,18 +5,58 @@ import Image from "next/image";
 import TwitterLogo from "../public/assets/x-logo.png";
 
 const sponsors = [
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://x.com/ArweaveEco" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
-  { logo: "/assets/sponsors/esp.svg", name: "ESP", twitter: "https://twitter.com/esp" },
-  { logo: "/assets/sponsors/polygon.svg", name: "Polygon", twitter: "https://twitter.com/0xPolygon" },
+  {
+    logo: "/assets/sponsors/arweave.png",
+    name: "Arweave",
+    twitter: "https://x.com/ArweaveEco",
+  },
+  {
+    logo: "/assets/sponsors/avail.png",
+    name: "Avail",
+    twitter: "https://twitter.com/avail",
+  },
+  {
+    logo: "/assets/sponsors/esp.png",
+    name: "ESP",
+    twitter: "https://twitter.com/esp",
+  },
+  {
+    logo: "/assets/sponsors/Polygon.png",
+    name: "Polygon",
+    twitter: "https://twitter.com/0xPolygon",
+  },
 
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://twitter.com/arweave" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
-  { logo: "/assets/sponsors/esp.svg", name: "ESP", twitter: "https://twitter.com/esp" },
-  { logo: "/assets/sponsors/polygon.svg", name: "Polygon", twitter: "https://twitter.com/0xPolygon" },
+  {
+    logo: "/assets/sponsors/core.png",
+    name: "Core",
+    twitter: "https://x.com/Coredao_Org",
+  },
+  {
+    logo: "/assets/sponsors/Fuel.png",
+    name: "Fuel",
+    twitter: "https://x.com/fuel_network",
+  },
+  {
+    logo: "/assets/sponsors/lumio.png",
+    name: "Lumio",
+    twitter: "https://x.com/lumioFDN",
+  },
+  {
+    logo: "/assets/sponsors/purpledao.png",
+    name: "Purple DAO",
+    twitter: "https://purple.construction/about/",
+  },
 
-  { logo: "/assets/sponsors/arweave.svg", name: "Arweave", twitter: "https://twitter.com/arweave" },
-  { logo: "/assets/sponsors/avail.svg", name: "Avail", twitter: "https://twitter.com/avail" },
+  {
+    logo: "/assets/sponsors/TheGraph.png",
+    name: "The Graph",
+    twitter: "https://x.com/graphprotocol",
+  },
+  {
+    logo: "/assets/sponsors/Vara.png",
+    name: "Vara",
+    twitter: "https://x.com/VaraNetwork",
+  },
 ];
 
 export default function Sponsors() {
@@ -56,11 +96,10 @@ export default function Sponsors() {
               <Image
                 src={s.logo}
                 alt={s.name}
-                width={50}
-                height={50}
-                className="object-contain"
+                fill
+                className="object-contain p-6"
               />
-              <span className="text-black text-2xl font-medium">{s.name}</span>
+              {/* <span className="text-black text-2xl font-medium">{s.name}</span> */}
             </div>
 
             {/* Twitter (X) icon, appears on hover */}
