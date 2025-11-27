@@ -19,30 +19,24 @@ export default function Overview() {
         <Image
           src={Interior}
           alt=""
-          className="
-      object-cover object-left
-      w-full h-full
-      relative z-0 scale-x-[1.05] scale-y-[1.05]
-    "
+          className="object-cover object-left w-full h-full relative z-0 scale-x-[1.05] scale-y-[1.05]"
         />
+
         {/* Laptop Man */}
         <Image
           src={Laptop}
           alt=""
-          className="
-       
-      w-full h-full
-      absolute z-10 scale-x-[1.07]
-    "
+          className="w-full h-full absolute z-10 scale-x-[1.07]"
         />
+
         {/* Handles */}
         <Image
           src={Handle}
           alt=""
           className="
-      absolute z-10  object-center   /* POSITION RELATIVE TO THE LAPTOP */
-      -top-[5%]    /* move up/down */
-      left-[25%]     /* center horizontally */
+      absolute z-10  object-center   
+      -top-[5%] 
+      left-[25%]
       md:scale-x-[1] md:scale-y-[1] md:-top-[1%]
       lg:scale-x-[1.5] lg:scale-y-[1.5] lg:top-[3%]
       scale-x-[0.9] scale-y-[0.9] 
@@ -54,9 +48,9 @@ export default function Overview() {
           alt=""
           className="
              
-      absolute z-10  object-center   /* POSITION RELATIVE TO THE LAPTOP */
-      -top-[5%]      /* move up/down */
-      left-[72%]     /* center horizontally */
+      absolute z-10  object-center  
+      -top-[5%]     
+      left-[72%]     
       md:scale-x-[1] md:scale-y-[1] md:-top-[1%]
       lg:scale-x-[1.5] lg:scale-y-[1.5] lg:top-[3%]
 
@@ -64,6 +58,8 @@ export default function Overview() {
     
     "
         />
+
+        {/* Cards */}
 
         {/* Conference */}
         <div className="bg-[#E53931] absolute z-10 top-[28%] left-[20%] xl:p-3 md:p-4 w-[22%] h-[35%] rounded-[14px]">
@@ -90,7 +86,7 @@ export default function Overview() {
           </ul>
         </div>
 
-        {/* Heading */}
+        {/* 4 Days of Innovation */}
         <div
           className="
       absolute
@@ -147,7 +143,7 @@ export default function Overview() {
     "
         />
 
-        {/* Heading */}
+        {/* 4 Days of Innovation */}
         <div className="absolute items-start justify-center py-10 sm:py-16 px-4  left-[32%] sm:left-[40%]">
           <h2
             className="font-bold sm:text-2xl text-xl leading-7 tracking-[1px] text-center text-[#ffffff] "
@@ -162,6 +158,7 @@ export default function Overview() {
         {/* Cards */}
         <div className="absolute items-center justify-center bg-amber-200 w-full flex translate-y-50">
           <div className="absolute flex flex-col gap-4 min-sm:translate-y-50 translate-y-35 w-[50%]">
+            {/* Conference */}
             <Box className="relative flex-1 w-full p-6 bg-[#E53931] text-white rounded-xl">
               <Image
                 src={Screws}
@@ -180,6 +177,7 @@ export default function Overview() {
               </ul>
             </Box>
 
+            {/* Hackathon */}
             <Box className="relative flex-1 p-6 bg-[#E53931] text-white rounded-xl">
               <Image
                 src={Screws}
