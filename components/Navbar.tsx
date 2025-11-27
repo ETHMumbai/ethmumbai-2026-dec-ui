@@ -29,7 +29,7 @@ export default function Navbar() {
           />
           
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
+        {/* <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
           <a href="#about" className="hover:text-black transition">
             Conference
           </a>
@@ -39,7 +39,7 @@ export default function Navbar() {
           <a href="#sponsors" className="hover:text-black transition">
             Buy Tickets
           </a>
-        </div>
+        </div> */}
 
         {/* Right Section — Socials */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
