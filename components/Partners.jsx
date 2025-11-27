@@ -4,10 +4,26 @@ import React from "react";
 import Image from "next/image";
 
 const partners = [
-  { logo: "/assets/partners/ETHBarcelona.png", name: "ETHBarcelona", twitter: "https://x.com/eth_barcelona" },
-  { logo: "/assets/partners/ETHRome.png", name: "ETHRome", twitter: "https://x.com/ETHRome" },
-  { logo: "/assets/partners/ETHChicago.png", name: "ETHChicago", twitter: "https://x.com/0xEthChicago" },
-  { logo: "/assets/partners/ETHBelgrade.png", name: "ETHBelgrade", twitter: "https://x.com/ethbelgrade" },
+  {
+    logo: "/assets/partners/ETHBarcelona.png",
+    name: "ETHBarcelona",
+    twitter: "https://x.com/eth_barcelona",
+  },
+  {
+    logo: "/assets/partners/ETHRome.png",
+    name: "ETHRome",
+    twitter: "https://x.com/ETHRome",
+  },
+  {
+    logo: "/assets/partners/ETHChicago.png",
+    name: "ETHChicago",
+    twitter: "https://x.com/0xEthChicago",
+  },
+  {
+    logo: "/assets/partners/ETHBelgrade.png",
+    name: "ETHBelgrade",
+    twitter: "https://x.com/ethbelgrade",
+  },
 ];
 
 export default function Partners() {
