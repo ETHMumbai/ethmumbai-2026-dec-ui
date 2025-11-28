@@ -239,21 +239,51 @@ export default function Hero() {
       {/* Floating Elements */}
       <img ref={balloonRef} src="/assets/hero/balloon.png" alt="Balloon" className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none" draggable={false} />
 
-      <img
+      <motion.img
         src="/assets/hero/plane.png"
         alt="Plane"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
-        style={
-          screenType === 'mobile'
-            ? { right: '1vw', top: '50vh', width: '45vw' }    // mobile
-            : screenType === 'tablet'
-              ? { right: '1vw', top: '45vh', width: '30vw' }    // tablet
-              : { right: '7vw', top: '42vh', width: '20vw' }    // desktop
-        }
+        style={{
+          right:
+            screenType === "mobile"
+              ? "1vw"
+              : screenType === "tablet"
+                ? "1vw"
+                : "7vw",
+          width:
+            screenType === "mobile"
+              ? "45vw"
+              : screenType === "tablet"
+                ? "30vw"
+                : "20vw",
+        }}
+        initial={{
+          y:
+            screenType === "mobile"
+              ? "70vh" // start below final
+              : screenType === "tablet"
+                ? "55vh"
+                : "50vh",
+          x: -80, // start slightly left
+          opacity: 0,
+        }}
+        animate={{
+          y:
+            screenType === "mobile"
+              ? "50vh" // final position
+              : screenType === "tablet"
+                ? "45vh"
+                : "42vh",
+          x: 0,
+          opacity: 1,
+        }}
+        transition={{ duration: 4, ease: "easeOut" }}
       />
 
+
+
       {/* Cloud 2 */}
-      <img
+      <motion.img
         src="/assets/hero/cloud2.png"
         alt="Cloud"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
@@ -264,10 +294,12 @@ export default function Hero() {
               ? { left: '8vw', top: '45vh', width: '25vw' }
               : { left: '16vw', top: '44vh', width: '18vw' }
         }
+        animate={{ translateX: [0, 10, 0] }} // use translateX instead of x
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Cloud 1 */}
-      <img
+      <motion.img
         src="/assets/hero/cloud1.png"
         alt="Cloud"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
@@ -278,10 +310,9 @@ export default function Hero() {
               ? { right: '18vw', top: '48vh', width: '30vw' }
               : { right: '25vw', top: '48vh', width: '15vw' }
         }
+        animate={{ translateX: [0, -10, 0] }} // move in opposite direction
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
-
-
-
     </section>
   );
 }
