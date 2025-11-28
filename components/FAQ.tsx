@@ -42,37 +42,26 @@ const accordionData = [
   {
     title: "What is ETHMumbai?",
     content:
-      "BEST Conference and HAckathon in Mumbai, from 12th to 15th March 2026.",
+      "ETHMumbai is a 1-day conference and a 3-day hackathon focused on Ethereum.",
   },
   {
-    title: "When and where is ETHMumbai 2025?",
+    title: "When and where is ETHMumbai 2026 happening?",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum. Donec tempor, libero a facilisis mattis, nisl nunc fermentum neque, non vulputate justo ipsum vitae sapien. Integer ac tortor vitae neque.",
+      "The answer is right there! ETHMumbai is happening in Mumbai from 12-15 March 2026. ",
   },
   {
-    title: "Who can attend ETHMumbai?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum.",
+    title: "Can I attend both the conference and the hackathon?",
+    content: "Yes, you can — and we encourage you to. ",
   },
   {
-    title: "Who can attend ETHMumbai?",
+    title: "Who can attend ETHMumbai 2026?",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum.",
+      "Anyone and everyone who is interested in the Ethereum ecosystem is welcome to attend the conference and hackathon. ",
   },
   {
-    title: "Who can attend ETHMumbai?",
+    title: "What are the tracks?",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum.",
-  },
-  {
-    title: "What is included in the hackathon?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum.",
-  },
-  {
-    title: "How much do tickets cost?",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa vel sapien dignissim, vitae posuere dolor interdum.",
+      "Both the conference and the hackathon feature three tracks: DeFi, Privacy, and AI.",
   },
 ];
 
@@ -84,14 +73,14 @@ const FAQ = () => {
   };
 
   return (
-    <section className="relative min-h-screen items-start justify-center bg-[#FFD600] py-16 px-4">
+    <section className="relative items-start justify-center bg-[#FFD600] py-16 px-4">
       <div className="mb-5">
         <h2
           className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10"
           role="heading"
           aria-level={2}
         >
-          Frequently Asked Questions
+          FAQs
         </h2>
       </div>
       <div className="mx-auto my-6 max-w-[832px] space-y-5">
