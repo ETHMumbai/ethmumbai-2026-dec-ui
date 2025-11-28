@@ -67,43 +67,30 @@ export default function Hero() {
       </div>
 
       {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center text-center mt-[4rem] sm:mt-[5rem] md:mt-[6rem] lg:mt-[7.5rem]">
+      <div className="relative z-10 flex flex-col items-center w-full px-4 pt-[7rem] sm:pt-[8rem] md:pt-[7rem] lg:pt-[7rem] max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
         <h1
           className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                     text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] leading-none"
+                     text-[3.4rem] sm:text-[4.4rem] md:text-[4.6rem] lg:text-[6rem] leading-[1.05]"
         >
           ETHMUMBAI
         </h1>
 
-        <p className="mt-[1.3rem] font-semibold text-2xl text-gray-100">
+        <p className="mt-[1rem] font-semibold text-lg sm:text-xl md:text-2xl text-gray-100">
           BEST Conference & Hackathon
         </p>
 
-        <div className="mt-[1.2rem] flex items-center gap-2 text-xl font-medium text-gray-100">
+        <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-gray-100">
           <Calendar className="w-5 h-5" />
           <span>12–15 March 2026</span>
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-[1.5rem] flex items-center gap-4">
+        <div className="mt-[1.5rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
             href="https://tally.so/r/nGW5Bz"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button
-              className="bg-white text-[#E2231A] font-semibold text-base px-6 py-3
-                        rounded-[14px] hover:bg-gray-300 cursor-pointer transition-all duration-200"
-            >
-              Apply to Speak
-            </button>
-          </a>
-
-          <a 
-            href="https://tally.so/r/3NkdGb"
-            target="_blank"
-            rel="noopener noreferrer"
-          >   
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]
@@ -111,6 +98,20 @@ export default function Hero() {
             >
               Apply to Sponsor
             </button>
+          </a>
+
+          <a
+            href="https://tally.so/r/3NkdGb"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              className="bg-white border border-white text-[#E2231A] font-semibold text-base px-6 py-3
+                        rounded-[14px] hover:bg-gray-300 cursor-pointer transition-all duration-200"
+            >
+              Apply to Speak
+            </button>
+
           </a>
         </div>
       </div>
