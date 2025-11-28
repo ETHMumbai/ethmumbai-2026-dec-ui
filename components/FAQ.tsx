@@ -84,7 +84,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="relative min-h-screen items-start justify-center bg-[#FFD600] py-16 px-4">
+    <section className="relative items-start justify-center bg-[#FFD600] py-16 px-4">
       <div className="mb-5">
         <h2
           className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10"
