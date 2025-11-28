@@ -1,10 +1,34 @@
 "use client";
 
+import Image from "next/image";
 import { Calendar } from "lucide-react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+import Bus from "../public/assets/hero/bus-cropped.png";
+import Road from "../public/assets/hero/road-cropped.png";
+import Cityscape from "../app/assets/hero/cityscape-img.png";
+
+import Balloon from "../public/assets/hero/balloon.png";
+import Cloud1 from "../public/assets/hero/cloud1.png";
+import Cloud2 from "../public/assets/hero/cloud2.png";
+import Plane from "../public/assets/hero/plane.png";
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
+  const [screenType, setScreenType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setScreenType('mobile');
+      else if (width < 1024) setScreenType('tablet');
+      else setScreenType('desktop');
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Balloon Follow Logic
   useEffect(() => {
@@ -51,6 +75,31 @@ export default function Hero() {
       window.removeEventListener("touchmove", handleMove);
     };
   }, []);
+
+  // Animation start and bottom positions based on screen type
+  const getBusInitialX = () => {
+    if (screenType === 'mobile') return 'calc(80vw + 100%)';
+    if (screenType === 'tablet') return 'calc(60vw + 100%)';
+    return 'calc(50vw + 100%)';
+  };
+  const getBusInitialY = () => {
+    if (screenType === 'mobile') return -110;
+    if (screenType === 'tablet') return 50;
+    return 40; // desktop
+  };
+
+  const getBusInitialScale = () => {
+    if (screenType === 'mobile') return 0.2;
+    if (screenType === 'tablet') return 0.2;  
+    return 0.1;
+  };
+
+  const getBusBottom = () => {
+    if (screenType === 'mobile') return '60px';
+    if (screenType === 'tablet') return '60px'; 
+    return '80px';
+  };
+
 
   return (
     <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
@@ -116,57 +165,64 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Cityscape and Road Layers */}
-      <img
-        src="/assets/hero/road.png"
-        alt="Road graphic"
-        className="absolute bottom-[-2.5rem] left-0 w-full h-auto z-[5] pointer-events-none select-none"
-      />
+      {/* Road + Bus */}
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none ">
+        <div className="relative w-full ">
 
-      <img
-        src="/assets/hero/cityscape.png"
-        alt="Cityscape"
-        className="absolute bottom-[-2.5rem] left-0 w-full h-auto z-[4] pointer-events-none select-none"
-      />
+          {/* Road Image */}
+          <Image src={Road} alt="Road"
+            className="
+              w-full h-auto block
+              scale-[2]           /* mobile */
+              sm:scale-[1.6]      /* small screens */
+              md:scale-[1.3]      /* tablet / iPad */
+              lg:scale-[1]        /* desktop */
+              origin-bottom
+              lg:-translate-y-1
+              md:-translate-y-2
+              sm:-translate-y-1
+              -translate-y-3
+              transition-transform duration-300
+            "
+          />
 
-      {/* Bus Layer — enters diagonally, scales, and stops */}
-      <img
-        src="/assets/hero/bus.png"
-        alt="Bus graphic"
-        className="absolute top-[5.8rem] left-1/2 -translate-x-1/2 
-                   w-auto h-auto z-[6] pointer-events-none select-none
-                   animate-[busEnter_8s_ease-out_forwards]"
-      />
+          {/* Bus with animation */}
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: getBusBottom() }}
+            initial={{
+              x: getBusInitialX(),
+              y: getBusInitialY(),
+              scale: getBusInitialScale(),
+              opacity: 0.8,
+              rotate: 0
+            }}
+            animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+            transition={{ duration: 3.5, ease: 'easeOut', delay: 0 }}
+          >
+            <Image
+              src={Bus}
+              alt="Bus"
+              className="
+                w-auto h-auto
+                scale-[1.3]       /* mobile */
+                sm:scale-[1.4]    /* small screens / tablet */
+                md:scale-[1.1]    /* tablet */
+                lg:scale-[0.92]   /* desktop */
+                xl:scale-[0.62]   /* large desktop */
+                origin-bottom
+                transition-transform duration-300
+              "
+            />
+          </motion.div>
+        </div>
+      </div>
 
       {/* Floating Elements */}
-
-      {/* UPDATED FLOATING BALLOON — FOLLOW CURSOR */}
-      <img
-        ref={balloonRef}
-        src="/assets/hero/balloon.png"
-        alt="Balloon"
-        className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none"
-        draggable={false}
-      />
-
-      {/* original clouds & plane (unchanged) */}
-      <img
-        src="/assets/hero/cloud2.png"
-        alt="Cloud"
-        className="absolute left-[16%] top-[50%] w-auto h-auto z-[5] pointer-events-none select-none"
-      />
-
-      <img
-        src="/assets/hero/cloud1.png"
-        alt="Cloud"
-        className="absolute right-[24%] top-[45%] w-auto h-auto z-[5] pointer-events-none select-none"
-      />
-
-      <img
-        src="/assets/hero/plane.png"
-        alt="Plane"
-        className="absolute right-[12%] top-[44%] w-auto h-auto z-[5] pointer-events-none select-none"
-      />
+      <img ref={balloonRef} src="/assets/hero/balloon.png" alt="Balloon" className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none" draggable={false} />
+      <img src="/assets/hero/cloud2.png" alt="Cloud" className="absolute left-[16%] top-[50%] w-auto h-auto z-[5] pointer-events-none select-none" />
+      <img src="/assets/hero/cloud1.png" alt="Cloud" className="absolute right-[24%] top-[45%] w-auto h-auto z-[5] pointer-events-none select-none" />
+      <img src="/assets/hero/plane.png" alt="Plane" className="absolute right-[12%] top-[44%] w-auto h-auto z-[5] pointer-events-none select-none" />
     </section>
   );
 }
