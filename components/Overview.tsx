@@ -26,7 +26,7 @@ export default function Overview() {
         <Image
           src={Laptop}
           alt=""
-          className="w-full h-full  md:left-[1%] absolute z-10 scale-x-[1.07]"
+          className="w-full h-full  md:left-[1%] absolute z-10 scale-x-[1.09]"
         />
 
         {/* Handles */}
@@ -125,12 +125,12 @@ export default function Overview() {
           </ul>
         </div>
 
-        {/* <button className="bg-white absolute z-10 top-[70%] left-[18%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer">
-        <h2 className=" font-medium text-xl">Conference</h2>
-      </button>
-      <button className="bg-white absolute z-10 top-[70%] right-[18%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer ">
-        <h2 className=" font-medium text-xl">Hackathon</h2>
-      </button> */}
+        {/* <button className="bg-white absolute z-10  left-[23%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer">
+          <h2 className=" font-medium lg:text-xl ">Conference</h2>
+        </button>
+        <button className="bg-white absolute z-10  right-[22%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer ">
+          <h2 className=" font-medium lg:text-xl">Hackathon</h2>
+        </button> */}
         <></>
       </div>
 
@@ -159,6 +159,11 @@ export default function Overview() {
         <div className="absolute items-center justify-center bg-amber-200 w-full flex translate-y-50">
           <div className="absolute flex flex-col gap-4 min-sm:translate-y-50 translate-y-35 w-[50%]">
             {/* Conference */}
+            {/* <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a> */}
             <Box className="relative flex-1 w-full p-6 bg-[#E53931] text-white rounded-xl">
               <Image
                 src={Screws}
