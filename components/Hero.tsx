@@ -62,7 +62,6 @@ export default function Hero() {
         clientY = e.clientY;
       }
 
-      // keeps balloon away from cursor
       targetX = clientX - 40;
       targetY = clientY - 80;
     };
@@ -116,25 +115,25 @@ export default function Hero() {
       </div>
 
       {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center w-full px-4 pt-[7rem] sm:pt-[8rem] md:pt-[7rem] lg:pt-[7rem] max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
-        <h1
-          className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                     text-[3.4rem] sm:text-[4.4rem] md:text-[4.6rem] lg:text-[6rem] leading-[1.05]"
-        >
+      <div className="relative z-10 flex flex-col items-center w-full px-4
+                      pt-[9rem] sm:pt-[9rem] md:pt-[6rem] lg:pt-[7rem]
+                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
+        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
+                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]">
           ETHMUMBAI
         </h1>
 
-        <p className="mt-[1rem] font-semibold text-lg sm:text-xl md:text-2xl text-gray-100">
+        <p className="mt-[1rem] font-semibold text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
           BEST Conference & Hackathon
         </p>
 
         <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-gray-100">
           <Calendar className="w-5 h-5" />
-          <span>12–15 March 2026</span>
+          <span>12 – 15 March 2026</span>
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-[1.5rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+        <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
             href="https://tally.so/r/nGW5Bz"
             target="_blank"
@@ -166,7 +165,15 @@ export default function Hero() {
       </div>
 
       {/* Road + Bus */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none ">
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none"
+        style={{
+    bottom:
+      screenType === 'mobile'
+        ? '70px'   // move up slightly on mobile
+        : screenType === 'tablet'
+        ? '55px'   // optional, slightly up for tablet
+        : '0px',   // desktop stays at default
+  }}>
         <div className="relative w-full ">
 
           {/* Road Image */}
@@ -205,7 +212,7 @@ export default function Hero() {
               alt="Bus"
               className="
                 w-auto h-auto
-                scale-[1.3]       /* mobile */
+                scale-[1.6]       /* mobile */
                 sm:scale-[1.4]    /* small screens / tablet */
                 md:scale-[1.1]    /* tablet */
                 lg:scale-[0.92]   /* desktop */
