@@ -72,7 +72,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
-                Subscribe to Newsletter
+                Newsletter
               </a>
             </div>
           </div>
