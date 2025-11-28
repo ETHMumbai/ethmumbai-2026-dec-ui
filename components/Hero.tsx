@@ -313,10 +313,6 @@ export default function Hero() {
         animate={{ translateX: [0, -10, 0] }} // move in opposite direction
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
-
-
-
-
     </section>
   );
 }
