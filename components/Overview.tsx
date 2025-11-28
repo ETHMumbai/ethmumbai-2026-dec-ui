@@ -26,7 +26,7 @@ export default function Overview() {
         <Image
           src={Laptop}
           alt=""
-          className="w-full h-full absolute z-10 scale-x-[1.07]"
+          className="w-full h-full  md:left-[1%] absolute z-10 scale-x-[1.07]"
         />
 
         {/* Handles */}
@@ -62,7 +62,7 @@ export default function Overview() {
         {/* Cards */}
 
         {/* Conference */}
-        <div className="bg-[#E53931] absolute z-10 top-[28%] left-[20%] xl:p-3 md:p-4 w-[22%] h-[35%] rounded-[14px]">
+        <div className="bg-[#E53931] absolute z-10 top-[28%] left-[19.5%] xl:p-3 md:p-4 w-[22%] h-[35%] rounded-[14px]">
           <Image
             src={Screws}
             fill
