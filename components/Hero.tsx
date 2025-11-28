@@ -7,12 +7,7 @@ import { motion } from "framer-motion";
 
 import Bus from "../public/assets/hero/bus-cropped.png";
 import Road from "../public/assets/hero/road-cropped.png";
-import Cityscape from "../app/assets/hero/cityscape-img.png";
-
-import Balloon from "../public/assets/hero/balloon.png";
-import Cloud1 from "../public/assets/hero/cloud1.png";
-import Cloud2 from "../public/assets/hero/cloud2.png";
-import Plane from "../public/assets/hero/plane.png";
+import Cityscape from "../public/assets/hero/cityscape-cropped.png";
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
@@ -89,13 +84,13 @@ export default function Hero() {
 
   const getBusInitialScale = () => {
     if (screenType === 'mobile') return 0.2;
-    if (screenType === 'tablet') return 0.2;  
+    if (screenType === 'tablet') return 0.2;
     return 0.1;
   };
 
   const getBusBottom = () => {
     if (screenType === 'mobile') return '60px';
-    if (screenType === 'tablet') return '60px'; 
+    if (screenType === 'tablet') return '60px';
     return '80px';
   };
 
@@ -167,14 +162,30 @@ export default function Hero() {
       {/* Road + Bus */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none"
         style={{
-    bottom:
-      screenType === 'mobile'
-        ? '70px'   // move up slightly on mobile
-        : screenType === 'tablet'
-        ? '55px'   // optional, slightly up for tablet
-        : '0px',   // desktop stays at default
-  }}>
+          bottom:
+            screenType === 'mobile'
+              ? '70px'   // mobile
+              : screenType === 'tablet'
+                ? '20px'   // tablet
+                : '0px',   // desktop 
+        }}>
         <div className="relative w-full ">
+
+          {/* Cityscape Image */}
+          <Image
+            src={Cityscape}
+            alt="Cityscape"
+            className="w-full h-auto block origin-bottom transition-transform duration-300"
+            style={{
+              transform: screenType === 'mobile'
+                ? 'scale(2) translateY(-40px)'   // mobile
+                : screenType === 'tablet'
+                  ? 'scale(1.6) translateY(-40px)'   // tablet
+                  : 'scale(1) translateY(0px)'       // desktop
+            }}
+          />
+
+
 
           {/* Road Image */}
           <Image src={Road} alt="Road"
@@ -186,9 +197,9 @@ export default function Hero() {
               lg:scale-[1]        /* desktop */
               origin-bottom
               lg:-translate-y-1
-              md:-translate-y-2
+              md:-translate-y-1
               sm:-translate-y-1
-              -translate-y-3
+              -translate-y-1
               transition-transform duration-300
             "
           />
@@ -214,8 +225,8 @@ export default function Hero() {
                 w-auto h-auto
                 scale-[1.6]       /* mobile */
                 sm:scale-[1.4]    /* small screens / tablet */
-                md:scale-[1.1]    /* tablet */
-                lg:scale-[0.92]   /* desktop */
+                md:scale-[1]    /* tablet */
+                lg:scale-[0.82]   /* desktop */
                 xl:scale-[0.62]   /* large desktop */
                 origin-bottom
                 transition-transform duration-300
@@ -227,9 +238,50 @@ export default function Hero() {
 
       {/* Floating Elements */}
       <img ref={balloonRef} src="/assets/hero/balloon.png" alt="Balloon" className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none" draggable={false} />
-      <img src="/assets/hero/cloud2.png" alt="Cloud" className="absolute left-[16%] top-[50%] w-auto h-auto z-[5] pointer-events-none select-none" />
-      <img src="/assets/hero/cloud1.png" alt="Cloud" className="absolute right-[24%] top-[45%] w-auto h-auto z-[5] pointer-events-none select-none" />
-      <img src="/assets/hero/plane.png" alt="Plane" className="absolute right-[12%] top-[44%] w-auto h-auto z-[5] pointer-events-none select-none" />
+
+      <img
+        src="/assets/hero/plane.png"
+        alt="Plane"
+        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        style={
+          screenType === 'mobile'
+            ? { right: '1vw', top: '50vh', width: '45vw' }    // mobile
+            : screenType === 'tablet'
+              ? { right: '1vw', top: '45vh', width: '30vw' }    // tablet
+              : { right: '7vw', top: '42vh', width: '20vw' }    // desktop
+        }
+      />
+
+      {/* Cloud 2 */}
+      <img
+        src="/assets/hero/cloud2.png"
+        alt="Cloud"
+        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        style={
+          screenType === 'mobile'
+            ? { left: '5vw', top: '50vh', width: '35vw' }
+            : screenType === 'tablet'
+              ? { left: '8vw', top: '45vh', width: '25vw' }
+              : { left: '16vw', top: '44vh', width: '18vw' }
+        }
+      />
+
+      {/* Cloud 1 */}
+      <img
+        src="/assets/hero/cloud1.png"
+        alt="Cloud"
+        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        style={
+          screenType === 'mobile'
+            ? { right: '5vw', top: '58vh', width: '35vw' }
+            : screenType === 'tablet'
+              ? { right: '18vw', top: '48vh', width: '30vw' }
+              : { right: '25vw', top: '48vh', width: '15vw' }
+        }
+      />
+
+
+
     </section>
   );
 }
