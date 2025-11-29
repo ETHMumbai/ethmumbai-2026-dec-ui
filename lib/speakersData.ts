@@ -78,7 +78,7 @@ export const speakers: Speaker[] = [
     name: "Pareen Lathia",
     company: "BuidlersTribe",
     image: "/assets/speakers/Pareen-Lathia-removebg-preview.png",
-    xLink: "https://x.com/PareenL"
+    xLink: "https://x.com/pareen"
   },
   {
     name: "Preet Parekh",
