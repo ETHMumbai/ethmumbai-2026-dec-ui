@@ -204,10 +204,9 @@ export default function Hero() {
 
       {/* Floating Elements */}
       <motion.img
-        src="/assets/hero/balloon.png"
+        src="/assets/hero/balloon.svg"
         alt="Balloon"
-        className="fixed z-[50] pointer-events-none select-none"
-        draggable={false}
+        className="absolute z-[5] pointer-events-none select-none"
         style={
           screenType === "mobile"
             ? { left: "2vw", top: "46vh", width: "35vw" }
@@ -220,7 +219,7 @@ export default function Hero() {
       />
 
       <motion.img
-        src="/assets/hero/plane.png"
+        src="/assets/hero/plane.svg"
         alt="Plane"
         width={410} // actual width
         height={190}
@@ -264,7 +263,7 @@ export default function Hero() {
 
       {/* Cloud 2 */}
       <motion.img
-        src="/assets/hero/cloud2.png"
+        src="/assets/hero/cloud-left.svg"
         alt="Cloud"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={
@@ -280,7 +279,7 @@ export default function Hero() {
 
       {/* Cloud 1 */}
       <motion.img
-        src="/assets/hero/cloud1.png"
+        src="/assets/hero/cloud-right.svg"
         alt="Cloud"
         className="absolute w-auto h-auto sm:z-[5] pointer-events-none select-none"
         style={
