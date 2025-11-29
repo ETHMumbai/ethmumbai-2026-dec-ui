@@ -31,7 +31,7 @@ export default function Partners() {
     <section className="bg-white w-full pt-10 pb-20">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
-        <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] font-medium text-center mb-8">
+        <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
           Friends of ETHMumbai
         </h2>
       </div>

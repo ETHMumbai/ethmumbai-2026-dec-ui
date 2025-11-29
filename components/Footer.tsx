@@ -27,7 +27,7 @@ const Footer = () => {
               BEST Conference & Hackathon
             </h2>
             <p className="font-['MPlusRounded1c'] font-medium text-lg">
-              12-15 March 2026
+              12 - 15 March 2026
             </p>
           </div>
         </div>
@@ -42,8 +42,7 @@ const Footer = () => {
                 href="https://luma.com/ethmumbai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline
-"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Luma
               </a>

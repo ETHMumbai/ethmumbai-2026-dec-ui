@@ -6,9 +6,9 @@ import { speakers } from "../lib/speakersData";
 export default function Speakers() {
   return (
     <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-[48px] text-center font-medium leading-12 tracking-[-1px text-[#0A0A0A] mb-16 font-[MPlusRounded1c]">
-        Past Speakers and Judges
-      </h2>
+      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
+          Past Speakers and Judges
+        </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
@@ -79,14 +79,12 @@ export default function Speakers() {
 
             {/* Speaker Info */}
             <h3
-              className="text-[16px] font-normal leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1"
-              style={{ fontFamily: "Inter" }}
+              className="text-[16px] leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1"
             >
               {speaker.name}
             </h3>
             <p
-              className="text-[14px] font-normal leading-5 tracking-[-0.015px] text-[#575757] text-center"
-              style={{ fontFamily: "Inter" }}
+              className="text-[14px] leading-5 tracking-[-0.015px] text-[#575757] text-center"
             >
               {speaker.company}
             </p>
