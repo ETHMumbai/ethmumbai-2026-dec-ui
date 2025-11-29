@@ -29,13 +29,13 @@ export default function Hero() {
 
   // Animation start and bottom positions based on screen type
   const getBusInitialX = () => {
-    if (screenType === "mobile") return "calc(80vw + 100%)";
+    if (screenType === "mobile") return "calc(50vw + 100%)";
     if (screenType === "tablet") return "calc(60vw + 100%)";
     return "calc(50vw + 100%)";
   };
   const getBusInitialY = () => {
-    if (screenType === "mobile") return -110;
-    if (screenType === "tablet") return 50;
+    if (screenType === "mobile") return -350;
+    if (screenType === "tablet") return 20;
     return 40; // desktop
   };
 
@@ -46,9 +46,9 @@ export default function Hero() {
   };
 
   const getBusBottom = () => {
-    if (screenType === "mobile") return "60px";
+    if (screenType === "mobile") return "45px";
     if (screenType === "tablet") return "60px";
-    return "80px";
+    return "95px";
   };
 
   return (
@@ -139,7 +139,7 @@ export default function Hero() {
             style={{
               transform:
                 screenType === "mobile"
-                  ? "translateY(-20px)"        // removed scale(2)
+                  ? "translateY(-50px)"        // removed scale(2)
                   : screenType === "tablet"
                     ? "scale(1.2) translateY(-30px)"  // reduced 1.6 → 1.2
                     : "scale(1) translateY(0px)",
@@ -164,7 +164,7 @@ export default function Hero() {
               md:scale-[1.1]
               lg:scale-[1]
               origin-bottom
-              -translate-y-1
+              -translate-y-5
               transition-transform duration-300
             "
           />
@@ -189,10 +189,10 @@ export default function Hero() {
               alt="Bus"
               className="
                 w-auto h-auto
-                scale-[1.2]       /* was 1.6 */
-                sm:scale-[1.2]
+                scale-[1.1]       /* was 1.6 */
+                sm:scale-[1.1]
                 md:scale-[1]
-                lg:scale-[0.7]
+                lg:scale-[0.6]
                 origin-bottom
                 transition-transform duration-300
               "
@@ -206,7 +206,7 @@ export default function Hero() {
       <motion.img
         src="/assets/hero/balloon.png"
         alt="Balloon"
-        className="fixed w-auto h-auto z-[50] pointer-events-none scale-[0.75] select-none"
+        className="fixed z-[50] pointer-events-none select-none"
         draggable={false}
         style={
           screenType === "mobile"
@@ -219,10 +219,11 @@ export default function Hero() {
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
       />
 
-
       <motion.img
         src="/assets/hero/plane.png"
         alt="Plane"
+        width={410} // actual width
+        height={190}
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={{
           right:
@@ -261,8 +262,6 @@ export default function Hero() {
         transition={{ duration: 4, ease: "easeOut" }}
       />
 
-
-
       {/* Cloud 2 */}
       <motion.img
         src="/assets/hero/cloud2.png"
@@ -270,9 +269,9 @@ export default function Hero() {
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={
           screenType === "mobile"
-            ? { left: "5vw", top: "50vh", width: "35vw" }
+            ? { left: "5vw", top: "55vh", width: "35vw" }
             : screenType === "tablet"
-              ? { left: "8vw", top: "45vh", width: "25vw" }
+              ? { left: "8vw", top: "48vh", width: "25vw" }
               : { left: "16vw", top: "44vh", width: "18vw" }
         }
         animate={{ translateX: [0, 10, 0] }} // use translateX instead of x
