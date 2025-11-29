@@ -16,14 +16,14 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Benny",
-    company: "ERC6551",
+    company: "future primitive",
     image: "/assets/speakers/benny.png",
     xLink: "https://x.com/bennygiang",
     imageScale: "h-[130%]"
   },
   {
     name: "CyberShakti",
-    company: "Lenspost",
+    company: "Poster.Fun",
     image: "/assets/speakers/cybershakti.png",
     xLink: "https://x.com/CyberShakti",
     imageScale: "h-[130%]"
@@ -37,13 +37,13 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Dhaiwat",
-    company: "Fuel Network",
+    company: "",
     image: "/assets/speakers/dhaiwat.png",
     xLink: "https://x.com/dhaiwat10/",
     imageScale: "h-[150%]"
   },
   {
-    name: "Gnana Lakshmi",
+    name: "Gyanlakshmi",
     company: "Starknet",
     image: "/assets/speakers/Gnana-Lakshmi-removebg-preview.png",
     xLink: "https://x.com/gyanlakshmi",
@@ -51,7 +51,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Harsh Bajpai",
-    company: "Kakarot zkEVM",
+    company: "Aztec",
     image: "/assets/speakers/Harsh-Bajpai-removebg-preview.png",
     xLink: "https://x.com/bajpaiharsh244"
   },
@@ -63,7 +63,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Hitesh Malviya",
-    company: "DYOR",
+    company: "",
     image: "/assets/speakers/hitesh.png",
     xLink: "https://x.com/hmalviya9",
     imageScale: "h-[140%]"
@@ -76,7 +76,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Pareen Lathia",
-    company: "BuidlersTribe",
+    company: "Monad",
     image: "/assets/speakers/Pareen-Lathia-removebg-preview.png",
     xLink: "https://x.com/pareen"
   },
@@ -95,7 +95,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Sachin Mittal",
-    company: "Gitcoin Kernel",
+    company: "Turtle",
     image: "/assets/speakers/Sachin-Mittal-removebg-preview.png",
     xLink: ""
   },
@@ -113,8 +113,8 @@ export const speakers: Speaker[] = [
     xLink: "https://x.com/sarva_v"
   },
   {
-    name: "Simone",
-    company: "UrbeETH",
+    name: "limone.eth",
+    company: "Builders Garden",
     image: "/assets/speakers/Simone-removebg-preview.png",
     xLink: "",
     imageScale: "h-[130%]"
