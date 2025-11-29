@@ -12,7 +12,7 @@ export default function Speakers() {
       </h2>
 
       {/* Speakers Grid */}
-      <div className="flex flex-wrap justify-center gap-8 md:gap-20 lg:gap-20 mb-12 mx-auto">
+      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
         {speakers.map((speaker, index) => (
           <div
             key={index}
