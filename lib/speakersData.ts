@@ -92,7 +92,7 @@ export const speakers: Speaker[] = [
         name: "Sahil sen",
         role: "Founder",
         company: "The Product House",
-        image: "/assets/speakers/sahil-sen.png",
+        image: "/assets/speakers/Sahil-Sen.png",
         xLink: "https://x.com/sensahil",
         imageScale: "h-[120%]"
     },{
