@@ -60,18 +60,6 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
-      {/* Accent overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div
-          className="absolute left-[10%] top-[20%] -translate-y-1/3 
-                     w-[18rem] h-[18rem] bg-[#0A0A0A] blur-[4rem] rounded-full"
-        />
-        <div
-          className="absolute right-[15%] top-[15%] 
-                     w-[7rem] h-[6rem] bg-[#0A0A0A] blur-[2rem] rounded-full"
-        />
-      </div>
-
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4
                       pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
