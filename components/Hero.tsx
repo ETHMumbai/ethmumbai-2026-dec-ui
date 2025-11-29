@@ -5,9 +5,9 @@ import { Calendar } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import Bus from "../public/assets/hero/bus-cropped.png";
-import Road from "../public/assets/hero/road-cropped.png";
-import Cityscape from "../public/assets/hero/cityscape-cropped.png";
+import Bus from "../public/assets/hero/bus-cropped.svg";
+import Road from "../public/assets/hero/road-cropped.svg";
+import Cityscape from "../public/assets/hero/cityscape-cropped.svg";
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
@@ -111,15 +111,11 @@ export default function Hero() {
       </div>
 
       {/* Centered content */}
-      <div
-        className="relative z-10 flex flex-col items-center w-full px-4
-                      pt-[9rem] sm:pt-[9rem] md:pt-[6rem] lg:pt-[7rem]
-                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0"
-      >
-        <h1
-          className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]"
-        >
+      <div className="relative z-10 flex flex-col items-center w-full px-4
+                      pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
+                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
+        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
+                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]">
           ETHMUMBAI
         </h1>
 
@@ -180,6 +176,9 @@ export default function Hero() {
           <Image
             src={Cityscape}
             alt="Cityscape"
+            priority    
+            width={2000} 
+            height={600}
             className="w-full h-auto block origin-bottom transition-transform duration-300"
             style={{
               transform:
@@ -192,9 +191,10 @@ export default function Hero() {
           />
 
           {/* Road Image */}
-          <Image
-            src={Road}
-            alt="Road"
+          <Image src={Road} alt="Road"
+            priority     
+            width={2000} 
+            height={600}
             className="
               w-full h-auto block
               scale-[2]           /* mobile */
