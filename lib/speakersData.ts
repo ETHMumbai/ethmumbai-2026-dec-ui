@@ -72,7 +72,7 @@ export const speakers: Speaker[] = [
     name: "Jason Goldberg",
     company: "Airstack",
     image: "/assets/speakers/Jason-Goldberg-removebg-preview.png",
-    xLink: "https://x.com/adityamohanty_"
+    xLink: ""
   },
   {
     name: "Pareen Lathia",
@@ -97,7 +97,7 @@ export const speakers: Speaker[] = [
     name: "Sachin Mittal",
     company: "Gitcoin Kernel",
     image: "/assets/speakers/Sachin-Mittal-removebg-preview.png",
-    xLink: "https://x.com/adityamohanty_"
+    xLink: ""
   },
   {
     name: "Sahil Sen",
@@ -116,7 +116,7 @@ export const speakers: Speaker[] = [
     name: "Simone",
     company: "UrbeETH",
     image: "/assets/speakers/Simone-removebg-preview.png",
-    xLink: "https://x.com/adityamohanty_",
+    xLink: "",
     imageScale: "h-[130%]"
   }
 ];
