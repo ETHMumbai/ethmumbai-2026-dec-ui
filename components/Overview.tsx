@@ -4,6 +4,7 @@ import Interior from "../public/assets/subhero2/medium/interior.svg";
 import Laptop from "../public/assets/subhero2/medium/laptop.svg";
 import Handle from "../public/assets/subhero2/medium/handle.svg";
 import Screws from "../public/assets/subhero2/medium/screws.svg";
+import ScrewsSm from "../public/assets/subhero2/small/screws.svg";
 
 import InteriorSm from "../public/assets/subhero2/small/interior.svg";
 import Image from "next/image";
@@ -71,7 +72,7 @@ export default function Overview() {
     "
           />
 
-          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-xl lg:text-3xl">
+          <h2 className=" xl:pb-0 xl:text-4xl xl:p-3 font-bold text-xl lg:text-3xl font-['MPlusRounded1c']">
             Conference
           </h2>
           <p className="xl:px-3 xl:text-sm lg:pb-3 pb-0 font-light text-xs">
@@ -93,7 +94,7 @@ export default function Overview() {
       top-1/2 left-[51%] 
     -translate-x-1/2 -translate-y-1/2 "
         >
-          <h2 className="p-3 pb-0 font-bold md:text-2xl lg:text-3xl text-center items-center justify-center mx-auto">
+          <h2 className="p-3 pb-0 font-bold md:text-2xl lg:text-3xl text-center items-center justify-center mx-auto font-['MPlusRounded1c']">
             4 Days of
             <br /> Innovation
           </h2>
@@ -110,7 +111,7 @@ export default function Overview() {
     "
           />
 
-          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-xl lg:text-3xl ">
+          <h2 className=" xl:pb-0 xl:text-4xl xl:p-3 font-bold text-xl lg:text-3xl font-['MPlusRounded1c']">
             Hackathon
           </h2>
           <p className="xl:px-3 xl:text-sm lg:pb-3 pb-0 font-light text-xs">
@@ -155,13 +156,15 @@ export default function Overview() {
             ></a> */}
             <Box className="relative flex-1 w-full p-6 bg-[#E53931] text-white rounded-xl">
               <Image
-                src={Screws}
+                src={ScrewsSm}
                 fill
                 alt=""
-                className="z-20 object-center p-2 "
+                className="z-20 object-center p-2"
               />
 
-              <h2 className=" pb-0  font-bold text-2xl ">Conference</h2>
+              <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
+                Conference
+              </h2>
               <p className=" font-light pb-2 text-xs">12 March 2026</p>
               <ul className="font-light text-xs space-y-1 ">
                 <li>Talks and Panels</li>
@@ -172,17 +175,19 @@ export default function Overview() {
             </Box>
 
             {/* Hackathon */}
-            <Box className="relative flex-1 p-6 bg-[#E53931] text-white rounded-xl">
+            <Box className="relative flex-1 bg-[#E53931] p-6 text-white rounded-xl">
               <Image
-                src={Screws}
-                fill
+                src={ScrewsSm}
                 alt=""
+                fill
                 className="z-20 object-center p-2"
               />
 
-              <h2 className=" pb-0  font-bold text-2xl ">Hackathon</h2>
+              <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
+                Hackathon
+              </h2>
               <p className=" font-light pb-2 text-xs">13 - 15 March 2026</p>
-              <ul className="font-light  text-xs space-y-1 ">
+              <ul className="font-light  text-xs space-y-1">
                 <li>Nonstop Hacking</li>
                 <li>Technical Workshops</li>
                 <li>Sponsor Bounties</li>
