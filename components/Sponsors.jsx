@@ -13,12 +13,12 @@ const sponsors = [
   {
     logo: "/assets/sponsors/avail.png",
     name: "Avail",
-    twitter: "https://twitter.com/avail",
+    twitter: "https://x.com/AvailProject",
   },
   {
     logo: "/assets/sponsors/esp.png",
     name: "ESP",
-    twitter: "https://twitter.com/esp",
+    twitter: "https://x.com/EF_ESP",
   },
   {
     logo: "/assets/sponsors/Polygon.png",
