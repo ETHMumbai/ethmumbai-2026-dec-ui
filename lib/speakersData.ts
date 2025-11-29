@@ -69,12 +69,6 @@ export const speakers: Speaker[] = [
     imageScale: "h-[140%]"
   },
   {
-    name: "Jason Goldberg",
-    company: "Airstack",
-    image: "/assets/speakers/Jason-Goldberg-removebg-preview.png",
-    xLink: ""
-  },
-  {
     name: "Pareen Lathia",
     company: "Monad",
     image: "/assets/speakers/Pareen-Lathia-removebg-preview.png",

@@ -27,51 +27,6 @@ export default function Hero() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Balloon Follow Logic
-  useEffect(() => {
-    let x = 0;
-    let y = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    const speed = 0.06; // smooth delayed follow
-
-    const animate = () => {
-      x += (targetX - x) * speed;
-      y += (targetY - y) * speed;
-
-      if (balloonRef.current) {
-        balloonRef.current.style.transform = `translate(${x}px, ${y}px)`;
-      }
-
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    const handleMove = (e: MouseEvent | TouchEvent) => {
-      let clientX, clientY;
-
-      if (e instanceof TouchEvent) {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-
-      targetX = clientX - 40;
-      targetY = clientY - 80;
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("touchmove", handleMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
-    };
-  }, []);
-
   // Animation start and bottom positions based on screen type
   const getBusInitialX = () => {
     if (screenType === "mobile") return "calc(80vw + 100%)";
@@ -176,39 +131,44 @@ export default function Hero() {
           <Image
             src={Cityscape}
             alt="Cityscape"
-            priority    
-            width={2000} 
+            priority
+            width={2000}
             height={600}
+            sizes="(max-width: 640px) 1500px, (max-width: 1024px) 1800px, 2000px"
             className="w-full h-auto block origin-bottom transition-transform duration-300"
             style={{
               transform:
                 screenType === "mobile"
-                  ? "scale(2) translateY(-40px)" // mobile
+                  ? "translateY(-20px)"        // removed scale(2)
                   : screenType === "tablet"
-                    ? "scale(1.6) translateY(-40px)" // tablet
-                    : "scale(1) translateY(0px)", // desktop
+                    ? "scale(1.2) translateY(-30px)"  // reduced 1.6 → 1.2
+                    : "scale(1) translateY(0px)",
             }}
           />
 
+
           {/* Road Image */}
-          <Image src={Road} alt="Road"
-            priority     
-            width={2000} 
+          <Image
+            src={Road}
+            alt="Road"
+            priority
+            width={2000}
             height={600}
+            sizes="(max-width: 640px) 1500px, 
+         (max-width: 1024px) 1800px,
+         2000px"
             className="
               w-full h-auto block
-              scale-[2]           /* mobile */
-              sm:scale-[1.6]      /* small screens */
-              md:scale-[1.3]      /* tablet / iPad */
-              lg:scale-[1]        /* desktop */
+              scale-[1.2]           /* mobile — was scale[2] */
+              sm:scale-[1.3]
+              md:scale-[1.1]
+              lg:scale-[1]
               origin-bottom
-              lg:-translate-y-1
-              md:-translate-y-1
-              sm:-translate-y-1
               -translate-y-1
               transition-transform duration-300
             "
           />
+
 
           {/* Bus with animation */}
           <motion.div
@@ -229,27 +189,36 @@ export default function Hero() {
               alt="Bus"
               className="
                 w-auto h-auto
-                scale-[1.6]       /* mobile */
-                sm:scale-[1.4]    /* small screens / tablet */
-                md:scale-[1]    /* tablet */
-                lg:scale-[0.82]   /* desktop */
-                xl:scale-[0.62]   /* large desktop */
+                scale-[1.2]       /* was 1.6 */
+                sm:scale-[1.2]
+                md:scale-[1]
+                lg:scale-[0.7]
                 origin-bottom
                 transition-transform duration-300
               "
             />
+
           </motion.div>
         </div>
       </div>
 
       {/* Floating Elements */}
-      <img
-        ref={balloonRef}
+      <motion.img
         src="/assets/hero/balloon.png"
         alt="Balloon"
-        className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none"
+        className="fixed w-auto h-auto z-[50] pointer-events-none scale-[0.75] select-none"
         draggable={false}
+        style={
+          screenType === "mobile"
+            ? { left: "2vw", top: "46vh", width: "35vw" }
+            : screenType === "tablet"
+              ? { left: "6vw", top: "40vh", width: "25vw" }
+              : { left: "22vw", top: "38vh", width: "18vw" }
+        }
+        animate={{ translateY: [0, -12, 0] }}   // up–down movement
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
       />
+
 
       <motion.img
         src="/assets/hero/plane.png"
