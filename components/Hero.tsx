@@ -204,27 +204,26 @@ export default function Hero() {
 
       {/* Floating Elements */}
       <motion.img
-  src="/assets/hero/balloon.png"
-  alt="Balloon"
-  className="fixed z-[50] pointer-events-none select-none"
-  draggable={false}
-  style={
-    screenType === "mobile"
-      ? { left: "2vw", top: "46vh", width: "35vw" }
-      : screenType === "tablet"
-        ? { left: "6vw", top: "40vh", width: "25vw" }
-        : { left: "22vw", top: "38vh", width: "18vw" }
-  }
-  animate={{ translateY: [0, -12, 0] }}   // up–down movement
-  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-/>
-
+        src="/assets/hero/balloon.png"
+        alt="Balloon"
+        className="fixed z-[50] pointer-events-none select-none"
+        draggable={false}
+        style={
+          screenType === "mobile"
+            ? { left: "2vw", top: "46vh", width: "35vw" }
+            : screenType === "tablet"
+              ? { left: "6vw", top: "40vh", width: "25vw" }
+              : { left: "22vw", top: "38vh", width: "18vw" }
+        }
+        animate={{ translateY: [0, -12, 0] }}   // up–down movement
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <motion.img
         src="/assets/hero/plane.png"
         alt="Plane"
         width={410} // actual width
-    height={190}
+        height={190}
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={{
           right:
@@ -262,8 +261,6 @@ export default function Hero() {
         }}
         transition={{ duration: 4, ease: "easeOut" }}
       />
-
-
 
       {/* Cloud 2 */}
       <motion.img
