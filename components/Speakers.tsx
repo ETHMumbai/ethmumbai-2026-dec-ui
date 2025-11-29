@@ -36,7 +36,9 @@ export default function Speakers() {
                     alt={speaker.name}
                     width={150}
                     height={185}
-                    className="absolute bottom-0 left-[50%] -translate-x-1/2 h-[118%] object-cover rounded-3xl"
+                    className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
+                      speaker.imageScale || "h-[118%]"
+                    }`}
                     style={{
                       width: "112%",
                       objectPosition: "center 30%",
