@@ -314,7 +314,7 @@ export default function Hero() {
       <motion.img
         src="/assets/hero/cloud1.png"
         alt="Cloud"
-        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        className="absolute w-auto h-auto sm:z-[5] pointer-events-none select-none"
         style={
           screenType === "mobile"
             ? { right: "5vw", top: "58vh", width: "35vw" }
