@@ -292,6 +292,8 @@ export default function Hero() {
         transition={{ duration: 4, ease: "easeOut" }}
       />
 
+
+
       {/* Cloud 2 */}
       <motion.img
         src="/assets/hero/cloud2.png"
