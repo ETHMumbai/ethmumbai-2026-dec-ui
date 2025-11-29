@@ -15,13 +15,20 @@ export default function Hero() {
     "desktop"
   );
 
+  // detect short-height screens
+  const [isShortScreen, setIsShortScreen] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) setScreenType("mobile");
       else if (width < 1024) setScreenType("tablet");
       else setScreenType("desktop");
+
+      // detect short-height screens
+      setIsShortScreen(window.innerHeight < 700);
     };
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -116,14 +123,18 @@ export default function Hero() {
 
       {/* Road + Bus */}
       <div
-        className="absolute bottom-0 left-0 w-full pointer-events-none"
+        className="absolute left-0 w-full pointer-events-none"
         style={{
           bottom:
             screenType === "mobile"
-              ? "70px" // mobile
+              ? "70px"
               : screenType === "tablet"
-                ? "20px" // tablet
-                : "0px", // desktop
+                ? "20px"
+                : "0px",
+
+          // shift everything down on short screens
+          transform: isShortScreen ? "translateY(80px)" : "translateY(0)",
+          transition: "transform 0.3s ease-out",
         }}
       >
         <div className="relative w-full ">
@@ -139,13 +150,12 @@ export default function Hero() {
             style={{
               transform:
                 screenType === "mobile"
-                  ? "translateY(-50px)"        // removed scale(2)
+                  ? "translateY(-50px)"
                   : screenType === "tablet"
-                    ? "scale(1.2) translateY(-30px)"  // reduced 1.6 → 1.2
+                    ? "scale(1.2) translateY(-30px)"
                     : "scale(1) translateY(0px)",
             }}
           />
-
 
           {/* Road Image */}
           <Image
@@ -155,11 +165,11 @@ export default function Hero() {
             width={2000}
             height={600}
             sizes="(max-width: 640px) 1500px, 
-         (max-width: 1024px) 1800px,
-         2000px"
+            (max-width: 1024px) 1800px,
+            2000px"
             className="
               w-full h-auto block
-              scale-[1.2]           /* mobile — was scale[2] */
+              scale-[1.2]
               sm:scale-[1.3]
               md:scale-[1.1]
               lg:scale-[1]
@@ -168,7 +178,6 @@ export default function Hero() {
               transition-transform duration-300
             "
           />
-
 
           {/* Bus with animation */}
           <motion.div
@@ -189,7 +198,7 @@ export default function Hero() {
               alt="Bus"
               className="
                 w-auto h-auto
-                scale-[1.1]       /* was 1.6 */
+                scale-[1.1]
                 sm:scale-[1.1]
                 md:scale-[1]
                 lg:scale-[0.6]
@@ -197,7 +206,6 @@ export default function Hero() {
                 transition-transform duration-300
               "
             />
-
           </motion.div>
         </div>
       </div>
@@ -207,91 +215,101 @@ export default function Hero() {
         src="/assets/hero/balloon.svg"
         alt="Balloon"
         className="absolute z-[5] pointer-events-none select-none"
-        style={
-          screenType === "mobile"
-            ? { left: "2vw", top: "46vh", width: "35vw" }
-            : screenType === "tablet"
-              ? { left: "6vw", top: "40vh", width: "25vw" }
-              : { left: "22vw", top: "38vh", width: "18vw" }
-        }
-        animate={{ translateY: [0, -12, 0] }}   // up–down movement
+        style={{
+          left:
+            screenType === "mobile" ? "2vw" :
+              screenType === "tablet" ? "6vw" : "22vw",
+          top:
+            screenType === "mobile" ? (isShortScreen ? "58vh" : "46vh") :
+              screenType === "tablet" ? (isShortScreen ? "52vh" : "40vh") :
+                (isShortScreen ? "50vh" : "38vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateY: [0, -12, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.img
         src="/assets/hero/plane.svg"
         alt="Plane"
-        width={410} // actual width
-        height={190}
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={{
-          right:
-            screenType === "mobile"
-              ? "1vw"
-              : screenType === "tablet"
-                ? "1vw"
-                : "7vw",
+          right: screenType === "desktop" ? "7vw" : "1vw",
           width:
-            screenType === "mobile"
-              ? "45vw"
-              : screenType === "tablet"
-                ? "30vw"
-                : "20vw",
+            screenType === "mobile" ? "45vw" :
+              screenType === "tablet" ? "30vw" : "20vw",
         }}
         initial={{
           y:
             screenType === "mobile"
-              ? "70vh" // start below final
+              ? (isShortScreen ? "82vh" : "70vh")
               : screenType === "tablet"
-                ? "55vh"
-                : "50vh",
-          x: -80, // start slightly left
-          opacity: 0,
+                ? (isShortScreen ? "67vh" : "55vh")
+                : (isShortScreen ? "62vh" : "50vh"),
+          x: -80,
+          opacity: 0
         }}
         animate={{
           y:
             screenType === "mobile"
-              ? "50vh" // final position
+              ? (isShortScreen ? "62vh" : "50vh")
               : screenType === "tablet"
-                ? "45vh"
-                : "42vh",
+                ? (isShortScreen ? "57vh" : "45vh")
+                : (isShortScreen ? "54vh" : "42vh"),
           x: 0,
-          opacity: 1,
+          opacity: 1
         }}
         transition={{ duration: 4, ease: "easeOut" }}
       />
 
-      {/* Cloud 2 */}
+      {/* CLOUD LEFT */}
       <motion.img
         src="/assets/hero/cloud-left.svg"
         alt="Cloud"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
-        style={
-          screenType === "mobile"
-            ? { left: "5vw", top: "55vh", width: "35vw" }
-            : screenType === "tablet"
-              ? { left: "8vw", top: "48vh", width: "25vw" }
-              : { left: "16vw", top: "44vh", width: "18vw" }
-        }
-        animate={{ translateX: [0, 10, 0] }} // use translateX instead of x
+        style={{
+          left:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "8vw" : "16vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "68vh" : "55vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "58vh" : "44vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateX: [0, 10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Cloud 1 */}
+      {/* CLOUD RIGHT */}
       <motion.img
         src="/assets/hero/cloud-right.svg"
         alt="Cloud"
-        className="absolute w-auto h-auto sm:z-[5] pointer-events-none select-none"
-        style={
-          screenType === "mobile"
-            ? { right: "5vw", top: "58vh", width: "35vw" }
-            : screenType === "tablet"
-              ? { right: "18vw", top: "48vh", width: "30vw" }
-              : { right: "25vw", top: "48vh", width: "15vw" }
-        }
-        animate={{ translateX: [0, -10, 0] }} // move in opposite direction
+        className="absolute w-auto h-auto pointer-events-none select-none"
+        style={{
+          right:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "18vw" : "25vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "72vh" : "58vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "60vh" : "48vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "30vw" : "15vw"
+        }}
+        animate={{ translateX: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
+
     </section>
   );
 }
