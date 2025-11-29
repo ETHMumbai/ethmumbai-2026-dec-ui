@@ -6,7 +6,6 @@ import Handle from "../public/assets/subhero2/medium/handle.svg";
 import Screws from "../public/assets/subhero2/medium/screws.svg";
 
 import InteriorSm from "../public/assets/subhero2/small/interior.svg";
-import LaptopSm from "../public/assets/subhero2/small/laptop.svg";
 import Image from "next/image";
 import { Box } from "./Box";
 
@@ -62,7 +61,7 @@ export default function Overview() {
         {/* Cards */}
 
         {/* Conference */}
-        <div className="bg-[#E53931] absolute z-10 top-[28%] left-[19.5%] xl:p-3 md:p-4 w-[22%] h-[35%] rounded-[14px]">
+        <div className="bg-[#E53931] absolute z-10 top-[28%] left-[19.5%] xl:p-5 md:p-4 w-[22%] h-[35%] rounded-[14px]">
           <Image
             src={Screws}
             fill
@@ -72,17 +71,17 @@ export default function Overview() {
     "
           />
 
-          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-2xl ">
+          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-xl lg:text-3xl">
             Conference
           </h2>
           <p className="xl:px-3 xl:text-sm lg:pb-3 pb-0 font-light text-xs">
-            March 12
+            12 March 2026
           </p>
-          <ul className="xl:p-3 xl:pt-2 xl:text-xl xl:space-y-2 lg:text-sm pt-1 font-light  text-xs space-y-1 ">
-            <li>Opening Ceremony</li>
-            <li>Keynote Speeches</li>
-            <li>Team Formation</li>
-            <li>Workshops</li>
+          <ul className="xl:p-3 md:pt-2 xl:text-xl xl:space-y-2 lg:text-sm pt-1 font-light text-[10px] md:space-y-0.5 ">
+            <li>Talks and Panels</li>
+            <li>Sponsor Activation</li>
+            <li>Interactive Zones</li>
+            <li>Open Networking</li>
           </ul>
         </div>
 
@@ -101,7 +100,7 @@ export default function Overview() {
         </div>
 
         {/* Hackathon */}
-        <div className="bg-[#E53931] absolute z-10 top-[28%] right-[18%] xl:p-3 md:p-4 w-[22%] h-[35%] rounded-[14px]">
+        <div className="bg-[#E53931] absolute z-10 top-[28%] right-[18%] xl:p-5 md:p-4 w-[22%] h-[35%] rounded-[14px]">
           <Image
             src={Screws}
             fill
@@ -111,17 +110,17 @@ export default function Overview() {
     "
           />
 
-          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-2xl ">
+          <h2 className=" xl:pb-0 xl:text-3xl xl:p-3 font-bold text-xl lg:text-3xl ">
             Hackathon
           </h2>
           <p className="xl:px-3 xl:text-sm lg:pb-3 pb-0 font-light text-xs">
-            March 12
+            13 - 15 March 2026
           </p>
-          <ul className="xl:p-3 xl:pt-2 xl:text-xl xl:space-y-2 lg:text-sm pt-1 font-light  text-xs space-y-1 ">
-            <li>Opening Ceremony</li>
-            <li>Keynote Speeches</li>
-            <li>Team Formation</li>
-            <li>Workshops</li>
+          <ul className="xl:p-3 md:pt-2 xl:text-xl xl:space-y-2 lg:text-sm pt-1 font-light text-[10px] md:space-y-0.5 ">
+            <li>Nonstop Hacking</li>
+            <li>Technical Workshops</li>
+            <li>Sponsor Bounties</li>
+            <li>Mentorship</li>
           </ul>
         </div>
 
@@ -144,19 +143,9 @@ export default function Overview() {
         />
 
         {/* 4 Days of Innovation */}
-        <div className="absolute items-start justify-center py-10 sm:py-16 px-4  left-[32%] sm:left-[40%]">
-          <h2
-            className="font-bold sm:text-2xl text-xl leading-7 tracking-[1px] text-center text-[#ffffff] "
-            role="heading"
-            aria-level={2}
-          >
-            4 days of <br />
-            Innovation
-          </h2>
-        </div>
 
         {/* Cards */}
-        <div className="absolute items-center justify-center bg-amber-200 w-full flex translate-y-50">
+        <div className="absolute items-center justify-center bg-amber-200 w-full flex max-[361px]:translate-y-35 max-[400px]:translate-y-40 translate-y-50">
           <div className="absolute flex flex-col gap-4 min-sm:translate-y-50 translate-y-35 w-[50%]">
             {/* Conference */}
             {/* <a
@@ -173,12 +162,12 @@ export default function Overview() {
               />
 
               <h2 className=" pb-0  font-bold text-2xl ">Conference</h2>
-              <p className=" font-light pb-2 text-xs">March 12</p>
-              <ul className="pt-1 font-light  text-xs space-y-1 ">
-                <li>Opening Ceremony</li>
-                <li>Keynote Speeches</li>
-                <li>Team Formation</li>
-                <li>Workshops</li>
+              <p className=" font-light pb-2 text-xs">12 March 2026</p>
+              <ul className="font-light text-xs space-y-1 ">
+                <li>Talks and Panels</li>
+                <li>Sponsor Activation</li>
+                <li>Interactive Zones</li>
+                <li>Open Networking</li>
               </ul>
             </Box>
 
@@ -192,12 +181,12 @@ export default function Overview() {
               />
 
               <h2 className=" pb-0  font-bold text-2xl ">Hackathon</h2>
-              <p className=" font-light pb-2 text-xs">March 12</p>
-              <ul className="pt-1 font-light  text-xs space-y-1 ">
-                <li>Opening Ceremony</li>
-                <li>Keynote Speeches</li>
-                <li>Team Formation</li>
-                <li>Workshops</li>
+              <p className=" font-light pb-2 text-xs">13 - 15 March 2026</p>
+              <ul className="font-light  text-xs space-y-1 ">
+                <li>Nonstop Hacking</li>
+                <li>Technical Workshops</li>
+                <li>Sponsor Bounties</li>
+                <li>Mentorship</li>
               </ul>
             </Box>
           </div>
