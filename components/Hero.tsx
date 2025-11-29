@@ -131,7 +131,7 @@ export default function Hero() {
         {/* Action Buttons */}
         <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
-            href="https://tally.so/r/nGW5Bz"
+            href="https://tally.so/r/3NkdGb"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -145,7 +145,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://tally.so/r/3NkdGb"
+            href="https://tally.so/r/nGW5Bz"
             target="_blank"
             rel="noopener noreferrer"
           >

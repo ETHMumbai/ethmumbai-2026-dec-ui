@@ -66,7 +66,7 @@ export default function Speakers() {
               className="text-[14px] font-normal leading-5 tracking-[-0.015px] text-[#575757] text-center"
               style={{ fontFamily: "Inter" }}
             >
-              {speaker.role}
+              {speaker.company}
             </p>
           </div>
         ))}
