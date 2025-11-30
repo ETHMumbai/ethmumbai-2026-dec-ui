@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import { Calendar } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Bus from "../public/assets/hero/bus-cropped.png";
 import Road from "../public/assets/hero/road-cropped.png";
 import Cityscape from "../public/assets/hero/cityscape-cropped.png";
-
-
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
@@ -20,14 +18,13 @@ export default function Hero() {
   // detect short-height screens
   const [isShortScreen, setIsShortScreen] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) setScreenType("mobile");
       else if (width < 1024) setScreenType("tablet");
       else setScreenType("desktop");
 
-      // detect short-height screens
       setIsShortScreen(window.innerHeight < 700);
     };
 
@@ -112,8 +109,10 @@ export default function Hero() {
       </div>
 
       {/* Road + Bus */}
-      <div
+      <motion.div
         className="absolute left-0 w-full pointer-events-none"
+        animate={{ y: isShortScreen ? 80 : 0 }}
+        transition={{ duration: 0 }}
         style={{
           bottom:
             screenType === "mobile"
@@ -121,10 +120,6 @@ export default function Hero() {
               : screenType === "tablet"
                 ? "20px"
                 : "0px",
-
-          // shift everything down on short screens
-          transform: isShortScreen ? "translateY(80px)" : "translateY(0)",
-          transition: "transform 0.3s ease-out",
         }}
       >
         <div className="relative w-full ">
@@ -201,7 +196,7 @@ export default function Hero() {
             />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating Elements */}
       <motion.img
@@ -302,7 +297,6 @@ export default function Hero() {
         animate={{ translateX: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
-
     </section>
   );
 }
