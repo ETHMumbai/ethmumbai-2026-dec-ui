@@ -5,9 +5,9 @@ import { Calendar } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import Bus from "../public/assets/hero/bus-cropped.svg";
-import Road from "../public/assets/hero/road-cropped.svg";
-import Cityscape from "../public/assets/hero/cityscape-cropped.svg";
+import Bus from "../public/assets/hero/bus-cropped.png";
+import Road from "../public/assets/hero/road-cropped.png";
+import Cityscape from "../public/assets/hero/cityscape-cropped.png";
 
 
 
