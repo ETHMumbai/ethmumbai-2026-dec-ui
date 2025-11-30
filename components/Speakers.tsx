@@ -1,109 +1,309 @@
 "use client";
 
 import Image from "next/image";
-import { speakers } from "../lib/speakersData";
+import { Calendar } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-export default function Speakers() {
+import Bus from "../public/assets/hero/bus-cropped.svg";
+import BusMobile from "../public/assets/hero/bus-mobile.svg";
+import Road from "../public/assets/hero/road-cropped.svg";
+import Cityscape from "../public/assets/hero/cityscape-cropped.svg";
+
+
+
+export default function Hero() {
+  const balloonRef = useRef<HTMLImageElement | null>(null);
+  const [screenType, setScreenType] = useState<"mobile" | "tablet" | "desktop">(
+    "desktop"
+  );
+
+  // detect short-height screens
+  const [isShortScreen, setIsShortScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setScreenType("mobile");
+      else if (width < 1024) setScreenType("tablet");
+      else setScreenType("desktop");
+
+      // detect short-height screens
+      setIsShortScreen(window.innerHeight < 700);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Animation start and bottom positions based on screen type
+  const getBusInitialX = () => {
+    if (screenType === "mobile") return "calc(50vw + 100%)";
+    if (screenType === "tablet") return "calc(60vw + 100%)";
+    return "calc(50vw + 100%)";
+  };
+  const getBusInitialY = () => {
+    if (screenType === "mobile") return -350;
+    if (screenType === "tablet") return 20;
+    return 40; // desktop
+  };
+
+  const getBusInitialScale = () => {
+    if (screenType === "mobile") return 0.2;
+    if (screenType === "tablet") return 0.2;
+    return 0.1;
+  };
+
+  const getBusBottom = () => {
+    if (screenType === "mobile") return "45px";
+    if (screenType === "tablet") return "60px";
+    return "95px";
+  };
+
   return (
-    <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Past Speakers and Judges
-        </h2>
+    <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
+      {/* Centered content */}
+      <div className="relative z-10 flex flex-col items-center w-full px-4
+                      pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
+                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
+        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
+                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]">
+          ETHMUMBAI
+        </h1>
 
-      {/* Speakers Grid */}
-      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {speakers.map((speaker, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
+        <p className="mt-[1rem] font-semibold text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
+          BEST Conference & Hackathon
+        </p>
+
+        <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-gray-100">
+          <Calendar className="w-5 h-5" />
+          <span>12 – 15 March 2026</span>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+          <a
+            href="https://tally.so/r/3NkdGb"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {/* Wrapper with padding for overflow */}
-            <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">
-
-              {/* CLICKABLE ONLY IF xLink EXISTS */}
-              {speaker.xLink ? (
-                <a
-                  href={speaker.xLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer group"
-                >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
-                    <Image
-                      src={speaker.image}
-                      alt={speaker.name}
-                      width={150}
-                      height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
-                      style={{
-                        width: "112%",
-                        objectPosition: "center 30%",
-                        borderBottomLeftRadius: "28px",
-                      }}
-                    />
-
-                    {/* Hover gradient */}
-                    <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
-                    </div>
-                  </div>
-                </a>
-              ) : (
-                <div className="cursor-default group">
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
-                    <Image
-                      src={speaker.image}
-                      alt={speaker.name}
-                      width={150}
-                      height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
-                      style={{
-                        width: "112%",
-                        objectPosition: "center 30%",
-                        borderBottomLeftRadius: "28px",
-                      }}
-                    />
-
-                    {/* Hover gradient still works */}
-                    <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Speaker Info */}
-            <h3
-              className="text-[16px] leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1"
+            <button
+              className="bg-white border border-white text-[#E2231A]
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
             >
-              {speaker.name}
-            </h3>
-            <p
-              className="text-[14px] leading-5 tracking-[-0.015px] text-[#575757] text-center"
+              Apply to Sponsor
+            </button>
+          </a>
+
+          <a
+            href="https://tally.so/r/nGW5Bz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              className="bg-white border border-white text-[#E2231A] font-semibold text-base px-6 py-3
+                        rounded-[14px] hover:bg-gray-300 cursor-pointer transition-all duration-200"
             >
-              {speaker.company}
-            </p>
-          </div>
-        ))}
+              Apply to Speak
+            </button>
+          </a>
+        </div>
       </div>
 
-      {/* Apply to Speak Button */}
-      <div className="flex justify-center">
-        <a
-          href="https://tally.so/r/nGW5Bz"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-8 py-3 bg-[#E2231A] text-[#FFFFFF] font-medium text-[18px] leading-7 tracking-[-0.44px] rounded-xl inline-block hover:bg-[#C01F15] transition-colors duration-200"
-          style={{ fontFamily: "Inter" }}
-        >
-          Apply to Speak
-        </a>
+      {/* Road + Bus */}
+      <div
+        className="absolute left-0 w-full pointer-events-none"
+        style={{
+          bottom:
+            screenType === "mobile"
+              ? "70px"
+              : screenType === "tablet"
+                ? "20px"
+                : "0px",
+
+          // shift everything down on short screens
+          transform: isShortScreen ? "translateY(80px)" : "translateY(0)",
+          transition: "transform 0.3s ease-out",
+        }}
+      >
+        <div className="relative w-full ">
+          {/* Cityscape Image */}
+          <Image
+            src={Cityscape}
+            alt="Cityscape"
+            unoptimized
+            priority
+            width={2000}
+            height={600}
+            sizes="(max-width: 640px) 1500px, (max-width: 1024px) 1800px, 2000px"
+            className="w-full h-auto block origin-bottom transition-transform duration-300"
+            style={{
+              transform:
+                screenType === "mobile"
+                  ? "translateY(-50px)"
+                  : screenType === "tablet"
+                    ? "scale(1.2) translateY(-30px)"
+                    : "scale(1) translateY(0px)",
+            }}
+          />
+
+          {/* Road Image */}
+          <Image
+            src={Road}
+            alt="Road"
+            unoptimized
+            priority
+            width={2000}
+            height={600}
+            sizes="(max-width: 640px) 1500px, 
+            (max-width: 1024px) 1800px,
+            2000px"
+            className="
+              w-full h-auto block
+              scale-[1.2]
+              sm:scale-[1.3]
+              md:scale-[1.1]
+              lg:scale-[1]
+              origin-bottom
+              -translate-y-5
+              transition-transform duration-300
+            "
+          />
+
+          {/* Bus with animation */}
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: getBusBottom() }}
+            initial={{
+              x: getBusInitialX(),
+              y: getBusInitialY(),
+              scale: getBusInitialScale(),
+              opacity: 0.8,
+              rotate: 0,
+            }}
+            animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+            transition={{ duration: 3.5, ease: "easeOut", delay: 0 }}
+          >
+            <Image
+              src={screenType === "mobile" ? BusMobile : Bus}
+              alt="Bus"
+              unoptimized
+              className="
+                w-auto h-auto
+                scale-[1.1]
+                sm:scale-[1.1]
+                md:scale-[1]
+                lg:scale-[0.6]
+                origin-bottom
+                transition-transform duration-300
+              "
+            />
+          </motion.div>
+        </div>
       </div>
+
+      {/* Floating Elements */}
+      <motion.img
+        src="/assets/hero/balloon.svg"
+        alt="Balloon"
+        className="absolute z-[5] pointer-events-none select-none"
+        style={{
+          left:
+            screenType === "mobile" ? "2vw" :
+              screenType === "tablet" ? "6vw" : "22vw",
+          top:
+            screenType === "mobile" ? (isShortScreen ? "58vh" : "46vh") :
+              screenType === "tablet" ? (isShortScreen ? "52vh" : "40vh") :
+                (isShortScreen ? "50vh" : "38vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateY: [0, -12, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <motion.img
+        src="/assets/hero/plane.svg"
+        alt="Plane"
+        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        style={{
+          right: screenType === "desktop" ? "7vw" : "1vw",
+          width:
+            screenType === "mobile" ? "45vw" :
+              screenType === "tablet" ? "30vw" : "20vw",
+        }}
+        initial={{
+          y:
+            screenType === "mobile"
+              ? (isShortScreen ? "82vh" : "70vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "67vh" : "55vh")
+                : (isShortScreen ? "62vh" : "50vh"),
+          x: -80,
+          opacity: 0
+        }}
+        animate={{
+          y:
+            screenType === "mobile"
+              ? (isShortScreen ? "62vh" : "50vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "57vh" : "45vh")
+                : (isShortScreen ? "54vh" : "42vh"),
+          x: 0,
+          opacity: 1
+        }}
+        transition={{ duration: 4, ease: "easeOut" }}
+      />
+
+      {/* CLOUD LEFT */}
+      <motion.img
+        src="/assets/hero/cloud-left.svg"
+        alt="Cloud"
+        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
+        style={{
+          left:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "8vw" : "16vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "68vh" : "55vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "58vh" : "44vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateX: [0, 10, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* CLOUD RIGHT */}
+      <motion.img
+        src="/assets/hero/cloud-right.svg"
+        alt="Cloud"
+        className="absolute w-auto h-auto pointer-events-none select-none"
+        style={{
+          right:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "18vw" : "25vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "72vh" : "58vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "60vh" : "48vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "30vw" : "15vw"
+        }}
+        animate={{ translateX: [0, -10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+
     </section>
   );
 }

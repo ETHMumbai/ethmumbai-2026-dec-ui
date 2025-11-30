@@ -9,6 +9,8 @@ import Bus from "../public/assets/hero/bus-cropped.svg";
 import Road from "../public/assets/hero/road-cropped.svg";
 import Cityscape from "../public/assets/hero/cityscape-cropped.svg";
 
+
+
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
   const [screenType, setScreenType] = useState<"mobile" | "tablet" | "desktop">(
@@ -130,6 +132,7 @@ export default function Hero() {
           <Image
             src={Cityscape}
             alt="Cityscape"
+            unoptimized
             priority
             width={2000}
             height={600}
@@ -149,6 +152,7 @@ export default function Hero() {
           <Image
             src={Road}
             alt="Road"
+            unoptimized
             priority
             width={2000}
             height={600}
@@ -184,6 +188,7 @@ export default function Hero() {
             <Image
               src={Bus}
               alt="Bus"
+              unoptimized
               className="
                 w-auto h-auto
                 scale-[1.1]
