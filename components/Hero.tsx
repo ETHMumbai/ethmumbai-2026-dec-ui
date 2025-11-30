@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Calendar } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Bus from "../public/assets/hero/bus-cropped.png";
@@ -11,107 +11,65 @@ import Cityscape from "../public/assets/hero/cityscape-cropped.png";
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
-  const [screenType, setScreenType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  const [screenType, setScreenType] = useState<"mobile" | "tablet" | "desktop">(
+    "desktop"
+  );
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) setScreenType('mobile');
-      else if (width < 1024) setScreenType('tablet');
-      else setScreenType('desktop');
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // detect short-height screens
+  const [isShortScreen, setIsShortScreen] = useState(false);
 
-  // Balloon Follow Logic
-  useEffect(() => {
-    let x = 0;
-    let y = 0;
-    let targetX = 0;
-    let targetY = 0;
+  useLayoutEffect(() => {
+  const handleResize = () => {
+    const width = window.innerWidth;
+    const height = window.visualViewport?.height || window.innerHeight;
 
-    const speed = 0.06; // smooth delayed follow
+    if (width < 640) setScreenType("mobile");
+    else if (width < 1024) setScreenType("tablet");
+    else setScreenType("desktop");
 
-    const animate = () => {
-      x += (targetX - x) * speed;
-      y += (targetY - y) * speed;
+    setIsShortScreen(height < 700);
+  };
 
-      if (balloonRef.current) {
-        balloonRef.current.style.transform = `translate(${x}px, ${y}px)`;
-      }
+  handleResize();
+  window.visualViewport?.addEventListener("resize", handleResize);
+  window.addEventListener("orientationchange", handleResize);
 
-      requestAnimationFrame(animate);
-    };
-    animate();
+  return () => {
+    window.visualViewport?.removeEventListener("resize", handleResize);
+    window.removeEventListener("orientationchange", handleResize);
+  };
+}, []);
 
-    const handleMove = (e: MouseEvent | TouchEvent) => {
-      let clientX, clientY;
-
-      if (e instanceof TouchEvent) {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-
-      targetX = clientX - 40;
-      targetY = clientY - 80;
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("touchmove", handleMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
-    };
-  }, []);
 
   // Animation start and bottom positions based on screen type
   const getBusInitialX = () => {
-    if (screenType === 'mobile') return 'calc(80vw + 100%)';
-    if (screenType === 'tablet') return 'calc(60vw + 100%)';
-    return 'calc(50vw + 100%)';
+    if (screenType === "mobile") return "calc(50vw + 100%)";
+    if (screenType === "tablet") return "calc(60vw + 100%)";
+    return "calc(50vw + 100%)";
   };
   const getBusInitialY = () => {
-    if (screenType === 'mobile') return -110;
-    if (screenType === 'tablet') return 50;
+    if (screenType === "mobile") return -350;
+    if (screenType === "tablet") return 20;
     return 40; // desktop
   };
 
   const getBusInitialScale = () => {
-    if (screenType === 'mobile') return 0.2;
-    if (screenType === 'tablet') return 0.2;
+    if (screenType === "mobile") return 0.2;
+    if (screenType === "tablet") return 0.2;
     return 0.1;
   };
 
   const getBusBottom = () => {
-    if (screenType === 'mobile') return '60px';
-    if (screenType === 'tablet') return '60px';
-    return '80px';
+    if (screenType === "mobile") return "45px";
+    if (screenType === "tablet") return "60px";
+    return "95px";
   };
 
-
   return (
-    <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
-      {/* Accent overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div
-          className="absolute left-[10%] top-[20%] -translate-y-1/3 
-                     w-[18rem] h-[18rem] bg-[#0A0A0A] blur-[4rem] rounded-full"
-        />
-        <div
-          className="absolute right-[15%] top-[15%] 
-                     w-[7rem] h-[6rem] bg-[#0A0A0A] blur-[2rem] rounded-full"
-        />
-      </div>
-
+    <section className="relative flex min-h-screen h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4
-                      pt-[9rem] sm:pt-[9rem] md:pt-[6rem] lg:pt-[7rem]
+                      pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
                       max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
         <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
                        text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]">
@@ -130,7 +88,7 @@ export default function Hero() {
         {/* Action Buttons */}
         <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
-            href="https://tally.so/r/nGW5Bz"
+            href="https://tally.so/r/3NkdGb"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -144,7 +102,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://tally.so/r/3NkdGb"
+            href="https://tally.so/r/nGW5Bz"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -154,52 +112,64 @@ export default function Hero() {
             >
               Apply to Speak
             </button>
-
           </a>
         </div>
       </div>
 
       {/* Road + Bus */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none"
+      <motion.div
+        className="absolute left-0 w-full pointer-events-none"
+        animate={{ y: isShortScreen ? 80 : 0 }}
+        transition={{ duration: 0 }}
         style={{
           bottom:
-            screenType === 'mobile'
-              ? '70px'   // mobile
-              : screenType === 'tablet'
-                ? '20px'   // tablet
-                : '0px',   // desktop 
-        }}>
+            screenType === "mobile"
+              ? "70px"
+              : screenType === "tablet"
+                ? "20px"
+                : "0px",
+        }}
+      >
         <div className="relative w-full ">
-
           {/* Cityscape Image */}
           <Image
             src={Cityscape}
             alt="Cityscape"
+            unoptimized
+            priority
+            width={2000}
+            height={600}
+            sizes="(max-width: 640px) 1500px, (max-width: 1024px) 1800px, 2000px"
             className="w-full h-auto block origin-bottom transition-transform duration-300"
             style={{
-              transform: screenType === 'mobile'
-                ? 'scale(2) translateY(-40px)'   // mobile
-                : screenType === 'tablet'
-                  ? 'scale(1.6) translateY(-40px)'   // tablet
-                  : 'scale(1) translateY(0px)'       // desktop
+              transform:
+                screenType === "mobile"
+                  ? "translateY(-50px)"
+                  : screenType === "tablet"
+                    ? "scale(1.2) translateY(-30px)"
+                    : "scale(1) translateY(0px)",
             }}
           />
 
-
-
           {/* Road Image */}
-          <Image src={Road} alt="Road"
+          <Image
+            src={Road}
+            alt="Road"
+            unoptimized
+            priority
+            width={2000}
+            height={600}
+            sizes="(max-width: 640px) 1500px, 
+            (max-width: 1024px) 1800px,
+            2000px"
             className="
               w-full h-auto block
-              scale-[2]           /* mobile */
-              sm:scale-[1.6]      /* small screens */
-              md:scale-[1.3]      /* tablet / iPad */
-              lg:scale-[1]        /* desktop */
+              scale-[1.2]
+              sm:scale-[1.3]
+              md:scale-[1.1]
+              lg:scale-[1]
               origin-bottom
-              lg:-translate-y-1
-              md:-translate-y-1
-              sm:-translate-y-1
-              -translate-y-1
+              -translate-y-5
               transition-transform duration-300
             "
           />
@@ -213,104 +183,126 @@ export default function Hero() {
               y: getBusInitialY(),
               scale: getBusInitialScale(),
               opacity: 0.8,
-              rotate: 0
+              rotate: 0,
             }}
             animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
-            transition={{ duration: 3.5, ease: 'easeOut', delay: 0 }}
+            transition={{ duration: 3.5, ease: "easeOut", delay: 0 }}
           >
             <Image
               src={Bus}
               alt="Bus"
+              unoptimized
               className="
                 w-auto h-auto
-                scale-[1.6]       /* mobile */
-                sm:scale-[1.4]    /* small screens / tablet */
-                md:scale-[1]    /* tablet */
-                lg:scale-[0.82]   /* desktop */
-                xl:scale-[0.62]   /* large desktop */
+                scale-[1.1]
+                sm:scale-[1.1]
+                md:scale-[1]
+                lg:scale-[0.6]
                 origin-bottom
                 transition-transform duration-300
               "
             />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating Elements */}
-      <img ref={balloonRef} src="/assets/hero/balloon.png" alt="Balloon" className="fixed top-0 left-0 w-auto h-auto z-[50] pointer-events-none select-none" draggable={false} />
+      <motion.img
+        src="/assets/hero/balloon.svg"
+        alt="Balloon"
+        className="absolute z-[5] pointer-events-none select-none"
+        style={{
+          left:
+            screenType === "mobile" ? "2vw" :
+              screenType === "tablet" ? "6vw" : "22vw",
+          top:
+            screenType === "mobile" ? (isShortScreen ? "58vh" : "46vh") :
+              screenType === "tablet" ? (isShortScreen ? "52vh" : "40vh") :
+                (isShortScreen ? "50vh" : "38vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateY: [0, -12, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <motion.img
-        src="/assets/hero/plane.png"
+        src="/assets/hero/plane.svg"
         alt="Plane"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={{
-          right:
-            screenType === "mobile"
-              ? "1vw"
-              : screenType === "tablet"
-                ? "1vw"
-                : "7vw",
+          right: screenType === "desktop" ? "7vw" : "1vw",
           width:
-            screenType === "mobile"
-              ? "45vw"
-              : screenType === "tablet"
-                ? "30vw"
-                : "20vw",
+            screenType === "mobile" ? "45vw" :
+              screenType === "tablet" ? "30vw" : "20vw",
         }}
         initial={{
           y:
             screenType === "mobile"
-              ? "70vh" // start below final
+              ? (isShortScreen ? "82vh" : "70vh")
               : screenType === "tablet"
-                ? "55vh"
-                : "50vh",
-          x: -80, // start slightly left
-          opacity: 0,
+                ? (isShortScreen ? "67vh" : "55vh")
+                : (isShortScreen ? "62vh" : "50vh"),
+          x: -80,
+          opacity: 0
         }}
         animate={{
           y:
             screenType === "mobile"
-              ? "50vh" // final position
+              ? (isShortScreen ? "62vh" : "50vh")
               : screenType === "tablet"
-                ? "45vh"
-                : "42vh",
+                ? (isShortScreen ? "57vh" : "45vh")
+                : (isShortScreen ? "54vh" : "42vh"),
           x: 0,
-          opacity: 1,
+          opacity: 1
         }}
         transition={{ duration: 4, ease: "easeOut" }}
       />
 
-
-
-      {/* Cloud 2 */}
+      {/* CLOUD LEFT */}
       <motion.img
-        src="/assets/hero/cloud2.png"
+        src="/assets/hero/cloud-left.svg"
         alt="Cloud"
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
-        style={
-          screenType === 'mobile'
-            ? { left: '5vw', top: '50vh', width: '35vw' }
-            : screenType === 'tablet'
-              ? { left: '8vw', top: '45vh', width: '25vw' }
-              : { left: '16vw', top: '44vh', width: '18vw' }
-        }
-        animate={{ translateX: [0, 10, 0] }} // use translateX instead of x
+        style={{
+          left:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "8vw" : "16vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "68vh" : "55vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "58vh" : "44vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "25vw" : "18vw"
+        }}
+        animate={{ translateX: [0, 10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Cloud 1 */}
+      {/* CLOUD RIGHT */}
       <motion.img
-        src="/assets/hero/cloud1.png"
+        src="/assets/hero/cloud-right.svg"
         alt="Cloud"
-        className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
-        style={
-          screenType === 'mobile'
-            ? { right: '5vw', top: '58vh', width: '35vw' }
-            : screenType === 'tablet'
-              ? { right: '18vw', top: '48vh', width: '30vw' }
-              : { right: '25vw', top: '48vh', width: '15vw' }
-        }
-        animate={{ translateX: [0, -10, 0] }} // move in opposite direction
+        className="absolute w-auto h-auto pointer-events-none select-none"
+        style={{
+          right:
+            screenType === "mobile" ? "5vw" :
+              screenType === "tablet" ? "18vw" : "25vw",
+          top:
+            screenType === "mobile"
+              ? (isShortScreen ? "72vh" : "58vh")
+              : screenType === "tablet"
+                ? (isShortScreen ? "60vh" : "48vh")
+                : (isShortScreen ? "60vh" : "48vh"),
+          width:
+            screenType === "mobile" ? "35vw" :
+              screenType === "tablet" ? "30vw" : "15vw"
+        }}
+        animate={{ translateX: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
     </section>
