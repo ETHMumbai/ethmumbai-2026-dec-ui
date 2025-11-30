@@ -7,6 +7,8 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Speakers from "@/components/conference/Speakers";
 import Sponsors from "@/components/conference/Sponsors";
+import Venue from "@/components/conference/Venue";
+import Agenda from "@/components/conference/Agenda";
 
 export default function LandingPage() {
   return (
@@ -17,7 +19,9 @@ export default function LandingPage() {
         <Overview />
         <Speakers/>
         <Sponsors />
-        <FAQ />
+        <Agenda />
+        <Venue type="conference" />
+        <FAQ type="conference" />
         <Footer />
       </main>
     </div>

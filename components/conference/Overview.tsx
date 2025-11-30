@@ -7,16 +7,10 @@ import Conference from "../../public/assets/conference/conference.svg";
 export default function Hero() {
     return (
         <section className="relative flex justify-center overflow-hidden bg-white text-black py-10 px-6">
-            <div className="
-                max-w-7xl w-full 
-                grid grid-cols-1 md:grid-cols-2 
-                gap-16 md:gap-20 
-                text-justify md:text-left 
-                items-start md:items-center sm:items-center lg:items-start
-            ">
+            <div className="max-w-7xl w-full py-10 grid grid-cols-1 md:grid-cols-2  gap-16 md:gap-20 text-center md:text-left items-start md:items-center sm:items-center lg:items-start">
 
                 {/* LEFT TEXT CONTENT */}
-                <div className="max-w-[480px] pt-2 md:pt-4">
+                <div className="max-w-[480px] pt-2 md:pt-4 mx-auto md:mx-0">
                     <h2 className="text-4xl font-[MPlusRounded1c] sm:text-5xl font-bold leading-tight tracking-tight">
                         Web3 <br /> Visionaries Unite
                     </h2>
@@ -67,7 +61,7 @@ export default function Hero() {
                             /* DESKTOP */
                             lg:max-w-[600px] lg:max-h-[500px]
 
-                            /* SCALE (adjust per screen) */
+                            /* SCALE */
                             scale-[1.4] sm:scale-[1.4] md:scale-[1.3] lg:scale-[1.3]
                         "
                         priority
