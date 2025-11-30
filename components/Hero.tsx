@@ -19,19 +19,27 @@ export default function Hero() {
   const [isShortScreen, setIsShortScreen] = useState(false);
 
   useLayoutEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) setScreenType("mobile");
-      else if (width < 1024) setScreenType("tablet");
-      else setScreenType("desktop");
+  const handleResize = () => {
+    const width = window.innerWidth;
+    const height = window.visualViewport?.height || window.innerHeight;
 
-      setIsShortScreen(window.innerHeight < 700);
-    };
+    if (width < 640) setScreenType("mobile");
+    else if (width < 1024) setScreenType("tablet");
+    else setScreenType("desktop");
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    setIsShortScreen(height < 700);
+  };
+
+  handleResize();
+  window.visualViewport?.addEventListener("resize", handleResize);
+  window.addEventListener("orientationchange", handleResize);
+
+  return () => {
+    window.visualViewport?.removeEventListener("resize", handleResize);
+    window.removeEventListener("orientationchange", handleResize);
+  };
+}, []);
+
 
   // Animation start and bottom positions based on screen type
   const getBusInitialX = () => {
@@ -58,7 +66,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
+    <section className="relative flex min-h-screen h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4
                       pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
