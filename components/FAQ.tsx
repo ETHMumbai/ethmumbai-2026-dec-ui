@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { generalFAQ, conferenceFAQ, hackathonFAQ } from "../lib/faqContent"; // import your data
 
 interface AccordionProps {
   title: string;
@@ -16,14 +17,18 @@ const Accordion: React.FC<AccordionProps> = ({
   onClick,
 }) => {
   return (
-    <div className="w-full text-left items-center justify-between px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A]  font-medium text-[14px]">
+    <div className="w-full text-left items-center justify-between px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A] font-medium text-[14px]">
       <button
         onClick={onClick}
-        className={`flex w-full items-center justify-between p-4 text-left cursor-pointer focus:outline-hidden ${isActive ? "font-semibold text-[15px]" : ""}`}
+        className={`flex w-full items-center justify-between p-4 text-left cursor-pointer focus:outline-none ${
+          isActive ? "font-semibold text-[15px]" : ""
+        }`}
       >
         {title}
         <ChevronDown
-          className={`h-5 w-5 transition-transform ${isActive ? "rotate-180 transform" : ""}`}
+          className={`h-5 w-5 transition-transform ${
+            isActive ? "rotate-180 transform" : ""
+          }`}
         />
       </button>
 
@@ -38,53 +43,35 @@ const Accordion: React.FC<AccordionProps> = ({
   );
 };
 
-const accordionData = [
-  {
-    title: "What is ETHMumbai?",
-    content:
-      "ETHMumbai is a 1-day conference and a 3-day hackathon focused on Ethereum.",
-  },
-  {
-    title: "When and where is ETHMumbai 2026 happening?",
-    content:
-      "The answer is right there! ETHMumbai is happening in Mumbai from 12-15 March 2026. ",
-  },
-  {
-    title: "Can I attend both the conference and the hackathon?",
-    content: "Yes, you can — and we encourage you to. ",
-  },
-  {
-    title: "Who can attend ETHMumbai 2026?",
-    content:
-      "Anyone and everyone who is interested in the Ethereum ecosystem is welcome to attend the conference and hackathon. ",
-  },
-  {
-    title: "What are the tracks?",
-    content:
-      "Both the conference and the hackathon feature three tracks: DeFi, Privacy, and AI.",
-  },
-];
+interface FAQProps {
+  type?: "general" | "conference" | "hackathon";
+}
 
-const FAQ = () => {
+const FAQ: React.FC<FAQProps> = ({ type = "general" }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
+  // Select data based on type prop
+  const data =
+    type === "conference"
+      ? conferenceFAQ
+      : type === "hackathon"
+      ? hackathonFAQ
+      : generalFAQ;
+
   return (
     <section className="relative items-start justify-center bg-[#FFD600] py-16 px-4">
       <div className="mb-5">
-        <h2
-          className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10"
-          role="heading"
-          aria-level={2}
-        >
+        <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10">
           FAQs
         </h2>
       </div>
+
       <div className="mx-auto my-6 max-w-[832px] space-y-5">
-        {accordionData.map((item, index) => (
+        {data.map((item, index) => (
           <Accordion
             key={index}
             title={item.title}

@@ -21,7 +21,7 @@ export default function LandingPage() {
         <Speakers/>
         <Sponsors />
         <Partners />
-        <FAQ />
+        <FAQ type="general"/>
         <Footer />
       </main>
     </div>
