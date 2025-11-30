@@ -6,7 +6,6 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Bus from "../public/assets/hero/bus-cropped.svg";
-import BusMobile from "../public/assets/hero/bus-mobile.svg";
 import Road from "../public/assets/hero/road-cropped.svg";
 import Cityscape from "../public/assets/hero/cityscape-cropped.svg";
 
@@ -187,7 +186,7 @@ export default function Hero() {
             transition={{ duration: 3.5, ease: "easeOut", delay: 0 }}
           >
             <Image
-              src={screenType === "mobile" ? BusMobile : Bus}
+              src={Bus}
               alt="Bus"
               unoptimized
               className="
