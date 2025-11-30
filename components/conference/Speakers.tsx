@@ -28,7 +28,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#BEBEBE] bg-white overflow-visible relative">
+                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
@@ -99,7 +99,7 @@ export default function Speakers() {
         rel="noopener noreferrer"
       >
         <div className="flex justify-center mt-16">
-          <button className="bg-white text-[#E2231A] font-medium text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+          <button className="bg-white text-[#E2231A] text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Apply to Speak
           </button>
         </div>
