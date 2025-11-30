@@ -20,5 +20,6 @@ export const conferenceFAQ: FAQItem[] = [
 ];
 
 export const hackathonFAQ: FAQItem[] = [
-  { title: "...", content: "..." },
+  { title: "Who is eligible to apply for the hackathon?", content: "TBD" },
+    { title: "Can I volunteer to be a part of the organizing team?", content: "Yes, you can! We will be inviting applications for volunteers in January 2026. Stay updated about that and a lot more on our X and newsletter." },
 ];
