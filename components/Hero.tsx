@@ -28,9 +28,9 @@ export default function Hero() {
       setIsShortScreen(window.innerHeight < 700);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    // handleResize();
+    // window.addEventListener("resize", handleResize);
+    // return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Animation start and bottom positions based on screen type
@@ -58,7 +58,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
+    <section className="relative flex h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4
                       pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
