@@ -201,7 +201,7 @@ const Payment: React.FC = () => {
   }, [payId]);
 
   return (
-    <section className=" flex justify-center overflow-hidden bg-white border border-black text-black">
+    <section className=" flex justify-center overflow-hidden bg-white  text-black">
       {/* Centered content */}
       <div
         className="flex items-center
