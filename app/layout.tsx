@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "ETHMumbai",
     images: [
       {
-        url: "https://ethmumbai.in",
+        url: "https://ethmumbai.in/website.png",
         width: 1200,
         height: 630,
       },
@@ -38,7 +38,13 @@ export const metadata: Metadata = {
     title: "ETHMumbai 2026",
     description:
       "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
-    images: ["favicon link"],
+    images: [
+      {
+        url: "https://ethmumbai.in/website.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 
