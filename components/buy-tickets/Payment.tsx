@@ -356,22 +356,23 @@ const Payment: React.FC = () => {
             {/* Two payment buttons */}
             <div className="grid md:grid-cols-2 gap-3">
               <button
-                onClick={handlePayWithINR}
-                className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50 cursor-pointer"
-                disabled={loading}
+                // onClick={handlePayWithINR}
+                className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:bg-gray-500 disabled:text-gray-200 "
+                disabled={true}
               >
                 {loading ? (
                   "Processing..."
                 ) : (
-                  <div className="inline-flex items-center gap-2">
-                    <span>Pay with</span>
-                    <Image
-                      src={Razorpay}
-                      alt="Razorpay"
-                      width={90}
-                      height={90}
-                    />
-                  </div>
+                  // <div className="inline-flex items-center gap-2">
+                  //   <span>Pay with</span>
+                  //   <Image
+                  //     src={Razorpay}
+                  //     alt="Razorpay"
+                  //     width={90}
+                  //     height={90}
+                  //   />
+                  // </div>
+                  <div>Fiat Payment Coming soon...</div>
                 )}
               </button>
 
