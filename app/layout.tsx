@@ -8,9 +8,38 @@ const inter = Inter_Tight({
   variable: "--font-inter",
 });
 
+// export const metadata: Metadata = {
+//   title: "ETHMumbai 2026",
+//   description: "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+// };
 export const metadata: Metadata = {
   title: "ETHMumbai 2026",
-  description: "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+  description:
+    "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+
+  openGraph: {
+    title: "ETHMumbai 2026",
+    description:
+      "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+    url: "https://ethmumbai.in",
+    siteName: "ETHMumbai",
+    images: [
+      {
+        url: "https://ethmumbai.in",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ETHMumbai 2026",
+    description:
+      "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+    images: ["favicon link"],
+  },
 };
 
 export default function RootLayout({
