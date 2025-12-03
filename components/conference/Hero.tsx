@@ -21,22 +21,7 @@ export default function Hero() {
           10 hours of learning, building, and connecting with the Ethereum community
         </p>
 
-
-        {/* Action Buttons */}
-        {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <Link
-            href="/buy-tickets"
-          >
-            <button
-              className="bg-white border border-white text-[#E2231A]
-                        font-semibold text-base px-6 py-3 rounded-[14px]
-                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
-            >
-              Buy Tickets
-            </button>
-          </Link>
-        </div>
-      </div> 
+      </div>
     </section>
   );
 }
