@@ -19,8 +19,8 @@ export default function LandingPage() {
         <Overview />
         <Speakers/>
         <Sponsors />
-        <Agenda />
-        <Venue type="conference" />
+        {/* <Agenda /> */}
+        {/* <Venue type="conference" /> */}
         <FAQ type="conference" />
         <Footer />
       </main>
