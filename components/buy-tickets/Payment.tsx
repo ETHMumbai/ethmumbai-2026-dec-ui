@@ -31,7 +31,6 @@ const Payment: React.FC = () => {
   const [payId, setPayId] = useState<string>("");
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // handle quantity update
   const handleQuantityChange = (type: "inc" | "dec") => {
     setQuantity((prevQty) => {
       const newQuantity =
@@ -56,7 +55,6 @@ const Payment: React.FC = () => {
 
   const total = ticketPrices[ticketType] * quantity;
 
-  // Handle input changes
   const handleBuyerChange = (field: string, value: string) => {
     setBuyerInfo((prev) => ({ ...prev, [field]: value }));
   };
@@ -116,7 +114,7 @@ const Payment: React.FC = () => {
       );
 
       const options = {
-        key: "rzp_test_RZlakbieFC6xU8", // 🔑 replace with your actual key
+        key: "rzp_test_RZlakbieFC6xU8",
         amount: data.amount * 100,
         currency: data.currency,
         name: "ETHMumbai",
@@ -171,19 +169,10 @@ const Payment: React.FC = () => {
         quantity,
       };
 
-      // const payload = {
-      //   ticketType: ticketTypeToSend,
-      //   quantity,
-      // };
-
-      // Call Daimo API (placeholder for now)
       const { data } = await axios.post(
         "http://localhost:3000/payments/create-order",
         payload
       );
-
-      // Redirect or open Daimo Pay link
-      console.log(data);
 
       setPayId(data.paymentId);
     } catch (error) {
@@ -199,67 +188,73 @@ const Payment: React.FC = () => {
 
     const id = requestAnimationFrame(() => {
       const btn = wrapperRef.current?.querySelector("button");
-      btn?.click(); // trigger daimo flow
+      btn?.click();
     });
 
     return () => cancelAnimationFrame(id);
   }, [payId]);
 
   return (
-    <section className=" flex justify-center overflow-hidden bg-white  text-black">
-      {/* Centered content */}
-      <div
-        className="flex items-center
-                     "
-      >
-        <div className="min-w-full mx-auto p-3">
+    <section className="w-full bg-white text-black">
+      <div className="w-full py-8">
+        <div className="w-full px-6 md:px-8 lg:px-10 overflow-x-hidden">
           {/* Ticket Type */}
           <div className="bg-white rounded-2xl shadow p-6 mb-6">
-            <h2 className="text-lg font-semibold mb-4">Select Ticket Type</h2>
             <div className="grid gap-4">
               {[
                 {
                   type: "earlybird",
                   label: "EarlyBird",
                   price: 999,
-                  image: "/assets/tickets/earlybird.svg",
+                  image: "/assets/tickets/earlybird-list.svg",
                   desc: "Available until Dec 31, 2025",
+                  comingSoon: false,
                 },
                 {
                   type: "standard",
                   label: "Standard",
                   price: 1999,
-                  image: "/assets/tickets/standard.svg",
+                  image: "/assets/tickets/standard-list.svg",
                   desc: "Standard pricing",
+                  comingSoon: true,
                 },
-              ].map(({ type, image }) => (
+              ].map(({ type, image, label, desc, comingSoon }) => (
                 <div
                   key={type}
                   onClick={() =>
-                    setTicketType(type as "earlybird" | "standard")
+                    !comingSoon && setTicketType(type as "earlybird" | "standard")
                   }
-                  className={`border rounded-xl p-4 cursor-pointer transition ${
-                    ticketType === type ? "border-black" : "border-gray-300"
-                  }`}
+                  className={`
+                    relative border rounded-xl p-6 cursor-pointer transition
+                    ${ticketType === type && !comingSoon ? "border-black" : "border-gray-300"}
+                    ${comingSoon ? "opacity-50 cursor-not-allowed" : ""}
+                  `}
                 >
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <Image
-                        src={image}
-                        alt={type}
-                        width={500}
-                        height={300}
-                        className=" object-cover"
-                      />
+                  {/* Coming Soon Badge */}
+                  {comingSoon && (
+                    <div className="absolute top-3 right-3 bg-black text-white text-xs px-3 py-1 rounded-full">
+                      Coming Soon
                     </div>
+                  )}
+
+                  {/* IMAGE (goes last now) */}
+                  <div className="mt-6">
+                    <Image
+                      src={image}
+                      alt={label}
+                      width={856}
+                      height={274}
+                      className="w-full h-auto object-contain"
+                    />
                   </div>
                 </div>
               ))}
+
             </div>
 
             {/* Quantity */}
-            <div className="flex items-center justify-between mt-6">
-              <h3 className="font-medium">Quantity</h3>
+            <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
+              <h3 className="px-2 font-regular">Quantity</h3>
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => handleQuantityChange("dec")}
@@ -278,45 +273,83 @@ const Payment: React.FC = () => {
             </div>
           </div>
 
+
           {/* Buyer Info */}
           <div className="bg-white rounded-2xl shadow p-6 mb-6">
-            <h2 className="text-lg font-semibold mb-4">Buyer Information</h2>
+            <h2 className="text-lg text-[#0A0A0A] font-regular">Checkout Details</h2>
+            <p className="text-lg text-[#717182] font-regular mb-4">Please fill in your information</p>
+            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Buyer Information</p>
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="text"
                 placeholder="Full Name *"
-                className="border rounded-lg p-2"
+                className="border bg-[#F3F3F5] rounded-lg p-2"
                 value={buyerInfo.name}
                 onChange={(e) => handleBuyerChange("name", e.target.value)}
               />
               <input
                 type="email"
                 placeholder="Email *"
-                className="border rounded-lg p-2"
+                className="border bg-[#F3F3F5] rounded-lg p-2"
                 value={buyerInfo.email}
                 onChange={(e) => handleBuyerChange("email", e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Phone Number"
-                className="border rounded-lg p-2 md:col-span-2"
+                className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
                 value={buyerInfo.phone}
                 onChange={(e) => handleBuyerChange("phone", e.target.value)}
               />
             </div>
-          </div>
+            <hr className="my-6" />
+            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Billing Address</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              <input
+                type="text"
+                placeholder="Street Address *"
+                className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
+                value={buyerInfo.name}
+                onChange={(e) => handleBuyerChange("street-address", e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="City *"
+                className="border bg-[#F3F3F5] rounded-lg p-2"
+                value={buyerInfo.email}
+                onChange={(e) => handleBuyerChange("city", e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="State *"
+                className="border bg-[#F3F3F5] rounded-lg p-2 "
+                value={buyerInfo.phone}
+                onChange={(e) => handleBuyerChange("state", e.target.value)}
+              />
+              <input
+                type="number"
+                placeholder="PIN Code *"
+                className="border bg-[#F3F3F5] rounded-lg p-2 "
+                value={buyerInfo.phone}
+                onChange={(e) => handleBuyerChange("pincode", e.target.value)}
+              />
+            </div>
+            <hr className="my-6" />
+            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Participant Information</p>
+         
+          {/* </div> */}
 
           {/* Participant Info */}
           {participants.map((p, i) => (
-            <div key={i} className="bg-white rounded-2xl shadow p-6 mb-6">
-              <h2 className="text-lg font-semibold mb-4">
+            <div key={i} className="bg-white rounded-2xl mb-6">
+              <h2 className="text-lg font-regular mb-4">
                 Participant {i + 1}
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="Name *"
-                  className="border rounded-lg p-2"
+                  className="border bg-[#F3F3F5] rounded-lg p-2"
                   value={p.name}
                   onChange={(e) =>
                     handleParticipantChange(i, "name", e.target.value)
@@ -325,7 +358,7 @@ const Payment: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Email *"
-                  className="border rounded-lg p-2"
+                  className="border bg-[#F3F3F5] rounded-lg p-2"
                   value={p.email}
                   onChange={(e) =>
                     handleParticipantChange(i, "email", e.target.value)
@@ -334,10 +367,10 @@ const Payment: React.FC = () => {
               </div>
             </div>
           ))}
-
+        </div>
           {/* Order Summary */}
           <div className="bg-white rounded-2xl shadow p-6">
-            <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
+            <h2 className="text-lg font-refular mb-4">Order Summary</h2>
             <div className="flex justify-between text-sm mb-2">
               <span>Ticket Type</span>
               <span>
@@ -358,27 +391,13 @@ const Payment: React.FC = () => {
               <span>₹{total}</span>
             </div>
 
-            {/* Two payment buttons */}
+            {/* Payment Buttons */}
             <div className="grid md:grid-cols-2 gap-3">
               <button
-                // onClick={handlePayWithINR}
-                className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:bg-gray-500 disabled:text-gray-200 "
                 disabled={true}
+                className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:bg-gray-500 disabled:text-gray-200"
               >
-                {loading ? (
-                  "Processing..."
-                ) : (
-                  // <div className="inline-flex items-center gap-2">
-                  //   <span>Pay with</span>
-                  //   <Image
-                  //     src={Razorpay}
-                  //     alt="Razorpay"
-                  //     width={90}
-                  //     height={90}
-                  //   />
-                  // </div>
-                  <div>Fiat Payment Coming soon...</div>
-                )}
+                INR Payment Coming soon...
               </button>
 
               <div
@@ -407,8 +426,6 @@ const Payment: React.FC = () => {
 
                 <DaimoPayButton.Custom
                   payId={payId}
-                  //onOpen to be changed to onPaymentStarted
-
                   onPaymentCompleted={(e) => {
                     console.log(e);
                     console.log("Payment completed");
@@ -418,54 +435,30 @@ const Payment: React.FC = () => {
                       body: JSON.stringify({
                         paymentType: "DAIMO",
                         paymentId: payId,
-                        // buyerName: buyerInfo.name,
-                        // buyerEmail: buyerInfo.email,
-                        // buyerPhone: buyerInfo.phone,
-                        // participants,
                       }),
                     }).catch(console.error);
                   }}
                 >
-                  {({ show, hide }) => (
+                  {({ show }) => (
                     <button
                       onClick={show}
                       disabled={loading}
                       className="cursor-pointer w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50"
                     >
                       <div className="inline-flex items-center gap-2">
-                        <span>Pay with </span>
+                        <span>Pay with</span>
                         <Image
                           src={Daimo}
                           alt="Daimo Pay"
                           width={20}
                           height={20}
-                        />{" "}
+                        />
                         <span>Daimo Pay</span>
                       </div>
                     </button>
                   )}
                 </DaimoPayButton.Custom>
               </div>
-              {/* <DaimoPayButton
-                appId="pay-demo"
-                toAddress="0x17f2e45F5A2F2B23a229Cf5f848b9a2C6E0Ab534"
-                toChain={1} 
-                toToken="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-                intent="Checkout"
-                toUnits="10.00"
-                preferredTokens={[
-               
-                  {
-                    chain: 1,
-                    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                  },
-                ]}
-                onPaymentStarted={(e) => console.log(e)}
-                onPaymentCompleted={(e) => console.log(e)}
-                onPaymentBounced={(e) => console.log(e)}
-                onOpen={() => console.log("Modal opened")}
-                onClose={() => console.log("Modal closed")}
-              /> */}
             </div>
           </div>
         </div>
