@@ -171,6 +171,11 @@ const Payment: React.FC = () => {
         quantity,
       };
 
+      // const payload = {
+      //   ticketType: ticketTypeToSend,
+      //   quantity,
+      // };
+
       // Call Daimo API (placeholder for now)
       const { data } = await axios.post(
         "http://localhost:3000/payments/create-order",
@@ -403,25 +408,20 @@ const Payment: React.FC = () => {
                 <DaimoPayButton.Custom
                   payId={payId}
                   //onOpen to be changed to onPaymentStarted
-                  onOpen={() => {
-                    console.log("Payment open: ");
-                    fetch("http://localhost:3000/payments/verify", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        paymentType: "DAIMO",
-                        paymentId: payId,
-                      }),
-                    }).catch(console.error);
-                  }} /* Logs that will appear when the user initiated the payment */
+
                   onPaymentCompleted={(e) => {
                     console.log(e);
+                    console.log("Payment completed");
                     fetch("http://localhost:3000/payments/verify", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({
                         paymentType: "DAIMO",
                         paymentId: payId,
+                        // buyerName: buyerInfo.name,
+                        // buyerEmail: buyerInfo.email,
+                        // buyerPhone: buyerInfo.phone,
+                        // participants,
                       }),
                     }).catch(console.error);
                   }}
@@ -446,6 +446,26 @@ const Payment: React.FC = () => {
                   )}
                 </DaimoPayButton.Custom>
               </div>
+              {/* <DaimoPayButton
+                appId="pay-demo"
+                toAddress="0x17f2e45F5A2F2B23a229Cf5f848b9a2C6E0Ab534"
+                toChain={1} 
+                toToken="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                intent="Checkout"
+                toUnits="10.00"
+                preferredTokens={[
+               
+                  {
+                    chain: 1,
+                    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                  },
+                ]}
+                onPaymentStarted={(e) => console.log(e)}
+                onPaymentCompleted={(e) => console.log(e)}
+                onPaymentBounced={(e) => console.log(e)}
+                onOpen={() => console.log("Modal opened")}
+                onClose={() => console.log("Modal closed")}
+              /> */}
             </div>
           </div>
         </div>
