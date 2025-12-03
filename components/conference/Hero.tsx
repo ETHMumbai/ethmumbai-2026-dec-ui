@@ -5,91 +5,6 @@ import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
-  const balloonRef = useRef<HTMLImageElement | null>(null);
-  const [screenType, setScreenType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) setScreenType('mobile');
-      else if (width < 1024) setScreenType('tablet');
-      else setScreenType('desktop');
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Balloon Follow Logic
-  useEffect(() => {
-    let x = 0;
-    let y = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    const speed = 0.06; // smooth delayed follow
-
-    const animate = () => {
-      x += (targetX - x) * speed;
-      y += (targetY - y) * speed;
-
-      if (balloonRef.current) {
-        balloonRef.current.style.transform = `translate(${x}px, ${y}px)`;
-      }
-
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    const handleMove = (e: MouseEvent | TouchEvent) => {
-      let clientX, clientY;
-
-      if (e instanceof TouchEvent) {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-
-      targetX = clientX - 40;
-      targetY = clientY - 80;
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("touchmove", handleMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
-    };
-  }, []);
-
-  // Animation start and bottom positions based on screen type
-  const getBusInitialX = () => {
-    if (screenType === 'mobile') return 'calc(80vw + 100%)';
-    if (screenType === 'tablet') return 'calc(60vw + 100%)';
-    return 'calc(50vw + 100%)';
-  };
-  const getBusInitialY = () => {
-    if (screenType === 'mobile') return -110;
-    if (screenType === 'tablet') return 50;
-    return 40; // desktop
-  };
-
-  const getBusInitialScale = () => {
-    if (screenType === 'mobile') return 0.2;
-    if (screenType === 'tablet') return 0.2;
-    return 0.1;
-  };
-
-  const getBusBottom = () => {
-    if (screenType === 'mobile') return '60px';
-    if (screenType === 'tablet') return '60px';
-    return '80px';
-  };
-
-
   return (
     <section className="relative flex justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
 
@@ -120,12 +35,8 @@ export default function Hero() {
               Buy Tickets
             </button>
           </Link>
-        </div> */}
-      </div>
-
-
-
- 
+        </div>
+      </div> 
     </section>
   );
 }
