@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const inter = Inter_Tight({
@@ -10,7 +11,8 @@ const inter = Inter_Tight({
 
 export const metadata: Metadata = {
   title: "ETHMumbai 2026",
-  description: "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+  description:
+    "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
 };
 
 export default function RootLayout({
@@ -24,7 +26,7 @@ export default function RootLayout({
         className={`${inter.variable} 
       ${inter.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
