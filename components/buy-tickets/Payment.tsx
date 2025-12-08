@@ -1,523 +1,115 @@
+// Payment.tsx
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useRef, useEffect, useState } from "react";
-import { DaimoPayButton } from "@daimo/pay";
+import { useState, useRef } from "react";
 import axios from "axios";
-import Daimo from "../../public/assets/tickets/daimo.svg";
-import Razorpay from "../../public/assets/tickets/razorpay.svg";
+
+import { TicketOption, TicketType, Participant } from "./types";
+import TicketSelection from "./TicketSelection";
+import BuyerInfo from "./BuyerInfo";
+import OrderSummary from "./OrderSummary";
+import PaymentButtons from "./PaymentButtons";
+
+const ticketPrices: Record<TicketType, number> = {
+  earlybird: 999,
+  standard: 1999,
+};
+
+const ticketOptions: TicketOption[] = [
+  {
+    type: "earlybird",
+    label: "EarlyBird",
+    price: 999,
+    desktopImage: "/assets/tickets/earlybird-list.svg",
+    mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
+    comingSoon: false,
+  },
+  {
+    type: "standard",
+    label: "Standard",
+    price: 1999,
+    desktopImage: "/assets/tickets/standard-list.svg",
+    mobileImage: "/assets/tickets/standard-sm-vertical.svg",
+    comingSoon: true,
+  },
+];
 
 const Payment: React.FC = () => {
-  const [ticketType, setTicketType] = useState<"earlybird" | "standard">(
-    "earlybird"
-  );
+  // Backend fixed ticket type
+  const [ticketType] = useState<TicketType>("earlybird");
+
+  // Mobile visual toggle
+  const [visualTicketType, setVisualTicketType] = useState<"earlybird" | "standard">("earlybird");
+
   const [quantity, setQuantity] = useState(1);
-  const [buyerInfo, setBuyerInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-  const [participants, setParticipants] = useState<
-    { name: string; email: string }[]
-  >([{ name: "", email: "" }]);
+  const [buyerInfo, setBuyerInfo] = useState({ name: "", email: "", phone: "" });
+  const [participants, setParticipants] = useState<Participant[]>([{ name: "", email: "" }]);
   const [loading, setLoading] = useState(false);
+  const [payId, setPayId] = useState("");
 
-  const ticketPrices = {
-    earlybird: 999,
-    standard: 1999,
-  };
-
-  const [payId, setPayId] = useState<string>("");
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleQuantityChange = (type: "inc" | "dec") => {
     setQuantity((prevQty) => {
-      const newQuantity =
-        type === "inc" ? prevQty + 1 : Math.max(1, prevQty - 1);
-
-      setParticipants((prevParticipants) => {
-        const diff = newQuantity - prevParticipants.length;
-        if (diff > 0) {
-          return [
-            ...prevParticipants,
-            ...Array.from({ length: diff }, () => ({ name: "", email: "" })),
-          ];
-        } else if (diff < 0) {
-          return prevParticipants.slice(0, newQuantity);
-        }
-        return prevParticipants;
+      const newQuantity = type === "inc" ? prevQty + 1 : Math.max(1, prevQty - 1);
+      setParticipants((prev) => {
+        const diff = newQuantity - prev.length;
+        if (diff > 0) return [...prev, ...Array.from({ length: diff }, () => ({ name: "", email: "" }))];
+        if (diff < 0) return prev.slice(0, newQuantity);
+        return prev;
       });
-
       return newQuantity;
     });
   };
-
-  const total = ticketPrices[ticketType] * quantity;
 
   const handleBuyerChange = (field: string, value: string) => {
     setBuyerInfo((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleParticipantChange = (
-    index: number,
-    field: string,
-    value: string
-  ) => {
+  const handleParticipantChange = (index: number, field: string, value: string) => {
     const updated = [...participants];
-    updated[index][field as "name" | "email"] = value;
+    updated[index][field as keyof Participant] = value;
     setParticipants(updated);
-  };
-
-  const loadRazorpayScript = () => {
-    return new Promise((resolve) => {
-      const existingScript = document.querySelector(
-        'script[src="https://checkout.razorpay.com/v1/checkout.js"]'
-      );
-      if (existingScript) return resolve(true);
-
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
-
-  const handlePayWithINR = async () => {
-    const isLoaded = await loadRazorpayScript();
-    if (!isLoaded) {
-      alert("Failed to load Razorpay SDK. Please check your network.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-
-      const ticketTypeToSend = ticketType;
-
-      const payload = {
-        ticketType: ticketTypeToSend,
-        buyerName: buyerInfo.name,
-        buyerEmail: buyerInfo.email,
-        buyerPhone: buyerInfo.phone,
-        participants: participants.map((p, i) => ({
-          ...p,
-          isBuyer: i === 0,
-        })),
-        quantity,
-      };
-
-      const { data } = await axios.post(
-        "http://localhost:3000/payments/order",
-        payload
-      );
-
-      const options = {
-        key: "rzp_test_RZlakbieFC6xU8",
-        amount: data.amount * 100,
-        currency: data.currency,
-        name: "ETHMumbai",
-        description: "Conference Ticket Purchase",
-        order_id: data.razorpayOrderId,
-        handler: async (response: any) => {
-          try {
-            await axios.post("http://localhost:3000/payments/verify", {
-              paymentType: "RAZORPAY",
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-            });
-            alert("✅ Payment Successful!");
-          } catch (err) {
-            console.error("Verification failed", err);
-            alert("❌ Payment verification failed!");
-          }
-        },
-        prefill: {
-          name: buyerInfo.name,
-          email: buyerInfo.email,
-          contact: buyerInfo.phone,
-        },
-        theme: { color: "#000000" },
-      };
-
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
-    } catch (error) {
-      console.error("Payment error:", error);
-      alert("Payment initialization failed. Try again.");
-    } finally {
-      setLoading(false);
-    }
   };
 
   const handlePayWithCrypto = async (e: React.MouseEvent) => {
     if (loading || payId) return;
-
     e.stopPropagation();
     try {
       setLoading(true);
-      const ticketTypeToSend = ticketType;
-
-      const payload = {
-        ticketType: ticketTypeToSend,
-        buyerName: buyerInfo.name,
-        buyerEmail: buyerInfo.email,
-        buyerPhone: buyerInfo.phone,
-        participants,
-        quantity,
-      };
-
-      const { data } = await axios.post(
-        "http://localhost:3000/payments/create-order",
-        payload
-      );
-
+      const payload = { ticketType, buyerName: buyerInfo.name, buyerEmail: buyerInfo.email, buyerPhone: buyerInfo.phone, participants, quantity };
+      const { data } = await axios.post("http://localhost:3000/payments/create-order", payload);
       setPayId(data.paymentId);
     } catch (error) {
-      console.error("Crypto payment error:", error);
+      console.error(error);
       alert("Failed to initiate crypto payment.");
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    if (!payId) return;
-
-    const id = requestAnimationFrame(() => {
-      const btn = wrapperRef.current?.querySelector("button");
-      btn?.click();
-    });
-
-    return () => cancelAnimationFrame(id);
-  }, [payId]);
-
-  const ticketOptions = [
-    {
-      type: "earlybird",
-      label: "EarlyBird",
-      price: 999,
-      desktopImage: "/assets/tickets/earlybird-list.svg",
-      mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-      desc: "Available until Dec 31, 2025",
-      comingSoon: false,
-    },
-    {
-      type: "standard",
-      label: "Standard",
-      price: 1999,
-      desktopImage: "/assets/tickets/standard-list.svg",
-      mobileImage: "/assets/tickets/standard-sm-vertical.svg",
-      desc: "Standard pricing",
-      comingSoon: true,
-    },
-  ];
-
   return (
     <section className="w-full bg-white text-black">
       <div className="w-full py-8">
         <div className="w-full px-6 md:px-18 lg:px-20 overflow-x-hidden">
-          {/* Ticket Type */}
-          <div className="bg-white rounded-2xl shadow p-6 mb-6">
-            {/* Desktop grid remains */}
-            <div className="hidden sm:grid sm:grid-cols-2 gap-4">
-              {ticketOptions.map(
-                ({ type, desktopImage, label, comingSoon }) => (
-                  <div
-                    key={type}
-                    onClick={() =>
-                      !comingSoon && setTicketType(type as "earlybird" | "standard")
-                    }
-                    className={`
-                      relative border rounded-xl p-4 cursor-pointer transition
-                      ${ticketType === type && !comingSoon ? "border-black" : "border-gray-300"}
-                      ${comingSoon ? "opacity-50 cursor-not-allowed" : ""}
-                      `}
-                    >
-                    {comingSoon && (
-                      <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded-full">
-                        Coming Soon
-                      </div>
-                    )}
-                    <Image
-                      src={desktopImage}
-                      alt={label}
-                      width={856}
-                      height={274}
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                )
-              )}
-            </div>
+          <TicketSelection
+            visualTicketType={visualTicketType}
+            setVisualTicketType={setVisualTicketType}
+            quantity={quantity}
+            handleQuantityChange={handleQuantityChange}
+            ticketOptions={ticketOptions}
+          />
 
-            {/* Mobile row with selectable images */}
-            <div className="flex sm:hidden gap-4">
-              {ticketOptions.map(({ type, mobileImage, label }) => (
-                <div
-                  key={type}
-                  onClick={() => setTicketType(type as "earlybird" | "standard")}
-                  className={`
-                    relative border rounded-xl p-2 cursor-pointer transition flex-1
-                    ${ticketType === type ? "border-black" : "border-gray-300"}
-                  `}
-                >
-                  <Image
-                    src={mobileImage}
-                    alt={label}
-                    width={150}
-                    height={250}
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+          <BuyerInfo
+            buyerInfo={buyerInfo}
+            handleBuyerChange={handleBuyerChange}
+            participants={participants}
+            handleParticipantChange={handleParticipantChange}
+          />
 
-            {/* Extra mobile image below */}
-            <div className="block sm:hidden mt-4">
-              <Image
-                src={
-                  ticketType === "earlybird"
-                    ? "/assets/tickets/earlybird-sm.svg"
-                    : "/assets/tickets/standard-sm.svg"
-                }
-                alt={ticketType === "earlybird" ? "EarlyBird Extra" : "Standard Extra"}
-                width={300}
-                height={150}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
-              <h3 className="px-2 font-regular">Quantity</h3>
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={() => handleQuantityChange("dec")}
-                  className="px-3 py-1 border rounded-lg cursor-pointer"
-                >
-                  −
-                </button>
-                <span>{quantity}</span>
-                <button
-                  onClick={() => handleQuantityChange("inc")}
-                  className="px-3 py-1 border rounded-lg cursor-pointer"
-                >
-                  +
-                </button>¯
-              </div>
-            </div>
-          </div>
+          <OrderSummary ticketType={ticketType} quantity={quantity} ticketPrices={ticketPrices} />
 
-          {/* Buyer Info */}
-          <div className="bg-white rounded-2xl shadow p-6 mb-6">
-            <h2 className="text-lg text-[#0A0A0A] font-regular">Checkout Details</h2>
-            <p className="text-lg text-[#717182] font-regular mb-4">Please fill in your information</p>
-            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Buyer Information</p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Full Name *"
-                className="border bg-[#F3F3F5] rounded-lg p-2"
-                value={buyerInfo.name}
-                onChange={(e) => handleBuyerChange("name", e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="Email *"
-                className="border bg-[#F3F3F5] rounded-lg p-2"
-                value={buyerInfo.email}
-                onChange={(e) => handleBuyerChange("email", e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="Phone Number"
-                className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
-                value={buyerInfo.phone}
-                onChange={(e) => handleBuyerChange("phone", e.target.value)}
-              />
-            </div>
-            <hr className="my-6" />
-            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Billing Address</p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <input
-                type="text"
-                placeholder="Street Address *"
-                className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
-                value={buyerInfo.name}
-                onChange={(e) => handleBuyerChange("street-address", e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="City *"
-                className="border bg-[#F3F3F5] rounded-lg p-2"
-                value={buyerInfo.email}
-                onChange={(e) => handleBuyerChange("city", e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="State *"
-                className="border bg-[#F3F3F5] rounded-lg p-2 "
-                value={buyerInfo.phone}
-                onChange={(e) => handleBuyerChange("state", e.target.value)}
-              />
-              <input
-                type="number"
-                placeholder="PIN Code *"
-                className="border bg-[#F3F3F5] rounded-lg p-2 "
-                value={buyerInfo.phone}
-                onChange={(e) => handleBuyerChange("pincode", e.target.value)}
-              />
-            </div>
-            <hr className="my-6" />
-            <p className="text-lg text-[#0A0A0A] font-regular mb-4">Participant Information</p>
-
-            {/* </div> */}
-
-            {/* Participant Info */}
-            {participants.map((p, i) => (
-              <div key={i} className="bg-white rounded-2xl mb-6">
-                <h2 className="text-lg font-regular mb-4">
-                  Participant {i + 1}
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Name *"
-                    className="border bg-[#F3F3F5] rounded-lg p-2"
-                    value={p.name}
-                    onChange={(e) =>
-                      handleParticipantChange(i, "name", e.target.value)
-                    }
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email *"
-                    className="border bg-[#F3F3F5] rounded-lg p-2"
-                    value={p.email}
-                    onChange={(e) =>
-                      handleParticipantChange(i, "email", e.target.value)
-                    }
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Order Summary */}
-          <div className="bg-white rounded-2xl shadow p-6">
-            <h2 className="text-lg font-refular mb-4">Order Summary</h2>
-            <div className="flex justify-between text-sm mb-2">
-              <span>Ticket Type</span>
-              <span>
-                {ticketType === "earlybird" ? "Early Bird" : "Standard"}
-              </span>
-            </div>
-            <div className="flex justify-between text-sm mb-2">
-              <span>Price per ticket</span>
-              <span>₹{ticketPrices[ticketType]}</span>
-            </div>
-            <div className="flex justify-between text-sm mb-2">
-              <span>Quantity</span>
-              <span>{quantity}</span>
-            </div>
-            <hr className="my-2" />
-            <div className="flex justify-between font-bold text-lg mb-4">
-              <span>Total</span>
-              <span>₹{total}</span>
-            </div>
-
-
-          </div>
-          {/* Payment Buttons */}
-          <div
-            className="
-              flex flex-col md:flex-row 
-              items-center justify-center 
-              gap-3 md:gap-4 
-              py-4 mt-6
-            "
-          >
-
-
-            {/* DAIMO BUTTON */}
-            <div
-              ref={wrapperRef}
-              onClick={handlePayWithCrypto}
-              style={{ position: "relative", display: "inline-block" }}
-              className="w-full md:w-auto"
-              aria-busy={loading}
-            >
-              {loading && !payId && (
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    display: "grid",
-                    placeItems: "center",
-                    fontSize: 14,
-                    background: "rgba(255,255,255,0.6)",
-                    backdropFilter: "blur(2px)",
-                    zIndex: 10,
-                    pointerEvents: "none",
-                  }}
-                >
-                  Creating order…
-                </div>
-              )}
-
-              <DaimoPayButton.Custom
-                payId={payId}
-                onPaymentCompleted={(e) => {
-                  fetch("http://localhost:3000/payments/verify", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      paymentType: "DAIMO",
-                      paymentId: payId,
-                    }),
-                  }).catch(console.error);
-                }}
-              >
-                {({ show }) => (
-                  <button
-                    onClick={show}
-                    disabled={loading}
-                    className="
-                      w-full md:w-auto
-                      inline-flex items-center justify-center 
-                      px-4 py-3 
-                      bg-black text-white 
-                      rounded-lg hover:bg-gray-800 
-                      disabled:opacity-50 
-                      whitespace-nowrap
-                    "
-                  >
-                    <div className="inline-flex items-center gap-2">
-                      <span>Pay with</span>
-                      <Image src={Daimo} alt="Daimo Pay" width={20} height={20} />
-                      <span>Daimo Pay</span>
-                    </div>
-                  </button>
-                )}
-              </DaimoPayButton.Custom>
-            </div>
-            {/* INR BUTTON */}
-            <div className="inline-block w-full md:w-auto">
-              <button
-                disabled={true}
-                className="
-                  w-full md:w-auto
-                  inline-flex items-center justify-center 
-                  px-4 py-3 
-                  bg-gray-400 text-white 
-                  rounded-lg disabled:opacity-50 
-                  whitespace-nowrap
-                "
-              >
-                INR Payment Coming soon...
-              </button>
-            </div>
-          </div>
+          <PaymentButtons payId={payId} loading={loading} handlePayWithCrypto={handlePayWithCrypto} />
         </div>
       </div>
     </section>
