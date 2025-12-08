@@ -194,65 +194,101 @@ const Payment: React.FC = () => {
     return () => cancelAnimationFrame(id);
   }, [payId]);
 
+  const ticketOptions = [
+    {
+      type: "earlybird",
+      label: "EarlyBird",
+      price: 999,
+      desktopImage: "/assets/tickets/earlybird-list.svg",
+      mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
+      desc: "Available until Dec 31, 2025",
+      comingSoon: false,
+    },
+    {
+      type: "standard",
+      label: "Standard",
+      price: 1999,
+      desktopImage: "/assets/tickets/standard-list.svg",
+      mobileImage: "/assets/tickets/standard-sm-vertical.svg",
+      desc: "Standard pricing",
+      comingSoon: true,
+    },
+  ];
+
   return (
     <section className="w-full bg-white text-black">
       <div className="w-full py-8">
-        <div className="w-full px-6 md:px-8 lg:px-10 overflow-x-hidden">
+        <div className="w-full px-6 md:px-18 lg:px-20 overflow-x-hidden">
           {/* Ticket Type */}
           <div className="bg-white rounded-2xl shadow p-6 mb-6">
-            <div className="grid gap-4">
-              {[
-                {
-                  type: "earlybird",
-                  label: "EarlyBird",
-                  price: 999,
-                  image: "/assets/tickets/earlybird-list.svg",
-                  desc: "Available until Dec 31, 2025",
-                  comingSoon: false,
-                },
-                {
-                  type: "standard",
-                  label: "Standard",
-                  price: 1999,
-                  image: "/assets/tickets/standard-list.svg",
-                  desc: "Standard pricing",
-                  comingSoon: true,
-                },
-              ].map(({ type, image, label, desc, comingSoon }) => (
-                <div
-                  key={type}
-                  onClick={() =>
-                    !comingSoon && setTicketType(type as "earlybird" | "standard")
-                  }
-                  className={`
-                    relative border rounded-xl p-6 cursor-pointer transition
-                    ${ticketType === type && !comingSoon ? "border-black" : "border-gray-300"}
-                    ${comingSoon ? "opacity-50 cursor-not-allowed" : ""}
-                  `}
-                >
-                  {/* Coming Soon Badge */}
-                  {comingSoon && (
-                    <div className="absolute top-3 right-3 bg-black text-white text-xs px-3 py-1 rounded-full">
-                      Coming Soon
-                    </div>
-                  )}
-
-                  {/* IMAGE (goes last now) */}
-                  <div className="mt-6">
+            {/* Desktop grid remains */}
+            <div className="hidden sm:grid sm:grid-cols-2 gap-4">
+              {ticketOptions.map(
+                ({ type, desktopImage, label, comingSoon }) => (
+                  <div
+                    key={type}
+                    onClick={() =>
+                      !comingSoon && setTicketType(type as "earlybird" | "standard")
+                    }
+                    className={`
+                      relative border rounded-xl p-4 cursor-pointer transition
+                      ${ticketType === type && !comingSoon ? "border-black" : "border-gray-300"}
+                      ${comingSoon ? "opacity-50 cursor-not-allowed" : ""}
+                      `}
+                    >
+                    {comingSoon && (
+                      <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded-full">
+                        Coming Soon
+                      </div>
+                    )}
                     <Image
-                      src={image}
+                      src={desktopImage}
                       alt={label}
                       width={856}
                       height={274}
                       className="w-full h-auto object-contain"
                     />
                   </div>
-                </div>
-              ))}
-
+                )
+              )}
             </div>
 
-            {/* Quantity */}
+            {/* Mobile row with selectable images */}
+            <div className="flex sm:hidden gap-4">
+              {ticketOptions.map(({ type, mobileImage, label }) => (
+                <div
+                  key={type}
+                  onClick={() => setTicketType(type as "earlybird" | "standard")}
+                  className={`
+                    relative border rounded-xl p-2 cursor-pointer transition flex-1
+                    ${ticketType === type ? "border-black" : "border-gray-300"}
+                  `}
+                >
+                  <Image
+                    src={mobileImage}
+                    alt={label}
+                    width={150}
+                    height={250}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Extra mobile image below */}
+            <div className="block sm:hidden mt-4">
+              <Image
+                src={
+                  ticketType === "earlybird"
+                    ? "/assets/tickets/earlybird-sm.svg"
+                    : "/assets/tickets/standard-sm.svg"
+                }
+                alt={ticketType === "earlybird" ? "EarlyBird Extra" : "Standard Extra"}
+                width={300}
+                height={150}
+                className="w-full h-auto object-contain"
+              />
+            </div>
             <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
               <h3 className="px-2 font-regular">Quantity</h3>
               <div className="flex items-center space-x-3">
@@ -268,11 +304,10 @@ const Payment: React.FC = () => {
                   className="px-3 py-1 border rounded-lg cursor-pointer"
                 >
                   +
-                </button>
+                </button>¯
               </div>
             </div>
           </div>
-
 
           {/* Buyer Info */}
           <div className="bg-white rounded-2xl shadow p-6 mb-6">
@@ -336,38 +371,38 @@ const Payment: React.FC = () => {
             </div>
             <hr className="my-6" />
             <p className="text-lg text-[#0A0A0A] font-regular mb-4">Participant Information</p>
-         
-          {/* </div> */}
 
-          {/* Participant Info */}
-          {participants.map((p, i) => (
-            <div key={i} className="bg-white rounded-2xl mb-6">
-              <h2 className="text-lg font-regular mb-4">
-                Participant {i + 1}
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Name *"
-                  className="border bg-[#F3F3F5] rounded-lg p-2"
-                  value={p.name}
-                  onChange={(e) =>
-                    handleParticipantChange(i, "name", e.target.value)
-                  }
-                />
-                <input
-                  type="email"
-                  placeholder="Email *"
-                  className="border bg-[#F3F3F5] rounded-lg p-2"
-                  value={p.email}
-                  onChange={(e) =>
-                    handleParticipantChange(i, "email", e.target.value)
-                  }
-                />
+            {/* </div> */}
+
+            {/* Participant Info */}
+            {participants.map((p, i) => (
+              <div key={i} className="bg-white rounded-2xl mb-6">
+                <h2 className="text-lg font-regular mb-4">
+                  Participant {i + 1}
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Name *"
+                    className="border bg-[#F3F3F5] rounded-lg p-2"
+                    value={p.name}
+                    onChange={(e) =>
+                      handleParticipantChange(i, "name", e.target.value)
+                    }
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email *"
+                    className="border bg-[#F3F3F5] rounded-lg p-2"
+                    value={p.email}
+                    onChange={(e) =>
+                      handleParticipantChange(i, "email", e.target.value)
+                    }
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
           {/* Order Summary */}
           <div className="bg-white rounded-2xl shadow p-6">
             <h2 className="text-lg font-refular mb-4">Order Summary</h2>
@@ -391,74 +426,96 @@ const Payment: React.FC = () => {
               <span>₹{total}</span>
             </div>
 
-            {/* Payment Buttons */}
-            <div className="grid md:grid-cols-2 gap-3">
+
+          </div>
+          {/* Payment Buttons */}
+          <div
+            className="
+              flex flex-col md:flex-row 
+              items-center justify-center 
+              gap-3 md:gap-4 
+              py-4 mt-6
+            "
+          >
+
+
+            {/* DAIMO BUTTON */}
+            <div
+              ref={wrapperRef}
+              onClick={handlePayWithCrypto}
+              style={{ position: "relative", display: "inline-block" }}
+              className="w-full md:w-auto"
+              aria-busy={loading}
+            >
+              {loading && !payId && (
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "grid",
+                    placeItems: "center",
+                    fontSize: 14,
+                    background: "rgba(255,255,255,0.6)",
+                    backdropFilter: "blur(2px)",
+                    zIndex: 10,
+                    pointerEvents: "none",
+                  }}
+                >
+                  Creating order…
+                </div>
+              )}
+
+              <DaimoPayButton.Custom
+                payId={payId}
+                onPaymentCompleted={(e) => {
+                  fetch("http://localhost:3000/payments/verify", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      paymentType: "DAIMO",
+                      paymentId: payId,
+                    }),
+                  }).catch(console.error);
+                }}
+              >
+                {({ show }) => (
+                  <button
+                    onClick={show}
+                    disabled={loading}
+                    className="
+                      w-full md:w-auto
+                      inline-flex items-center justify-center 
+                      px-4 py-3 
+                      bg-black text-white 
+                      rounded-lg hover:bg-gray-800 
+                      disabled:opacity-50 
+                      whitespace-nowrap
+                    "
+                  >
+                    <div className="inline-flex items-center gap-2">
+                      <span>Pay with</span>
+                      <Image src={Daimo} alt="Daimo Pay" width={20} height={20} />
+                      <span>Daimo Pay</span>
+                    </div>
+                  </button>
+                )}
+              </DaimoPayButton.Custom>
+            </div>
+            {/* INR BUTTON */}
+            <div className="inline-block w-full md:w-auto">
               <button
                 disabled={true}
-                className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:bg-gray-500 disabled:text-gray-200"
+                className="
+                  w-full md:w-auto
+                  inline-flex items-center justify-center 
+                  px-4 py-3 
+                  bg-gray-400 text-white 
+                  rounded-lg disabled:opacity-50 
+                  whitespace-nowrap
+                "
               >
                 INR Payment Coming soon...
               </button>
-
-              <div
-                ref={wrapperRef}
-                onClick={handlePayWithCrypto}
-                style={{ position: "relative", display: "inline-block" }}
-                aria-busy={loading}
-              >
-                {loading && !payId && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      display: "grid",
-                      placeItems: "center",
-                      fontSize: 14,
-                      background: "rgba(255,255,255,0.6)",
-                      backdropFilter: "blur(2px)",
-                      zIndex: 10,
-                      pointerEvents: "none",
-                    }}
-                  >
-                    Creating order…
-                  </div>
-                )}
-
-                <DaimoPayButton.Custom
-                  payId={payId}
-                  onPaymentCompleted={(e) => {
-                    console.log(e);
-                    console.log("Payment completed");
-                    fetch("http://localhost:3000/payments/verify", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        paymentType: "DAIMO",
-                        paymentId: payId,
-                      }),
-                    }).catch(console.error);
-                  }}
-                >
-                  {({ show }) => (
-                    <button
-                      onClick={show}
-                      disabled={loading}
-                      className="cursor-pointer w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50"
-                    >
-                      <div className="inline-flex items-center gap-2">
-                        <span>Pay with</span>
-                        <Image
-                          src={Daimo}
-                          alt="Daimo Pay"
-                          width={20}
-                          height={20}
-                        />
-                        <span>Daimo Pay</span>
-                      </div>
-                    </button>
-                  )}
-                </DaimoPayButton.Custom>
-              </div>
             </div>
           </div>
         </div>
