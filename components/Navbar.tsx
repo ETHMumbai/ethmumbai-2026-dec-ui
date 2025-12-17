@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -32,6 +33,15 @@ export default function Navbar() {
       <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Image src={EthMumbaiLogo} alt="ETHMumbai Logo" width={128} height={40} />
+
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
+          <Link href="/conference" className="hover:text-black transition">
+            Conference
+          </Link>
+          <Link href="/buy-tickets" className="hover:text-black transition">
+            Buy Tickets
+          </Link>
+        </div>
 
         {/* Socials (desktop) */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
@@ -98,23 +108,23 @@ export default function Navbar() {
 
           {/* Centered Buttons */}
           <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
-            <a
-              href="https://tally.so/r/nGW5Bz"
+            <Link
+              href="/conference"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
-              Apply to Speak
-            </a>
+              Conference
+            </Link>
 
-            <a
-              href="https://tally.so/r/3NkdGb"
+            <Link
+              href="/buy-tickets"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
-              Apply to Sponsor
-            </a>
+              Buy Tickets
+            </Link>
           </div>
 
           {/* SOCIAL ICONS AT BOTTOM */}

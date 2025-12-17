@@ -1,14 +1,10 @@
 "use client";
 
-import Hero from "@/components/Hero";
+import Hero from "@/components/buy-tickets/Hero";
 import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import Stats from "@/components/Stats";
-import Overview from "@/components/Overview";
-import Sponsors from "@/components/Sponsors";
-import Partners from "@/components/Partners";
-import Speakers from "@/components/Speakers";
+import Payment from "@/components/buy-tickets/Payment";
 
 export default function LandingPage() {
   return (
@@ -16,12 +12,8 @@ export default function LandingPage() {
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
-        <Stats />
-        <Overview />
-        <Speakers/>
-        <Sponsors />
-        <Partners />
-        <FAQ type="general"/>
+        {/* <FAQ /> */}
+        <Payment />
         <Footer />
       </main>
     </div>

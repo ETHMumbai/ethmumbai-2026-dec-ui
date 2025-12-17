@@ -6,7 +6,7 @@ export interface Speaker {
     imageScale?: string;
 }
 
-export const speakers: Speaker[] = [
+export const pastSpeakers: Speaker[] = [
   {
     name: "Aditya Mohanty",
     company: "The Product House",
@@ -113,4 +113,8 @@ export const speakers: Speaker[] = [
     xLink: "",
     imageScale: "h-[130%]"
   }
+];
+
+export const conferenceSpeakers: Speaker[] = [
+  // TODO: Add conference speakers here
 ];

@@ -1,18 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { pastSpeakers } from "../lib/speakersData";
+import { conferenceSpeakers } from "../../lib/speakersData";
 
 export default function Speakers() {
   return (
     <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
       <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Past Speakers and Judges
+          Speakers
         </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {pastSpeakers.map((speaker, index) => (
+        {conferenceSpeakers.map((speaker, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
@@ -28,7 +28,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
+                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-white overflow-visible relative">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
