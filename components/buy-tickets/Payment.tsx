@@ -273,7 +273,7 @@ const Payment = () => {
 
   return (
     <section className="w-full bg-white text-black">
-      <div className="px-6 lg:px-20 py-8">
+      <div className="px-8 sm:px-12 md:px-18 lg:px-36 xl:px-50 py-12">
         <TicketSelection
           visualTicketType={visualTicketType}
           setVisualTicketType={setVisualTicketType}

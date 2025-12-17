@@ -71,11 +71,20 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       <div className="grid md:grid-cols-3 gap-4">
         <input
           type="text"
-          placeholder="Street Address *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
+          placeholder="Address Line 1 *"
+          className="border bg-[#F3F3F5] rounded-lg p-2"
           value={buyerInfo.address.line1}
           onChange={(e) =>
             handleBuyerAddressChange("line1", e.target.value)
+          }
+        />
+        <input
+          type="text"
+          placeholder="Address Line 2 *"
+          className="border bg-[#F3F3F5] rounded-lg p-2"
+          value={buyerInfo.address.line2}
+          onChange={(e) =>
+            handleBuyerAddressChange("line2", e.target.value)
           }
         />
         <input
@@ -94,6 +103,15 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           value={buyerInfo.address.state}
           onChange={(e) =>
             handleBuyerAddressChange("state", e.target.value)
+          }
+        />
+        <input
+          type="text"
+          placeholder="Country *"
+          className="border bg-[#F3F3F5] rounded-lg p-2"
+          value={buyerInfo.address.country}
+          onChange={(e) =>
+            handleBuyerAddressChange("country", e.target.value)
           }
         />
         <input
