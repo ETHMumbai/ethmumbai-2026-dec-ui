@@ -1,8 +1,59 @@
 "use client";
+
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { generalFAQ, conferenceFAQ, hackathonFAQ } from "../lib/faqContent"; // import your data
+import {
+  generalFAQ,
+  conferenceFAQ,
+  hackathonFAQ,
+} from "../lib/faqContent";
 
+/* -------------------------------------------
+   Utils: parse markdown-style links
+   Example: [speaker form](https://example.com)
+-------------------------------------------- */
+const renderContent = (text: string) => {
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
+
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const [fullMatch, label, url] = match;
+
+    // Text before link
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    // Link
+    parts.push(
+      <a
+        key={url + match.index}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline hover:text-blue-800"
+      >
+        {label}
+      </a>
+    );
+
+    lastIndex = match.index + fullMatch.length;
+  }
+
+  // Remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts;
+};
+
+/* -------------------------------------------
+   Accordion
+-------------------------------------------- */
 interface AccordionProps {
   title: string;
   content: string;
@@ -17,32 +68,37 @@ const Accordion: React.FC<AccordionProps> = ({
   onClick,
 }) => {
   return (
-    <div className="w-full text-left items-center justify-between px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A] font-medium text-[14px]">
+    <div className="w-full text-left px-3 py-1 sm:px-4 sm:py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[14px] text-[#0A0A0A] font-medium text-[14px]">
       <button
         onClick={onClick}
         className={`flex w-full items-center justify-between p-4 text-left cursor-pointer focus:outline-none ${
           isActive ? "font-semibold text-[15px]" : ""
         }`}
       >
-        {title}
+        <span>{title}</span>
         <ChevronDown
           className={`h-5 w-5 transition-transform ${
-            isActive ? "rotate-180 transform" : ""
+            isActive ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
-        className={`${
+        className={`grid transition-all duration-200 ${
           isActive ? "grid-rows-[1fr] px-4 pb-2" : "grid-rows-[0fr]"
-        } grid transition-all duration-200`}
+        }`}
       >
-        <p className="overflow-hidden text-gray-700 font-medium">{content}</p>
+        <div className="overflow-hidden text-gray-700 font-medium leading-relaxed">
+          {renderContent(content)}
+        </div>
       </div>
     </div>
   );
 };
 
+/* -------------------------------------------
+   FAQ Wrapper
+-------------------------------------------- */
 interface FAQProps {
   type?: "general" | "conference" | "hackathon";
 }
@@ -54,7 +110,6 @@ const FAQ: React.FC<FAQProps> = ({ type = "general" }) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
-  // Select data based on type prop
   const data =
     type === "conference"
       ? conferenceFAQ
@@ -63,9 +118,9 @@ const FAQ: React.FC<FAQProps> = ({ type = "general" }) => {
       : generalFAQ;
 
   return (
-    <section className="relative items-start justify-center bg-[#FFD600] py-16 px-4">
+    <section className="relative bg-[#FFD600] py-16 px-4">
       <div className="mb-5">
-        <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] leading-9 sm:leading-12 tracking-[-1px] text-center text-[#0A0A0A] mb-10">
+        <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] tracking-[-1px] text-center text-[#0A0A0A] mb-10">
           FAQs
         </h2>
       </div>
