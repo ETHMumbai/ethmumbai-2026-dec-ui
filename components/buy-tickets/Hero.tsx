@@ -10,7 +10,8 @@ export default function Hero() {
       {/* Centered content */}
       <div
         className="relative z-10 flex flex-col items-center w-full px-4 mt-2
-                      py-[6rem] sm:py-[6rem] md:py-[6rem] lg:py-[7rem]
+                      pt-[6rem] sm:pt-[6rem] md:pt-[6rem] lg:pt-[7rem]
+                      pb-[3rem] sm:pb-[3rem] md:pb-[4rem] lg:pb-[4rem]
                       max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] gap-3 flex-shrink-0"
       >
         <h1
