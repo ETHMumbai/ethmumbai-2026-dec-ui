@@ -20,7 +20,7 @@ export default function PaymentSuccess() {
       return;
     }
 
-    fetch(`http://localhost:3001/internal/orders/success/${orderId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/internal/orders/success/${orderId}`)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -35,11 +35,31 @@ export default function PaymentSuccess() {
   }, [orderId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-white">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E2231A] mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading order details...</p>
+        </div>
+      </div>
+    );
   }
 
   if (!orderData) {
-    return <div>Order not found</div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Order Not Found</h2>
+          <p className="text-gray-600 mb-4">We couldn't find your order. Please check the URL.</p>
+          <a 
+            href="/buy-tickets" 
+            className="inline-block px-6 py-3 bg-[#E2231A] text-white rounded-lg hover:bg-[#C51F16]"
+          >
+            Buy Tickets
+          </a>
+        </div>
+      </div>
+    );
   }
 
   return (

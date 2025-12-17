@@ -1,4 +1,3 @@
-// PaymentButtons.tsx
 "use client";
 
 import Image from "next/image";
@@ -6,23 +5,35 @@ import { DaimoPayButton } from "@daimo/pay";
 import Daimo from "../../public/assets/tickets/daimo.svg";
 
 interface PaymentButtonsProps {
-  payId: string;
   loading: boolean;
-  handlePayWithCrypto: (e: React.MouseEvent) => void;
+  handlePayWithRazorpay: () => void;
+  payId?: string;
+  handlePayWithCrypto?: (e: React.MouseEvent) => void;
 }
 
 const PaymentButtons: React.FC<PaymentButtonsProps> = ({
-  payId,
   loading,
+  handlePayWithRazorpay,
+  payId = "",
   handlePayWithCrypto,
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">
+      {/* Razorpay Button */}
+      <button
+        onClick={handlePayWithRazorpay}
+        disabled={loading}
+        className="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-[#E2231A] text-white rounded-lg hover:bg-[#C51F16] disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+      >
+        {loading ? "Processing..." : "Pay with Razorpay"}
+      </button>
+
+      {/* Daimo Button */}
       <div
         onClick={handlePayWithCrypto}
         style={{ position: "relative", display: "inline-block" }}
         className="w-full md:w-auto"
-        aria-busy={loading}
+        aria-busy={loading && !payId}
       >
         {loading && !payId && (
           <div
@@ -44,7 +55,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButton.Custom
           payId={payId}
-          onPaymentCompleted={() => console.log("Payment completed")}
+          onPaymentCompleted={() => console.log("Daimo payment completed")}
         >
           {({ show }) => (
             <button
@@ -60,15 +71,6 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
             </button>
           )}
         </DaimoPayButton.Custom>
-      </div>
-
-      <div className="inline-block w-full md:w-auto">
-        <button
-          disabled={true}
-          className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-gray-400 text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
-        >
-          INR Payment Coming soon...
-        </button>
       </div>
     </div>
   );

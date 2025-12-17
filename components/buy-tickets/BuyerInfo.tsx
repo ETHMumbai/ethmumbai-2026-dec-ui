@@ -1,10 +1,9 @@
-// BuyerInfo.tsx
 "use client";
 
-import { Participant } from "./types";
+import { BuyerInfo as BuyerInfoType, Participant } from "./types";
 
 interface BuyerInfoProps {
-  buyerInfo: { name: string; email: string; phone: string };
+  buyerInfo: BuyerInfoType;
   handleBuyerChange: (field: string, value: string) => void;
   participants: Participant[];
   handleParticipantChange: (index: number, field: string, value: string) => void;
@@ -25,24 +24,24 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         <input
           type="text"
-          placeholder="Full Name *"
+          placeholder="First Name *"
           className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.name}
-          onChange={(e) => handleBuyerChange("name", e.target.value)}
+          value={buyerInfo.firstName}
+          onChange={(e) => handleBuyerChange("firstName", e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Last Name *"
+          className="border bg-[#F3F3F5] rounded-lg p-2"
+          value={buyerInfo.lastName}
+          onChange={(e) => handleBuyerChange("lastName", e.target.value)}
         />
         <input
           type="email"
           placeholder="Email *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
+          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
           value={buyerInfo.email}
           onChange={(e) => handleBuyerChange("email", e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Phone Number"
-          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("phone", e.target.value)}
         />
       </div>
 
@@ -53,29 +52,43 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           type="text"
           placeholder="Street Address *"
           className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
-          value={buyerInfo.name}
-          onChange={(e) => handleBuyerChange("street-address", e.target.value)}
+          value={buyerInfo.address.line1}
+          onChange={(e) => handleBuyerChange("address.line1", e.target.value)}
         />
         <input
-          type="email"
+          type="text"
+          placeholder="Apartment, suite, etc. (optional)"
+          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
+          value={buyerInfo.address.line2}
+          onChange={(e) => handleBuyerChange("address.line2", e.target.value)}
+        />
+        <input
+          type="text"
           placeholder="City *"
           className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.email}
-          onChange={(e) => handleBuyerChange("city", e.target.value)}
+          value={buyerInfo.address.city}
+          onChange={(e) => handleBuyerChange("address.city", e.target.value)}
         />
         <input
           type="text"
           placeholder="State *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 "
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("state", e.target.value)}
+          className="border bg-[#F3F3F5] rounded-lg p-2"
+          value={buyerInfo.address.state}
+          onChange={(e) => handleBuyerChange("address.state", e.target.value)}
         />
         <input
-          type="number"
+          type="text"
           placeholder="PIN Code *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 "
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("pincode", e.target.value)}
+          className="border bg-[#F3F3F5] rounded-lg p-2"
+          value={buyerInfo.address.postalCode}
+          onChange={(e) => handleBuyerChange("address.postalCode", e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Country *"
+          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
+          value={buyerInfo.address.country}
+          onChange={(e) => handleBuyerChange("address.country", e.target.value)}
         />
       </div>
       <hr className="my-6" />
@@ -89,10 +102,17 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <div className="grid md:grid-cols-2 gap-4">
             <input
               type="text"
-              placeholder="Name *"
+              placeholder="First Name *"
               className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.name}
-              onChange={(e) => handleParticipantChange(i, "name", e.target.value)}
+              value={p.firstName}
+              onChange={(e) => handleParticipantChange(i, "firstName", e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name *"
+              className="border bg-[#F3F3F5] rounded-lg p-2"
+              value={p.lastName}
+              onChange={(e) => handleParticipantChange(i, "lastName", e.target.value)}
             />
             <input
               type="email"
@@ -101,6 +121,25 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
               value={p.email}
               onChange={(e) => handleParticipantChange(i, "email", e.target.value)}
             />
+            <input
+              type="text"
+              placeholder="Organisation *"
+              className="border bg-[#F3F3F5] rounded-lg p-2"
+              value={p.organisation}
+              onChange={(e) => handleParticipantChange(i, "organisation", e.target.value)}
+            />
+            <div className="flex items-center gap-2 md:col-span-2">
+              <input
+                type="checkbox"
+                id={`isBuyer-${i}`}
+                checked={p.isBuyer}
+                onChange={(e) => handleParticipantChange(i, "isBuyer", e.target.checked ? "true" : "false")}
+                className="w-4 h-4"
+              />
+              <label htmlFor={`isBuyer-${i}`} className="text-sm text-[#4A5565]">
+                This participant is the buyer
+              </label>
+            </div>
           </div>
         </div>
       ))}
