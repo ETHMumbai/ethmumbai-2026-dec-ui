@@ -1,8 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { DaimoPayButton } from "@daimo/pay";
+// import { DaimoPayButton } from "@daimo/pay";
 import Daimo from "../../public/assets/tickets/daimo.svg";
+import dynamic from "next/dynamic";
+
+/* Daimo */
+export const DaimoPayButtonCustom = dynamic(
+  () => import("@daimo/pay").then((m) => m.DaimoPayButton.Custom),
+  { ssr: false }
+);
 
 interface PaymentButtonsProps {
   payId: string;
@@ -46,7 +53,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           </div>
         )}
 
-        <DaimoPayButton.Custom
+        <DaimoPayButtonCustom
           payId={payId}
           onPaymentCompleted={() => console.log("[Crypto] Payment completed")}
         >
@@ -61,7 +68,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               </div>
             </button>
           )}
-        </DaimoPayButton.Custom>
+        </DaimoPayButtonCustom>
       </div>
 
       {/* INR Button */}
