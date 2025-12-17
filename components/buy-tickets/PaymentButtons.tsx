@@ -6,16 +6,18 @@ import Daimo from "../../public/assets/tickets/daimo.svg";
 
 interface PaymentButtonsProps {
   payId: string;
-  loading: boolean;
+  loadingINR: boolean;
+  loadingCrypto: boolean;
   handlePayWithCrypto: (e: React.MouseEvent) => void;
-  handlePayWithRazorpay: () => void; // Added prop
+  handlePayWithRazorpay: () => void;
 }
 
 const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   payId,
-  loading,
+  loadingINR,
+  loadingCrypto,
   handlePayWithCrypto,
-  handlePayWithRazorpay, // Destructure the new prop
+  handlePayWithRazorpay,
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">
@@ -24,9 +26,9 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
         onClick={handlePayWithCrypto}
         style={{ position: "relative", display: "inline-block" }}
         className="w-full md:w-auto"
-        aria-busy={loading}
+        aria-busy={loadingCrypto}
       >
-        {loading && !payId && (
+        {loadingCrypto && !payId && (
           <div
             style={{
               position: "absolute",
@@ -40,7 +42,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               pointerEvents: "none",
             }}
           >
-            Creating order…
+            Creating crypto order…
           </div>
         )}
 
@@ -51,12 +53,11 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           {({ show }) => (
             <button
               onClick={show}
-              disabled={loading}
+              disabled={loadingCrypto}
               className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
             >
               <div className="inline-flex items-center gap-2">
                 <span>Pay with Crypto</span>
-                {/* <Image src={Daimo} alt="Daimo Pay" width={20} height={20} /> */}
               </div>
             </button>
           )}
@@ -66,14 +67,14 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* INR Button */}
       <div className="inline-block w-full md:w-auto">
         <button
-          disabled={loading}
+          disabled={loadingINR}
           onClick={() => {
             console.log("[INR] Pay button clicked");
             handlePayWithRazorpay();
           }}
           className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
         >
-          Pay with INR
+          {loadingINR ? "Creating INR order…" : "Pay with INR"}
         </button>
       </div>
     </div>

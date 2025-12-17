@@ -73,7 +73,9 @@ const Payment = () => {
   const [ticketType] = useState<TicketType>("earlybird");
   const [visualTicketType, setVisualTicketType] = useState<TicketType>("earlybird");
   const [quantity, setQuantity] = useState(1);
-  const [loading, setLoading] = useState(false);
+
+  const [loadingINR, setLoadingINR] = useState(false);
+  const [loadingCrypto, setLoadingCrypto] = useState(false);
   const [payId, setPayId] = useState("");
 
   /* -------- Buyer -------- */
@@ -110,7 +112,6 @@ const Payment = () => {
 
       setParticipants((curr) => {
         const diff = next - curr.length;
-        console.log(`[Participants] Current length: ${curr.length}, diff: ${diff}`);
         if (diff > 0) {
           const newParticipants = [
             ...curr,
@@ -122,7 +123,7 @@ const Payment = () => {
               isBuyer: false,
             })),
           ];
-          console.log("[Participants] Added new participant placeholders", newParticipants);
+          console.log("[Participants] Added placeholders:", newParticipants);
           return newParticipants;
         }
         return curr.slice(0, next);
@@ -134,35 +135,25 @@ const Payment = () => {
 
   /* Handlers */
   const handleBuyerChange = (field: string, value: string) => {
-    console.log(`[Buyer] Updating field ${field} => ${value}`);
+    console.log(`[Buyer] ${field} => ${value}`);
     if (field.startsWith("address.")) {
       const key = field.split(".")[1];
-      setBuyerInfo((p) => ({
-        ...p,
-        address: { ...p.address, [key]: value },
+      setBuyerInfo((prev) => ({
+        ...prev,
+        address: { ...prev.address, [key]: value },
       }));
     } else {
-      setBuyerInfo((p) => ({ ...p, [field]: value }));
+      setBuyerInfo((prev) => ({ ...prev, [field]: value }));
     }
   };
 
-  const handleBuyerAddressChange = (
-    field: keyof BuyerInfoType["address"],
-    value: string
-  ) => {
+  const handleBuyerAddressChange = (field: keyof BuyerInfoType["address"], value: string) => {
     console.log(`[Buyer Address] ${field} => ${value}`);
-    setBuyerInfo((prev) => ({
-      ...prev,
-      address: { ...prev.address, [field]: value },
-    }));
+    setBuyerInfo((prev) => ({ ...prev, address: { ...prev.address, [field]: value } }));
   };
 
-  const handleParticipantChange = (
-    index: number,
-    field: string,
-    value: string
-  ) => {
-    console.log(`[Participant] Index ${index}, ${field} => ${value}`);
+  const handleParticipantChange = (index: number, field: string, value: string) => {
+    console.log(`[Participant] Index ${index} | ${field} => ${value}`);
     setParticipants((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
@@ -176,10 +167,7 @@ const Payment = () => {
       ticketType,
       quantity,
       buyer: buyerInfo,
-      participants: participants.map((p, i) => ({
-        ...p,
-        isBuyer: i === 0,
-      })),
+      participants: participants.map((p, i) => ({ ...p, isBuyer: i === 0 })),
     };
     console.log("[Payload] Built payload:", payload);
     return payload;
@@ -187,20 +175,23 @@ const Payment = () => {
 
   /* Razorpay (INR) */
   const handlePayWithRazorpay = async () => {
-    if (loading) return;
+    if (loadingINR) return;
+    setLoadingINR(true);
+
     const loaded = await loadRazorpay();
-    if (!loaded) return alert("Razorpay failed to load");
+    if (!loaded) {
+      alert("Razorpay failed to load");
+      setLoadingINR(false);
+      return;
+    }
 
     try {
-      setLoading(true);
       console.log("[Payment] Creating Razorpay order...");
-
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildPayload()),
       });
-
       const data = await res.json();
       console.log("[Payment] Razorpay order response:", data);
 
@@ -211,7 +202,7 @@ const Payment = () => {
         order_id: data.razorpayOrderId,
         name: "ETHMumbai",
         handler: async (resp: any) => {
-          console.log("[Payment] Razorpay payment response:", resp);
+          console.log("[Payment] Razorpay response:", resp);
           try {
             const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
               method: "POST",
@@ -220,50 +211,45 @@ const Payment = () => {
             });
             const verifyData = await verifyRes.json();
             console.log("[Payment] Verification response:", verifyData);
+            // router.push("/conference/payment-success");
           } catch (err) {
             console.error("[Payment] Verification failed:", err);
           }
-          // router.push("/conference/payment-success");
         },
-        prefill: {
-          name: `${buyerInfo.firstName} ${buyerInfo.lastName}`,
-          email: buyerInfo.email,
-        },
+        prefill: { name: `${buyerInfo.firstName} ${buyerInfo.lastName}`, email: buyerInfo.email },
       });
 
       console.log("[Payment] Opening Razorpay modal");
       rzp.open();
     } catch (err) {
       console.error("[Payment] Razorpay error:", err);
-      alert("Payment failed. Check console for details.");
+      alert("Payment failed. Check console.");
     } finally {
-      setLoading(false);
+      setLoadingINR(false);
     }
   };
 
   /* Daimo (Crypto) */
   const handlePayWithCrypto = async (e: React.MouseEvent) => {
-    if (loading || payId) return;
+    if (loadingCrypto || payId) return;
     e.stopPropagation();
+    setLoadingCrypto(true);
 
     try {
-      setLoading(true);
       console.log("[Payment] Creating Daimo order...");
-
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buildPayload()),
       });
-
       const data = await res.json();
       console.log("[Payment] Daimo order response:", data);
       setPayId(data.paymentId);
     } catch (err) {
       console.error("[Payment] Daimo payment error:", err);
-      alert("Crypto payment failed. Check console for details.");
+      alert("Crypto payment failed. Check console.");
     } finally {
-      setLoading(false);
+      setLoadingCrypto(false);
     }
   };
 
@@ -277,12 +263,13 @@ const Payment = () => {
   }, [payId]);
 
   /* UI */
-  const paymentButtonsProps: any = {
-    loading,
-    payId,
-    handlePayWithRazorpay,
-    handlePayWithCrypto,
-  };
+  const paymentButtonsProps = {
+  payId,
+  loadingINR,
+  loadingCrypto,
+  handlePayWithRazorpay,
+  handlePayWithCrypto,
+};
 
   return (
     <section className="w-full bg-white text-black">
