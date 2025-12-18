@@ -29,7 +29,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
+    <nav className="fixed top-10 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
       <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/">

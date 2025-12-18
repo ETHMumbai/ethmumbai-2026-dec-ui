@@ -9,6 +9,7 @@ import Speakers from "@/components/conference/Speakers";
 import Sponsors from "@/components/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/conference/Agenda";
+import ClosingCTA from "@/components/ClosingCTA";
 
 export default function LandingPage() {
   return (
@@ -22,6 +23,7 @@ export default function LandingPage() {
         {/* <Agenda /> */}
         {/* <Venue type="conference" /> */}
         <FAQ type="conference" />
+        <ClosingCTA />
         <Footer />
       </main>
     </div>
