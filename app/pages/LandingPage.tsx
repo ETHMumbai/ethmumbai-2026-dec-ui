@@ -8,7 +8,7 @@ import Stats from "@/components/Stats";
 import Overview from "@/components/Overview";
 import Sponsors from "@/components/Sponsors";
 import Partners from "@/components/Partners";
-import Speakers from "@/components/Speakers";
+import Speakers from "@/components/conference/Speakers";
 
 export default function LandingPage() {
   return (
