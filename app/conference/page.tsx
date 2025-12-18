@@ -18,7 +18,7 @@ export default function LandingPage() {
         <Hero />
         <Overview />
         <Speakers/>
-        <Sponsors />
+        {/* <Sponsors /> */}
         {/* <Agenda /> */}
         {/* <Venue type="conference" /> */}
         <FAQ type="conference" />
