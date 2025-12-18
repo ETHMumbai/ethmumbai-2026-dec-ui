@@ -1,30 +1,41 @@
-// PaymentButtons.tsx
 "use client";
 
 import Image from "next/image";
-import { DaimoPayButton } from "@daimo/pay";
+// import { DaimoPayButton } from "@daimo/pay";
 import Daimo from "../../public/assets/tickets/daimo.svg";
+import dynamic from "next/dynamic";
+
+/* Daimo */
+export const DaimoPayButtonCustom = dynamic(
+  () => import("@daimo/pay").then((m) => m.DaimoPayButton.Custom),
+  { ssr: false }
+);
 
 interface PaymentButtonsProps {
   payId: string;
-  loading: boolean;
+  loadingINR: boolean;
+  loadingCrypto: boolean;
   handlePayWithCrypto: (e: React.MouseEvent) => void;
+  handlePayWithRazorpay: () => void;
 }
 
 const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   payId,
-  loading,
+  loadingINR,
+  loadingCrypto,
   handlePayWithCrypto,
+  handlePayWithRazorpay,
 }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">
+      {/* Crypto Button */}
       <div
         onClick={handlePayWithCrypto}
         style={{ position: "relative", display: "inline-block" }}
         className="w-full md:w-auto"
-        aria-busy={loading}
+        aria-busy={loadingCrypto}
       >
-        {loading && !payId && (
+        {loadingCrypto && !payId && (
           <div
             style={{
               position: "absolute",
@@ -38,36 +49,61 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               pointerEvents: "none",
             }}
           >
-            Creating order…
+            Creating crypto order…
           </div>
         )}
 
-        <DaimoPayButton.Custom
+        <DaimoPayButtonCustom
           payId={payId}
-          onPaymentCompleted={() => console.log("Payment completed")}
+          // onOpen={() => {
+          //   console.log("Payment open: ");
+          //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+          //     method: "POST",
+          //     headers: { "Content-Type": "application/json" },
+          //     body: JSON.stringify({
+          //       paymentType: "DAIMO",
+          //       paymentId: payId,
+          //     }),
+          //   }).catch(console.error);
+          // }}
+          onPaymentCompleted={(e) => {
+            console.log(e);
+            console.log("Payment completed");
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                paymentType: "DAIMO",
+                paymentId: payId,
+              }),
+            }).catch(console.error);
+          }}
         >
           {({ show }) => (
             <button
               onClick={show}
-              disabled={loading}
+              disabled={loadingCrypto}
               className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
             >
               <div className="inline-flex items-center gap-2">
-                <span>Pay with</span>
-                <Image src={Daimo} alt="Daimo Pay" width={20} height={20} />
-                <span>Daimo Pay</span>
+                <span>Pay with Crypto</span>
               </div>
             </button>
           )}
-        </DaimoPayButton.Custom>
+        </DaimoPayButtonCustom>
       </div>
 
+      {/* INR Button */}
       <div className="inline-block w-full md:w-auto">
         <button
-          disabled={true}
-          className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-gray-400 text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
+          disabled={loadingINR}
+          onClick={() => {
+            console.log("[INR] Pay button clicked");
+            handlePayWithRazorpay();
+          }}
+          className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
         >
-          INR Payment Coming soon...
+          {loadingINR ? "Creating INR order…" : "Pay with INR"}
         </button>
       </div>
     </div>

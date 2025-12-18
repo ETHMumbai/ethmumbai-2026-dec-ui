@@ -9,8 +9,33 @@ export interface TicketOption {
   mobileImage: string;
   comingSoon: boolean;
 }
+export interface Address {
+  line1: string;
+  line2?: string;
+  city: string;
+  state: string;
+  country: string;
+  postalCode: string;
+}
+
+export interface BuyerInfo {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: Address;
+}
 
 export interface Participant {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  organisation?: string;
+  isBuyer?: boolean;
+}
+
+export interface CreateOrderPayload {
+  ticketType: TicketType;
+  quantity: number;
+  buyer: BuyerInfo;
+  participants: Participant[];
 }
