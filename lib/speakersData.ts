@@ -195,8 +195,8 @@ export const conferenceSpeakers: Speaker[] = [
   {
     name: "Shyam Sridhar",
     company: "Ethereum Foundation",
-    image: "/assets/speakers/Shyam_Sridhar.png",
+    image: "/assets/speakers/Shyam_Sridhar2.png",
     xLink: "https://x.com/ShyamSridhar7",
-    imageScale: "h-[160%]"
+    imageScale: "h-[130%]"
   }
 ];
