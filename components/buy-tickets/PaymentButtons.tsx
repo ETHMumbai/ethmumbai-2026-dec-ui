@@ -55,7 +55,29 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={payId}
-          onPaymentCompleted={() => console.log("[Crypto] Payment completed")}
+          // onOpen={() => {
+          //   console.log("Payment open: ");
+          //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+          //     method: "POST",
+          //     headers: { "Content-Type": "application/json" },
+          //     body: JSON.stringify({
+          //       paymentType: "DAIMO",
+          //       paymentId: payId,
+          //     }),
+          //   }).catch(console.error);
+          // }}
+          onPaymentCompleted={(e) => {
+            console.log(e);
+            console.log("Payment completed");
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                paymentType: "DAIMO",
+                paymentId: payId,
+              }),
+            }).catch(console.error);
+          }}
         >
           {({ show }) => (
             <button
