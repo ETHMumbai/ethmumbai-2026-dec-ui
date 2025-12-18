@@ -25,7 +25,7 @@ export default function LandingPage() {
         <Sponsors />
         <Partners />
         <FAQ type="general"/>
-        <ClosingCTA />
+        {/* <ClosingCTA /> */}
         <Footer />
       </main>
     </div>

@@ -206,16 +206,3 @@
 .loader div:nth-child(10) { transform: rotate(270deg) translate(30px) rotate(-270deg); animation-delay: -0.9s; }
 .loader div:nth-child(11) { transform: rotate(300deg) translate(30px) rotate(-300deg); animation-delay: -1.0s; }
 .loader div:nth-child(12) { transform: rotate(330deg) translate(30px) rotate(-330deg); animation-delay: -1.1s; }
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 15s linear infinite;
-}

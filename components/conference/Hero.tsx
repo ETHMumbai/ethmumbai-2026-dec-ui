@@ -23,6 +23,10 @@ export default function Hero() {
           A full-day conference with 50 speakers presenting talks on DeFi, Privacy, and AI in front of 500 attendees.
         </p>
 
+        <div className="mt-[1.2rem] mb-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">
+          <Calendar className="w-5 h-5" />
+          <span>12 March 2026</span>
+        </div>  
       </div>
     </section>
   );
