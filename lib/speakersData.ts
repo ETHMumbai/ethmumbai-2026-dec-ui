@@ -146,7 +146,7 @@ export const conferenceSpeakers: Speaker[] = [
   },
   {
     name: "Dhaiwat",
-    company: "Turtle",
+    company: "",
     image: "/assets/speakers/dhaiwat.png",
     xLink: "https://x.com/dhaiwat10",
     imageScale: "h-[145%]"
