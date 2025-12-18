@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Calendar } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
@@ -10,15 +11,16 @@ export default function Hero() {
 
      {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4 mt-2
-                      py-[7rem] sm:py-[9rem] md:py-[6rem] lg:py-[7rem]
+                      pt-[7rem] sm:pt-[9rem] md:pt-[6rem] lg:pt-[7rem]
+                      pb-[3rem] sm:pb-[3rem] md:pb-[3rem] lg:pb-[4rem]
                       max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] gap-3 flex-shrink-0">
-        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05]">
-          Conference
+        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em] text-center
+                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05] whitespace-normal sm:whitespace-nowrap">
+          ETHMumbai Conference
         </h1>
  
         <p className="mt-[1rem] font-medium text-center text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
-          10 hours of learning, building, and connecting with the Ethereum community
+          A full-day conference with 50 speakers presenting talks on DeFi, Privacy, and AI in front of 500 attendees.
         </p>
 
       </div>
