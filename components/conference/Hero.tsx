@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Calendar } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
@@ -13,20 +14,19 @@ export default function Hero() {
                       pt-[7rem] sm:pt-[9rem] md:pt-[6rem] lg:pt-[7rem]
                       pb-[3rem] sm:pb-[3rem] md:pb-[3rem] lg:pb-[4rem]
                       max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] gap-3 flex-shrink-0">
-        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05]">
-          Conference
+        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em] text-center
+                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05] whitespace-normal sm:whitespace-nowrap">
+          ETHMumbai Conference
         </h1>
  
         <p className="mt-[1rem] font-medium text-center text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
-          10 hours of learning, building, and connecting with the Ethereum community
+          A full-day conference with 50 speakers presenting talks on DeFi, Privacy, and AI in front of 500 attendees.
         </p>
-        
-        <Link href="/buy-tickets">
-          <button className="bg-white mt-4 border text-[#D63A2F] font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
-            Buy Tickets
-          </button>
-        </Link>    
+
+        <div className="mt-[1.2rem] mb-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">
+          <Calendar className="w-5 h-5" />
+          <span>12 – 15 March 2026</span>
+        </div>  
       </div>
     </section>
   );

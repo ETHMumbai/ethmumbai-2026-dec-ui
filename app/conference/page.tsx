@@ -6,7 +6,7 @@ import Overview from "@/components/conference/Overview";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Speakers from "@/components/conference/Speakers";
-import Sponsors from "@/components/conference/Sponsors";
+import Sponsors from "@/components/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/conference/Agenda";
 

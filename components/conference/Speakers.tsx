@@ -28,7 +28,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-white overflow-visible relative">
+                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
