@@ -22,30 +22,42 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
       {/* Desktop */}
-        <div className="hidden sm:grid sm:grid-cols-2 gap-4">
+      <div className="hidden sm:grid sm:grid-cols-2 gap-4">
         {ticketOptions.map(({ type, desktopImage, label, comingSoon }) => (
-            <div
+          <div
             key={type}
             className={`
-                relative border rounded-xl p-4 transition
-                ${type === "earlybird" ? "border-black cursor-pointer" : "border-gray-300 opacity-50 cursor-not-allowed"}
+              relative border rounded-xl p-4 transition
+              ${type === "earlybird"
+                ? "border-black cursor-pointer"
+                : "border-gray-300 opacity-50 cursor-not-allowed"}
             `}
-            >
-            {comingSoon && (
-                <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded-full">
-                Coming Soon
-                </div>
+          >
+            {/* Special Price – EarlyBird */}
+            {type === "earlybird" && (
+              <div className="absolute top-2 left-2 bg-[#E2231A] text-white text-xs px-2 py-1 rounded-full">
+                Special Price
+              </div>
             )}
+
+            {/* Coming Soon */}
+            {comingSoon && (
+              <div className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded-full">
+                Coming Soon
+              </div>
+            )}
+
             <Image
-                src={desktopImage}
-                alt={label}
-                width={856}
-                height={274}
-                className="w-full h-auto object-contain"
+              src={desktopImage}
+              alt={label}
+              width={856}
+              height={274}
+              className="w-full h-auto object-contain"
             />
-            </div>
+          </div>
         ))}
-        </div>
+
+      </div>
 
 
       {/* Mobile */}
@@ -86,24 +98,37 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
       </div>
 
       {/* Quantity */}
+      {/* Quantity */}
       <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
         <h3 className="px-2 font-regular">Quantity</h3>
+
         <div className="flex items-center space-x-3">
-          <button
-            onClick={() => handleQuantityChange("dec")}
-            className="px-3 py-1 border rounded-lg cursor-pointer"
-          >
-            −
-          </button>
+          {/* Minus button: show only if quantity > 1 (won’t show at 0 or 1) */}
+          {quantity > 1 && (
+            <button
+              onClick={() => handleQuantityChange("dec")}
+              className="px-3 py-1 border rounded-lg cursor-pointer"
+            >
+              −
+            </button>
+          )}
+
           <span>{quantity}</span>
+
+          {/* Plus button */}
           <button
-            onClick={() => handleQuantityChange("inc")}
-            className="px-3 py-1 border rounded-lg cursor-pointer"
+            onClick={() => quantity === 0 && handleQuantityChange("inc")}
+            disabled={quantity >= 1}
+            className={`px-3 py-1 border rounded-lg ${quantity >= 1
+                ? "cursor-not-allowed opacity-50"
+                : "cursor-pointer"
+              }`}
           >
             +
           </button>
         </div>
       </div>
+
     </div>
   );
 };

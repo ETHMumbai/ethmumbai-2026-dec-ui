@@ -163,38 +163,52 @@ const Payment = () => {
   }, []);
 
   /* ---------------- Quantity Sync ---------------- */
+  // const handleQuantityChange = (type: "inc" | "dec") => {
+  //   console.log(`[Ticket] Changing quantity, action: ${type}`);
+  //   setQuantity((prev) => {
+  //     const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
+  //     console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
+
+  //     setParticipants((curr) => {
+  //       const diff = next - curr.length;
+  //       if (diff > 0) {
+  //         const newParticipants = [
+  //           ...curr,
+  //           ...Array.from({ length: diff }, () => ({
+  //             firstName: "",
+  //             lastName: "",
+  //             email: "",
+  //             organisation: "",
+  //             isBuyer: false,
+  //           })),
+  //         ];
+  //         console.log(`[Participants] Added ${diff} new participant(s)`);
+  //         return newParticipants;
+  //       }
+  //       const removedCount = curr.length - next;
+  //       if (removedCount > 0) {
+  //         console.log(`[Participants] Removed ${removedCount} participant(s)`);
+  //       }
+  //       return curr.slice(0, next);
+  //     });
+
+  //     return next;
+  //   });
+  // };
+
   const handleQuantityChange = (type: "inc" | "dec") => {
-    console.log(`[Ticket] Changing quantity, action: ${type}`);
-    setQuantity((prev) => {
-      const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
-      console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
+  setQuantity((prev) => {
+    if (type === "inc") {
+      return prev >= 1 ? 1 : 1;
+    }
 
-      setParticipants((curr) => {
-        const diff = next - curr.length;
-        if (diff > 0) {
-          const newParticipants = [
-            ...curr,
-            ...Array.from({ length: diff }, () => ({
-              firstName: "",
-              lastName: "",
-              email: "",
-              organisation: "",
-              isBuyer: false,
-            })),
-          ];
-          console.log(`[Participants] Added ${diff} new participant(s)`);
-          return newParticipants;
-        }
-        const removedCount = curr.length - next;
-        if (removedCount > 0) {
-          console.log(`[Participants] Removed ${removedCount} participant(s)`);
-        }
-        return curr.slice(0, next);
-      });
+    if (type === "dec") {
+      return prev <= 1 ? 1 : prev;
+    }
 
-      return next;
-    });
-  };
+    return prev;
+  });
+};
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
