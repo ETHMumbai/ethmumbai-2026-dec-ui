@@ -70,6 +70,24 @@ const loadRazorpay = () =>
 const Payment = () => {
   const router = useRouter();
 
+
+/* ---------------- Checkout Session ---------------- */
+const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(null);
+
+useEffect(() => {
+  let sessionId = localStorage.getItem("checkoutSessionId");
+
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    localStorage.setItem("checkoutSessionId", sessionId);
+    console.log("[Checkout] New checkoutSessionId created:", sessionId);
+  } else {
+    console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
+  }
+
+  setCheckoutSessionId(sessionId);
+}, []);
+
   /* ---------------- Ticket ---------------- */
   const [ticketType] = useState<TicketType>("earlybird");
   const [visualTicketType, setVisualTicketType] =
@@ -213,6 +231,7 @@ const Payment = () => {
   /* ---------------- Payload ---------------- */
   const buildPayload = () => {
     const payload = {
+      checkoutSessionId,
       ticketType,
       quantity,
       buyer: buyerInfo,
@@ -268,6 +287,11 @@ const Payment = () => {
             });
             const verifyData = await verifyRes.json();
             console.log("[Payment] Verification response:", verifyData);
+
+            if (verifyData.success) {
+              localStorage.removeItem("checkoutSessionId");
+              console.log("[Checkout] checkoutSessionId cleared after success");
+            }
           } catch (err) {
             console.error("[Payment] Verification failed:", err);
           }
@@ -299,7 +323,7 @@ const Payment = () => {
       return;
     }
 
-    if (loadingCrypto || payId) {
+    if (loadingCrypto ) {
       console.log("[Payment] Crypto payment already in progress or completed");
       return;
     }
