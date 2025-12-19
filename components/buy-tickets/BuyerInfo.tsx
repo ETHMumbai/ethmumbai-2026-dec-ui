@@ -35,13 +35,13 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     label: string;
     required: boolean;
   }[] = [
-    { field: "line1", label: "Address Line 1 *", required: true },
-    { field: "line2", label: "Address Line 2", required: false },
-    { field: "city", label: "City *", required: true },
-    { field: "state", label: "State *", required: true },
-    { field: "country", label: "Country *", required: true },
-    { field: "postalCode", label: "PIN Code *", required: true },
-  ];
+      { field: "line1", label: "Address Line 1 *", required: true },
+      { field: "line2", label: "Address Line 2", required: false },
+      { field: "city", label: "City *", required: true },
+      { field: "state", label: "State *", required: true },
+      { field: "country", label: "Country *", required: true },
+      { field: "postalCode", label: "PIN Code *", required: true },
+    ];
 
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
@@ -53,31 +53,41 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       <p className="text-md text-[#0A0A0A] mt-4 mb-2">Buyer Information</p>
 
       <div className="grid md:grid-cols-2 gap-4">
-        {(["firstName", "lastName"] as const).map((field) => (
-          <div key={field}>
-            <input
-              placeholder={`${field === "firstName" ? "First" : "Last"} Name *`}
-              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-                err(field) ? errorClass : ""
+        {/* Buyer First Name (required) */}
+        <div>
+          <input
+            placeholder="First Name *"
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err("firstName") ? errorClass : ""
               }`}
-              value={buyerInfo[field]}
-              onChange={(e) =>
-                handleBuyerChange(field, e.target.value)
-              }
-            />
-            {err(field) && (
-              <p className="text-xs text-red-500 mt-1">Required</p>
-            )}
-          </div>
-        ))}
+            value={buyerInfo.firstName}
+            onChange={(e) =>
+              handleBuyerChange("firstName", e.target.value)
+            }
+          />
+          {err("firstName") && (
+            <p className="text-xs text-red-500 mt-1">Required</p>
+          )}
+        </div>
 
+        {/* Buyer Last Name (optional) */}
+        <div>
+          <input
+            placeholder="Last Name"
+            className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+            value={buyerInfo.lastName}
+            onChange={(e) =>
+              handleBuyerChange("lastName", e.target.value)
+            }
+          />
+        </div>
+
+        {/* Buyer Email */}
         <div className="md:col-span-2">
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-              err("email") ? errorClass : ""
-            }`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err("email") ? errorClass : ""
+              }`}
             value={buyerInfo.email}
             onChange={(e) =>
               handleBuyerChange("email", e.target.value)
@@ -98,9 +108,8 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <div key={field}>
             <input
               placeholder={label}
-              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-                required && err(`address.${field}`) ? errorClass : ""
-              }`}
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""
+                }`}
               value={buyerInfo.address[field]}
               onChange={(e) =>
                 handleBuyerAddressChange(field, e.target.value)
@@ -123,42 +132,62 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           </h3>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {/* Required */}
-            {(["firstName", "lastName", "email"] as const).map((field) => (
-              <div key={field}>
-                <input
-                  placeholder={`${field === "email"
-                    ? "Email"
-                    : field[0].toUpperCase() + field.slice(1)} *`}
-                  className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-                    err(`participant.${i}.${field}`) ? errorClass : ""
+            {/* Participant First Name (required) */}
+            <div>
+              <input
+                placeholder="First Name *"
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
                   }`}
-                  value={p[field]}
-                  onChange={(e) =>
-                    handleParticipantChange(i, field, e.target.value)
-                  }
-                />
-                {err(`participant.${i}.${field}`) && (
-                  <p className="text-xs text-red-500 mt-1">Required</p>
-                )}
-              </div>
-            ))}
+                value={p.firstName}
+                onChange={(e) =>
+                  handleParticipantChange(i, "firstName", e.target.value)
+                }
+              />
+              {err(`participant.${i}.firstName`) && (
+                <p className="text-xs text-red-500 mt-1">Required</p>
+              )}
+            </div>
 
-            {/* Optional */}
+            {/* Participant Last Name (optional) */}
+            <div>
+              <input
+                placeholder="Last Name"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={p.lastName}
+                onChange={(e) =>
+                  handleParticipantChange(i, "lastName", e.target.value)
+                }
+              />
+            </div>
+
+            {/* Participant Email (required) */}
+            <div>
+              <input
+                placeholder="Email *"
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
+                  }`}
+                value={p.email}
+                onChange={(e) =>
+                  handleParticipantChange(i, "email", e.target.value)
+                }
+              />
+              {err(`participant.${i}.email`) && (
+                <p className="text-xs text-red-500 mt-1">Required</p>
+              )}
+            </div>
+
+            {/* Organisation (optional) */}
             <div>
               <input
                 placeholder="Organisation / University"
                 className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
                 value={p.organisation || ""}
                 onChange={(e) =>
-                  handleParticipantChange(
-                    i,
-                    "organisation",
-                    e.target.value
-                  )
+                  handleParticipantChange(i, "organisation", e.target.value)
                 }
               />
             </div>
+
           </div>
         </div>
       ))}

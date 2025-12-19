@@ -77,23 +77,24 @@ const loadRazorpay = () =>
 const Payment = () => {
   const router = useRouter();
 
+  /* ---------------- Checkout Session ---------------- */
+  const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(
+    null
+  );
 
-/* ---------------- Checkout Session ---------------- */
-const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(null);
+  useEffect(() => {
+    let sessionId = localStorage.getItem("checkoutSessionId");
 
-useEffect(() => {
-  let sessionId = localStorage.getItem("checkoutSessionId");
+    if (!sessionId) {
+      sessionId = crypto.randomUUID();
+      localStorage.setItem("checkoutSessionId", sessionId);
+      console.log("[Checkout] New checkoutSessionId created:", sessionId);
+    } else {
+      console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
+    }
 
-  if (!sessionId) {
-    sessionId = crypto.randomUUID();
-    localStorage.setItem("checkoutSessionId", sessionId);
-    console.log("[Checkout] New checkoutSessionId created:", sessionId);
-  } else {
-    console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
-  }
-
-  setCheckoutSessionId(sessionId);
-}, []);
+    setCheckoutSessionId(sessionId);
+  }, []);
 
   /* ---------------- Ticket ---------------- */
   const [ticketType] = useState<TicketType>("earlybird");
@@ -105,6 +106,7 @@ useEffect(() => {
   const [loadingINR, setLoadingINR] = useState(false);
   const [loadingCrypto, setLoadingCrypto] = useState(false);
   const [payId, setPayId] = useState<string | null>(null);
+  const [orderId, setOrderId] = useState<string | null>(null);
 
   /* ---------------- Errors ---------------- */
   const [errors, setErrors] = useState<Record<string, boolean>>({});
@@ -352,7 +354,7 @@ useEffect(() => {
       return;
     }
 
-    if (loadingCrypto ) {
+    if (loadingCrypto) {
       console.log("[Payment] Crypto payment already in progress or completed");
       return;
     }
@@ -371,6 +373,7 @@ useEffect(() => {
       const data = await res.json();
       console.log("[Payment] Crypto order response received:", data);
       setPayId(data.paymentId);
+      setOrderId(data.orderId);
     } catch (err) {
       console.error("[Payment] Crypto payment failed:", err);
       alert("Crypto payment failed");
@@ -417,6 +420,7 @@ useEffect(() => {
           loadingCrypto={loadingCrypto}
           handlePayWithRazorpay={handlePayWithRazorpay}
           handlePayWithCrypto={handlePayWithCrypto}
+          orderId={orderId ?? ""}
         />
       </div>
     </section>
