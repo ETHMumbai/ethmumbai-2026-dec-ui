@@ -9,10 +9,13 @@ import Speakers from "@/components/conference/Speakers";
 import Sponsors from "@/components/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/conference/Agenda";
+import ClosingCTA from "@/components/ClosingCTA";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
@@ -22,6 +25,7 @@ export default function LandingPage() {
         {/* <Agenda /> */}
         {/* <Venue type="conference" /> */}
         <FAQ type="conference" />
+        {/* <ClosingCTA /> */}
         <Footer />
       </main>
     </div>

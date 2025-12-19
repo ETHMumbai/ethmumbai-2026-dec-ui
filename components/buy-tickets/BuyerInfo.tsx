@@ -1,106 +1,164 @@
-// BuyerInfo.tsx
 "use client";
 
-import { Participant } from "./types";
+import { BuyerInfo as BuyerInfoType, Participant } from "./types";
 
 interface BuyerInfoProps {
-  buyerInfo: { name: string; email: string; phone: string };
-  handleBuyerChange: (field: string, value: string) => void;
+  buyerInfo: BuyerInfoType;
   participants: Participant[];
-  handleParticipantChange: (index: number, field: string, value: string) => void;
+  errors: Record<string, boolean>;
+  handleBuyerChange: (field: keyof BuyerInfoType, value: any) => void;
+  handleBuyerAddressChange: (
+    field: keyof BuyerInfoType["address"],
+    value: string
+  ) => void;
+  handleParticipantChange: (
+    index: number,
+    field: keyof Participant,
+    value: string
+  ) => void;
 }
+
+const errorClass = "input-error";
 
 const BuyerInfo: React.FC<BuyerInfoProps> = ({
   buyerInfo,
-  handleBuyerChange,
   participants,
+  errors,
+  handleBuyerChange,
+  handleBuyerAddressChange,
   handleParticipantChange,
 }) => {
+  const err = (key: string) => errors[key];
+
+  const addressFields: {
+    field: keyof BuyerInfoType["address"];
+    label: string;
+    required: boolean;
+  }[] = [
+    { field: "line1", label: "Address Line 1 *", required: true },
+    { field: "line2", label: "Address Line 2", required: false },
+    { field: "city", label: "City *", required: true },
+    { field: "state", label: "State *", required: true },
+    { field: "country", label: "Country *", required: true },
+    { field: "postalCode", label: "PIN Code *", required: true },
+  ];
+
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
-      <h2 className="text-lg text-[#0A0A0A] font-regular">Checkout Details</h2>
-      <p className="text-lg text-[#717182] font-regular mb-4">Please fill in your information</p>
-      <p className="text-lg text-[#0A0A0A] font-regular mb-4">Buyer Information</p>
+      <h2 className="text-lg text-[#0A0A0A] font-regular">
+        Checkout Details
+      </h2>
 
-      <div className="grid md:grid-cols-2 gap-4 mt-4">
-        <input
-          type="text"
-          placeholder="Full Name *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.name}
-          onChange={(e) => handleBuyerChange("name", e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.email}
-          onChange={(e) => handleBuyerChange("email", e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Phone Number"
-          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("phone", e.target.value)}
-        />
+      {/* ================= Buyer Info ================= */}
+      <p className="text-md text-[#0A0A0A] mt-4 mb-2">Buyer Information</p>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {(["firstName", "lastName"] as const).map((field) => (
+          <div key={field}>
+            <input
+              placeholder={`${field === "firstName" ? "First" : "Last"} Name *`}
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                err(field) ? errorClass : ""
+              }`}
+              value={buyerInfo[field]}
+              onChange={(e) =>
+                handleBuyerChange(field, e.target.value)
+              }
+            />
+            {err(field) && (
+              <p className="text-xs text-red-500 mt-1">Required</p>
+            )}
+          </div>
+        ))}
+
+        <div className="md:col-span-2">
+          <input
+            type="email"
+            placeholder="Email *"
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+              err("email") ? errorClass : ""
+            }`}
+            value={buyerInfo.email}
+            onChange={(e) =>
+              handleBuyerChange("email", e.target.value)
+            }
+          />
+          {err("email") && (
+            <p className="text-xs text-red-500 mt-1">Required</p>
+          )}
+        </div>
       </div>
 
+      {/* ================= Address ================= */}
       <hr className="my-6" />
-      <p className="text-lg text-[#0A0A0A] font-regular mb-4">Billing Address</p>
+      <p className="text-md text-[#0A0A0A] mb-2">Billing Address</p>
+
       <div className="grid md:grid-cols-3 gap-4">
-        <input
-          type="text"
-          placeholder="Street Address *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-3"
-          value={buyerInfo.name}
-          onChange={(e) => handleBuyerChange("street-address", e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="City *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.email}
-          onChange={(e) => handleBuyerChange("city", e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="State *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 "
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("state", e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="PIN Code *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 "
-          value={buyerInfo.phone}
-          onChange={(e) => handleBuyerChange("pincode", e.target.value)}
-        />
+        {addressFields.map(({ field, label, required }) => (
+          <div key={field}>
+            <input
+              placeholder={label}
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                required && err(`address.${field}`) ? errorClass : ""
+              }`}
+              value={buyerInfo.address[field]}
+              onChange={(e) =>
+                handleBuyerAddressChange(field, e.target.value)
+              }
+            />
+            {required && err(`address.${field}`) && (
+              <p className="text-xs text-red-500 mt-1">Required</p>
+            )}
+          </div>
+        ))}
       </div>
+
+      {/* ================= Participants ================= */}
       <hr className="my-6" />
 
-      <p className="text-lg text-[#0A0A0A] font-regular mb-4">Participant Information</p>
-
-      {/* Participant Info */}
       {participants.map((p, i) => (
-        <div key={i} className="bg-white rounded-2xl mb-6 mt-4">
-          <h2 className="text-lg font-regular mb-4">Participant {i + 1}</h2>
+        <div key={i} className="mb-6">
+          <h3 className="text-md mb-3">
+            Participant #{i + 1}
+          </h3>
+
           <div className="grid md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="Name *"
-              className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.name}
-              onChange={(e) => handleParticipantChange(i, "name", e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email *"
-              className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.email}
-              onChange={(e) => handleParticipantChange(i, "email", e.target.value)}
-            />
+            {/* Required */}
+            {(["firstName", "lastName", "email"] as const).map((field) => (
+              <div key={field}>
+                <input
+                  placeholder={`${field === "email"
+                    ? "Email"
+                    : field[0].toUpperCase() + field.slice(1)} *`}
+                  className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                    err(`participant.${i}.${field}`) ? errorClass : ""
+                  }`}
+                  value={p[field]}
+                  onChange={(e) =>
+                    handleParticipantChange(i, field, e.target.value)
+                  }
+                />
+                {err(`participant.${i}.${field}`) && (
+                  <p className="text-xs text-red-500 mt-1">Required</p>
+                )}
+              </div>
+            ))}
+
+            {/* Optional */}
+            <div>
+              <input
+                placeholder="Organisation / University"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={p.organisation || ""}
+                onChange={(e) =>
+                  handleParticipantChange(
+                    i,
+                    "organisation",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
           </div>
         </div>
       ))}

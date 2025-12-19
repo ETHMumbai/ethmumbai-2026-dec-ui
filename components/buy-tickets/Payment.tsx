@@ -1,25 +1,37 @@
-// Payment.tsx
 "use client";
 
-import { useState, useRef } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-import { TicketOption, TicketType, Participant } from "./types";
+import {
+  TicketOption,
+  TicketType,
+  Participant,
+  BuyerInfo as BuyerInfoType,
+} from "./types";
+
 import TicketSelection from "./TicketSelection";
 import BuyerInfo from "./BuyerInfo";
 import OrderSummary from "./OrderSummary";
 import PaymentButtons from "./PaymentButtons";
 
+/* Config */
 const ticketPrices: Record<TicketType, number> = {
-  earlybird: 999,
+  earlybird: 99,
   standard: 1999,
+};
+
+const ticketPricesUSD: Record<TicketType, number> = {
+  earlybird: 1.1,
+  standard: 24,
 };
 
 const ticketOptions: TicketOption[] = [
   {
     type: "earlybird",
     label: "EarlyBird",
-    price: 999,
+    price: 99,
+    priceUSD: 1.1,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
     comingSoon: false,
@@ -28,89 +40,384 @@ const ticketOptions: TicketOption[] = [
     type: "standard",
     label: "Standard",
     price: 1999,
+    priceUSD: 24,
     desktopImage: "/assets/tickets/standard-list.svg",
     mobileImage: "/assets/tickets/standard-sm-vertical.svg",
     comingSoon: true,
   },
 ];
 
-const Payment: React.FC = () => {
-  // Backend fixed ticket type
+/* Razorpay Loader */
+const loadRazorpay = () =>
+  new Promise<boolean>((resolve) => {
+    if (document.querySelector("#razorpay-sdk")) {
+      console.log("[Razorpay] SDK already loaded");
+      return resolve(true);
+    }
+
+    const script = document.createElement("script");
+    script.id = "razorpay-sdk";
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    script.onload = () => {
+      console.log("[Razorpay] SDK loaded successfully");
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      console.error("[Razorpay] SDK failed to load");
+      resolve(false);
+    };
+
+    document.body.appendChild(script);
+    console.log("[Razorpay] Loading SDK script appended to document");
+  });
+
+/* Payment Page */
+const Payment = () => {
+  const router = useRouter();
+
+
+/* ---------------- Checkout Session ---------------- */
+const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(null);
+
+useEffect(() => {
+  let sessionId = localStorage.getItem("checkoutSessionId");
+
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+    localStorage.setItem("checkoutSessionId", sessionId);
+    console.log("[Checkout] New checkoutSessionId created:", sessionId);
+  } else {
+    console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
+  }
+
+  setCheckoutSessionId(sessionId);
+}, []);
+
+  /* ---------------- Ticket ---------------- */
   const [ticketType] = useState<TicketType>("earlybird");
+  const [visualTicketType, setVisualTicketType] =
+    useState<TicketType>("earlybird");
+  const [quantity, setQuantity] = useState(0);
 
-  // Mobile visual toggle
-  const [visualTicketType, setVisualTicketType] = useState<"earlybird" | "standard">("earlybird");
+  /* ---------------- Payment ---------------- */
+  const [loadingINR, setLoadingINR] = useState(false);
+  const [loadingCrypto, setLoadingCrypto] = useState(false);
+  const [payId, setPayId] = useState<string | null>(null);
 
-  const [quantity, setQuantity] = useState(1);
-  const [buyerInfo, setBuyerInfo] = useState({ name: "", email: "", phone: "" });
-  const [participants, setParticipants] = useState<Participant[]>([{ name: "", email: "" }]);
-  const [loading, setLoading] = useState(false);
-  const [payId, setPayId] = useState("");
+  /* ---------------- Errors ---------------- */
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  /* ---------------- Buyer ---------------- */
+  const [buyerInfo, setBuyerInfo] = useState<BuyerInfoType>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: {
+      line1: "",
+      line2: "",
+      city: "",
+      state: "",
+      country: "India",
+      postalCode: "",
+    },
+  });
 
+  /* ---------------- Participants ---------------- */
+  const [participants, setParticipants] = useState<Participant[]>([
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+      organisation: "",
+      isBuyer: true,
+    },
+  ]);
+
+  /* ---------------- Load Razorpay Script ---------------- */
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
+
+  /* ---------------- Quantity Sync ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
-    setQuantity((prevQty) => {
-      const newQuantity = type === "inc" ? prevQty + 1 : Math.max(1, prevQty - 1);
-      setParticipants((prev) => {
-        const diff = newQuantity - prev.length;
-        if (diff > 0) return [...prev, ...Array.from({ length: diff }, () => ({ name: "", email: "" }))];
-        if (diff < 0) return prev.slice(0, newQuantity);
-        return prev;
+    console.log(`[Ticket] Changing quantity, action: ${type}`);
+    setQuantity((prev) => {
+      const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
+      console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
+
+      setParticipants((curr) => {
+        const diff = next - curr.length;
+        if (diff > 0) {
+          const newParticipants = [
+            ...curr,
+            ...Array.from({ length: diff }, () => ({
+              firstName: "",
+              lastName: "",
+              email: "",
+              organisation: "",
+              isBuyer: false,
+            })),
+          ];
+          console.log(`[Participants] Added ${diff} new participant(s)`);
+          return newParticipants;
+        }
+        const removedCount = curr.length - next;
+        if (removedCount > 0) {
+          console.log(`[Participants] Removed ${removedCount} participant(s)`);
+        }
+        return curr.slice(0, next);
       });
-      return newQuantity;
+
+      return next;
     });
   };
 
+  /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
-    setBuyerInfo((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleParticipantChange = (index: number, field: string, value: string) => {
-    const updated = [...participants];
-    updated[index][field as keyof Participant] = value;
-    setParticipants(updated);
-  };
-
-  const handlePayWithCrypto = async (e: React.MouseEvent) => {
-    if (loading || payId) return;
-    e.stopPropagation();
-    try {
-      setLoading(true);
-      const payload = { ticketType, buyerName: buyerInfo.name, buyerEmail: buyerInfo.email, buyerPhone: buyerInfo.phone, participants, quantity };
-      const { data } = await axios.post("http://localhost:3000/payments/create-order", payload);
-      setPayId(data.paymentId);
-    } catch (error) {
-      console.error(error);
-      alert("Failed to initiate crypto payment.");
-    } finally {
-      setLoading(false);
+    console.log(`[Buyer] Updating field: ${field} with value: ${value}`);
+    if (field.startsWith("address.")) {
+      const key = field.split(".")[1];
+      setBuyerInfo((prev) => ({
+        ...prev,
+        address: { ...prev.address, [key]: value },
+      }));
+    } else {
+      setBuyerInfo((prev) => ({ ...prev, [field]: value }));
     }
   };
 
+  const handleBuyerAddressChange = (
+    field: keyof BuyerInfoType["address"],
+    value: string
+  ) => {
+    console.log(
+      `[Buyer] Updating address field: ${field} with value: ${value}`
+    );
+    setBuyerInfo((prev) => ({
+      ...prev,
+      address: { ...prev.address, [field]: value },
+    }));
+  };
+
+  const handleParticipantChange = (
+    index: number,
+    field: string,
+    value: string
+  ) => {
+    console.log(
+      `[Participant] Updating participant ${index} field: ${field} with value: ${value}`
+    );
+    setParticipants((prev) => {
+      const updated = [...prev];
+      updated[index] = { ...updated[index], [field]: value };
+      return updated;
+    });
+  };
+
+  /* ---------------- Validation ---------------- */
+  const validateCheckout = () => {
+    console.log("[Validation] Starting checkout validation");
+    const e: Record<string, boolean> = {};
+
+    if (!buyerInfo.firstName) e.firstName = true;
+    if (!buyerInfo.lastName) e.lastName = true;
+    if (!buyerInfo.email) e.email = true;
+
+    if (!buyerInfo.address.line1) e["address.line1"] = true;
+    if (!buyerInfo.address.city) e["address.city"] = true;
+    if (!buyerInfo.address.state) e["address.state"] = true;
+    if (!buyerInfo.address.country) e["address.country"] = true;
+    if (!buyerInfo.address.postalCode) e["address.postalCode"] = true;
+
+    participants.forEach((p, i) => {
+      if (!p.firstName) e[`participant.${i}.firstName`] = true;
+      if (!p.lastName) e[`participant.${i}.lastName`] = true;
+      if (!p.email) e[`participant.${i}.email`] = true;
+    });
+
+    setErrors(e);
+    const valid = Object.keys(e).length === 0;
+    console.log(
+      `[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`
+    );
+    if (!valid) console.log("[Validation] Errors:", e);
+    return valid;
+  };
+
+  /* ---------------- Payload ---------------- */
+  const buildPayload = () => {
+    const payload = {
+      checkoutSessionId,
+      ticketType,
+      quantity,
+      buyer: buyerInfo,
+      participants: participants.map((p, i) => ({
+        ...p,
+        isBuyer: i === 0,
+      })),
+    };
+    console.log("[Payload] Built payload:", payload);
+    return payload;
+  };
+
+  /* ---------------- INR / Razorpay ---------------- */
+  const handlePayWithRazorpay = async () => {
+    if (loadingINR) {
+      console.log("[Payment] Razorpay already in progress");
+      return;
+    }
+    setLoadingINR(true);
+    console.log("[Payment] Starting Razorpay payment flow");
+
+    const loaded = await loadRazorpay();
+    if (!loaded) {
+      console.error("[Payment] Razorpay SDK failed to load");
+      alert("Razorpay failed to load");
+      setLoadingINR(false);
+      return;
+    }
+
+    try {
+      console.log("[Payment] Creating Razorpay order...");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
+      const data = await res.json();
+      console.log("[Payment] Razorpay order response received:", data);
+
+      const rzp = new (window as any).Razorpay({
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: data.amount * 100,
+        currency: data.currency,
+        order_id: data.razorpayOrderId,
+        name: "ETHMumbai",
+        handler: async (resp: any) => {
+          console.log("[Payment] Razorpay response received:", resp);
+          try {
+            const verifyRes = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(resp),
+              }
+            );
+            const verifyData = await verifyRes.json();
+            console.log("[Payment] Verification response:", verifyData);
+
+            if (verifyData.success) {
+              localStorage.removeItem("checkoutSessionId");
+              console.log("[Checkout] checkoutSessionId cleared after success");
+            }
+          } catch (err) {
+            console.error("[Payment] Verification failed:", err);
+          }
+        },
+        prefill: {
+          name: `${buyerInfo.firstName} ${buyerInfo.lastName}`,
+          email: buyerInfo.email,
+        },
+      });
+
+      console.log("[Payment] Opening Razorpay modal");
+      rzp.open();
+    } catch (err) {
+      console.error("[Payment] Razorpay error occurred:", err);
+      alert("Payment failed. Check console.");
+    } finally {
+      setLoadingINR(false);
+      console.log("[Payment] Razorpay payment flow ended");
+    }
+  };
+
+  /* ---------------- Crypto ---------------- */
+  const handlePayWithCrypto = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    console.log("[Payment] Starting crypto payment flow");
+    if (!validateCheckout()) {
+      console.log(
+        "[Payment] Checkout validation failed, aborting crypto payment"
+      );
+      document
+        .querySelector(".input-error")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
+    if (loadingCrypto ) {
+      console.log("[Payment] Crypto payment already in progress or completed");
+      return;
+    }
+
+    setLoadingCrypto(true);
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/create-order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
+      const data = await res.json();
+      console.log("[Payment] Crypto order response received:", data);
+      setPayId(data.paymentId);
+    } catch (err) {
+      console.error("[Payment] Crypto payment failed:", err);
+      alert("Crypto payment failed");
+    } finally {
+      setLoadingCrypto(false);
+      console.log("[Payment] Crypto payment flow ended");
+    }
+  };
+
+  /* ---------------- UI ---------------- */
   return (
     <section className="w-full bg-white text-black">
-      <div className="w-full py-8">
-        <div className="w-full px-6 md:px-18 lg:px-20 overflow-x-hidden">
-          <TicketSelection
-            visualTicketType={visualTicketType}
-            setVisualTicketType={setVisualTicketType}
+      <div className="px-8 sm:px-12 md:px-18 lg:px-36 xl:px-50 py-12">
+        <TicketSelection
+          visualTicketType={visualTicketType}
+          setVisualTicketType={setVisualTicketType}
+          quantity={quantity}
+          handleQuantityChange={handleQuantityChange}
+          ticketOptions={ticketOptions}
+        />
+
+        <BuyerInfo
+          buyerInfo={buyerInfo}
+          participants={participants}
+          errors={errors}
+          handleBuyerChange={handleBuyerChange}
+          handleBuyerAddressChange={handleBuyerAddressChange}
+          handleParticipantChange={handleParticipantChange}
+        />
+
+        {quantity > 0 && (
+          <OrderSummary
+            ticketType={ticketType}
             quantity={quantity}
-            handleQuantityChange={handleQuantityChange}
-            ticketOptions={ticketOptions}
+            ticketPrices={ticketPrices}
+            ticketPricesUSD={ticketPricesUSD}
           />
+        )}
 
-          <BuyerInfo
-            buyerInfo={buyerInfo}
-            handleBuyerChange={handleBuyerChange}
-            participants={participants}
-            handleParticipantChange={handleParticipantChange}
-          />
-
-          <OrderSummary ticketType={ticketType} quantity={quantity} ticketPrices={ticketPrices} />
-
-          <PaymentButtons payId={payId} loading={loading} handlePayWithCrypto={handlePayWithCrypto} />
-        </div>
+        <PaymentButtons
+          payId={payId ?? ""}
+          quantity={quantity}
+          loadingINR={loadingINR}
+          loadingCrypto={loadingCrypto}
+          handlePayWithRazorpay={handlePayWithRazorpay}
+          handlePayWithCrypto={handlePayWithCrypto}
+        />
       </div>
     </section>
   );

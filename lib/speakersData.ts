@@ -117,7 +117,7 @@ export const pastSpeakers: Speaker[] = [
 
 export const conferenceSpeakers: Speaker[] = [
   {
-    name: "Krishang Sha",
+    name: "Krishang Shah",
     company: "Polygon Labs",
     image: "/assets/speakers/Krishang_Shah.png",
     xLink: "https://x.com/0xkrishang",
@@ -139,7 +139,7 @@ export const conferenceSpeakers: Speaker[] = [
   },
   {
     name: "Jatin Pandya",
-    company: "Canton Foundation",
+    company: "",
     image: "/assets/speakers/Jatin_Pandya.png",
     xLink: "https://twitter.com/Jpandya26",
     imageScale: "h-[185%]"
