@@ -412,6 +412,7 @@ useEffect(() => {
 
         <PaymentButtons
           payId={payId ?? ""}
+          quantity={quantity}
           loadingINR={loadingINR}
           loadingCrypto={loadingCrypto}
           handlePayWithRazorpay={handlePayWithRazorpay}

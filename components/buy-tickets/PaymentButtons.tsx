@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 /* Daimo */
 export const DaimoPayButtonCustom = dynamic(
@@ -11,6 +11,7 @@ export const DaimoPayButtonCustom = dynamic(
 
 interface PaymentButtonsProps {
   payId: string;
+  quantity: number; // 👈 add this
   loadingINR: boolean;
   loadingCrypto: boolean;
   handlePayWithCrypto: (e: React.MouseEvent) => void;
@@ -28,6 +29,7 @@ const isValidPayId = (payId: string) =>
 
 const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   payId,
+  quantity,
   loadingINR,
   loadingCrypto,
   handlePayWithCrypto,
@@ -35,6 +37,11 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
+
+  // 🚫 Hide buttons completely if quantity < 1
+  if (quantity < 1) {
+    return null;
+  }
 
   const hasValidPayId = isValidPayId(payId);
 
@@ -67,10 +74,6 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={payId}
-          //onOpen to be changed to onPaymentStarted
-
-          // onOpen={()=> <Spinner/>}
-
           onPaymentCompleted={(e) => {
             console.log(e);
             console.log("Payment completed");
@@ -85,16 +88,15 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           }}
           closeOnSuccess
         >
-          {({ show, hide }) => (
+          {({ show }) => (
             <button
               onClick={show}
               disabled={loading}
-              className="cursor-pointer w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50"
+              className="cursor-pointer w-full md:w-auto items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50"
             >
               <div className="inline-flex items-center gap-2">
-                <span>Pay with </span>
-
-                <span>Daimo Pay</span>
+                <span>Pay with</span>
+                <span>Crypto</span>
               </div>
             </button>
           )}
@@ -104,7 +106,6 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= INR ================= */}
       <div className="w-full md:w-auto">
         <button
-          // disabled={loadingINR}
           disabled={true}
           onClick={handlePayWithRazorpay}
           className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
