@@ -81,7 +81,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           //onOpen to be changed to onPaymentStarted
 
           // onOpen={()=> <Spinner/>}
-          onClose={async () => {
+          onPaymentCompleted={async () => {
             try {
               console.log("Payment completed event:");
 
