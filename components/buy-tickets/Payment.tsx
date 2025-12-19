@@ -400,14 +400,16 @@ const Payment = () => {
           ticketOptions={ticketOptions}
         />
 
-        <BuyerInfo
-          buyerInfo={buyerInfo}
-          participants={participants}
-          errors={errors}
-          handleBuyerChange={handleBuyerChange}
-          handleBuyerAddressChange={handleBuyerAddressChange}
-          handleParticipantChange={handleParticipantChange}
-        />
+        {quantity > 0 && (
+          <BuyerInfo
+            buyerInfo={buyerInfo}
+            participants={participants}
+            errors={errors}
+            handleBuyerChange={handleBuyerChange}
+            handleBuyerAddressChange={handleBuyerAddressChange}
+            handleParticipantChange={handleParticipantChange}
+          />
+        )}
 
         {quantity > 0 && (
           <OrderSummary
