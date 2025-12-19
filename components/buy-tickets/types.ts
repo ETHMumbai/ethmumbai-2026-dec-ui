@@ -4,7 +4,8 @@ export type TicketType = "earlybird" | "standard";
 export interface TicketOption {
   type: TicketType;
   label: string;
-  price: number;
+  price: number; // INR
+  priceUSD: number; // USD
   desktopImage: string;
   mobileImage: string;
   comingSoon: boolean;

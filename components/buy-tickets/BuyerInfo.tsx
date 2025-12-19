@@ -1,16 +1,16 @@
-// BuyerInfo.tsx
 "use client";
 
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
 
 interface BuyerInfoProps {
   buyerInfo: BuyerInfoType;
+  participants: Participant[];
+  errors: Record<string, boolean>;
   handleBuyerChange: (field: keyof BuyerInfoType, value: any) => void;
   handleBuyerAddressChange: (
     field: keyof BuyerInfoType["address"],
     value: string
   ) => void;
-  participants: Participant[];
   handleParticipantChange: (
     index: number,
     field: keyof Participant,
@@ -18,175 +18,147 @@ interface BuyerInfoProps {
   ) => void;
 }
 
+const errorClass = "input-error";
+
 const BuyerInfo: React.FC<BuyerInfoProps> = ({
   buyerInfo,
+  participants,
+  errors,
   handleBuyerChange,
   handleBuyerAddressChange,
-  participants,
   handleParticipantChange,
 }) => {
+  const err = (key: string) => errors[key];
+
+  const addressFields: {
+    field: keyof BuyerInfoType["address"];
+    label: string;
+    required: boolean;
+  }[] = [
+    { field: "line1", label: "Address Line 1 *", required: true },
+    { field: "line2", label: "Address Line 2", required: false },
+    { field: "city", label: "City *", required: true },
+    { field: "state", label: "State *", required: true },
+    { field: "country", label: "Country *", required: true },
+    { field: "postalCode", label: "PIN Code *", required: true },
+  ];
+
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
       <h2 className="text-lg text-[#0A0A0A] font-regular">
         Checkout Details
-      </h2><br/>
+      </h2>
 
-      {/* ---------------- Buyer Info ---------------- */}
-      <p className="text-md text-[#0A0A0A] mb-4">Buyer Information</p>
+      {/* ================= Buyer Info ================= */}
+      <p className="text-md text-[#0A0A0A] mt-4 mb-2">Buyer Information</p>
 
-      <div className="grid md:grid-cols-2 gap-4 mt-4">
-        <input
-          type="text"
-          placeholder="First Name *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.firstName}
-          onChange={(e) =>
-            handleBuyerChange("firstName", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="Last Name *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.lastName}
-          onChange={(e) =>
-            handleBuyerChange("lastName", e.target.value)
-          }
-        />
-        <input
-          type="email"
-          placeholder="Email *"
-          className="border bg-[#F3F3F5] rounded-lg p-2 md:col-span-2"
-          value={buyerInfo.email}
-          onChange={(e) =>
-            handleBuyerChange("email", e.target.value)
-          }
-        />
+      <div className="grid md:grid-cols-2 gap-4">
+        {(["firstName", "lastName"] as const).map((field) => (
+          <div key={field}>
+            <input
+              placeholder={`${field === "firstName" ? "First" : "Last"} Name *`}
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                err(field) ? errorClass : ""
+              }`}
+              value={buyerInfo[field]}
+              onChange={(e) =>
+                handleBuyerChange(field, e.target.value)
+              }
+            />
+            {err(field) && (
+              <p className="text-xs text-red-500 mt-1">Required</p>
+            )}
+          </div>
+        ))}
+
+        <div className="md:col-span-2">
+          <input
+            type="email"
+            placeholder="Email *"
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+              err("email") ? errorClass : ""
+            }`}
+            value={buyerInfo.email}
+            onChange={(e) =>
+              handleBuyerChange("email", e.target.value)
+            }
+          />
+          {err("email") && (
+            <p className="text-xs text-red-500 mt-1">Required</p>
+          )}
+        </div>
       </div>
 
-      {/* ---------------- Address ---------------- */}
+      {/* ================= Address ================= */}
       <hr className="my-6" />
-      <p className="text-md text-[#0A0A0A] mb-4">Billing Address</p>
+      <p className="text-md text-[#0A0A0A] mb-2">Billing Address</p>
 
       <div className="grid md:grid-cols-3 gap-4">
-        <input
-          type="text"
-          placeholder="Address Line 1 *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.line1}
-          onChange={(e) =>
-            handleBuyerAddressChange("line1", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="Address Line 2 *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.line2}
-          onChange={(e) =>
-            handleBuyerAddressChange("line2", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="City *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.city}
-          onChange={(e) =>
-            handleBuyerAddressChange("city", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="State *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.state}
-          onChange={(e) =>
-            handleBuyerAddressChange("state", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="Country *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.country}
-          onChange={(e) =>
-            handleBuyerAddressChange("country", e.target.value)
-          }
-        />
-        <input
-          type="text"
-          placeholder="PIN Code *"
-          className="border bg-[#F3F3F5] rounded-lg p-2"
-          value={buyerInfo.address.postalCode}
-          onChange={(e) =>
-            handleBuyerAddressChange("postalCode", e.target.value)
-          }
-        />
+        {addressFields.map(({ field, label, required }) => (
+          <div key={field}>
+            <input
+              placeholder={label}
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                required && err(`address.${field}`) ? errorClass : ""
+              }`}
+              value={buyerInfo.address[field]}
+              onChange={(e) =>
+                handleBuyerAddressChange(field, e.target.value)
+              }
+            />
+            {required && err(`address.${field}`) && (
+              <p className="text-xs text-red-500 mt-1">Required</p>
+            )}
+          </div>
+        ))}
       </div>
 
-      {/* ---------------- Participants ---------------- */}
+      {/* ================= Participants ================= */}
       <hr className="my-6" />
 
       {participants.map((p, i) => (
         <div key={i} className="mb-6">
-          <h3 className="text-md mb-4">
-            Participant  #{i + 1}
+          <h3 className="text-md mb-3">
+            Participant #{i + 1}
           </h3>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="First Name *"
-              className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.firstName}
-              onChange={(e) =>
-                handleParticipantChange(
-                  i,
-                  "firstName",
-                  e.target.value
-                )
-              }
-            />
-            <input
-              type="text"
-              placeholder="Last Name *"
-              className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.lastName}
-              onChange={(e) =>
-                handleParticipantChange(
-                  i,
-                  "lastName",
-                  e.target.value
-                )
-              }
-            />
-            <input
-              type="email"
-              placeholder="Email *"
-              className="border bg-[#F3F3F5] rounded-lg p-2"
-              value={p.email}
-              onChange={(e) =>
-                handleParticipantChange(
-                  i,
-                  "email",
-                  e.target.value
-                )
-              }
-            />
-            <input
-              type="text"
-              placeholder="Organisation"
-              className="border bg-[#F3F3F5] rounded-lg p-2 "
-              value={p.organisation || ""}
-              onChange={(e) =>
-                handleParticipantChange(
-                  i,
-                  "organisation",
-                  e.target.value
-                )
-              }
-            />
+            {/* Required */}
+            {(["firstName", "lastName", "email"] as const).map((field) => (
+              <div key={field}>
+                <input
+                  placeholder={`${field === "email"
+                    ? "Email"
+                    : field[0].toUpperCase() + field.slice(1)} *`}
+                  className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                    err(`participant.${i}.${field}`) ? errorClass : ""
+                  }`}
+                  value={p[field]}
+                  onChange={(e) =>
+                    handleParticipantChange(i, field, e.target.value)
+                  }
+                />
+                {err(`participant.${i}.${field}`) && (
+                  <p className="text-xs text-red-500 mt-1">Required</p>
+                )}
+              </div>
+            ))}
+
+            {/* Optional */}
+            <div>
+              <input
+                placeholder="Organisation / University"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={p.organisation || ""}
+                onChange={(e) =>
+                  handleParticipantChange(
+                    i,
+                    "organisation",
+                    e.target.value
+                  )
+                }
+              />
+            </div>
           </div>
         </div>
       ))}
