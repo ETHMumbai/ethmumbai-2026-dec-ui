@@ -72,7 +72,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
         {/* Buyer Last Name (optional) */}
         <div>
           <input
-            placeholder="Last Name"
+            placeholder="Last Name *"
             className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
             value={buyerInfo.lastName}
             onChange={(e) =>
@@ -151,7 +151,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             {/* Participant Last Name (optional) */}
             <div>
               <input
-                placeholder="Last Name"
+                placeholder="Last Name *"
                 className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
                 value={p.lastName}
                 onChange={(e) =>

@@ -105,7 +105,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.log("Verify response:", data);
 
               // ✅ backend-confirmed success
-              if (data.status === "payment_unpaid") {
+              if (data.status === "payment_completed") {
                 console.log(orderId);
                 router.replace(`conference/payment-success?orderId=${orderId}`);
               }
@@ -113,7 +113,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.error("Error verifying Daimo payment:", err);
             }
           }}
-          // closeOnSuccess
+          closeOnSuccess
         >
           {({ show, hide }) => (
             <button
