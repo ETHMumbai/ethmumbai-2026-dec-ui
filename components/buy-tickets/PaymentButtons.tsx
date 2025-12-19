@@ -81,7 +81,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           //onOpen to be changed to onPaymentStarted
 
           // onOpen={()=> <Spinner/>}
-          onClose={async () => {
+          onPaymentCompleted={async () => {
             try {
               console.log("Payment completed event:");
 
@@ -113,7 +113,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.error("Error verifying Daimo payment:", err);
             }
           }}
-          // closeOnSuccess
+          closeOnSuccess
         >
           {({ show, hide }) => (
             <button

@@ -9,39 +9,48 @@ import Footer from "@/components/Footer";
 
 export default function PaymentSuccess() {
   const searchParams = useSearchParams();
-  const orderId = searchParams.get('orderId');
-  
+  const orderId = searchParams.get("orderId");
+
   const [orderData, setOrderData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  if (!orderId) {
-    setLoading(false);
-    return;
-  }
-
-  fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/internal/orders/success/${orderId}`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.success) {
-        setOrderData(data.order);
+    const fetchOrder = async () => {
+      if (!orderId) {
+        setLoading(false);
+        return;
       }
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.error("Failed to load order:", err);
-      setLoading(false);
-    });
-}, [orderId]);
 
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/internal/orders/success/${orderId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+            },
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error(`Request failed with ${res.status}`);
+        }
+
+        const data = await res.json();
+
+        if (data.success) {
+          setOrderData(data.order);
+        }
+      } catch (err) {
+        console.error("Failed to load order:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrder();
+  }, [orderId]);
 
   if (loading) {
     return (
@@ -58,10 +67,14 @@ export default function PaymentSuccess() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Order Not Found</h2>
-          <p className="text-gray-600 mb-4">We couldn't find your order. Please check the URL.</p>
-          <a 
-            href="/buy-tickets" 
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            Order Not Found
+          </h2>
+          <p className="text-gray-600 mb-4">
+            We couldn't find your order. Please check the URL.
+          </p>
+          <a
+            href="/buy-tickets"
             className="inline-block px-6 py-3 bg-[#E2231A] text-white rounded-lg hover:bg-[#C51F16]"
           >
             Buy Tickets
