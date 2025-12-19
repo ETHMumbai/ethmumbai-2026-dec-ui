@@ -28,7 +28,7 @@ export default function PaymentSuccess() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+              // "x-ap`i-key": process.env.NEXT_PUBLIC_API_KEY as string,
             },
           }
         );
@@ -74,7 +74,7 @@ export default function PaymentSuccess() {
             We couldn't find your order. Please check the URL.
           </p>
           <a
-            href="/buy-tickets"
+            href="/tickets"
             className="inline-block px-6 py-3 bg-[#E2231A] text-white rounded-lg hover:bg-[#C51F16]"
           >
             Buy Tickets

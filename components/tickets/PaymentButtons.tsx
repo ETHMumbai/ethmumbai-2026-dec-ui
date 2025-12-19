@@ -81,7 +81,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           //onOpen to be changed to onPaymentStarted
 
           // onOpen={()=> <Spinner/>}
-          onPaymentCompleted={async () => {
+          onClose={async () => {
             try {
               console.log("Payment completed event:");
 
@@ -105,7 +105,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.log("Verify response:", data);
 
               // ✅ backend-confirmed success
-              if (data.status === "payment_completed") {
+              if (data.status === "payment_unpaid") {
                 console.log(orderId);
                 router.replace(`conference/payment-success?orderId=${orderId}`);
               }

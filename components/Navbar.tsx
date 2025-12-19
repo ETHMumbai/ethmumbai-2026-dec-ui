@@ -40,7 +40,7 @@ export default function Navbar() {
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
-          <Link href="/buy-tickets" className="hover:text-black transition">
+          <Link href="/tickets" className="hover:text-black transition">
             Buy Tickets
           </Link>
         </div> */}
@@ -139,7 +139,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/buy-tickets"
+              href="/tickets"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
