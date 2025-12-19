@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useRef, useEffect, useState } from "react";
 
 /* Daimo */
 export const DaimoPayButtonCustom = dynamic(
@@ -10,8 +11,9 @@ export const DaimoPayButtonCustom = dynamic(
 );
 
 interface PaymentButtonsProps {
+  orderId: string;
   payId: string;
-  quantity: number; // 👈 add this
+  quantity: number;
   loadingINR: boolean;
   loadingCrypto: boolean;
   handlePayWithCrypto: (e: React.MouseEvent) => void;
@@ -28,6 +30,7 @@ const isValidPayId = (payId: string) =>
   typeof payId === "string" && payId.length > 2 && payId !== "0x";
 
 const PaymentButtons: React.FC<PaymentButtonsProps> = ({
+  orderId,
   payId,
   quantity,
   loadingINR,
@@ -35,10 +38,10 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   handlePayWithCrypto,
   handlePayWithRazorpay,
 }) => {
+  const router = useRouter();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
 
-  // 🚫 Hide buttons completely if quantity < 1
   if (quantity < 1) {
     return null;
   }
@@ -74,29 +77,52 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={payId}
-          onPaymentCompleted={(e) => {
-            console.log(e);
-            console.log("Payment completed");
-            fetch("http://localhost:3000/payments/verify", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                paymentType: "DAIMO",
-                paymentId: payId,
-              }),
-            }).catch(console.error);
+          redirectReturnUrl="http://localhost:3000/conference/payment-success"
+          //onOpen to be changed to onPaymentStarted
+
+          // onOpen={()=> <Spinner/>}
+          onClose={async () => {
+            try {
+              console.log("Payment completed event:");
+
+              const res = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+                {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    paymentType: "DAIMO",
+                    paymentId: payId,
+                  }),
+                }
+              );
+
+              if (!res.ok) {
+                throw new Error("Payment verification failed");
+              }
+
+              const data = await res.json();
+              console.log("Verify response:", data);
+
+              // ✅ backend-confirmed success
+              if (data.status === "payment_unpaid") {
+                console.log(orderId);
+                router.replace(`conference/payment-success?orderId=${orderId}`);
+              }
+            } catch (err) {
+              console.error("Error verifying Daimo payment:", err);
+            }
           }}
-          closeOnSuccess
+          // closeOnSuccess
         >
-          {({ show }) => (
+          {({ show, hide }) => (
             <button
               onClick={show}
               disabled={loading}
-              className="cursor-pointer w-full md:w-auto items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50"
+              className="cursor-pointer w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50"
             >
-              <div className="inline-flex items-center gap-2">
-                <span>Pay with</span>
-                <span>Crypto</span>
+              <div className="inline-flex items-center gap-2 px-4">
+                <span>Pay with Crypto</span>
               </div>
             </button>
           )}
@@ -106,6 +132,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= INR ================= */}
       <div className="w-full md:w-auto">
         <button
+          // disabled={loadingINR}
           disabled={true}
           onClick={handlePayWithRazorpay}
           className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"

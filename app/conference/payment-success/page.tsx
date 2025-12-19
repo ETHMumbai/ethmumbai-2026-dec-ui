@@ -15,24 +15,33 @@ export default function PaymentSuccess() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!orderId) {
-      setLoading(false);
-      return;
-    }
+  if (!orderId) {
+    setLoading(false);
+    return;
+  }
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/internal/orders/success/${orderId}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setOrderData(data.order);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to load order:', err);
-        setLoading(false);
-      });
-  }, [orderId]);
+  fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/internal/orders/success/${orderId}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        setOrderData(data.order);
+      }
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Failed to load order:", err);
+      setLoading(false);
+    });
+}, [orderId]);
+
 
   if (loading) {
     return (
