@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const inter = Inter_Tight({
@@ -57,9 +58,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} 
-      ${inter.variable} antialiased`}
+      ${inter.variable} font-sans antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

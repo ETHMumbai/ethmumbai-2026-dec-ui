@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { pastSpeakers } from "../lib/speakersData";
+import { pastSpeakers } from "../../lib/speakersData";
 
 export default function Speakers() {
   return (
     <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
       <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Past Speakers and Judges
+          Speakers
         </h2>
 
       {/* Speakers Grid */}

@@ -57,6 +57,15 @@ const Footer = () => {
               </a>
 
               <a
+                href="https://ethmumbai.substack.com/embed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Newsletter
+              </a>
+
+              <a
                 href="https://2024.ethmumbai.in/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -72,6 +81,15 @@ const Footer = () => {
             {/* <p className="font-medium text-lg">Join Us</p> */}
 
             <div className="mt-6 flex flex-col gap-3 font-light">
+              {/* <a
+                href="/buy-tickets"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Buy Tickets
+              </a> */}
+
               <a
                 href="https://tally.so/r/nGW5Bz"
                 target="_blank"
@@ -99,14 +117,7 @@ const Footer = () => {
               >
                 Apply to Hack
               </a> */}
-              <a
-                href="https://ethmumbai.substack.com/embed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                Newsletter
-              </a>
+              
             </div>
           </div>
         </div>

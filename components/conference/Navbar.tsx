@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
-import TwitterLogo from "../public/assets/x-logo.png";
-import TwitterWhite from "../public/assets/x-white.png";
-import FarcasterLogo from "../public/assets/farcaster-logo.png";
-import FarcasterWhite from "../public/assets/farcaster-white.png";
-import TelegramLogo from "../public/assets/telegram-logo.png";
-import TelegramWhite from "../public/assets/telegram-white.png";
-import EthMumbaiLogo from "../public/assets/ethmumbai-logo.svg";
+import TwitterLogo from "../../public/assets/x-logo.png";
+import TwitterWhite from "../../public/assets/x-white.png";
+import FarcasterLogo from "../../public/assets/farcaster-logo.png";
+import FarcasterWhite from "../../public/assets/farcaster-white.png";
+import TelegramLogo from "../../public/assets/telegram-logo.png";
+import TelegramWhite from "../../public/assets/telegram-white.png";
+import EthMumbaiLogo from "../../public/assets/ethmumbai-logo.svg";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,21 +29,21 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
+    <nav className="fixed top-10 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
       <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/">
           <Image src={EthMumbaiLogo} alt="ETHMumbai Logo" width={128} height={40} />
         </Link>
 
-        {/* <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
           <Link href="/buy-tickets" className="hover:text-black transition">
             Buy Tickets
           </Link>
-        </div> */}
+        </div>
 
         {/* Socials (desktop) */}
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
@@ -110,25 +110,6 @@ export default function Navbar() {
 
           {/* Centered Buttons */}
           <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
-            <a
-              href="https://tally.so/r/nGW5Bz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
-            >
-              Apply to Speak
-            </a>
-
-            <a
-              href="https://tally.so/r/3NkdGb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
-            >
-              Apply to Sponsor
-            </a>
-          </div>
-          {/* <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
             <Link
               href="/conference"
               target="_blank"
@@ -146,7 +127,7 @@ export default function Navbar() {
             >
               Buy Tickets
             </Link>
-          </div> */}
+          </div>
 
           {/* SOCIAL ICONS AT BOTTOM */}
           <div className="flex items-center justify-center gap-6 pb-10 bg-white">
