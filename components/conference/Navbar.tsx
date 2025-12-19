@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
-import TwitterLogo from "../public/assets/x-logo.png";
-import TwitterWhite from "../public/assets/x-white.png";
-import FarcasterLogo from "../public/assets/farcaster-logo.png";
-import FarcasterWhite from "../public/assets/farcaster-white.png";
-import TelegramLogo from "../public/assets/telegram-logo.png";
-import TelegramWhite from "../public/assets/telegram-white.png";
-import EthMumbaiLogo from "../public/assets/ethmumbai-logo.svg";
+import TwitterLogo from "../../public/assets/x-logo.png";
+import TwitterWhite from "../../public/assets/x-white.png";
+import FarcasterLogo from "../../public/assets/farcaster-logo.png";
+import FarcasterWhite from "../../public/assets/farcaster-white.png";
+import TelegramLogo from "../../public/assets/telegram-logo.png";
+import TelegramWhite from "../../public/assets/telegram-white.png";
+import EthMumbaiLogo from "../../public/assets/ethmumbai-logo.svg";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
