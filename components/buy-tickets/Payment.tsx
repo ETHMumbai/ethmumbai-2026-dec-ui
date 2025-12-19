@@ -40,6 +40,32 @@ const ticketOptions: TicketOption[] = [
   },
 ];
 
+/* Razorpay Loader */
+const loadRazorpay = () =>
+  new Promise<boolean>((resolve) => {
+    if (document.querySelector("#razorpay-sdk")) {
+      console.log("[Razorpay] SDK already loaded");
+      return resolve(true);
+    }
+
+    const script = document.createElement("script");
+    script.id = "razorpay-sdk";
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    script.onload = () => {
+      console.log("[Razorpay] SDK loaded successfully");
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      console.error("[Razorpay] SDK failed to load");
+      resolve(false);
+    };
+
+    document.body.appendChild(script);
+    console.log("[Razorpay] Loading SDK script appended to document");
+  });
+
 /* Payment Page */
 const Payment = () => {
   const router = useRouter();
@@ -86,13 +112,15 @@ const Payment = () => {
 
   /* ---------------- Quantity Sync ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
+    console.log(`[Ticket] Changing quantity, action: ${type}`);
     setQuantity((prev) => {
       const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
+      console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
 
       setParticipants((curr) => {
         const diff = next - curr.length;
         if (diff > 0) {
-          return [
+          const newParticipants = [
             ...curr,
             ...Array.from({ length: diff }, () => ({
               firstName: "",
@@ -102,6 +130,12 @@ const Payment = () => {
               isBuyer: false,
             })),
           ];
+          console.log(`[Participants] Added ${diff} new participant(s)`);
+          return newParticipants;
+        }
+        const removedCount = curr.length - next;
+        if (removedCount > 0) {
+          console.log(`[Participants] Removed ${removedCount} participant(s)`);
         }
         return curr.slice(0, next);
       });
@@ -112,6 +146,7 @@ const Payment = () => {
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
+    console.log(`[Buyer] Updating field: ${field} with value: ${value}`);
     if (field.startsWith("address.")) {
       const key = field.split(".")[1];
       setBuyerInfo((prev) => ({
@@ -127,6 +162,7 @@ const Payment = () => {
     field: keyof BuyerInfoType["address"],
     value: string
   ) => {
+    console.log(`[Buyer] Updating address field: ${field} with value: ${value}`);
     setBuyerInfo((prev) => ({
       ...prev,
       address: { ...prev.address, [field]: value },
@@ -138,6 +174,7 @@ const Payment = () => {
     field: string,
     value: string
   ) => {
+    console.log(`[Participant] Updating participant ${index} field: ${field} with value: ${value}`);
     setParticipants((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
@@ -147,6 +184,7 @@ const Payment = () => {
 
   /* ---------------- Validation ---------------- */
   const validateCheckout = () => {
+    console.log("[Validation] Starting checkout validation");
     const e: Record<string, boolean> = {};
 
     if (!buyerInfo.firstName) e.firstName = true;
@@ -166,44 +204,105 @@ const Payment = () => {
     });
 
     setErrors(e);
-    return Object.keys(e).length === 0;
+    const valid = Object.keys(e).length === 0;
+    console.log(`[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`);
+    if (!valid) console.log("[Validation] Errors:", e);
+    return valid;
   };
 
   /* ---------------- Payload ---------------- */
-  const buildPayload = () => ({
-    ticketType,
-    quantity,
-    buyer: buyerInfo,
-    participants: participants.map((p, i) => ({
-      ...p,
-      isBuyer: i === 0,
-    })),
-  });
+  const buildPayload = () => {
+    const payload = {
+      ticketType,
+      quantity,
+      buyer: buyerInfo,
+      participants: participants.map((p, i) => ({
+        ...p,
+        isBuyer: i === 0,
+      })),
+    };
+    console.log("[Payload] Built payload:", payload);
+    return payload;
+  };
 
   /* ---------------- INR ---------------- */
   const handlePayWithRazorpay = async () => {
-    if (!validateCheckout()) {
-      document
-        .querySelector(".input-error")
-        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (loadingINR) {
+      console.log("[Payment] Razorpay already in progress");
+      return;
+    }
+    setLoadingINR(true);
+    console.log("[Payment] Starting Razorpay payment flow");
+
+    const loaded = await loadRazorpay();
+    if (!loaded) {
+      console.error("[Payment] Razorpay SDK failed to load");
+      alert("Razorpay failed to load");
+      setLoadingINR(false);
       return;
     }
 
-    alert("Razorpay flow unchanged — validation passed.");
+    try {
+      console.log("[Payment] Creating Razorpay order...");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/order`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(buildPayload()),
+      });
+      const data = await res.json();
+      console.log("[Payment] Razorpay order response received:", data);
+
+      const rzp = new (window as any).Razorpay({
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: data.amount * 100,
+        currency: data.currency,
+        order_id: data.razorpayOrderId,
+        name: "ETHMumbai",
+        handler: async (resp: any) => {
+          console.log("[Payment] Razorpay response received:", resp);
+          try {
+            const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(resp),
+            });
+            const verifyData = await verifyRes.json();
+            console.log("[Payment] Verification response:", verifyData);
+          } catch (err) {
+            console.error("[Payment] Verification failed:", err);
+          }
+        },
+        prefill: { name: `${buyerInfo.firstName} ${buyerInfo.lastName}`, email: buyerInfo.email },
+      });
+
+      console.log("[Payment] Opening Razorpay modal");
+      rzp.open();
+    } catch (err) {
+      console.error("[Payment] Razorpay error occurred:", err);
+      alert("Payment failed. Check console.");
+    } finally {
+      setLoadingINR(false);
+      console.log("[Payment] Razorpay payment flow ended");
+    }
   };
 
   /* ---------------- Crypto ---------------- */
   const handlePayWithCrypto = async (e: React.MouseEvent) => {
     e.stopPropagation();
 
+    console.log("[Payment] Starting crypto payment flow");
     if (!validateCheckout()) {
+      console.log("[Payment] Checkout validation failed, aborting crypto payment");
       document
         .querySelector(".input-error")
         ?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
-    if (loadingCrypto || payId) return;
+    if (loadingCrypto || payId) {
+      console.log("[Payment] Crypto payment already in progress or completed");
+      return;
+    }
 
     setLoadingCrypto(true);
 
@@ -216,14 +315,15 @@ const Payment = () => {
           body: JSON.stringify(buildPayload()),
         }
       );
-
       const data = await res.json();
+      console.log("[Payment] Crypto order response received:", data);
       setPayId(data.paymentId);
     } catch (err) {
-      console.error("[Crypto] Failed:", err);
+      console.error("[Payment] Crypto payment failed:", err);
       alert("Crypto payment failed");
     } finally {
       setLoadingCrypto(false);
+      console.log("[Payment] Crypto payment flow ended");
     }
   };
 
