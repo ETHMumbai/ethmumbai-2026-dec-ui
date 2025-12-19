@@ -81,14 +81,14 @@ const Footer = () => {
             {/* <p className="font-medium text-lg">Join Us</p> */}
 
             <div className="mt-6 flex flex-col gap-3 font-light">
-              <a
+              {/* <a
                 href="/buy-tickets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Buy Tickets
-              </a>
+              </a> */}
 
               <a
                 href="https://tally.so/r/nGW5Bz"
