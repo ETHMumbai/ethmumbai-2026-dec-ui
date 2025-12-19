@@ -135,6 +135,11 @@ useEffect(() => {
     },
   ]);
 
+  /* ---------------- Load Razorpay Script ---------------- */
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
+
   /* ---------------- Quantity Sync ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
     console.log(`[Ticket] Changing quantity, action: ${type}`);
@@ -257,7 +262,7 @@ useEffect(() => {
     return payload;
   };
 
-  /* ---------------- INR ---------------- */
+  /* ---------------- INR / Razorpay ---------------- */
   const handlePayWithRazorpay = async () => {
     if (loadingINR) {
       console.log("[Payment] Razorpay already in progress");
