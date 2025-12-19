@@ -139,22 +139,39 @@ const Payment = () => {
   ]);
 
   useEffect(() => {
-  setParticipants((prev) =>
-    prev.map((p, index) => ({
-      ...p,
-      firstName: buyerInfo.firstName,
-      lastName: buyerInfo.lastName,
-      email: buyerInfo.email,
-      organisation: buyerInfo.organisation || "",
-      isBuyer: index === 0,
-    }))
-  );
-}, [
-  buyerInfo.firstName,
-  buyerInfo.lastName,
-  buyerInfo.email,
-  buyerInfo.organisation,
-]);
+    setParticipants((prev) =>
+      prev.map((p, index) => ({
+        ...p,
+        firstName: buyerInfo.firstName,
+        lastName: buyerInfo.lastName,
+        email: buyerInfo.email,
+        organisation: buyerInfo.organisation || "",
+        isBuyer: index === 0,
+      }))
+    );
+  }, [
+    buyerInfo.firstName,
+    buyerInfo.lastName,
+    buyerInfo.email,
+    buyerInfo.organisation,
+  ]);
+
+  const isCheckoutValid = () => {
+    if (!buyerInfo.firstName) return false;
+    if (!buyerInfo.lastName) return false;
+    if (!buyerInfo.email) return false;
+
+    if (!buyerInfo.address.line1) return false;
+    if (!buyerInfo.address.city) return false;
+    if (!buyerInfo.address.state) return false;
+    if (!buyerInfo.address.country) return false;
+    if (!buyerInfo.address.postalCode) return false;
+
+    return true;
+  };
+
+  const checkoutValid = isCheckoutValid();
+
 
 
   /* ---------------- Load Razorpay Script ---------------- */
@@ -197,18 +214,18 @@ const Payment = () => {
   // };
 
   const handleQuantityChange = (type: "inc" | "dec") => {
-  setQuantity((prev) => {
-    if (type === "inc") {
-      return prev >= 1 ? 1 : 1;
-    }
+    setQuantity((prev) => {
+      if (type === "inc") {
+        return prev >= 1 ? 1 : 1;
+      }
 
-    if (type === "dec") {
-      return prev <= 1 ? 1 : prev;
-    }
+      if (type === "dec") {
+        return prev <= 1 ? 1 : prev;
+      }
 
-    return prev;
-  });
-};
+      return prev;
+    });
+  };
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
@@ -455,7 +472,9 @@ const Payment = () => {
           handlePayWithRazorpay={handlePayWithRazorpay}
           handlePayWithCrypto={handlePayWithCrypto}
           orderId={orderId ?? ""}
+          checkoutValid={checkoutValid}
         />
+
       </div>
     </section>
   );
