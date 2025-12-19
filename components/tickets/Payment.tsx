@@ -113,18 +113,19 @@ const Payment = () => {
 
   /* ---------------- Buyer ---------------- */
   const [buyerInfo, setBuyerInfo] = useState<BuyerInfoType>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: {
-      line1: "",
-      line2: "",
-      city: "",
-      state: "",
-      country: "India",
-      postalCode: "",
-    },
-  });
+  firstName: "",
+  lastName: "",
+  email: "",
+  organisation: "",
+  address: {
+    line1: "",
+    line2: "",
+    city: "",
+    state: "",
+    country: "India",
+    postalCode: "",
+  },
+});
 
   /* ---------------- Participants ---------------- */
   const [participants, setParticipants] = useState<Participant[]>([
@@ -137,42 +138,92 @@ const Payment = () => {
     },
   ]);
 
+  useEffect(() => {
+    setParticipants((prev) =>
+      prev.map((p, index) => ({
+        ...p,
+        firstName: buyerInfo.firstName,
+        lastName: buyerInfo.lastName,
+        email: buyerInfo.email,
+        organisation: buyerInfo.organisation || "",
+        isBuyer: index === 0,
+      }))
+    );
+  }, [
+    buyerInfo.firstName,
+    buyerInfo.lastName,
+    buyerInfo.email,
+    buyerInfo.organisation,
+  ]);
+
+  const isCheckoutValid = () => {
+    if (!buyerInfo.firstName) return false;
+    if (!buyerInfo.lastName) return false;
+    if (!buyerInfo.email) return false;
+
+    if (!buyerInfo.address.line1) return false;
+    if (!buyerInfo.address.city) return false;
+    if (!buyerInfo.address.state) return false;
+    if (!buyerInfo.address.country) return false;
+    if (!buyerInfo.address.postalCode) return false;
+
+    return true;
+  };
+
+  const checkoutValid = isCheckoutValid();
+
+
+
   /* ---------------- Load Razorpay Script ---------------- */
   useEffect(() => {
     loadRazorpay();
   }, []);
 
   /* ---------------- Quantity Sync ---------------- */
+  // const handleQuantityChange = (type: "inc" | "dec") => {
+  //   console.log(`[Ticket] Changing quantity, action: ${type}`);
+  //   setQuantity((prev) => {
+  //     const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
+  //     console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
+
+  //     setParticipants((curr) => {
+  //       const diff = next - curr.length;
+  //       if (diff > 0) {
+  //         const newParticipants = [
+  //           ...curr,
+  //           ...Array.from({ length: diff }, () => ({
+  //             firstName: "",
+  //             lastName: "",
+  //             email: "",
+  //             organisation: "",
+  //             isBuyer: false,
+  //           })),
+  //         ];
+  //         console.log(`[Participants] Added ${diff} new participant(s)`);
+  //         return newParticipants;
+  //       }
+  //       const removedCount = curr.length - next;
+  //       if (removedCount > 0) {
+  //         console.log(`[Participants] Removed ${removedCount} participant(s)`);
+  //       }
+  //       return curr.slice(0, next);
+  //     });
+
+  //     return next;
+  //   });
+  // };
+
   const handleQuantityChange = (type: "inc" | "dec") => {
-    console.log(`[Ticket] Changing quantity, action: ${type}`);
     setQuantity((prev) => {
-      const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
-      console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
+      if (type === "inc") {
+        return prev >= 1 ? 1 : 1;
+      }
 
-      setParticipants((curr) => {
-        const diff = next - curr.length;
-        if (diff > 0) {
-          const newParticipants = [
-            ...curr,
-            ...Array.from({ length: diff }, () => ({
-              firstName: "",
-              lastName: "",
-              email: "",
-              organisation: "",
-              isBuyer: false,
-            })),
-          ];
-          console.log(`[Participants] Added ${diff} new participant(s)`);
-          return newParticipants;
-        }
-        const removedCount = curr.length - next;
-        if (removedCount > 0) {
-          console.log(`[Participants] Removed ${removedCount} participant(s)`);
-        }
-        return curr.slice(0, next);
-      });
+      if (type === "dec") {
+        return prev <= 1 ? 1 : prev;
+      }
 
-      return next;
+      return prev;
     });
   };
 
@@ -421,7 +472,9 @@ const Payment = () => {
           handlePayWithRazorpay={handlePayWithRazorpay}
           handlePayWithCrypto={handlePayWithCrypto}
           orderId={orderId ?? ""}
+          checkoutValid={checkoutValid}
         />
+
       </div>
     </section>
   );

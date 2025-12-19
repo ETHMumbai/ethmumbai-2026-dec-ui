@@ -82,7 +82,7 @@ const Footer = () => {
 
             <div className="mt-6 flex flex-col gap-3 font-light">
               {/* <a
-                href="/buy-tickets"
+                href="/tickets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"

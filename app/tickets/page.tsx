@@ -1,10 +1,10 @@
 "use client";
 
-import Hero from "@/components/buy-tickets/Hero";
+import Hero from "@/components/tickets/Hero";
 import Navbar from "@/components/conference/Navbar";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import Payment from "@/components/buy-tickets/Payment";
+import Payment from "@/components/tickets/Payment";
 import AnnouncementBar from "@/components/AnnouncementBar";
 
 export default function LandingPage() {

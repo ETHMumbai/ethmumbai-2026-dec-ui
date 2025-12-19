@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
         <span className="text-[12px] sm:text-sm md:text-base font-bold  tracking-wide leading-tight sm:whitespace-nowrap">
           50 tickets available at the special price of ₹99!{" "}
           <Link
-            href="/buy-tickets"
+            href="/tickets"
             className="underline underline-offset-2 hover:opacity-80 transition"
           >
             Buy now

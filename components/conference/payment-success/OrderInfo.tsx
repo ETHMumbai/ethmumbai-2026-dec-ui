@@ -46,7 +46,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             </div>
 
             {/* Transaction ID - DYNAMIC */}
-            <div>
+            {/* <div>
               <label className="text-[14px] text-[#4A5565] mb-[8px] block">
                 Transaction ID
               </label>
@@ -55,7 +55,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
                   {orderData.transactionId}
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Purchase Details Section */}
@@ -113,15 +113,21 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹{orderData.totalAmount}
+                ₹99(${orderData.totalAmount})
               </span>
             </div>
 
             {/* Download Button */}
-            <button className="w-full bg-[#E2231A] hover:bg-[#C51F16] text-white font-medium text-[18px] py-[14px] px-[24px] rounded-xl flex items-center justify-center gap-4 transition-colors">
+            {/* <button className="w-full bg-[#E2231A] hover:bg-[#C51F16] text-white font-medium text-[18px] py-[14px] px-[24px] rounded-xl flex items-center justify-center gap-4 transition-colors">
               <DownloadIcon />
               Download E-Ticket
-            </button>
+            </button> */}
+            <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+              <span className="text-lg">🎉</span>
+              <span className="text-sm font-medium">
+                You saved ₹{900 * orderData.quantity} with Early Bird - Special Price.
+              </span>
+            </div>
           </div>
         </div>
 
@@ -155,21 +161,25 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
 
         {/* Back to home + view conference schedule */}
         <div className="w-full flex gap-[16px] justify-between">
-          <div className="bg-[#FFFFFF] w-[408px] h-[50px] border border-gray-200 rounded-[14px] items-center flex justify-center text-[#0A0A0A] font-medium text-[14px]">
-            Back to Home{" "}
-          </div>
-          <div className="w-[408px] h-[50px] bg-[#E2231A] gap-[8px] rounded-[14px] items-center flex justify-center text-[#FFFFFF] text-[14px] font-medium">
-            {" "}
-            <span className="leading-[20px] tracking-[-0.15px]">View Conference Schedule</span>
-            <RightArrowIcon />
-          </div>
+          <a href="/" className="no-underline">
+            <div className="bg-[#FFFFFF] w-[408px] h-[50px] border border-gray-200 rounded-[14px] items-center flex justify-center text-[#0A0A0A] font-medium text-[14px]">
+              Back to Home{" "}
+            </div>
+          </a>
+          <a href="/tickets" className="no-underline">
+            <div className="w-[408px] h-[50px] bg-[#E2231A] gap-[8px] rounded-[14px] items-center flex justify-center text-[#FFFFFF] text-[14px] font-medium">
+              {" "}
+              <span className="leading-[20px] tracking-[-0.15px]">Buy more tickets</span>
+              <RightArrowIcon />
+            </div>
+          </a>
         </div>
 
         {/* Contact support */}
-        <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">
+        {/* <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">
             <div className="text-[#4A5565] text-[16px] leading-[24px] tracking-[-0.31px]">Need help with your order?</div>
             <div className="text-[#E2231A] text-[14px] font-medium leading-[20px] tracking-[-0.15px]">Contact Support</div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

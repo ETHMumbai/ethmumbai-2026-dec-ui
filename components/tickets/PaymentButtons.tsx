@@ -16,9 +16,11 @@ interface PaymentButtonsProps {
   quantity: number;
   loadingINR: boolean;
   loadingCrypto: boolean;
+  checkoutValid: boolean;
   handlePayWithCrypto: (e: React.MouseEvent) => void;
   handlePayWithRazorpay: () => void;
 }
+
 
 /**
  * A payId is considered valid ONLY if:
@@ -35,6 +37,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   quantity,
   loadingINR,
   loadingCrypto,
+  checkoutValid,
   handlePayWithCrypto,
   handlePayWithRazorpay,
 }) => {
@@ -53,8 +56,8 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= Crypto ================= */}
       <div
         ref={wrapperRef}
-        onClick={handlePayWithCrypto}
-        style={{ position: "relative", display: "inline-block" }}
+        onClick={checkoutValid ? handlePayWithCrypto : undefined}
+        style={{ position: "relative", display: "inline-block", cursor: checkoutValid ? "pointer" : "not-allowed" }}
         aria-busy={loading}
       >
         {loading && !payId && (
@@ -76,14 +79,14 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
         )}
 
         <DaimoPayButtonCustom
-          payId={payId}
+          payId={checkoutValid ? payId : ""}
           redirectReturnUrl="http://localhost:3000/conference/payment-success"
           //onOpen to be changed to onPaymentStarted
 
           // onOpen={()=> <Spinner/>}
           onPaymentCompleted={async () => {
             try {
-              console.log("Payment completed event:");
+              setLoading(true);
 
               const res = await fetch(
                 `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
@@ -111,22 +114,39 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }
             } catch (err) {
               console.error("Error verifying Daimo payment:", err);
+            } finally {
+              setLoading(false);
             }
           }}
           closeOnSuccess
         >
-          {({ show, hide }) => (
+          {({ show }) => (
             <button
-              onClick={show}
-              disabled={loading}
-              className="cursor-pointer w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:opacity-50"
+              onClick={() => {
+                if (!checkoutValid) {
+                  // Show errors for required fields instead of opening payment
+                  document
+                    .querySelector(".input-error")
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  return;
+                }
+
+                if (loading) return;
+
+                show(); // Only called when checkout is valid
+              }}
+              className={`w-full px-4 bg-black text-white py-3 rounded-lg
+                ${
+                  checkoutValid && !loading
+                    ? "hover:bg-gray-800 cursor-pointer"
+                    : "opacity-50 cursor-pointer"
+                }`}
             >
-              <div className="inline-flex items-center gap-2 px-4">
-                <span>Pay with Crypto</span>
-              </div>
+              <span>Pay with Crypto</span>
             </button>
           )}
         </DaimoPayButtonCustom>
+
       </div>
 
       {/* ================= INR ================= */}
