@@ -15,7 +15,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans">
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
