@@ -240,11 +240,16 @@ const Payment = () => {
     });
 
     setErrors(e);
+
     const valid = Object.keys(e).length === 0;
+
     console.log(
       `[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`
     );
-    if (!valid) console.log("[Validation] Errors:", e);
+    if (!valid) {
+      // setLoadingCrypto(true);
+      console.log("[Validation] Errors:", e);
+    }
     return valid;
   };
 
