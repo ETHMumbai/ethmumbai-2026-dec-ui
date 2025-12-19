@@ -40,6 +40,17 @@ const ticketOptions: TicketOption[] = [
   },
 ];
 
+// Load Razorpay script
+const loadRazorpay = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
 /* Payment Page */
 const Payment = () => {
   const router = useRouter();
@@ -83,6 +94,11 @@ const Payment = () => {
       isBuyer: true,
     },
   ]);
+
+  /* ---------------- Load Razorpay Script ---------------- */
+  useEffect(() => {
+    loadRazorpay();
+  }, []);
 
   /* ---------------- Quantity Sync ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
@@ -180,7 +196,7 @@ const Payment = () => {
     })),
   });
 
-  /* ---------------- INR ---------------- */
+  /* ---------------- INR / Razorpay ---------------- */
   const handlePayWithRazorpay = async () => {
     if (!validateCheckout()) {
       document
@@ -189,7 +205,81 @@ const Payment = () => {
       return;
     }
 
-    alert("Razorpay flow unchanged — validation passed.");
+    try {
+      setLoadingINR(true);
+
+      // Create order
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
+
+      const order = await response.json();
+      console.log("Order created:", order);
+
+      // Open Razorpay
+      const options: RazorpayOptions = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+        amount: order.amount * 100,
+        currency: order.currency,
+        order_id: order.razorpayOrderId,
+        name: "ETHMumbai 2026",
+        description: `${
+          ticketType === "earlybird" ? "Early Bird" : "Standard"
+        } Ticket`,
+        theme: { color: "#E2231A" },
+        handler: async function (response: any) {
+          try {
+            // Verify payment
+            const verifyResponse = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                }),
+              }
+            );
+
+            const result = await verifyResponse.json();
+            console.log("Verification result:", result);
+
+            if (result.success) {
+              // Redirect to success page
+              router.push(
+                `/conference/payment-success?orderId=${result.orderId}`
+              );
+            } else {
+              alert("Payment verification failed. Please contact support.");
+            }
+          } catch (error) {
+            console.error("Verification error:", error);
+            alert("Payment verification failed. Please contact support.");
+          } finally {
+            setLoadingINR(false);
+          }
+        },
+        modal: {
+          ondismiss: function () {
+            setLoadingINR(false);
+          },
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error("Payment error:", error);
+      alert("Failed to create order. Please try again.");
+      setLoadingINR(false);
+    }
   };
 
   /* ---------------- Crypto ---------------- */
