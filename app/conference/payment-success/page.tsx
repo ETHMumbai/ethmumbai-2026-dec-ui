@@ -28,7 +28,7 @@ export default function PaymentSuccess() {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
-              // "x-ap`i-key": process.env.NEXT_PUBLIC_API_KEY as string,
+              "x-ap`i-key": process.env.NEXT_PUBLIC_API_KEY as string,
             },
           }
         );
