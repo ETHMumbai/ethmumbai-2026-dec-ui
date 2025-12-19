@@ -7,11 +7,20 @@ interface OrderSummaryProps {
   ticketType: TicketType | null; // allow null if no ticket selected
   quantity: number;
   ticketPrices: Record<TicketType, number>;
+  ticketPricesUSD: Record<TicketType, number>;
 }
 
-const OrderSummary: React.FC<OrderSummaryProps> = ({ ticketType, quantity, ticketPrices }) => {
+const OrderSummary: React.FC<OrderSummaryProps> = ({
+  ticketType,
+  quantity,
+  ticketPrices,
+  ticketPricesUSD,
+}) => {
   const pricePerTicket = ticketType ? ticketPrices[ticketType] : 0;
   const total = pricePerTicket * quantity;
+
+  const pricePerTicketUSD = ticketType ? ticketPricesUSD[ticketType] : 0;
+  const totalUSD = (pricePerTicketUSD * quantity).toFixed(2);
 
   return (
     <div className="bg-white rounded-2xl shadow p-6">
@@ -19,12 +28,33 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ ticketType, quantity, ticke
 
       <div className="flex justify-between text-sm mb-2">
         <span>Ticket Type</span>
-        <span>{ticketType ? (ticketType === "earlybird" ? "Early Bird" : "Standard") : "—"}</span>
+        <span>
+          {ticketType
+            ? ticketType === "earlybird"
+              ? "Early Bird"
+              : "Standard"
+            : "—"}
+        </span>
       </div>
 
       <div className="flex justify-between text-sm mb-2">
         <span>Price per ticket</span>
-        <span>₹{pricePerTicket}</span>
+        <span>
+          {/* ₹{pricePerTicket} (${pricePerTicketUSD}) */}
+          ₹999
+        </span>
+      </div>
+
+      <div className="flex justify-between text-sm mb-2 text-green-500">
+        <span>Discounted Price</span>
+        <span>{/* ₹{pricePerTicket} (${pricePerTicketUSD}) */}- ₹900</span>
+      </div>
+
+      <div className="flex justify-between text-sm mb-2">
+        <span>New Price per ticket</span>
+        <span>
+          ₹{pricePerTicket} (${pricePerTicketUSD})
+        </span>
       </div>
 
       <div className="flex justify-between text-sm mb-2">
@@ -36,7 +66,10 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ ticketType, quantity, ticke
 
       <div className="flex justify-between font-bold text-lg mb-4">
         <span>Total</span>
-        <span>₹{total}</span>
+        <span>
+          ₹{total} (${totalUSD})
+        </span>
+        {/* <span></span> */}
       </div>
     </div>
   );

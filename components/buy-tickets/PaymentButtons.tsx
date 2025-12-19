@@ -69,6 +69,8 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           payId={payId}
           //onOpen to be changed to onPaymentStarted
 
+          // onOpen={()=> <Spinner/>}
+
           onPaymentCompleted={(e) => {
             console.log(e);
             console.log("Payment completed");
@@ -81,6 +83,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }),
             }).catch(console.error);
           }}
+          closeOnSuccess
         >
           {({ show, hide }) => (
             <button
@@ -101,7 +104,8 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= INR ================= */}
       <div className="w-full md:w-auto">
         <button
-          disabled={loadingINR}
+          // disabled={loadingINR}
+          disabled={true}
           onClick={handlePayWithRazorpay}
           className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
         >

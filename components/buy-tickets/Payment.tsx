@@ -17,15 +17,21 @@ import PaymentButtons from "./PaymentButtons";
 
 /* Config */
 const ticketPrices: Record<TicketType, number> = {
-  earlybird: 999,
+  earlybird: 99,
   standard: 1999,
+};
+
+const ticketPricesUSD: Record<TicketType, number> = {
+  earlybird: 1.1,
+  standard: 24,
 };
 
 const ticketOptions: TicketOption[] = [
   {
     type: "earlybird",
     label: "EarlyBird",
-    price: 999,
+    price: 99,
+    priceUSD: 1.1,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
     comingSoon: false,
@@ -34,6 +40,7 @@ const ticketOptions: TicketOption[] = [
     type: "standard",
     label: "Standard",
     price: 1999,
+    priceUSD: 24,
     desktopImage: "/assets/tickets/standard-list.svg",
     mobileImage: "/assets/tickets/standard-sm-vertical.svg",
     comingSoon: true,
@@ -92,7 +99,7 @@ useEffect(() => {
   const [ticketType] = useState<TicketType>("earlybird");
   const [visualTicketType, setVisualTicketType] =
     useState<TicketType>("earlybird");
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   /* ---------------- Payment ---------------- */
   const [loadingINR, setLoadingINR] = useState(false);
@@ -180,7 +187,9 @@ useEffect(() => {
     field: keyof BuyerInfoType["address"],
     value: string
   ) => {
-    console.log(`[Buyer] Updating address field: ${field} with value: ${value}`);
+    console.log(
+      `[Buyer] Updating address field: ${field} with value: ${value}`
+    );
     setBuyerInfo((prev) => ({
       ...prev,
       address: { ...prev.address, [field]: value },
@@ -192,7 +201,9 @@ useEffect(() => {
     field: string,
     value: string
   ) => {
-    console.log(`[Participant] Updating participant ${index} field: ${field} with value: ${value}`);
+    console.log(
+      `[Participant] Updating participant ${index} field: ${field} with value: ${value}`
+    );
     setParticipants((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
@@ -223,7 +234,9 @@ useEffect(() => {
 
     setErrors(e);
     const valid = Object.keys(e).length === 0;
-    console.log(`[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`);
+    console.log(
+      `[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`
+    );
     if (!valid) console.log("[Validation] Errors:", e);
     return valid;
   };
@@ -263,11 +276,14 @@ useEffect(() => {
 
     try {
       console.log("[Payment] Creating Razorpay order...");
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildPayload()),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
       const data = await res.json();
       console.log("[Payment] Razorpay order response received:", data);
 
@@ -280,11 +296,14 @@ useEffect(() => {
         handler: async (resp: any) => {
           console.log("[Payment] Razorpay response received:", resp);
           try {
-            const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(resp),
-            });
+            const verifyRes = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(resp),
+              }
+            );
             const verifyData = await verifyRes.json();
             console.log("[Payment] Verification response:", verifyData);
 
@@ -296,7 +315,10 @@ useEffect(() => {
             console.error("[Payment] Verification failed:", err);
           }
         },
-        prefill: { name: `${buyerInfo.firstName} ${buyerInfo.lastName}`, email: buyerInfo.email },
+        prefill: {
+          name: `${buyerInfo.firstName} ${buyerInfo.lastName}`,
+          email: buyerInfo.email,
+        },
       });
 
       console.log("[Payment] Opening Razorpay modal");
@@ -316,7 +338,9 @@ useEffect(() => {
 
     console.log("[Payment] Starting crypto payment flow");
     if (!validateCheckout()) {
-      console.log("[Payment] Checkout validation failed, aborting crypto payment");
+      console.log(
+        "[Payment] Checkout validation failed, aborting crypto payment"
+      );
       document
         .querySelector(".input-error")
         ?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -372,11 +396,14 @@ useEffect(() => {
           handleParticipantChange={handleParticipantChange}
         />
 
-        <OrderSummary
-          ticketType={ticketType}
-          quantity={quantity}
-          ticketPrices={ticketPrices}
-        />
+        {quantity > 0 && (
+          <OrderSummary
+            ticketType={ticketType}
+            quantity={quantity}
+            ticketPrices={ticketPrices}
+            ticketPricesUSD={ticketPricesUSD}
+          />
+        )}
 
         <PaymentButtons
           payId={payId ?? ""}
