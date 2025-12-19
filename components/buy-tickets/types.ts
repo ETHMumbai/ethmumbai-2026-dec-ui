@@ -21,14 +21,14 @@ export interface Address {
 
 export interface BuyerInfo {
   firstName: string;
-  lastName: string;
+  lastName?: string;
   email: string;
   address: Address;
 }
 
 export interface Participant {
   firstName: string;
-  lastName: string;
+  lastName?: string;
   email: string;
   organisation?: string;
   isBuyer?: boolean;
