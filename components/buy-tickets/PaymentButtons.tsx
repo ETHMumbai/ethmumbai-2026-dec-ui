@@ -113,7 +113,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.error("Error verifying Daimo payment:", err);
             }
           }}
-          closeOnSuccess
+          // closeOnSuccess
         >
           {({ show, hide }) => (
             <button
