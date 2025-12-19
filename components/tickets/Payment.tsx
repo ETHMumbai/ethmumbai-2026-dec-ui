@@ -113,18 +113,19 @@ const Payment = () => {
 
   /* ---------------- Buyer ---------------- */
   const [buyerInfo, setBuyerInfo] = useState<BuyerInfoType>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: {
-      line1: "",
-      line2: "",
-      city: "",
-      state: "",
-      country: "India",
-      postalCode: "",
-    },
-  });
+  firstName: "",
+  lastName: "",
+  email: "",
+  organisation: "",
+  address: {
+    line1: "",
+    line2: "",
+    city: "",
+    state: "",
+    country: "India",
+    postalCode: "",
+  },
+});
 
   /* ---------------- Participants ---------------- */
   const [participants, setParticipants] = useState<Participant[]>([
@@ -136,6 +137,25 @@ const Payment = () => {
       isBuyer: true,
     },
   ]);
+
+  useEffect(() => {
+  setParticipants((prev) =>
+    prev.map((p, index) => ({
+      ...p,
+      firstName: buyerInfo.firstName,
+      lastName: buyerInfo.lastName,
+      email: buyerInfo.email,
+      organisation: buyerInfo.organisation || "",
+      isBuyer: index === 0,
+    }))
+  );
+}, [
+  buyerInfo.firstName,
+  buyerInfo.lastName,
+  buyerInfo.email,
+  buyerInfo.organisation,
+]);
+
 
   /* ---------------- Load Razorpay Script ---------------- */
   useEffect(() => {

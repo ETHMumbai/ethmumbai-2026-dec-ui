@@ -72,7 +72,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
         {/* Buyer Last Name (optional) */}
         <div>
           <input
-            placeholder="Last Name *"
+            placeholder="Last Name"
             className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
             value={buyerInfo.lastName}
             onChange={(e) =>
@@ -82,7 +82,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
         </div>
 
         {/* Buyer Email */}
-        <div className="md:col-span-2">
+        <div>
           <input
             type="email"
             placeholder="Email *"
@@ -96,6 +96,17 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           {err("email") && (
             <p className="text-xs text-red-500 mt-1">Required</p>
           )}
+        </div>
+
+        <div>
+              <input
+                placeholder="Organisation / University"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={buyerInfo.organisation || ""}
+                onChange={(e) =>
+                  handleBuyerChange("organisation", e.target.value)
+                }
+              />
         </div>
       </div>
 
@@ -123,9 +134,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       </div>
 
       {/* ================= Participants ================= */}
-      <hr className="my-6" />
+      {/* <hr className="my-6" /> */}
 
-      {participants.map((p, i) => (
+      {/* {participants.map((p, i) => (
         <div key={i} className="mb-6">
           <h3 className="text-md mb-3">
             Participant #{i + 1}
@@ -133,7 +144,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Participant First Name (required) */}
-            <div>
+            {/* <div>
               <input
                 placeholder="First Name *"
                 className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
@@ -146,22 +157,22 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
               {err(`participant.${i}.firstName`) && (
                 <p className="text-xs text-red-500 mt-1">Required</p>
               )}
-            </div>
+            </div> */}
 
             {/* Participant Last Name (optional) */}
-            <div>
+            {/* <div>
               <input
-                placeholder="Last Name *"
+                placeholder="Last Name"
                 className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
                 value={p.lastName}
                 onChange={(e) =>
                   handleParticipantChange(i, "lastName", e.target.value)
                 }
               />
-            </div>
+            </div> */}
 
             {/* Participant Email (required) */}
-            <div>
+            {/* <div>
               <input
                 placeholder="Email *"
                 className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
@@ -170,27 +181,14 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                 onChange={(e) =>
                   handleParticipantChange(i, "email", e.target.value)
                 }
-              />
-              {err(`participant.${i}.email`) && (
+              /> */}
+              {/* {err(`participant.${i}.email`) && (
                 <p className="text-xs text-red-500 mt-1">Required</p>
               )}
             </div>
-
-            {/* Organisation (optional) */}
-            <div>
-              <input
-                placeholder="Organisation / University"
-                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
-                value={p.organisation || ""}
-                onChange={(e) =>
-                  handleParticipantChange(i, "organisation", e.target.value)
-                }
-              />
-            </div>
-
           </div>
         </div>
-      ))}
+      ))} */} 
     </div>
   );
 };

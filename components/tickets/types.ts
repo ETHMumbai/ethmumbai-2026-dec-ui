@@ -23,6 +23,7 @@ export interface BuyerInfo {
   firstName: string;
   lastName: string;
   email: string;
+  organisation: string;
   address: Address;
 }
 
