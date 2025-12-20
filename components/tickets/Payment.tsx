@@ -302,7 +302,7 @@ const Payment = () => {
     const payload = {
       // checkoutSessionId,
       ticketType,
-      quantity,
+      quantity: 1,
       buyer: buyerInfo,
       participants: participants.map((p, i) => ({
         ...p,
@@ -439,7 +439,7 @@ const Payment = () => {
         <TicketSelection
           visualTicketType={visualTicketType}
           setVisualTicketType={setVisualTicketType}
-          quantity={quantity}
+          quantity={1}
           handleQuantityChange={handleQuantityChange}
           ticketOptions={ticketOptions}
         />
@@ -458,7 +458,7 @@ const Payment = () => {
         { (
           <OrderSummary
             ticketType={ticketType}
-            quantity={quantity}
+            quantity={1}
             ticketPrices={ticketPrices}
             ticketPricesUSD={ticketPricesUSD}
           />
@@ -466,7 +466,7 @@ const Payment = () => {
 
         <PaymentButtons
           payId={payId ?? ""}
-          quantity={quantity}
+          quantity={1}
           loadingINR={loadingINR}
           loadingCrypto={loadingCrypto}
           handlePayWithRazorpay={handlePayWithRazorpay}
