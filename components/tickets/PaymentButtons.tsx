@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import { fetchTicketCount } from "@/lib/tickets";
 import { useRef, useEffect, useState } from "react";
 
 /* Daimo */
@@ -21,13 +22,6 @@ interface PaymentButtonsProps {
   handlePayWithRazorpay: () => void;
 }
 
-
-/**
- * A payId is considered valid ONLY if:
- * - it exists
- * - it's not empty
- * - it's not "0x"
- */
 const isValidPayId = (payId: string) =>
   typeof payId === "string" && payId.length > 2 && payId !== "0x";
 
@@ -44,20 +38,38 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   const router = useRouter();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
+  const [ticketCount, setTicketCount] = useState<number | null>(null);
+
+  /* -------------------------------
+     Fetch ticket count on mount
+  -------------------------------- */
+  useEffect(() => {
+    fetchTicketCount()
+      .then(setTicketCount)
+      .catch(console.error);
+  }, []);
+
+  const soldOut = ticketCount !== null && ticketCount <= 0;
+  const hasValidPayId = isValidPayId(payId);
 
   if (quantity < 1) {
     return null;
   }
-
-  const hasValidPayId = isValidPayId(payId);
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">
       {/* ================= Crypto ================= */}
       <div
         ref={wrapperRef}
-        onClick={checkoutValid ? handlePayWithCrypto : undefined}
-        style={{ position: "relative", display: "inline-block", cursor: checkoutValid ? "pointer" : "not-allowed" }}
+        onClick={
+          checkoutValid && !soldOut ? handlePayWithCrypto : undefined
+        }
+        style={{
+          position: "relative",
+          display: "inline-block",
+          cursor:
+            checkoutValid && !soldOut ? "pointer" : "not-allowed",
+        }}
         aria-busy={loading}
       >
         {loading && !payId && (
@@ -79,11 +91,9 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
         )}
 
         <DaimoPayButtonCustom
-          payId={checkoutValid ? payId : ""}
-          redirectReturnUrl="http://localhost:3000/conference/payment-success"
-          //onOpen to be changed to onPaymentStarted
-
-          // onOpen={()=> <Spinner/>}
+          payId={
+            checkoutValid && !soldOut && hasValidPayId ? payId : ""
+          }
           onPaymentCompleted={async () => {
             try {
               setLoading(true);
@@ -104,14 +114,17 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
                 throw new Error("Payment verification failed");
               }
 
-              const data = await res.json();
-              console.log("Verify response:", data);
+              // Re-check ticket count before redirect
+              const latestCount = await fetchTicketCount();
 
-              // ✅ backend-confirmed success
-              if (data.status === "payment_completed") {
-                console.log(orderId);
-                router.replace(`conference/payment-success?orderId=${orderId}`);
+              if (latestCount <= 0) {
+                alert("Tickets are sold out.");
+                return;
               }
+
+              router.replace(
+                `/conference/payment-success?orderId=${orderId}`
+              );
             } catch (err) {
               console.error("Error verifying Daimo payment:", err);
             } finally {
@@ -123,41 +136,45 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           {({ show }) => (
             <button
               onClick={() => {
-                if (!checkoutValid) {
-                  // Show errors for required fields instead of opening payment
+                if (!checkoutValid || soldOut) {
                   document
                     .querySelector(".input-error")
-                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
                   return;
                 }
 
                 if (loading) return;
 
-                show(); // Only called when checkout is valid
+                show();
               }}
               className={`w-full px-4 bg-black text-white py-3 rounded-lg
                 ${
-                  checkoutValid && !loading
+                  checkoutValid && !soldOut && !loading
                     ? "hover:bg-gray-800 cursor-pointer"
-                    : "opacity-50 cursor-pointer"
+                    : "opacity-50 cursor-not-allowed"
                 }`}
             >
-              <span>Pay with Crypto</span>
+              {soldOut ? "Sold out" : "Pay with Crypto"}
             </button>
           )}
         </DaimoPayButtonCustom>
-
       </div>
 
       {/* ================= INR ================= */}
-      <div className="w-full md:w-auto">
+      <div style={{ position: "relative", display: "inline-block" }}>
         <button
-          // disabled={loadingINR}
-          disabled={true}
+          disabled={true || soldOut}
           onClick={handlePayWithRazorpay}
-          className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
+          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
         >
-          {loadingINR ? "Creating INR order…" : "Pay with INR"}
+          {soldOut
+            ? "Sold out"
+            : loadingINR
+            ? "Creating INR order…"
+            : "Pay with INR"}
         </button>
       </div>
     </div>

@@ -78,23 +78,23 @@ const Payment = () => {
   const router = useRouter();
 
   /* ---------------- Checkout Session ---------------- */
-  const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(
-    null
-  );
+  // const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(
+  //   null
+  // );
 
-  useEffect(() => {
-    let sessionId = localStorage.getItem("checkoutSessionId");
+  // useEffect(() => {
+  //   let sessionId = localStorage.getItem("checkoutSessionId");
 
-    if (!sessionId) {
-      sessionId = crypto.randomUUID();
-      localStorage.setItem("checkoutSessionId", sessionId);
-      console.log("[Checkout] New checkoutSessionId created:", sessionId);
-    } else {
-      console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
-    }
+  //   if (!sessionId) {
+  //     sessionId = crypto.randomUUID();
+  //     localStorage.setItem("checkoutSessionId", sessionId);
+  //     console.log("[Checkout] New checkoutSessionId created:", sessionId);
+  //   } else {
+  //     console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
+  //   }
 
-    setCheckoutSessionId(sessionId);
-  }, []);
+  //   setCheckoutSessionId(sessionId);
+  // }, []);
 
   /* ---------------- Ticket ---------------- */
   const [ticketType] = useState<TicketType>("earlybird");
@@ -113,19 +113,19 @@ const Payment = () => {
 
   /* ---------------- Buyer ---------------- */
   const [buyerInfo, setBuyerInfo] = useState<BuyerInfoType>({
-  firstName: "",
-  lastName: "",
-  email: "",
-  organisation: "",
-  address: {
-    line1: "",
-    line2: "",
-    city: "",
-    state: "",
-    country: "India",
-    postalCode: "",
-  },
-});
+    firstName: "",
+    lastName: "",
+    email: "",
+    organisation: "",
+    address: {
+      line1: "",
+      line2: "",
+      city: "",
+      state: "",
+      country: "India",
+      postalCode: "",
+    },
+  });
 
   /* ---------------- Participants ---------------- */
   const [participants, setParticipants] = useState<Participant[]>([
@@ -158,7 +158,7 @@ const Payment = () => {
 
   const isCheckoutValid = () => {
     if (!buyerInfo.firstName) return false;
-    if (!buyerInfo.lastName) return false;
+    // if (!buyerInfo.lastName) return false;
     if (!buyerInfo.email) return false;
 
     if (!buyerInfo.address.line1) return false;
@@ -171,8 +171,6 @@ const Payment = () => {
   };
 
   const checkoutValid = isCheckoutValid();
-
-
 
   /* ---------------- Load Razorpay Script ---------------- */
   useEffect(() => {
@@ -275,7 +273,7 @@ const Payment = () => {
     const e: Record<string, boolean> = {};
 
     if (!buyerInfo.firstName) e.firstName = true;
-    if (!buyerInfo.lastName) e.lastName = true;
+    // if (!buyerInfo.lastName) e.lastName = true;
     if (!buyerInfo.email) e.email = true;
 
     if (!buyerInfo.address.line1) e["address.line1"] = true;
@@ -286,7 +284,7 @@ const Payment = () => {
 
     participants.forEach((p, i) => {
       if (!p.firstName) e[`participant.${i}.firstName`] = true;
-      if (!p.lastName) e[`participant.${i}.lastName`] = true;
+      // if (!p.lastName) e[`participant.${i}.lastName`] = true;
       if (!p.email) e[`participant.${i}.email`] = true;
     });
 
@@ -302,7 +300,7 @@ const Payment = () => {
   /* ---------------- Payload ---------------- */
   const buildPayload = () => {
     const payload = {
-      checkoutSessionId,
+      // checkoutSessionId,
       ticketType,
       quantity,
       buyer: buyerInfo,
@@ -365,10 +363,10 @@ const Payment = () => {
             const verifyData = await verifyRes.json();
             console.log("[Payment] Verification response:", verifyData);
 
-            if (verifyData.success) {
-              localStorage.removeItem("checkoutSessionId");
-              console.log("[Checkout] checkoutSessionId cleared after success");
-            }
+            // if (verifyData.success) {
+            //   // localStorage.removeItem("checkoutSessionId");
+            //   // console.log("[Checkout] checkoutSessionId cleared after success");
+            // }
           } catch (err) {
             console.error("[Payment] Verification failed:", err);
           }
@@ -446,14 +444,16 @@ const Payment = () => {
           ticketOptions={ticketOptions}
         />
 
-        <BuyerInfo
-          buyerInfo={buyerInfo}
-          participants={participants}
-          errors={errors}
-          handleBuyerChange={handleBuyerChange}
-          handleBuyerAddressChange={handleBuyerAddressChange}
-          handleParticipantChange={handleParticipantChange}
-        />
+        {quantity > 0 && (
+          <BuyerInfo
+            buyerInfo={buyerInfo}
+            participants={participants}
+            errors={errors}
+            handleBuyerChange={handleBuyerChange}
+            handleBuyerAddressChange={handleBuyerAddressChange}
+            handleParticipantChange={handleParticipantChange}
+          />
+        )}
 
         {quantity > 0 && (
           <OrderSummary
@@ -474,7 +474,6 @@ const Payment = () => {
           orderId={orderId ?? ""}
           checkoutValid={checkoutValid}
         />
-
       </div>
     </section>
   );
