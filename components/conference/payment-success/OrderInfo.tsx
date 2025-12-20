@@ -78,7 +78,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <div className="flex justify-between items-center">
                 <span className="text-[14px] text-[#4A5565]">Quantity</span>
                 <span className="text-[14px] text-black font-medium">
-                  {orderData.quantity} ticket{orderData.quantity > 1 ? 's' : ''}
+                  {orderData.quantity} ticket{orderData.quantity > 1 ? "s" : ""}
                 </span>
               </div>
 
@@ -98,11 +98,14 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
                   Purchase Date
                 </span>
                 <span className="text-[14px] text-black font-medium">
-                  {new Date(orderData.purchaseDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                  })}
+                  {new Date(orderData.purchaseDate).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    }
+                  )}
                 </span>
               </div>
             </div>
@@ -169,12 +172,13 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
           </a>
           <a href="/tickets" className="no-underline flex-1">
             <div className="w-full h-[50px] bg-[#E2231A] rounded-[14px] flex items-center justify-center gap-2 text-white text-[14px] font-medium">
-              <span className="leading-[20px] tracking-[-0.15px]">Buy more tickets</span>
+              <span className="leading-[20px] tracking-[-0.15px]">
+                Buy more tickets
+              </span>
               <RightArrowIcon />
             </div>
           </a>
         </div>
-
 
         {/* Contact support */}
         {/* <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">

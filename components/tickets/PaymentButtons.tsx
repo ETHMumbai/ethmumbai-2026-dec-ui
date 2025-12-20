@@ -165,7 +165,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
         <button
           disabled={true}
           onClick={handlePayWithRazorpay}
-          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
+          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg cursor-not-allowed disabled:opacity-50 whitespace-nowrap"
         >
           {loadingINR
             ? "Creating INR order…"
