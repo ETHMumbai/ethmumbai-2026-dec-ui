@@ -17,12 +17,12 @@ import PaymentButtons from "./PaymentButtons";
 
 /* Config */
 const ticketPrices: Record<TicketType, number> = {
-  earlybird: 99,
+  earlybird: 999,
   standard: 1999,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
-  earlybird: 1.1,
+  earlybird: 12,
   standard: 24,
 };
 
