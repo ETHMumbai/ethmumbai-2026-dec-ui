@@ -113,19 +113,19 @@ const Payment = () => {
 
   /* ---------------- Buyer ---------------- */
   const [buyerInfo, setBuyerInfo] = useState<BuyerInfoType>({
-  firstName: "",
-  lastName: "",
-  email: "",
-  organisation: "",
-  address: {
-    line1: "",
-    line2: "",
-    city: "",
-    state: "",
-    country: "India",
-    postalCode: "",
-  },
-});
+    firstName: "",
+    lastName: "",
+    email: "",
+    organisation: "",
+    address: {
+      line1: "",
+      line2: "",
+      city: "",
+      state: "",
+      country: "India",
+      postalCode: "",
+    },
+  });
 
   /* ---------------- Participants ---------------- */
   const [participants, setParticipants] = useState<Participant[]>([
@@ -171,8 +171,6 @@ const Payment = () => {
   };
 
   const checkoutValid = isCheckoutValid();
-
-
 
   /* ---------------- Load Razorpay Script ---------------- */
   useEffect(() => {
@@ -446,14 +444,16 @@ const Payment = () => {
           ticketOptions={ticketOptions}
         />
 
-        <BuyerInfo
-          buyerInfo={buyerInfo}
-          participants={participants}
-          errors={errors}
-          handleBuyerChange={handleBuyerChange}
-          handleBuyerAddressChange={handleBuyerAddressChange}
-          handleParticipantChange={handleParticipantChange}
-        />
+        {quantity > 0 && (
+          <BuyerInfo
+            buyerInfo={buyerInfo}
+            participants={participants}
+            errors={errors}
+            handleBuyerChange={handleBuyerChange}
+            handleBuyerAddressChange={handleBuyerAddressChange}
+            handleParticipantChange={handleParticipantChange}
+          />
+        )}
 
         {quantity > 0 && (
           <OrderSummary
@@ -474,7 +474,6 @@ const Payment = () => {
           orderId={orderId ?? ""}
           checkoutValid={checkoutValid}
         />
-
       </div>
     </section>
   );
