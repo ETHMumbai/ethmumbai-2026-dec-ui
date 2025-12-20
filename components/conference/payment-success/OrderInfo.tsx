@@ -78,7 +78,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <div className="flex justify-between items-center">
                 <span className="text-[14px] text-[#4A5565]">Quantity</span>
                 <span className="text-[14px] text-black font-medium">
-                  {orderData.quantity} ticket{orderData.quantity > 1 ? 's' : ''}
+                  {orderData.quantity} ticket{orderData.quantity > 1 ? "s" : ""}
                 </span>
               </div>
 
@@ -98,11 +98,14 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
                   Purchase Date
                 </span>
                 <span className="text-[14px] text-black font-medium">
-                  {new Date(orderData.purchaseDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                  })}
+                  {new Date(orderData.purchaseDate).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    }
+                  )}
                 </span>
               </div>
             </div>
@@ -113,7 +116,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹99(${orderData.totalAmount})
+                ₹{999 * orderData.quantity}(${orderData.totalAmount})
               </span>
             </div>
 
@@ -122,12 +125,12 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <DownloadIcon />
               Download E-Ticket
             </button> */}
-            <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+            {/* <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
               <span className="text-lg">🎉</span>
               <span className="text-sm font-medium">
                 You saved ₹{900 * orderData.quantity} with Early Bird - Special Price.
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -169,12 +172,13 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
           </a>
           <a href="/tickets" className="no-underline flex-1">
             <div className="w-full h-[50px] bg-[#E2231A] rounded-[14px] flex items-center justify-center gap-2 text-white text-[14px] font-medium">
-              <span className="leading-[20px] tracking-[-0.15px]">Buy more tickets</span>
+              <span className="leading-[20px] tracking-[-0.15px]">
+                Buy more tickets
+              </span>
               <RightArrowIcon />
             </div>
           </a>
         </div>
-
 
         {/* Contact support */}
         {/* <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">

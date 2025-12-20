@@ -3,7 +3,7 @@
 // @ts-ignore - no type definitions for 'country-list'
 import { getNames } from "country-list";
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface BuyerInfoProps {
   buyerInfo: BuyerInfoType;
@@ -24,8 +24,33 @@ interface BuyerInfoProps {
 
 const errorClass = "input-error";
 
-const EMAIL_REGEX =
-  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const checkEmailExists = async (p: Participant) => {
+  const email = p.email;
+  if (!email) return;
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/internal/check-email?email=${email}`,
+      {
+        headers: {
+          "x-api-key": process.env.NEXT_PUBLIC_API_KEY!,
+        },
+      }
+    );
+
+    const data = await res.json();
+
+    if (data.exists) {
+      alert("This email has already been used to book a ticket");
+    }
+  } catch (err) {
+    console.error("Email check failed", err);
+  }
+};
+
+let emailCheckTimeout: ReturnType<typeof setTimeout>;
+
+const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 const BuyerInfo: React.FC<BuyerInfoProps> = ({
   buyerInfo,
@@ -40,20 +65,45 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
   const [sameAsBuyer, setSameAsBuyer] = useState(false);
 
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const debouncedCheckEmail = (p: Participant) => {
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+
+    debounceRef.current = setTimeout(() => {
+      if (p.email && p.email.includes("@")) {
+        checkEmailExists(p);
+      }
+    }, 50);
+  };
+
   const handleSameAsBuyerToggle = (checked: boolean) => {
     setSameAsBuyer(checked);
 
-    if (!checked) return;
+    // ❌ If unchecked → clear participant #0 fields
+    if (!checked) {
+      handleParticipantChange(0, "firstName", "");
+      handleParticipantChange(0, "lastName", "");
+      handleParticipantChange(0, "email", "");
+      handleParticipantChange(0, "organisation", "");
+      return;
+    }
 
     // Copy buyer info into ONLY first participant
     handleParticipantChange(0, "firstName", buyerInfo.firstName);
     handleParticipantChange(0, "lastName", buyerInfo.lastName || "");
     handleParticipantChange(0, "email", buyerInfo.email);
-    handleParticipantChange(
-      0,
-      "organisation",
-      buyerInfo.organisation || ""
-    );
+    handleParticipantChange(0, "organisation", buyerInfo.organisation || "");
+
+    // ✅ NEW: validate copied email (debounced)
+    if (buyerInfo.email && buyerInfo.email.includes("@")) {
+      debouncedCheckEmail({
+        ...participants[0],
+        email: buyerInfo.email,
+      });
+    }
 
     // Clear participant #1 related errors
     setErrors((prev) => {
@@ -63,7 +113,6 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       return next;
     });
   };
-
 
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
@@ -82,19 +131,17 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     label: string;
     required: boolean;
   }[] = [
-      { field: "line1", label: "Address Line 1 *", required: true },
-      { field: "line2", label: "Address Line 2", required: false },
-      { field: "city", label: "City *", required: true },
-      { field: "state", label: "State *", required: true },
-      { field: "country", label: "Country *", required: true },
-      { field: "postalCode", label: "PIN Code *", required: true },
-    ];
+    { field: "line1", label: "Address Line 1 *", required: true },
+    { field: "line2", label: "Address Line 2", required: false },
+    { field: "city", label: "City *", required: true },
+    { field: "state", label: "State *", required: true },
+    { field: "country", label: "Country *", required: true },
+    { field: "postalCode", label: "PIN Code *", required: true },
+  ];
 
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
-      <h2 className="text-lg text-[#0A0A0A] font-regular">
-        Checkout Details
-      </h2>
+      <h2 className="text-lg text-[#0A0A0A] font-regular">Checkout Details</h2>
 
       {/* ================= Buyer Info ================= */}
       <p className="text-md text-[#0A0A0A] mt-4 mb-2">Buyer Information</p>
@@ -105,9 +152,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             placeholder="First Name *"
             className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err("firstName") ? errorClass : ""}`}
             value={buyerInfo.firstName}
-            onChange={(e) =>
-              handleBuyerChange("firstName", e.target.value)
-            }
+            onChange={(e) => handleBuyerChange("firstName", e.target.value)}
           />
           {err("firstName") && (
             <p className="text-xs text-red-500 mt-1">Required</p>
@@ -119,9 +164,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             placeholder="Last Name"
             className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
             value={buyerInfo.lastName}
-            onChange={(e) =>
-              handleBuyerChange("lastName", e.target.value)
-            }
+            onChange={(e) => handleBuyerChange("lastName", e.target.value)}
           />
         </div>
 
@@ -130,8 +173,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${touched.email && err("email") ? errorClass : ""
-              }`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+              touched.email && err("email") ? errorClass : ""
+            }`}
             value={buyerInfo.email}
             onChange={(e) => {
               const value = e.target.value;
@@ -174,7 +218,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
               <select
                 className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
                 value={buyerInfo.address.country}
-                onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
+                onChange={(e) =>
+                  handleBuyerAddressChange(field, e.target.value)
+                }
               >
                 <option value="">Select Country *</option>
                 {getNames().map((c: string) => (
@@ -188,7 +234,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                 placeholder={label}
                 className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
                 value={buyerInfo.address[field]}
-                onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
+                onChange={(e) =>
+                  handleBuyerAddressChange(field, e.target.value)
+                }
               />
             )}
             {required && err(`address.${field}`) && (
@@ -207,9 +255,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             type="checkbox"
             id="sameAsBuyer"
             checked={sameAsBuyer}
-            onChange={(e) =>
-              handleSameAsBuyerToggle(e.target.checked)
-            }
+            onChange={(e) => handleSameAsBuyerToggle(e.target.checked)}
             className="h-4 w-4"
           />
           <label
@@ -223,17 +269,16 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
       {participants.map((p, i) => (
         <div key={i} className="mb-6">
-          <h3 className="text-md mb-3">
-            Participant #{i + 1}
-          </h3>
+          <h3 className="text-md mb-3">Participant #{i + 1}</h3>
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Participant First Name (required) */}
             <div>
               <input
                 placeholder="First Name *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
-                  }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  err(`participant.${i}.firstName`) ? errorClass : ""
+                }`}
                 value={p.firstName}
                 onChange={(e) =>
                   handleParticipantChange(i, "firstName", e.target.value)
@@ -257,12 +302,15 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             <div>
               <input
                 placeholder="Email *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
-                  }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  err(`participant.${i}.email`) ? errorClass : ""
+                }`}
                 value={p.email}
-                onChange={(e) =>
-                  handleParticipantChange(i, "email", e.target.value)
-                }
+                onChange={(e) => {
+                  const email = e.target.value;
+                  handleParticipantChange(i, "email", email);
+                  debouncedCheckEmail({ ...p, email });
+                }}
               />
               {err(`participant.${i}.email`) && (
                 <p className="text-xs text-red-500 mt-1">Required</p>
