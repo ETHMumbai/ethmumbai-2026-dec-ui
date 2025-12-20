@@ -113,7 +113,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹99(${orderData.totalAmount})
+                ₹{999 * orderData.quantity}(${orderData.totalAmount})
               </span>
             </div>
 
@@ -122,12 +122,12 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <DownloadIcon />
               Download E-Ticket
             </button> */}
-            <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+            {/* <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
               <span className="text-lg">🎉</span>
               <span className="text-sm font-medium">
                 You saved ₹{900 * orderData.quantity} with Early Bird - Special Price.
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 
