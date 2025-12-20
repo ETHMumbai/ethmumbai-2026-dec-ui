@@ -84,8 +84,8 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={checkoutValid ? payId : ""}
-          redirectReturnUrl="http://localhost:3000/conference/payment-success"
-          onClose={async () => {
+          // redirectReturnUrl="http://localhost:3000/conference/payment-success"
+          onPaymentCompleted={async (e) => {
             try {
               setLoading(true);
 
@@ -108,7 +108,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               const data = await res.json();
               console.log("Verify response:", data);
 
-              if (data.status === "payment_unpaid") {
+              if (data.status === "payment_completed") {
                 router.replace(
                   `/conference/payment-success?orderId=${orderId}`
                 );
