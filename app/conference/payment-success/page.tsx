@@ -6,6 +6,7 @@ import Hero from "@/components/conference/payment-success/Hero";
 import OrderInfo from "@/components/conference/payment-success/OrderInfo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 export default function PaymentSuccess() {
   const searchParams = useSearchParams();
@@ -86,6 +87,7 @@ export default function PaymentSuccess() {
 
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex min-h-screen w-full flex-col bg-black font-sans">
         <Hero />
