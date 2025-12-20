@@ -78,23 +78,23 @@ const Payment = () => {
   const router = useRouter();
 
   /* ---------------- Checkout Session ---------------- */
-  const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(
-    null
-  );
+  // const [checkoutSessionId, setCheckoutSessionId] = useState<string | null>(
+  //   null
+  // );
 
-  useEffect(() => {
-    let sessionId = localStorage.getItem("checkoutSessionId");
+  // useEffect(() => {
+  //   let sessionId = localStorage.getItem("checkoutSessionId");
 
-    if (!sessionId) {
-      sessionId = crypto.randomUUID();
-      localStorage.setItem("checkoutSessionId", sessionId);
-      console.log("[Checkout] New checkoutSessionId created:", sessionId);
-    } else {
-      console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
-    }
+  //   if (!sessionId) {
+  //     sessionId = crypto.randomUUID();
+  //     localStorage.setItem("checkoutSessionId", sessionId);
+  //     console.log("[Checkout] New checkoutSessionId created:", sessionId);
+  //   } else {
+  //     console.log("[Checkout] Reusing checkoutSessionId:", sessionId);
+  //   }
 
-    setCheckoutSessionId(sessionId);
-  }, []);
+  //   setCheckoutSessionId(sessionId);
+  // }, []);
 
   /* ---------------- Ticket ---------------- */
   const [ticketType] = useState<TicketType>("earlybird");
@@ -300,7 +300,7 @@ const Payment = () => {
   /* ---------------- Payload ---------------- */
   const buildPayload = () => {
     const payload = {
-      checkoutSessionId,
+      // checkoutSessionId,
       ticketType,
       quantity,
       buyer: buyerInfo,
@@ -363,10 +363,10 @@ const Payment = () => {
             const verifyData = await verifyRes.json();
             console.log("[Payment] Verification response:", verifyData);
 
-            if (verifyData.success) {
-              localStorage.removeItem("checkoutSessionId");
-              console.log("[Checkout] checkoutSessionId cleared after success");
-            }
+            // if (verifyData.success) {
+            //   // localStorage.removeItem("checkoutSessionId");
+            //   // console.log("[Checkout] checkoutSessionId cleared after success");
+            // }
           } catch (err) {
             console.error("[Payment] Verification failed:", err);
           }
