@@ -38,6 +38,33 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 }) => {
   const err = (key: string) => errors[key];
 
+  const [sameAsBuyer, setSameAsBuyer] = useState(false);
+
+  const handleSameAsBuyerToggle = (checked: boolean) => {
+    setSameAsBuyer(checked);
+
+    if (!checked) return;
+
+    // Copy buyer info into ONLY first participant
+    handleParticipantChange(0, "firstName", buyerInfo.firstName);
+    handleParticipantChange(0, "lastName", buyerInfo.lastName || "");
+    handleParticipantChange(0, "email", buyerInfo.email);
+    handleParticipantChange(
+      0,
+      "organisation",
+      buyerInfo.organisation || ""
+    );
+
+    // Clear participant #1 related errors
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next["participant.0.firstName"];
+      delete next["participant.0.email"];
+      return next;
+    });
+  };
+
+
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   const markTouched = (key: string) =>
@@ -55,13 +82,13 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     label: string;
     required: boolean;
   }[] = [
-    { field: "line1", label: "Address Line 1 *", required: true },
-    { field: "line2", label: "Address Line 2", required: false },
-    { field: "city", label: "City *", required: true },
-    { field: "state", label: "State *", required: true },
-    { field: "country", label: "Country *", required: true },
-    { field: "postalCode", label: "PIN Code *", required: true },
-  ];
+      { field: "line1", label: "Address Line 1 *", required: true },
+      { field: "line2", label: "Address Line 2", required: false },
+      { field: "city", label: "City *", required: true },
+      { field: "state", label: "State *", required: true },
+      { field: "country", label: "Country *", required: true },
+      { field: "postalCode", label: "PIN Code *", required: true },
+    ];
 
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
@@ -103,9 +130,8 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-              touched.email && err("email") ? errorClass : ""
-            }`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${touched.email && err("email") ? errorClass : ""
+              }`}
             value={buyerInfo.email}
             onChange={(e) => {
               const value = e.target.value;
@@ -151,7 +177,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                 onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
               >
                 <option value="">Select Country *</option>
-                {getNames().map((c:string) => (
+                {getNames().map((c: string) => (
                   <option key={c} value={c}>
                     {c}
                   </option>
@@ -174,6 +200,27 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
       {/* ================= Participants ================= */}
       <hr className="my-6" />
+
+      {participants.length > 0 && (
+        <div className="mb-4 flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="sameAsBuyer"
+            checked={sameAsBuyer}
+            onChange={(e) =>
+              handleSameAsBuyerToggle(e.target.checked)
+            }
+            className="h-4 w-4"
+          />
+          <label
+            htmlFor="sameAsBuyer"
+            className="text-sm text-[#0A0A0A] cursor-pointer"
+          >
+            Same as buyer
+          </label>
+        </div>
+      )}
+
       {participants.map((p, i) => (
         <div key={i} className="mb-6">
           <h3 className="text-md mb-3">
@@ -182,21 +229,21 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
           <div className="grid md:grid-cols-2 gap-4">
             {/* Participant First Name (required) */}
-          <div>
-            <input
-              placeholder="First Name *"
-              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
-              }`}
+            <div>
+              <input
+                placeholder="First Name *"
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
+                  }`}
                 value={p.firstName}
                 onChange={(e) =>
-                handleParticipantChange(i, "firstName", e.target.value)
-              }
-            />
+                  handleParticipantChange(i, "firstName", e.target.value)
+                }
+              />
               {err(`participant.${i}.firstName`) && (
                 <p className="text-xs text-red-500 mt-1">Required</p>
               )}
-          </div>
-          {/* Participant Last Name */}
+            </div>
+            {/* Participant Last Name */}
             <div>
               <input
                 placeholder="Last Name"
