@@ -51,7 +51,7 @@ const ticketOptions: TicketOption[] = [
 const loadRazorpay = () =>
   new Promise<boolean>((resolve) => {
     if (document.querySelector("#razorpay-sdk")) {
-      console.log("[Razorpay] SDK already loaded");
+      // console.log("[Razorpay] SDK already loaded");
       return resolve(true);
     }
 
@@ -60,17 +60,17 @@ const loadRazorpay = () =>
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
 
     script.onload = () => {
-      console.log("[Razorpay] SDK loaded successfully");
+      // console.log("[Razorpay] SDK loaded successfully");
       resolve(true);
     };
 
     script.onerror = () => {
-      console.error("[Razorpay] SDK failed to load");
+      // console.error("[Razorpay] SDK failed to load");
       resolve(false);
     };
 
     document.body.appendChild(script);
-    console.log("[Razorpay] Loading SDK script appended to document");
+    // console.log("[Razorpay] Loading SDK script appended to document");
   });
 
 /* Payment Page */
@@ -221,7 +221,7 @@ const Payment = () => {
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
-    console.log(`[Buyer] Updating field: ${field} with value: ${value}`);
+    // console.log(`[Buyer] Updating field: ${field} with value: ${value}`);
     if (field.startsWith("address.")) {
       const key = field.split(".")[1];
       setBuyerInfo((prev) => ({
@@ -237,9 +237,9 @@ const Payment = () => {
     field: keyof BuyerInfoType["address"],
     value: string
   ) => {
-    console.log(
-      `[Buyer] Updating address field: ${field} with value: ${value}`
-    );
+    // console.log(
+      // `[Buyer] Updating address field: ${field} with value: ${value}`
+    // );
     setBuyerInfo((prev) => ({
       ...prev,
       address: { ...prev.address, [field]: value },
@@ -251,9 +251,9 @@ const Payment = () => {
     field: string,
     value: string
   ) => {
-    console.log(
+    // console.log(
       `[Participant] Updating participant ${index} field: ${field} with value: ${value}`
-    );
+    // );
     setParticipants((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
@@ -306,7 +306,7 @@ const Payment = () => {
       })),
     };
 
-    console.log("[Payload] Built payload:", payload);
+    // console.log("[Payload] Built payload:", payload);
     return payload;
   };
 
@@ -314,22 +314,22 @@ const Payment = () => {
   /* ---------------- INR / Razorpay ---------------- */
   const handlePayWithRazorpay = async () => {
     if (loadingINR) {
-      console.log("[Payment] Razorpay already in progress");
+      // console.log("[Payment] Razorpay already in progress");
       return;
     }
     setLoadingINR(true);
-    console.log("[Payment] Starting Razorpay payment flow");
+    // console.log("[Payment] Starting Razorpay payment flow");
 
     const loaded = await loadRazorpay();
     if (!loaded) {
-      console.error("[Payment] Razorpay SDK failed to load");
-      alert("Razorpay failed to load");
+      // console.error("[Payment] Razorpay SDK failed to load");
+      // alert("Razorpay failed to load");
       setLoadingINR(false);
       return;
     }
 
     try {
-      console.log("[Payment] Creating Razorpay order...");
+      // console.log("[Payment] Creating Razorpay order...");
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
         {
@@ -339,7 +339,7 @@ const Payment = () => {
         }
       );
       const data = await res.json();
-      console.log("[Payment] Razorpay order response received:", data);
+      // console.log("[Payment] Razorpay order response received:", data);
 
       const rzp = new (window as any).Razorpay({
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
@@ -392,9 +392,9 @@ const Payment = () => {
 
     console.log("[Payment] Starting crypto payment flow");
     if (!validateCheckout()) {
-      console.log(
-        "[Payment] Checkout validation failed, aborting crypto payment"
-      );
+      // console.log(
+      //   "[Payment] Checkout validation failed, aborting crypto payment"
+      // );
       document
         .querySelector(".input-error")
         ?.scrollIntoView({ behavior: "smooth", block: "center" });

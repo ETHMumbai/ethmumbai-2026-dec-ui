@@ -49,7 +49,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       .catch(console.error);
   }, []);
 
-  const soldOut = ticketCount !== null && ticketCount <= 0;
+  // const soldOut = ticketCount !== null && ticketCount <= 0;
   const hasValidPayId = isValidPayId(payId);
 
 
@@ -112,12 +112,12 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }
 
               // Re-check ticket count before redirect
-              const latestCount = await fetchTicketCount();
+              // const latestCount = await fetchTicketCount();
 
-              if (latestCount <= 0) {
-                alert("Tickets are sold out.");
-                return;
-              }
+              // if (latestCount <= 0) {
+              //   alert("Tickets are sold out.");
+              //   return;
+              // }
 
               router.replace(
                 `/conference/payment-success?orderId=${orderId}`
