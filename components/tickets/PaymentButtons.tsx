@@ -52,9 +52,6 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   const soldOut = ticketCount !== null && ticketCount <= 0;
   const hasValidPayId = isValidPayId(payId);
 
-  if (quantity < 1) {
-    return null;
-  }
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">

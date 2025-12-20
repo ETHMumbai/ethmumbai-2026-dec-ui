@@ -444,7 +444,7 @@ const Payment = () => {
           ticketOptions={ticketOptions}
         />
 
-        {quantity > 0 && (
+        {(
           <BuyerInfo
             buyerInfo={buyerInfo}
             participants={participants}
@@ -455,7 +455,7 @@ const Payment = () => {
           />
         )}
 
-        {quantity > 0 && (
+        { (
           <OrderSummary
             ticketType={ticketType}
             quantity={quantity}

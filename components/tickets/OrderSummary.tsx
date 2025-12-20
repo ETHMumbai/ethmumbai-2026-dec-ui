@@ -45,7 +45,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           <span className="line-through text-gray-400">₹999</span>
         </div>
 
-        {isEarlyBird && quantity > 0 && (
+        {isEarlyBird && (
           <div className="flex justify-between text-sm mb-2 text-green-600">
             <span>Discount</span>
             <span>- ₹{900 * quantity}</span>
@@ -73,7 +73,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           </span>
         </div>
       </div>
-      {isEarlyBird && quantity > 0 && (
+      {isEarlyBird && (
         <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
           <span className="text-lg">🎉</span>
           <span className="text-sm font-medium">
