@@ -213,14 +213,8 @@ const Payment = () => {
 
   const handleQuantityChange = (type: "inc" | "dec") => {
     setQuantity((prev) => {
-      if (type === "inc") {
-        return prev >= 1 ? 1 : 1;
-      }
-
-      if (type === "dec") {
-        return prev <= 1 ? 1 : prev;
-      }
-
+      if (type === "inc" && prev < 4) return prev + 1;
+      if (type === "dec" && prev > 1) return prev - 1;
       return prev;
     });
   };
@@ -439,7 +433,7 @@ const Payment = () => {
         <TicketSelection
           visualTicketType={visualTicketType}
           setVisualTicketType={setVisualTicketType}
-          quantity={1}
+          quantity={quantity}
           handleQuantityChange={handleQuantityChange}
           ticketOptions={ticketOptions}
         />
@@ -458,7 +452,7 @@ const Payment = () => {
         { (
           <OrderSummary
             ticketType={ticketType}
-            quantity={1}
+            quantity={quantity}
             ticketPrices={ticketPrices}
             ticketPricesUSD={ticketPricesUSD}
           />
@@ -466,7 +460,7 @@ const Payment = () => {
 
         <PaymentButtons
           payId={payId ?? ""}
-          quantity={1}
+          quantity={quantity}
           loadingINR={loadingINR}
           loadingCrypto={loadingCrypto}
           handlePayWithRazorpay={handlePayWithRazorpay}
