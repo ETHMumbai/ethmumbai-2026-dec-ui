@@ -20,7 +20,12 @@ export default function AnnouncementBar() {
       <div className="flex items-center justify-center text-center">
         <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
           {ticketCount === null && null}
-          
+          {ticketCount === 0 && (
+    <span>
+      Special price tickets sold{" "}
+      <span className="ml-1">😔</span>
+    </span>
+  )}
         </span>
       </div>
     </div>
