@@ -21,7 +21,6 @@ interface PaymentButtonsProps {
   handlePayWithRazorpay: () => void;
 }
 
-
 /**
  * A payId is considered valid ONLY if:
  * - it exists
@@ -57,7 +56,12 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       <div
         ref={wrapperRef}
         onClick={checkoutValid ? handlePayWithCrypto : undefined}
-        style={{ position: "relative", display: "inline-block", cursor: checkoutValid ? "pointer" : "not-allowed" }}
+        // className="w-full md:w-[260px]"
+        style={{
+          position: "relative",
+          display: "inline-block",
+          cursor: checkoutValid ? "pointer" : "not-allowed",
+        }}
         aria-busy={loading}
       >
         {loading && !payId && (
@@ -105,7 +109,9 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               console.log("Verify response:", data);
 
               if (data.status === "payment_unpaid") {
-                router.replace(`/conference/payment-success?orderId=${orderId}`);
+                router.replace(
+                  `/conference/payment-success?orderId=${orderId}`
+                );
               }
             } catch (err) {
               console.error("Error verifying Daimo payment:", err);
@@ -141,16 +147,22 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
             </button>
           )}
         </DaimoPayButtonCustom>
-
       </div>
 
       {/* ================= INR ================= */}
-      <div className="w-full md:w-auto">
+      <div
+        // className="w-4/10"
+        style={{
+          position: "relative",
+          display: "inline-block",
+          // cursor: checkoutValid ? "pointer" : "not-allowed",
+        }}
+      >
         <button
           // disabled={loadingINR}
           disabled={true}
           onClick={handlePayWithRazorpay}
-          className="w-full md:w-auto inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
+          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap "
         >
           {loadingINR ? "Creating INR order…" : "Pay with INR"}
         </button>
