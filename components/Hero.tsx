@@ -66,7 +66,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
+    <section className="relative top-10 flex min-h-screen h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center w-full px-4
                       pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]

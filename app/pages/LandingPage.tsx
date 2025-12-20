@@ -9,13 +9,13 @@ import Overview from "@/components/Overview";
 import Sponsors from "@/components/Sponsors";
 import Partners from "@/components/Partners";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import Speakers from "@/components/Speakers";
+import Speakers from "@/components/conference/Speakers";
 import ClosingCTA from "@/components/ClosingCTA";
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans">
-      {/* <AnnouncementBar /> */}
+      <AnnouncementBar />
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
