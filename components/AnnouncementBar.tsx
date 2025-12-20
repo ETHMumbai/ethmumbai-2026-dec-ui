@@ -19,6 +19,13 @@ export default function AnnouncementBar() {
     <div className="fixed top-0 left-0 h-10 w-full z-[60] bg-[#FFD600] text-black px-3 py-2">
       <div className="flex items-center justify-center text-center">
         <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
+          {ticketCount === null && null}
+          {ticketCount === 0 && (
+            <span>
+              Special price tickets Sold Out 🎟️{" "}
+              <span className="ml-1"></span>
+            </span>
+          )}
           {ticketCount !== null && (
             <span>
               {ticketCount} tickets available at the special price of ₹99!{" "}
