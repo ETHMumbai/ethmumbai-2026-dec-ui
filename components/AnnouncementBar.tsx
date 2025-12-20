@@ -30,6 +30,7 @@ export default function AnnouncementBar() {
               >
                 Buy now
               </Link>
+              {" "} 🤩
             </>
           ) : (
             "Early Bird tickets are sold out."
