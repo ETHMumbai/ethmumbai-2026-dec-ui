@@ -22,7 +22,7 @@ const ticketPrices: Record<TicketType, number> = {
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
-  earlybird: 12,
+  earlybird: 11,
   standard: 24,
 };
 
