@@ -23,7 +23,7 @@ export default function AnnouncementBar() {
           {ticketCount === 0 && (
     <span>
       Special price tickets sold{" "}
-      <span className="ml-1">😔</span>
+      <span className="ml-1">🎟️</span>
     </span>
   )}
         </span>
