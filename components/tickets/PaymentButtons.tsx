@@ -56,7 +56,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 py-4 mt-6">
       {/* ================= Crypto ================= */}
-      <div
+      {/* <div
         ref={wrapperRef}
         onClick={
           checkoutValid && !soldOut ? handlePayWithCrypto : undefined
@@ -158,7 +158,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
             </button>
           )}
         </DaimoPayButtonCustom>
-      </div>
+      </div> */}
 
       {/* ================= INR ================= */}
       <div style={{ position: "relative", display: "inline-block" }}>
