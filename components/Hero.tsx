@@ -86,7 +86,7 @@ export default function Hero() {
         </div>
 
         {/* Action Buttons */}
-        {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+        <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
             href="tickets"
             target="_blank"
@@ -101,8 +101,7 @@ export default function Hero() {
             </button>
           </a>
         </div>
-      </div> */}
-      <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+      {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
             href="https://tally.so/r/3NkdGb"
             target="_blank"
@@ -129,7 +128,7 @@ export default function Hero() {
               Apply to Speak
             </button>
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Road + Bus */}
