@@ -133,6 +133,70 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           </div>
         ))}
       </div>
+
+      {/* ================= Participants ================= */}
+      <hr className="my-6" />
+      {participants.map((p, i) => (
+        <div key={i} className="mb-6">
+          <h3 className="text-md mb-3">
+            Participant #{i + 1}
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Participant First Name (required) */}
+          <div>
+            <input
+              placeholder="First Name *"
+              className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
+              }`}
+                value={p.firstName}
+                onChange={(e) =>
+                handleParticipantChange(i, "firstName", e.target.value)
+              }
+            />
+              {err(`participant.${i}.firstName`) && (
+                <p className="text-xs text-red-500 mt-1">Required</p>
+              )}
+          </div>
+          {/* Participant Last Name */}
+            <div>
+              <input
+                placeholder="Last Name"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={p.lastName}
+                onChange={(e) =>
+                  handleParticipantChange(i, "lastName", e.target.value)
+                }
+              />
+            </div>
+            <div>
+              <input
+                placeholder="Email *"
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
+                  }`}
+                value={p.email}
+                onChange={(e) =>
+                  handleParticipantChange(i, "email", e.target.value)
+                }
+              />
+              {err(`participant.${i}.email`) && (
+                <p className="text-xs text-red-500 mt-1">Required</p>
+              )}
+            </div>
+            {/* Organisation (optional) */}
+            <div>
+              <input
+                placeholder="Organisation / University"
+                className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
+                value={p.organisation || ""}
+                onChange={(e) =>
+                  handleParticipantChange(i, "organisation", e.target.value)
+                }
+              />
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

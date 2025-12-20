@@ -34,11 +34,11 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
             `}
           >
             {/* Special Price – EarlyBird */}
-            {type === "earlybird" && (
+            {/* {type === "earlybird" && (
               <div className="absolute top-2 right-2 bg-[#E2231A] text-white text-xs px-2 py-1 rounded-full">
                 Special Price
               </div>
-            )}
+            )} */}
 
             {/* Coming Soon */}
             {comingSoon && (

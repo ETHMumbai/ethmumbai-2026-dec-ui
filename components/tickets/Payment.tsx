@@ -100,7 +100,7 @@ const Payment = () => {
   const [ticketType] = useState<TicketType>("earlybird");
   const [visualTicketType, setVisualTicketType] =
     useState<TicketType>("earlybird");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   /* ---------------- Payment ---------------- */
   const [loadingINR, setLoadingINR] = useState(false);
@@ -138,23 +138,23 @@ const Payment = () => {
     },
   ]);
 
-  useEffect(() => {
-    setParticipants((prev) =>
-      prev.map((p, index) => ({
-        ...p,
-        firstName: buyerInfo.firstName,
-        lastName: buyerInfo.lastName,
-        email: buyerInfo.email,
-        organisation: buyerInfo.organisation || "",
-        isBuyer: index === 0,
-      }))
-    );
-  }, [
-    buyerInfo.firstName,
-    buyerInfo.lastName,
-    buyerInfo.email,
-    buyerInfo.organisation,
-  ]);
+  // useEffect(() => {
+  //   setParticipants((prev) =>
+  //     prev.map((p, index) => ({
+  //       ...p,
+  //       firstName: buyerInfo.firstName,
+  //       lastName: buyerInfo.lastName,
+  //       email: buyerInfo.email,
+  //       organisation: buyerInfo.organisation || "",
+  //       isBuyer: index === 0,
+  //     }))
+  //   );
+  // }, [
+  //   buyerInfo.firstName,
+  //   buyerInfo.lastName,
+  //   buyerInfo.email,
+  //   buyerInfo.organisation,
+  // ]);
 
   const isCheckoutValid = () => {
     if (!buyerInfo.firstName) return false;
@@ -178,46 +178,46 @@ const Payment = () => {
   }, []);
 
   /* ---------------- Quantity Sync ---------------- */
-  // const handleQuantityChange = (type: "inc" | "dec") => {
-  //   console.log(`[Ticket] Changing quantity, action: ${type}`);
-  //   setQuantity((prev) => {
-  //     const next = type === "inc" ? prev + 1 : Math.max(1, prev - 1);
-  //     console.log(`[Ticket] Quantity updated from ${prev} to ${next}`);
-
-  //     setParticipants((curr) => {
-  //       const diff = next - curr.length;
-  //       if (diff > 0) {
-  //         const newParticipants = [
-  //           ...curr,
-  //           ...Array.from({ length: diff }, () => ({
-  //             firstName: "",
-  //             lastName: "",
-  //             email: "",
-  //             organisation: "",
-  //             isBuyer: false,
-  //           })),
-  //         ];
-  //         console.log(`[Participants] Added ${diff} new participant(s)`);
-  //         return newParticipants;
-  //       }
-  //       const removedCount = curr.length - next;
-  //       if (removedCount > 0) {
-  //         console.log(`[Participants] Removed ${removedCount} participant(s)`);
-  //       }
-  //       return curr.slice(0, next);
-  //     });
-
-  //     return next;
-  //   });
-  // };
-
   const handleQuantityChange = (type: "inc" | "dec") => {
-    setQuantity((prev) => {
-      if (type === "inc" && prev < 4) return prev + 1;
-      if (type === "dec" && prev > 1) return prev - 1;
-      return prev;
+    setQuantity((prevQty) => {
+      let nextQty = prevQty;
+
+      if (type === "inc" && prevQty < 4) nextQty = prevQty + 1;
+      if (type === "dec" && prevQty > 1) nextQty = prevQty - 1;
+
+      if (nextQty === prevQty) return prevQty;
+
+      setParticipants((curr) => {
+        const diff = nextQty - curr.length;
+
+        // add participants
+        if (diff > 0) {
+        return [
+          ...curr,
+          ...Array.from({ length: diff }, () => ({
+            firstName: "",
+            lastName: "",
+            email: "",
+            organisation: "",
+            isBuyer: false,
+          })),
+        ];
+      }
+
+      // remove participants
+      if (diff < 0) {
+        return curr.slice(0, nextQty);
+      }
+
+      return curr;
     });
-  };
+
+    return nextQty;
+  });
+};
+
+
+
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
@@ -294,18 +294,22 @@ const Payment = () => {
   /* ---------------- Payload ---------------- */
   const buildPayload = () => {
     const payload = {
-      // checkoutSessionId,
       ticketType,
-      quantity: 1,
+      quantity,
       buyer: buyerInfo,
-      participants: participants.map((p, i) => ({
+      participants: participants.map((p) => ({
         ...p,
-        isBuyer: i === 0,
+        isBuyer:
+          !!buyerInfo.email &&
+          !!p.email &&
+          buyerInfo.email.toLowerCase() === p.email.toLowerCase(),
       })),
     };
+
     console.log("[Payload] Built payload:", payload);
     return payload;
   };
+
 
   /* ---------------- INR / Razorpay ---------------- */
   const handlePayWithRazorpay = async () => {
