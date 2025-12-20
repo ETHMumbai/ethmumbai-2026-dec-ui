@@ -30,7 +30,7 @@ export default function AnnouncementBar() {
           >
             Buy now
           </Link>{" "}
-          🤩
+          {" 🤩"}
         </span>
       </div>
     </div>
