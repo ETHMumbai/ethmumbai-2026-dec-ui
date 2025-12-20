@@ -26,7 +26,7 @@ export default function AnnouncementBar() {
         <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
           {ticketCount > 0 ? (
             <>
-              {ticketCount} early bird tickets are now available at ₹999. Buy now{" "} 🤩
+              {ticketCount} early bird tickets are now available at ₹999.{" "}
               <Link
                 href="/tickets"
                 className="underline underline-offset-2 hover:opacity-80 transition"
