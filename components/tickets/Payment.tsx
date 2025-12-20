@@ -158,7 +158,7 @@ const Payment = () => {
 
   const isCheckoutValid = () => {
     if (!buyerInfo.firstName) return false;
-    if (!buyerInfo.lastName) return false;
+    // if (!buyerInfo.lastName) return false;
     if (!buyerInfo.email) return false;
 
     if (!buyerInfo.address.line1) return false;
@@ -273,7 +273,7 @@ const Payment = () => {
     const e: Record<string, boolean> = {};
 
     if (!buyerInfo.firstName) e.firstName = true;
-    if (!buyerInfo.lastName) e.lastName = true;
+    // if (!buyerInfo.lastName) e.lastName = true;
     if (!buyerInfo.email) e.email = true;
 
     if (!buyerInfo.address.line1) e["address.line1"] = true;
@@ -284,7 +284,7 @@ const Payment = () => {
 
     participants.forEach((p, i) => {
       if (!p.firstName) e[`participant.${i}.firstName`] = true;
-      if (!p.lastName) e[`participant.${i}.lastName`] = true;
+      // if (!p.lastName) e[`participant.${i}.lastName`] = true;
       if (!p.email) e[`participant.${i}.email`] = true;
     });
 

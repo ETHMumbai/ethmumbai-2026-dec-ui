@@ -21,7 +21,7 @@ export interface Address {
 
 export interface BuyerInfo {
   firstName: string;
-  lastName: string;
+  lastName?: string;
   email: string;
   organisation: string;
   address: Address;
@@ -29,7 +29,7 @@ export interface BuyerInfo {
 
 export interface Participant {
   firstName: string;
-  lastName: string;
+  lastName?: string;
   email: string;
   organisation?: string;
   isBuyer?: boolean;
