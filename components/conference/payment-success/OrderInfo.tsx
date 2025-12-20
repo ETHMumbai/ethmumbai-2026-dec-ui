@@ -160,20 +160,21 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
         </div>
 
         {/* Back to home + view conference schedule */}
-        <div className="w-full flex gap-[16px] justify-between">
-          <a href="/" className="no-underline">
-            <div className="bg-[#FFFFFF] w-[408px] h-[50px] border border-gray-200 rounded-[14px] items-center flex justify-center text-[#0A0A0A] font-medium text-[14px]">
-              Back to Home{" "}
+        {/* Back to home + view conference schedule */}
+        <div className="w-full flex flex-col sm:flex-row gap-4 justify-between">
+          <a href="/" className="no-underline flex-1">
+            <div className="w-full h-[50px] border border-gray-200 rounded-[14px] flex items-center justify-center text-[#0A0A0A] font-medium text-[14px] bg-white">
+              Back to Home
             </div>
           </a>
-          <a href="/tickets" className="no-underline">
-            <div className="w-[408px] h-[50px] bg-[#E2231A] gap-[8px] rounded-[14px] items-center flex justify-center text-[#FFFFFF] text-[14px] font-medium">
-              {" "}
+          <a href="/tickets" className="no-underline flex-1">
+            <div className="w-full h-[50px] bg-[#E2231A] rounded-[14px] flex items-center justify-center gap-2 text-white text-[14px] font-medium">
               <span className="leading-[20px] tracking-[-0.15px]">Buy more tickets</span>
               <RightArrowIcon />
             </div>
           </a>
         </div>
+
 
         {/* Contact support */}
         {/* <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">
