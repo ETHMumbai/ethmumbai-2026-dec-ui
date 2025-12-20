@@ -26,6 +26,9 @@ const ticketPricesUSD: Record<TicketType, number> = {
   standard: 24,
 };
 
+const EMAIL_REGEX =
+  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
 const ticketOptions: TicketOption[] = [
   {
     type: "earlybird",
@@ -157,18 +160,28 @@ const Payment = () => {
   // ]);
 
   const isCheckoutValid = () => {
-    if (!buyerInfo.firstName) return false;
-    // if (!buyerInfo.lastName) return false;
-    if (!buyerInfo.email) return false;
+  // Buyer required fields
+  if (!buyerInfo.firstName) return false;
+  if (!buyerInfo.email || !EMAIL_REGEX.test(buyerInfo.email)) return false;
 
-    if (!buyerInfo.address.line1) return false;
-    if (!buyerInfo.address.city) return false;
-    if (!buyerInfo.address.state) return false;
-    if (!buyerInfo.address.country) return false;
-    if (!buyerInfo.address.postalCode) return false;
+  if (!buyerInfo.address.line1) return false;
+  if (!buyerInfo.address.city) return false;
+  if (!buyerInfo.address.state) return false;
+  if (!buyerInfo.address.country) return false;
+  if (!buyerInfo.address.postalCode) return false;
 
-    return true;
-  };
+  // Participants required fields
+  for (const p of participants) {
+    if (!p.firstName) return false;
+    if (!p.email || !EMAIL_REGEX.test(p.email)) return false;
+  }
+
+  // If any validation errors exist → block
+  if (Object.values(errors).some(Boolean)) return false;
+
+  return true;
+};
+
 
   const checkoutValid = isCheckoutValid();
 
@@ -444,13 +457,15 @@ const Payment = () => {
 
         {(
           <BuyerInfo
-            buyerInfo={buyerInfo}
-            participants={participants}
-            errors={errors}
-            handleBuyerChange={handleBuyerChange}
-            handleBuyerAddressChange={handleBuyerAddressChange}
-            handleParticipantChange={handleParticipantChange}
-          />
+  buyerInfo={buyerInfo}
+  participants={participants}
+  errors={errors}
+  setErrors={setErrors}
+  handleBuyerChange={handleBuyerChange}
+  handleBuyerAddressChange={handleBuyerAddressChange}
+  handleParticipantChange={handleParticipantChange}
+/>
+
         )}
 
         { (

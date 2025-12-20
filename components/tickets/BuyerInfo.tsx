@@ -3,6 +3,7 @@
 // @ts-ignore - no type definitions for 'country-list'
 import { getNames } from "country-list";
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
+import { useState } from "react";
 
 interface BuyerInfoProps {
   buyerInfo: BuyerInfoType;
@@ -18,9 +19,13 @@ interface BuyerInfoProps {
     field: keyof Participant,
     value: string
   ) => void;
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
 }
 
 const errorClass = "input-error";
+
+const EMAIL_REGEX =
+  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 const BuyerInfo: React.FC<BuyerInfoProps> = ({
   buyerInfo,
@@ -29,8 +34,21 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   handleBuyerChange,
   handleBuyerAddressChange,
   handleParticipantChange,
+  setErrors,
 }) => {
   const err = (key: string) => errors[key];
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const markTouched = (key: string) =>
+    setTouched((prev) => ({ ...prev, [key]: true }));
+
+  const validateEmail = (key: string, value: string) => {
+    setErrors((prev) => ({
+      ...prev,
+      [key]: !EMAIL_REGEX.test(value),
+    }));
+  };
 
   const addressFields: {
     field: keyof BuyerInfoType["address"];
@@ -60,7 +78,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             placeholder="First Name *"
             className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err("firstName") ? errorClass : ""}`}
             value={buyerInfo.firstName}
-            onChange={(e) => handleBuyerChange("firstName", e.target.value)}
+            onChange={(e) =>
+              handleBuyerChange("firstName", e.target.value)
+            }
           />
           {err("firstName") && (
             <p className="text-xs text-red-500 mt-1">Required</p>
@@ -72,20 +92,38 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             placeholder="Last Name"
             className="border bg-[#F3F3F5] rounded-lg p-2 w-full"
             value={buyerInfo.lastName}
-            onChange={(e) => handleBuyerChange("lastName", e.target.value)}
+            onChange={(e) =>
+              handleBuyerChange("lastName", e.target.value)
+            }
           />
         </div>
 
+        {/* Buyer Email (real-time validation) */}
         <div>
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err("email") ? errorClass : ""}`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+              touched.email && err("email") ? errorClass : ""
+            }`}
             value={buyerInfo.email}
-            onChange={(e) => handleBuyerChange("email", e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              handleBuyerChange("email", value);
+
+              if (touched.email) {
+                validateEmail("email", value);
+              }
+            }}
+            onBlur={() => {
+              markTouched("email");
+              validateEmail("email", buyerInfo.email);
+            }}
           />
-          {err("email") && (
-            <p className="text-xs text-red-500 mt-1">Required</p>
+          {touched.email && err("email") && (
+            <p className="text-xs text-red-500 mt-1">
+              Enter a valid email address
+            </p>
           )}
         </div>
 
