@@ -34,11 +34,11 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
             `}
           >
             {/* Special Price – EarlyBird */}
-            {type === "earlybird" && (
+            {/* {type === "earlybird" && (
               <div className="absolute top-2 right-2 bg-[#E2231A] text-white text-xs px-2 py-1 rounded-full">
                 Special Price
               </div>
-            )}
+            )} */}
 
             {/* Coming Soon */}
             {comingSoon && (
@@ -98,47 +98,50 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
       </div>
 
       {/* Quantity */}
-      {/* Quantity */}
       <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
         <h3 className="px-2 font-regular">Quantity</h3>
 
-        {/* <div className="flex items-center space-x-3"> */}
-        {/* Minus button: show only if quantity > 1 (won’t show at 0 or 1) */}
-        {/* { (
+        <div className="flex items-center space-x-3">
+          {/* Minus button: show only if quantity > 1 (won’t show at 0 or 1) */}
+          {(
             <button
               onClick={() => handleQuantityChange("dec")}
-              className="px-3 py-1 border rounded-lg cursor-pointer "
+              disabled={quantity <= 1}
+              className={`px-3 py-1 border rounded-lg ${quantity <= 1
+                ? "cursor-not-allowed opacity-50"
+                : "cursor-pointer"
+                }`}
             >
               −
             </button>
-          )} */}
-        <div className="flex items-center space-x-3">
+          )}
+          {/* <div className="flex items-center space-x-3"> */}
           {/* Quantity display */}
-          <span>1</span>
+          {/* <span>1</span> */}
 
           {/* Plus button (disabled) */}
-          <button
+          {/* <button
             disabled
             className="px-3 py-1 border rounded-lg cursor-not-allowed opacity-50"
           >
             +
-          </button>
-        </div>
+          </button> */}
+          {/* </div> */}
 
-        {/* <span>{quantity}</span> */}
+          <span>{quantity}</span>
 
-        {/* Plus button */}
-        {/* <button
-            onClick={() => quantity === 0 && handleQuantityChange("inc")}
-            disabled={quantity >= 1}
-            className={`px-3 py-1 border rounded-lg ${quantity >= 1
+          {/* Plus button */}
+          <button
+            onClick={() => handleQuantityChange("inc")}
+            disabled={quantity >= 4}
+            className={`px-3 py-1 border rounded-lg ${quantity >= 4
                 ? "cursor-not-allowed opacity-50"
                 : "cursor-pointer"
               }`}
           >
             +
           </button>
-        </div> */}
+        </div>
       </div>
 
     </div>
