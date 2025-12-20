@@ -20,24 +20,7 @@ export default function AnnouncementBar() {
       <div className="flex items-center justify-center text-center">
         <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
           {ticketCount === null && null}
-          {ticketCount === 0 && (
-            <span>
-              Special price tickets Sold Out 🎟️{" "}
-              <span className="ml-1"></span>
-            </span>
-          )}
-          {ticketCount !== null && (
-            <span>
-              {ticketCount} tickets available at the special price of ₹99!{" "}
-            </span>
-          )}
-          <Link
-            href="/tickets"
-            className="underline underline-offset-2 hover:opacity-80 transition"
-          >
-            Buy now
-          </Link>{" "}
-          {" 🤩"}
+          
         </span>
       </div>
     </div>
