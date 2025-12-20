@@ -59,13 +59,13 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       <div
         ref={wrapperRef}
         onClick={
-          checkoutValid && !soldOut ? handlePayWithCrypto : undefined
+          checkoutValid ? handlePayWithCrypto : undefined
         }
         style={{
           position: "relative",
           display: "inline-block",
           cursor:
-            checkoutValid && !soldOut ? "pointer" : "not-allowed",
+            checkoutValid ? "pointer" : "not-allowed",
         }}
         aria-busy={loading}
       >
@@ -89,7 +89,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={
-            checkoutValid && !soldOut && hasValidPayId ? payId : ""
+            checkoutValid && hasValidPayId ? payId : ""
           }
           onPaymentCompleted={async () => {
             try {
@@ -133,7 +133,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           {({ show }) => (
             <button
               onClick={() => {
-                if (!checkoutValid || soldOut) {
+                if (!checkoutValid) {
                   document
                     .querySelector(".input-error")
                     ?.scrollIntoView({
@@ -149,12 +149,12 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }}
               className={`w-full px-4 bg-black text-white py-3 rounded-lg
                 ${
-                  checkoutValid && !soldOut && !loading
+                  checkoutValid && !loading
                     ? "hover:bg-gray-800 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
                 }`}
             >
-              {soldOut ? "Sold out" : "Pay with Crypto"}
+              {"Pay with Crypto"}
             </button>
           )}
         </DaimoPayButtonCustom>
@@ -163,15 +163,13 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= INR ================= */}
       <div style={{ position: "relative", display: "inline-block" }}>
         <button
-          disabled={true || soldOut}
+          disabled={true}
           onClick={handlePayWithRazorpay}
           className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 whitespace-nowrap"
         >
-          {soldOut
-            ? "Sold out"
-            : loadingINR
+          {loadingINR
             ? "Creating INR order…"
-            : "Pay with INR"}
+            : "INR Comming Soon"}
         </button>
       </div>
     </div>
