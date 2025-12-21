@@ -373,8 +373,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                   handleParticipantChange(i, "email", email);
                   if (touched[`participant.${i}.email`]) {
                     validateEmail(`participant.${i}.email`, email);
-                    debouncedCheckEmail({ ...p, email }, i);
+                    
                   }
+                  debouncedCheckEmail({ ...p, email }, i);
                 }}
                 onBlur={() => {
                   markTouched(`participant.${i}.email`);
