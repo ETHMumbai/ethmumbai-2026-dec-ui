@@ -24,30 +24,6 @@ interface BuyerInfoProps {
 
 const errorClass = "input-error";
 
-const checkEmailExists = async (p: Participant) => {
-  const email = p.email;
-  if (!email) return;
-
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/internal/check-email?email=${email}`,
-      {
-        headers: {
-          "x-api-key": process.env.NEXT_PUBLIC_API_KEY!,
-        },
-      }
-    );
-
-    const data = await res.json();
-
-    if (data.exists) {
-      alert("This email has already been used to book a ticket");
-    }
-  } catch (err) {
-    console.error("Email check failed", err);
-  }
-};
-
 let emailCheckTimeout: ReturnType<typeof setTimeout>;
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -67,14 +43,49 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const debouncedCheckEmail = (p: Participant) => {
+  const checkEmailExists = async (p: Participant, i: number) => {
+    const email = p.email;
+    if (!email) return;
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/internal/check-email?email=${email}`,
+        {
+          headers: {
+            "x-api-key": process.env.NEXT_PUBLIC_API_KEY!,
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.exists) {
+        alert("This email has already been used to book a ticket");
+        setErrors((prev) => ({
+          ...prev,
+          [`participant.${i}.email`]: true,
+        }));
+        return;
+      }
+
+      // clear error if email does NOT exist
+      setErrors((prev) => ({
+        ...prev,
+        [`participant.${i}.email`]: false,
+      }));
+    } catch (err) {
+      console.error("Email check failed", err);
+    }
+  };
+
+  const debouncedCheckEmail = (p: Participant, i: number) => {
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
     }
 
     debounceRef.current = setTimeout(() => {
       if (p.email && p.email.includes("@")) {
-        checkEmailExists(p);
+        checkEmailExists(p, i);
       }
     }, 50);
   };
@@ -99,10 +110,13 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
 
     // ✅ NEW: validate copied email (debounced)
     if (buyerInfo.email && buyerInfo.email.includes("@")) {
-      debouncedCheckEmail({
-        ...participants[0],
-        email: buyerInfo.email,
-      });
+      debouncedCheckEmail(
+        {
+          ...participants[0],
+          email: buyerInfo.email,
+        },
+        1
+      );
     }
 
     // Clear participant #1 related errors
@@ -309,7 +323,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                 onChange={(e) => {
                   const email = e.target.value;
                   handleParticipantChange(i, "email", email);
-                  debouncedCheckEmail({ ...p, email });
+                  debouncedCheckEmail({ ...p, email }, i);
                 }}
               />
               {err(`participant.${i}.email`) && (
