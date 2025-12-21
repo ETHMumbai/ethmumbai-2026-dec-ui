@@ -16,7 +16,7 @@ export default function Hero() {
       >
         <h1
           className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05]"
+                       text-[3rem] sm:text-[4.8rem] md:text-[4rem] lg:text-[5rem] leading-[1.05] pt-4"
         >
           Buy Tickets
         </h1>

@@ -26,8 +26,7 @@ const ticketPricesUSD: Record<TicketType, number> = {
   standard: 24,
 };
 
-const EMAIL_REGEX =
-  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 const ticketOptions: TicketOption[] = [
   {
@@ -125,7 +124,7 @@ const Payment = () => {
       line2: "",
       city: "",
       state: "",
-      country: "India",
+      country: "",
       postalCode: "",
     },
   });
@@ -160,28 +159,27 @@ const Payment = () => {
   // ]);
 
   const isCheckoutValid = () => {
-  // Buyer required fields
-  if (!buyerInfo.firstName) return false;
-  if (!buyerInfo.email || !EMAIL_REGEX.test(buyerInfo.email)) return false;
+    // Buyer required fields
+    if (!buyerInfo.firstName) return false;
+    if (!buyerInfo.email || !EMAIL_REGEX.test(buyerInfo.email)) return false;
 
-  if (!buyerInfo.address.line1) return false;
-  if (!buyerInfo.address.city) return false;
-  if (!buyerInfo.address.state) return false;
-  if (!buyerInfo.address.country) return false;
-  if (!buyerInfo.address.postalCode) return false;
+    if (!buyerInfo.address.line1) return false;
+    if (!buyerInfo.address.city) return false;
+    if (!buyerInfo.address.state) return false;
+    if (!buyerInfo.address.country) return false;
+    if (!buyerInfo.address.postalCode) return false;
 
-  // Participants required fields
-  for (const p of participants) {
-    if (!p.firstName) return false;
-    if (!p.email || !EMAIL_REGEX.test(p.email)) return false;
-  }
+    // Participants required fields
+    for (const p of participants) {
+      if (!p.firstName) return false;
+      if (!p.email || !EMAIL_REGEX.test(p.email)) return false;
+    }
 
-  // If any validation errors exist → block
-  if (Object.values(errors).some(Boolean)) return false;
+    // If any validation errors exist → block
+    if (Object.values(errors).some(Boolean)) return false;
 
-  return true;
-};
-
+    return true;
+  };
 
   const checkoutValid = isCheckoutValid();
 
@@ -205,32 +203,29 @@ const Payment = () => {
 
         // add participants
         if (diff > 0) {
-        return [
-          ...curr,
-          ...Array.from({ length: diff }, () => ({
-            firstName: "",
-            lastName: "",
-            email: "",
-            organisation: "",
-            isBuyer: false,
-          })),
-        ];
-      }
+          return [
+            ...curr,
+            ...Array.from({ length: diff }, () => ({
+              firstName: "",
+              lastName: "",
+              email: "",
+              organisation: "",
+              isBuyer: false,
+            })),
+          ];
+        }
 
-      // remove participants
-      if (diff < 0) {
-        return curr.slice(0, nextQty);
-      }
+        // remove participants
+        if (diff < 0) {
+          return curr.slice(0, nextQty);
+        }
 
-      return curr;
+        return curr;
+      });
+
+      return nextQty;
     });
-
-    return nextQty;
-  });
-};
-
-
-
+  };
 
   /* ---------------- Buyer Handlers ---------------- */
   const handleBuyerChange = (field: string, value: string) => {
@@ -251,7 +246,7 @@ const Payment = () => {
     value: string
   ) => {
     // console.log(
-      // `[Buyer] Updating address field: ${field} with value: ${value}`
+    // `[Buyer] Updating address field: ${field} with value: ${value}`
     // );
     setBuyerInfo((prev) => ({
       ...prev,
@@ -265,7 +260,7 @@ const Payment = () => {
     value: string
   ) => {
     // console.log(
-      `[Participant] Updating participant ${index} field: ${field} with value: ${value}`
+    `[Participant] Updating participant ${index} field: ${field} with value: ${value}`;
     // );
     setParticipants((prev) => {
       const updated = [...prev];
@@ -276,7 +271,7 @@ const Payment = () => {
 
   /* ---------------- Validation ---------------- */
   const validateCheckout = () => {
-    console.log("[Validation] Starting checkout validation");
+    // console.log("[Validation] Starting checkout validation");
     const e: Record<string, boolean> = {};
 
     if (!buyerInfo.firstName) e.firstName = true;
@@ -297,10 +292,10 @@ const Payment = () => {
 
     setErrors(e);
     const valid = Object.keys(e).length === 0;
-    console.log(
-      `[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`
-    );
-    if (!valid) console.log("[Validation] Errors:", e);
+    // console.log(
+    //   `[Validation] Checkout validation result: ${valid ? "PASS" : "FAIL"}`
+    // );
+    // if (!valid) console.log("[Validation] Errors:", e);
     return valid;
   };
 
@@ -322,7 +317,6 @@ const Payment = () => {
     // console.log("[Payload] Built payload:", payload);
     return payload;
   };
-
 
   /* ---------------- INR / Razorpay ---------------- */
   const handlePayWithRazorpay = async () => {
@@ -361,7 +355,7 @@ const Payment = () => {
         order_id: data.razorpayOrderId,
         name: "ETHMumbai",
         handler: async (resp: any) => {
-          console.log("[Payment] Razorpay response received:", resp);
+          // console.log("[Payment] Razorpay response received:", resp);
           try {
             const verifyRes = await fetch(
               `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
@@ -372,7 +366,7 @@ const Payment = () => {
               }
             );
             const verifyData = await verifyRes.json();
-            console.log("[Payment] Verification response:", verifyData);
+            // console.log("[Payment] Verification response:", verifyData);
 
             // if (verifyData.success) {
             //   // localStorage.removeItem("checkoutSessionId");
@@ -388,14 +382,14 @@ const Payment = () => {
         },
       });
 
-      console.log("[Payment] Opening Razorpay modal");
+      // console.log("[Payment] Opening Razorpay modal");
       rzp.open();
     } catch (err) {
       console.error("[Payment] Razorpay error occurred:", err);
       alert("Payment failed. Check console.");
     } finally {
       setLoadingINR(false);
-      console.log("[Payment] Razorpay payment flow ended");
+      // console.log("[Payment] Razorpay payment flow ended");
     }
   };
 
@@ -403,7 +397,7 @@ const Payment = () => {
   const handlePayWithCrypto = async (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    console.log("[Payment] Starting crypto payment flow");
+    // console.log("[Payment] Starting crypto payment flow");
     if (!validateCheckout()) {
       // console.log(
       //   "[Payment] Checkout validation failed, aborting crypto payment"
@@ -415,7 +409,7 @@ const Payment = () => {
     }
 
     if (loadingCrypto) {
-      console.log("[Payment] Crypto payment already in progress or completed");
+      // console.log("[Payment] Crypto payment already in progress or completed");
       return;
     }
 
@@ -431,7 +425,7 @@ const Payment = () => {
         }
       );
       const data = await res.json();
-      console.log("[Payment] Crypto order response received:", data);
+      // console.log("[Payment] Crypto order response received:", data);
       setPayId(data.paymentId);
       setOrderId(data.orderId);
     } catch (err) {
@@ -439,7 +433,7 @@ const Payment = () => {
       alert("Crypto payment failed");
     } finally {
       setLoadingCrypto(false);
-      console.log("[Payment] Crypto payment flow ended");
+      // console.log("[Payment] Crypto payment flow ended");
     }
   };
 
@@ -455,27 +449,26 @@ const Payment = () => {
           ticketOptions={ticketOptions}
         />
 
-        {(
+        {
           <BuyerInfo
-  buyerInfo={buyerInfo}
-  participants={participants}
-  errors={errors}
-  setErrors={setErrors}
-  handleBuyerChange={handleBuyerChange}
-  handleBuyerAddressChange={handleBuyerAddressChange}
-  handleParticipantChange={handleParticipantChange}
-/>
+            buyerInfo={buyerInfo}
+            participants={participants}
+            errors={errors}
+            setErrors={setErrors}
+            handleBuyerChange={handleBuyerChange}
+            handleBuyerAddressChange={handleBuyerAddressChange}
+            handleParticipantChange={handleParticipantChange}
+          />
+        }
 
-        )}
-
-        { (
+        {
           <OrderSummary
             ticketType={ticketType}
             quantity={quantity}
             ticketPrices={ticketPrices}
             ticketPricesUSD={ticketPricesUSD}
           />
-        )}
+        }
 
         <PaymentButtons
           payId={payId ?? ""}

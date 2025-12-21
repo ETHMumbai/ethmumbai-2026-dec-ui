@@ -164,27 +164,25 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     } else {
       setAvailableStates([]);
     }
-    console.log("Country selected:", countryName, "Found country:", countryObj);
-    console.log("States:", availableStates);
+    // console.log("Country selected:", countryName, "Found country:", countryObj);
+    // console.log("States:", availableStates);
 
     // reset state field
     handleBuyerAddressChange("state", "");
   };
-
-
 
   const addressFields: {
     field: keyof BuyerInfoType["address"];
     label: string;
     required: boolean;
   }[] = [
-      { field: "line1", label: "Address Line 1 *", required: true },
-      { field: "line2", label: "Address Line 2", required: false },
-      { field: "city", label: "City *", required: true },
-      { field: "country", label: "Country *", required: true },
-      { field: "state", label: "State *", required: true },
-      { field: "postalCode", label: "PIN Code *", required: true },
-    ];
+    { field: "line1", label: "Address Line 1 *", required: true },
+    { field: "line2", label: "Address Line 2", required: false },
+    { field: "city", label: "City *", required: true },
+    { field: "country", label: "Country *", required: true },
+    { field: "state", label: "State *", required: true },
+    { field: "postalCode", label: "PIN Code *", required: true },
+  ];
 
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
@@ -220,8 +218,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${touched.email && err("email") ? errorClass : ""
-              }`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+              touched.email && err("email") ? errorClass : ""
+            }`}
             value={buyerInfo.email}
             onChange={(e) => {
               const value = e.target.value;
@@ -262,8 +261,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <div key={field}>
             {field === "country" ? (
               <select
-                className={`custom-select w-full ${required && err(`address.${field}`) ? errorClass : ""
-                  }`}
+                className={`custom-select w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
                 value={buyerInfo.address.country}
                 onChange={(e) => onCountryChange(e.target.value)}
               >
@@ -276,10 +276,13 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
               </select>
             ) : field === "state" ? (
               <select
-                className={`custom-select w-full ${required && err(`address.${field}`) ? errorClass : ""
-                  }`}
+                className={`custom-select w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
                 value={buyerInfo.address.state}
-                onChange={(e) => handleBuyerAddressChange("state", e.target.value)}
+                onChange={(e) =>
+                  handleBuyerAddressChange("state", e.target.value)
+                }
                 disabled={!availableStates.length}
               >
                 <option value="">Select State *</option>
@@ -292,13 +295,15 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             ) : (
               <input
                 placeholder={label}
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""
-                  }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
                 value={buyerInfo.address[field]}
-                onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
+                onChange={(e) =>
+                  handleBuyerAddressChange(field, e.target.value)
+                }
               />
             )}
-
           </div>
         ))}
       </div>
@@ -333,8 +338,9 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             <div>
               <input
                 placeholder="First Name *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
-                  }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  err(`participant.${i}.firstName`) ? errorClass : ""
+                }`}
                 value={p.firstName}
                 onChange={(e) =>
                   handleParticipantChange(i, "firstName", e.target.value)
@@ -358,22 +364,22 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
             <div>
               <input
                 placeholder="Email *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
-                  }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  err(`participant.${i}.email`) ? errorClass : ""
+                }`}
                 value={p.email}
                 onChange={(e) => {
                   const email = e.target.value;
                   handleParticipantChange(i, "email", email);
                   if (touched[`participant.${i}.email`]) {
                     validateEmail(`participant.${i}.email`, email);
+                    debouncedCheckEmail({ ...p, email }, i);
                   }
                 }}
                 onBlur={() => {
                   markTouched(`participant.${i}.email`);
                   validateEmail(`participant.${i}.email`, p.email);
                 }}
-              //   debouncedCheckEmail({ ...p, email }, i);
-              // }}
               />
               {touched[`participant.${i}.email`] &&
                 err(`participant.${i}.email`) && (
