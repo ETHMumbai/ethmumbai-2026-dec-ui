@@ -113,7 +113,6 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     handleParticipantChange(0, "email", buyerInfo.email);
     handleParticipantChange(0, "organisation", buyerInfo.organisation || "");
 
-    // ✅ NEW: validate copied email (debounced)
     if (buyerInfo.email && buyerInfo.email.includes("@")) {
       debouncedCheckEmail(
         {
@@ -166,7 +165,7 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
       setAvailableStates([]);
     }
     console.log("Country selected:", countryName, "Found country:", countryObj);
-console.log("States:", availableStates);
+    console.log("States:", availableStates);
 
     // reset state field
     handleBuyerAddressChange("state", "");
@@ -179,13 +178,13 @@ console.log("States:", availableStates);
     label: string;
     required: boolean;
   }[] = [
-    { field: "line1", label: "Address Line 1 *", required: true },
-    { field: "line2", label: "Address Line 2", required: false },
-    { field: "city", label: "City *", required: true },
-    { field: "country", label: "Country *", required: true },
-    { field: "state", label: "State *", required: true },
-    { field: "postalCode", label: "PIN Code *", required: true },
-  ];
+      { field: "line1", label: "Address Line 1 *", required: true },
+      { field: "line2", label: "Address Line 2", required: false },
+      { field: "city", label: "City *", required: true },
+      { field: "country", label: "Country *", required: true },
+      { field: "state", label: "State *", required: true },
+      { field: "postalCode", label: "PIN Code *", required: true },
+    ];
 
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
@@ -221,9 +220,8 @@ console.log("States:", availableStates);
           <input
             type="email"
             placeholder="Email *"
-            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-              touched.email && err("email") ? errorClass : ""
-            }`}
+            className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${touched.email && err("email") ? errorClass : ""
+              }`}
             value={buyerInfo.email}
             onChange={(e) => {
               const value = e.target.value;
@@ -263,46 +261,43 @@ console.log("States:", availableStates);
         {addressFields.map(({ field, label, required }) => (
           <div key={field}>
             {field === "country" ? (
-  <select
-    className={`custom-select w-full ${
-      required && err(`address.${field}`) ? errorClass : ""
-    }`}
-    value={buyerInfo.address.country}
-    onChange={(e) => onCountryChange(e.target.value)}
-  >
-    <option value="">Select Country *</option>
-    {Country.getAllCountries().map((c) => (
-      <option key={c.isoCode} value={c.name}>
-        {c.name}
-      </option>
-    ))}
-  </select>
-) : field === "state" ? (
-  <select
-    className={`custom-select w-full ${
-      required && err(`address.${field}`) ? errorClass : ""
-    }`}
-    value={buyerInfo.address.state}
-    onChange={(e) => handleBuyerAddressChange("state", e.target.value)}
-    disabled={!availableStates.length}
-  >
-    <option value="">Select State *</option>
-    {availableStates.map((s) => (
-      <option key={s.isoCode} value={s.name}>
-        {s.name}
-      </option>
-    ))}
-  </select>
-) : (
-  <input
-    placeholder={label}
-    className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-      required && err(`address.${field}`) ? errorClass : ""
-    }`}
-    value={buyerInfo.address[field]}
-    onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
-  />
-)}
+              <select
+                className={`custom-select w-full ${required && err(`address.${field}`) ? errorClass : ""
+                  }`}
+                value={buyerInfo.address.country}
+                onChange={(e) => onCountryChange(e.target.value)}
+              >
+                <option value="">Select Country *</option>
+                {Country.getAllCountries().map((c) => (
+                  <option key={c.isoCode} value={c.name}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+            ) : field === "state" ? (
+              <select
+                className={`custom-select w-full ${required && err(`address.${field}`) ? errorClass : ""
+                  }`}
+                value={buyerInfo.address.state}
+                onChange={(e) => handleBuyerAddressChange("state", e.target.value)}
+                disabled={!availableStates.length}
+              >
+                <option value="">Select State *</option>
+                {availableStates.map((s) => (
+                  <option key={s.isoCode} value={s.name}>
+                    {s.name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                placeholder={label}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""
+                  }`}
+                value={buyerInfo.address[field]}
+                onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
+              />
+            )}
 
           </div>
         ))}
@@ -338,9 +333,8 @@ console.log("States:", availableStates);
             <div>
               <input
                 placeholder="First Name *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-                  err(`participant.${i}.firstName`) ? errorClass : ""
-                }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.firstName`) ? errorClass : ""
+                  }`}
                 value={p.firstName}
                 onChange={(e) =>
                   handleParticipantChange(i, "firstName", e.target.value)
@@ -364,19 +358,29 @@ console.log("States:", availableStates);
             <div>
               <input
                 placeholder="Email *"
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
-                  err(`participant.${i}.email`) ? errorClass : ""
-                }`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${err(`participant.${i}.email`) ? errorClass : ""
+                  }`}
                 value={p.email}
                 onChange={(e) => {
                   const email = e.target.value;
                   handleParticipantChange(i, "email", email);
-                  debouncedCheckEmail({ ...p, email }, i);
+                  if (touched[`participant.${i}.email`]) {
+                    validateEmail(`participant.${i}.email`, email);
+                  }
                 }}
+                onBlur={() => {
+                  markTouched(`participant.${i}.email`);
+                  validateEmail(`participant.${i}.email`, p.email);
+                }}
+              //   debouncedCheckEmail({ ...p, email }, i);
+              // }}
               />
-              {err(`participant.${i}.email`) && (
-                <p className="text-xs text-red-500 mt-1">Required</p>
-              )}
+              {touched[`participant.${i}.email`] &&
+                err(`participant.${i}.email`) && (
+                  <p className="text-xs text-red-500 mt-1">
+                    Enter a valid email address
+                  </p>
+                )}
             </div>
             {/* Organisation (optional) */}
             <div>
