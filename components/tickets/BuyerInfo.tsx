@@ -1,7 +1,6 @@
 "use client";
 
-// @ts-ignore - no type definitions for 'country-list'
-import { getNames } from "country-list";
+import { Country, State } from "country-state-city";
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
 import { useState, useRef } from "react";
 
@@ -40,6 +39,13 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   const err = (key: string) => errors[key];
 
   const [sameAsBuyer, setSameAsBuyer] = useState(false);
+  type CountryState = {
+    name: string;
+    isoCode: string;
+    countryCode: string;
+  };
+
+  const [availableStates, setAvailableStates] = useState<CountryState[]>([]);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -93,7 +99,6 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   const handleSameAsBuyerToggle = (checked: boolean) => {
     setSameAsBuyer(checked);
 
-    // ❌ If unchecked → clear participant #0 fields
     if (!checked) {
       handleParticipantChange(0, "firstName", "");
       handleParticipantChange(0, "lastName", "");
@@ -140,6 +145,35 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     }));
   };
 
+  // ======================== Country → State handling ========================
+  const onCountryChange = (countryName: string) => {
+    // find country by name
+    const countryObj = Country.getAllCountries().find(
+      (c) => c.name.toLowerCase() === countryName.toLowerCase()
+    );
+
+    // update country in address
+    handleBuyerAddressChange("country", countryName);
+
+    if (countryObj) {
+      const states = State.getStatesOfCountry(countryObj.isoCode).map((s) => ({
+        name: s.name,
+        isoCode: s.isoCode,
+        countryCode: s.countryCode,
+      }));
+      setAvailableStates(states);
+    } else {
+      setAvailableStates([]);
+    }
+    console.log("Country selected:", countryName, "Found country:", countryObj);
+console.log("States:", availableStates);
+
+    // reset state field
+    handleBuyerAddressChange("state", "");
+  };
+
+
+
   const addressFields: {
     field: keyof BuyerInfoType["address"];
     label: string;
@@ -148,8 +182,8 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     { field: "line1", label: "Address Line 1 *", required: true },
     { field: "line2", label: "Address Line 2", required: false },
     { field: "city", label: "City *", required: true },
-    { field: "state", label: "State *", required: true },
     { field: "country", label: "Country *", required: true },
+    { field: "state", label: "State *", required: true },
     { field: "postalCode", label: "PIN Code *", required: true },
   ];
 
@@ -229,33 +263,47 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
         {addressFields.map(({ field, label, required }) => (
           <div key={field}>
             {field === "country" ? (
-              <select
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
-                value={buyerInfo.address.country}
-                onChange={(e) =>
-                  handleBuyerAddressChange(field, e.target.value)
-                }
-              >
-                <option value="">Select Country *</option>
-                {getNames().map((c: string) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <input
-                placeholder={label}
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
-                value={buyerInfo.address[field]}
-                onChange={(e) =>
-                  handleBuyerAddressChange(field, e.target.value)
-                }
-              />
-            )}
-            {required && err(`address.${field}`) && (
-              <p className="text-xs text-red-500 mt-1">Required</p>
-            )}
+  <select
+    className={`custom-select w-full ${
+      required && err(`address.${field}`) ? errorClass : ""
+    }`}
+    value={buyerInfo.address.country}
+    onChange={(e) => onCountryChange(e.target.value)}
+  >
+    <option value="">Select Country *</option>
+    {Country.getAllCountries().map((c) => (
+      <option key={c.isoCode} value={c.name}>
+        {c.name}
+      </option>
+    ))}
+  </select>
+) : field === "state" ? (
+  <select
+    className={`custom-select w-full ${
+      required && err(`address.${field}`) ? errorClass : ""
+    }`}
+    value={buyerInfo.address.state}
+    onChange={(e) => handleBuyerAddressChange("state", e.target.value)}
+    disabled={!availableStates.length}
+  >
+    <option value="">Select State *</option>
+    {availableStates.map((s) => (
+      <option key={s.isoCode} value={s.name}>
+        {s.name}
+      </option>
+    ))}
+  </select>
+) : (
+  <input
+    placeholder={label}
+    className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+      required && err(`address.${field}`) ? errorClass : ""
+    }`}
+    value={buyerInfo.address[field]}
+    onChange={(e) => handleBuyerAddressChange(field, e.target.value)}
+  />
+)}
+
           </div>
         ))}
       </div>
