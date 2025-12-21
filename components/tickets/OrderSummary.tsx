@@ -19,7 +19,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   const total = pricePerTicket * quantity;
 
   const pricePerTicketUSD = ticketType ? ticketPricesUSD[ticketType] : 0;
-  const totalUSD = (pricePerTicketUSD * quantity).toFixed(2);
+  const totalUSD = pricePerTicketUSD * quantity; //use toFixed(2) for decimal
 
   const isEarlyBird = ticketType === "earlybird";
 

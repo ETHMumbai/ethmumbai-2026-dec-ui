@@ -1,7 +1,6 @@
 "use client";
 
-// @ts-ignore - no type definitions for 'country-list'
-import { getNames } from "country-list";
+import { Country, State } from "country-state-city";
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
 import { useState, useRef } from "react";
 
@@ -24,30 +23,6 @@ interface BuyerInfoProps {
 
 const errorClass = "input-error";
 
-const checkEmailExists = async (p: Participant) => {
-  const email = p.email;
-  if (!email) return;
-
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/internal/check-email?email=${email}`,
-      {
-        headers: {
-          "x-api-key": process.env.NEXT_PUBLIC_API_KEY!,
-        },
-      }
-    );
-
-    const data = await res.json();
-
-    if (data.exists) {
-      alert("This email has already been used to book a ticket");
-    }
-  } catch (err) {
-    console.error("Email check failed", err);
-  }
-};
-
 let emailCheckTimeout: ReturnType<typeof setTimeout>;
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -64,17 +39,59 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   const err = (key: string) => errors[key];
 
   const [sameAsBuyer, setSameAsBuyer] = useState(false);
+  type CountryState = {
+    name: string;
+    isoCode: string;
+    countryCode: string;
+  };
+
+  const [availableStates, setAvailableStates] = useState<CountryState[]>([]);
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const debouncedCheckEmail = (p: Participant) => {
+  const checkEmailExists = async (p: Participant, i: number) => {
+    const email = p.email;
+    if (!email) return;
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/internal/check-email?email=${email}`,
+        {
+          headers: {
+            "x-api-key": process.env.NEXT_PUBLIC_API_KEY!,
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.exists) {
+        alert("This email has already been used to book a ticket");
+        setErrors((prev) => ({
+          ...prev,
+          [`participant.${i}.email`]: true,
+        }));
+        return;
+      }
+
+      // clear error if email does NOT exist
+      setErrors((prev) => ({
+        ...prev,
+        [`participant.${i}.email`]: false,
+      }));
+    } catch (err) {
+      console.error("Email check failed", err);
+    }
+  };
+
+  const debouncedCheckEmail = (p: Participant, i: number) => {
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
     }
 
     debounceRef.current = setTimeout(() => {
       if (p.email && p.email.includes("@")) {
-        checkEmailExists(p);
+        checkEmailExists(p, i);
       }
     }, 50);
   };
@@ -82,7 +99,6 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   const handleSameAsBuyerToggle = (checked: boolean) => {
     setSameAsBuyer(checked);
 
-    // ❌ If unchecked → clear participant #0 fields
     if (!checked) {
       handleParticipantChange(0, "firstName", "");
       handleParticipantChange(0, "lastName", "");
@@ -97,12 +113,14 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     handleParticipantChange(0, "email", buyerInfo.email);
     handleParticipantChange(0, "organisation", buyerInfo.organisation || "");
 
-    // ✅ NEW: validate copied email (debounced)
     if (buyerInfo.email && buyerInfo.email.includes("@")) {
-      debouncedCheckEmail({
-        ...participants[0],
-        email: buyerInfo.email,
-      });
+      debouncedCheckEmail(
+        {
+          ...participants[0],
+          email: buyerInfo.email,
+        },
+        1
+      );
     }
 
     // Clear participant #1 related errors
@@ -126,6 +144,33 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     }));
   };
 
+  // ======================== Country → State handling ========================
+  const onCountryChange = (countryName: string) => {
+    // find country by name
+    const countryObj = Country.getAllCountries().find(
+      (c) => c.name.toLowerCase() === countryName.toLowerCase()
+    );
+
+    // update country in address
+    handleBuyerAddressChange("country", countryName);
+
+    if (countryObj) {
+      const states = State.getStatesOfCountry(countryObj.isoCode).map((s) => ({
+        name: s.name,
+        isoCode: s.isoCode,
+        countryCode: s.countryCode,
+      }));
+      setAvailableStates(states);
+    } else {
+      setAvailableStates([]);
+    }
+    // console.log("Country selected:", countryName, "Found country:", countryObj);
+    // console.log("States:", availableStates);
+
+    // reset state field
+    handleBuyerAddressChange("state", "");
+  };
+
   const addressFields: {
     field: keyof BuyerInfoType["address"];
     label: string;
@@ -134,8 +179,8 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     { field: "line1", label: "Address Line 1 *", required: true },
     { field: "line2", label: "Address Line 2", required: false },
     { field: "city", label: "City *", required: true },
-    { field: "state", label: "State *", required: true },
     { field: "country", label: "Country *", required: true },
+    { field: "state", label: "State *", required: true },
     { field: "postalCode", label: "PIN Code *", required: true },
   ];
 
@@ -216,31 +261,48 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
           <div key={field}>
             {field === "country" ? (
               <select
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
+                className={`custom-select w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
                 value={buyerInfo.address.country}
-                onChange={(e) =>
-                  handleBuyerAddressChange(field, e.target.value)
-                }
+                onChange={(e) => onCountryChange(e.target.value)}
               >
                 <option value="">Select Country *</option>
-                {getNames().map((c: string) => (
-                  <option key={c} value={c}>
-                    {c}
+                {Country.getAllCountries().map((c) => (
+                  <option key={c.isoCode} value={c.name}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+            ) : field === "state" ? (
+              <select
+                className={`custom-select w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
+                value={buyerInfo.address.state}
+                onChange={(e) =>
+                  handleBuyerAddressChange("state", e.target.value)
+                }
+                disabled={!availableStates.length}
+              >
+                <option value="">Select State *</option>
+                {availableStates.map((s) => (
+                  <option key={s.isoCode} value={s.name}>
+                    {s.name}
                   </option>
                 ))}
               </select>
             ) : (
               <input
                 placeholder={label}
-                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${required && err(`address.${field}`) ? errorClass : ""}`}
+                className={`border bg-[#F3F3F5] rounded-lg p-2 w-full ${
+                  required && err(`address.${field}`) ? errorClass : ""
+                }`}
                 value={buyerInfo.address[field]}
                 onChange={(e) =>
                   handleBuyerAddressChange(field, e.target.value)
                 }
               />
-            )}
-            {required && err(`address.${field}`) && (
-              <p className="text-xs text-red-500 mt-1">Required</p>
             )}
           </div>
         ))}
@@ -309,12 +371,23 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                 onChange={(e) => {
                   const email = e.target.value;
                   handleParticipantChange(i, "email", email);
-                  debouncedCheckEmail({ ...p, email });
+                  if (touched[`participant.${i}.email`]) {
+                    validateEmail(`participant.${i}.email`, email);
+                    
+                  }
+                  debouncedCheckEmail({ ...p, email }, i);
+                }}
+                onBlur={() => {
+                  markTouched(`participant.${i}.email`);
+                  validateEmail(`participant.${i}.email`, p.email);
                 }}
               />
-              {err(`participant.${i}.email`) && (
-                <p className="text-xs text-red-500 mt-1">Required</p>
-              )}
+              {touched[`participant.${i}.email`] &&
+                err(`participant.${i}.email`) && (
+                  <p className="text-xs text-red-500 mt-1">
+                    Enter a valid email address
+                  </p>
+                )}
             </div>
             {/* Organisation (optional) */}
             <div>
