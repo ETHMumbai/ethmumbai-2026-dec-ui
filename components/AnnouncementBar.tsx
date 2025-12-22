@@ -31,7 +31,7 @@ export default function AnnouncementBar() {
               🤩
             </>
           ) : (
-            "Early Bird tickets are sold out."
+            "Early Bird tickets are sold out. 🎟️"
           )}
         </span>
       </div>

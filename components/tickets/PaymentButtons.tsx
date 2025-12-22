@@ -49,7 +49,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       .catch(console.error);
   }, []);
 
-  // const soldOut = ticketCount !== null && ticketCount <= 0;
+  const soldOut = ticketCount !== null && ticketCount <= 0;
   const hasValidPayId = isValidPayId(payId);
 
 
@@ -112,12 +112,12 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }
 
               // Re-check ticket count before redirect
-              // const latestCount = await fetchTicketCount();
+              const latestCount = await fetchTicketCount();
 
-              // if (latestCount <= 0) {
-              //   alert("Tickets are sold out.");
-              //   return;
-              // }
+              if (latestCount <= 0) {
+                alert("Tickets are sold out.");
+                return;
+              }
 
               router.replace(
                 `/conference/payment-success?orderId=${orderId}`
@@ -133,7 +133,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           {({ show }) => (
             <button
               onClick={() => {
-                if (!checkoutValid) {
+                if (!checkoutValid || soldOut) {
                   document
                     .querySelector(".input-error")
                     ?.scrollIntoView({
@@ -149,12 +149,12 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
               }}
               className={`w-full px-4 bg-black text-white py-3 rounded-lg
                 ${
-                  checkoutValid && !loading
+                  checkoutValid && !loading && !soldOut
                     ? "hover:bg-gray-800 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
                 }`}
             >
-              {"Pay with Crypto"}
+              {soldOut ? "Sold Out" : "Pay with Crypto"}
             </button>
           )}
         </DaimoPayButtonCustom>
@@ -167,9 +167,11 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           onClick={handlePayWithRazorpay}
           className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg cursor-not-allowed disabled:opacity-50 whitespace-nowrap"
         >
-          {loadingINR
-            ? "Creating INR order…"
-            : "INR Coming Soon"}
+          {soldOut
+          ? "Sold Out"
+          : loadingINR
+          ? "Creating INR order…"
+          : "Pay with INR"}
         </button>
       </div>
     </div>
