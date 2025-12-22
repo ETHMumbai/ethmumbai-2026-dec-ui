@@ -171,7 +171,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
           ? "Sold Out"
           : loadingINR
           ? "Creating INR order…"
-          : "Pay with INR"}
+          : "INR Coming Soon"}
         </button>
       </div>
     </div>
