@@ -21,7 +21,7 @@ export default function AnnouncementBar() {
             " "
           ) : ticketCount > 0 ? (
             <>
-              {ticketCount} Early Bird tickets are now available at ₹999.{" "}
+               Early Bird tickets are now available at ₹999.{" "}
               <Link
                 href="/tickets"
                 className="underline underline-offset-2 hover:opacity-80 transition"
