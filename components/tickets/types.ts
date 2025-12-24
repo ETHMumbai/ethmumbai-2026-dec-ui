@@ -1,8 +1,19 @@
 // types.ts
-export type TicketType = "earlybird" | "standard";
+export type TicketType = "earlybird" | "standard" | "christmas";
 
-export interface TicketOption {
+export interface Ticket {
+  id: string;
+  title: string;
   type: TicketType;
+  fiat: number;
+  crypto: number;
+  quantity: number;
+  remainingQuantity: number;
+  isActive: boolean;
+  priority: number;
+}
+export interface TicketOption {
+  type: TicketType
   label: string;
   price: number; // INR
   priceUSD: number; // USD
@@ -10,6 +21,8 @@ export interface TicketOption {
   mobileImage: string;
   comingSoon: boolean;
 }
+
+
 export interface Address {
   line1: string;
   line2?: string;

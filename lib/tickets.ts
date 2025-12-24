@@ -1,14 +1,15 @@
-// lib/tickets.ts
-export async function fetchTicketCount(): Promise<number> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/t/ticketCount`,
-    { cache: "no-store" }
-  );
+import { Ticket } from "../components/tickets/types";
+
+export async function fetchActiveTicket(): Promise<Ticket | null> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/t/current`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch ticket count");
+    console.error("Failed to fetch active ticket:", await res.text());
+    return null;
   }
 
-  const data = await res.json();
-  return data.ticketCount;
+  const data: Ticket = await res.json();
+  return data || null;
 }
