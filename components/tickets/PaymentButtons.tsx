@@ -95,7 +95,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
         <DaimoPayButtonCustom
           payId={checkoutValid && hasValidPayId && !soldOut ? payId : ""}
-          onClose={async () => {
+          onPaymentCompleted={async () => {
             try {
               setLoading(true);
 
