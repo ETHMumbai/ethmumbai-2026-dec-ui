@@ -7,7 +7,7 @@ export default function Agenda() {
   const [activeDay, setActiveDay] = useState(0);
   type AgendaEvent = { time: string; title: string; speaker?: string; subtitle?: string };
   type Day = { items: AgendaEvent[]; title?: string };
-  const days: Day[] = agendaData as unknown as Day[];
+  const days: Day[] = hackathonAgenda as unknown as Day[];
   const safeActiveDay = days.length > 0 ? Math.min(Math.max(activeDay, 0), days.length - 1) : 0;
 
   return (
