@@ -36,7 +36,7 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 11,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
   {
     type: "standard",
@@ -45,7 +45,7 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 24,
     desktopImage: "/assets/tickets/standard-list.svg",
     mobileImage: "/assets/tickets/standard-sm-vertical.svg",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     type: "christmas",
@@ -54,7 +54,7 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 5.5,
     desktopImage: "/assets/tickets/christmas-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
 ];
 
