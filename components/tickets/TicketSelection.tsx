@@ -58,14 +58,13 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
 
       {/* Mobile */}
       <div className="flex sm:hidden gap-4">
-        {ticketOptions.map(({ type, mobileImage, label, comingSoon }) => (
+        {ticketOptions.map(({ type, mobileImage, label }) => (
           <div
             key={type}
-            onClick={() => !comingSoon && setVisualTicketType(type)}
+            onClick={() => setVisualTicketType(type)}
             className={`
               relative border rounded-xl p-2 flex-1 transition
               ${visualTicketType === type ? "border-black" : "border-gray-300"}
-              ${comingSoon ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
             `}
           >
             <Image
