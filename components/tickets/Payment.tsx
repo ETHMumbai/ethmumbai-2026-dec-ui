@@ -53,7 +53,7 @@ const ticketOptions: TicketOption[] = [
     price: 499,
     priceUSD: 5.5,
     desktopImage: "/assets/tickets/christmas-list.svg",
-    mobileImage: "/assets/tickets/christmas-sm-vertical.svg",
+    mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
     comingSoon: false,
   },
 ];

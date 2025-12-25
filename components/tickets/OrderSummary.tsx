@@ -45,7 +45,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
         <div className="flex justify-between text-sm mb-2">
           <span>Price per ticket</span>
           <span>
-            ₹{pricePerTicket} (${pricePerTicketUSD})
+            ₹{pricePerTicket} (${pricePerTicketUSD.toFixed(2)})
           </span>
         </div>
 

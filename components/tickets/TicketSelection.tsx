@@ -23,7 +23,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
       {/* Desktop */}
       <div className="hidden sm:grid sm:grid-cols-2 gap-4">
-        {ticketOptions.map(({ type, desktopImage, label, comingSoon }) => (
+        {ticketOptions.map(({ type, desktopImage, label, comingSoon }, index) => (
           <div
             key={type}
             className={`
@@ -34,6 +34,12 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
             {comingSoon && (
               <div className="absolute top-2 right-2 z-20 bg-black text-white text-xs px-2 py-1 rounded-full">
                 Coming Soon
+              </div>
+            )}
+
+            {visualTicketType === "christmas" && index === 0 && !comingSoon && (
+              <div className="absolute top-2 right-2 z-20 bg-[#E2231A] text-white text-xs px-2 py-1 rounded-full">
+                Special Price
               </div>
             )}
 
