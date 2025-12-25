@@ -3,11 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-import {
-  TicketOption,
-  Participant,
-  BuyerInfo as BuyerInfoType,
-} from "./types";
+import { TicketOption, Participant, BuyerInfo as BuyerInfoType } from "./types";
 
 import { Ticket, TicketType } from "./types";
 import TicketSelection from "./TicketSelection";
@@ -83,7 +79,8 @@ const Payment = () => {
 
   /* ---------------- State ---------------- */
   const [activeTicket, setActiveTicket] = useState<Ticket | null>(null);
-  const [visualTicketType, setVisualTicketType] = useState<TicketType>("earlybird");
+  const [visualTicketType, setVisualTicketType] =
+    useState<TicketType>("earlybird");
   const [quantity, setQuantity] = useState(1);
 
   const [loadingINR, setLoadingINR] = useState(false);
@@ -112,13 +109,22 @@ const Payment = () => {
     { firstName: "", lastName: "", email: "", organisation: "", isBuyer: true },
   ]);
 
-  const [ticketOptionsToShow, setTicketOptionsToShow] = useState<TicketOption[]>([]);
+  const [ticketOptionsToShow, setTicketOptionsToShow] = useState<
+    TicketOption[]
+  >([]);
 
   /* ---------------- Validation ---------------- */
   const isCheckoutValid = () => {
     if (!buyerInfo.firstName) return false;
     if (!buyerInfo.email || !EMAIL_REGEX.test(buyerInfo.email)) return false;
-    if (!buyerInfo.address.line1 || !buyerInfo.address.city || !buyerInfo.address.state || !buyerInfo.address.country || !buyerInfo.address.postalCode) return false;
+    if (
+      !buyerInfo.address.line1 ||
+      !buyerInfo.address.city ||
+      !buyerInfo.address.state ||
+      !buyerInfo.address.country ||
+      !buyerInfo.address.postalCode
+    )
+      return false;
 
     for (const p of participants) {
       if (!p.firstName) return false;
@@ -163,12 +169,15 @@ const Payment = () => {
   useEffect(() => {
     if (!activeTicket) return;
 
-    const activeOption = ticketOptions.find((t) => t.type === activeTicket.type);
+    const activeOption = ticketOptions.find(
+      (t) => t.type === activeTicket.type
+    );
     const standardOption = ticketOptions.find((t) => t.type === "standard");
 
     const options: TicketOption[] = [];
     if (activeOption) options.push(activeOption);
-    if (standardOption && standardOption.type !== activeTicket.type) options.push(standardOption);
+    if (standardOption && standardOption.type !== activeTicket.type)
+      options.push(standardOption);
 
     setTicketOptionsToShow(options);
     setVisualTicketType(activeTicket.type);
@@ -185,7 +194,11 @@ const Payment = () => {
     setQuantity((prevQty) => {
       let nextQty = prevQty;
 
-      if (type === "inc" && prevQty < Math.min(4, activeTicket.remainingQuantity)) nextQty++;
+      if (
+        type === "inc" &&
+        prevQty < Math.min(4, activeTicket.remainingQuantity)
+      )
+        nextQty++;
       if (type === "dec" && prevQty > 1) nextQty--;
 
       setParticipants((curr) => {
@@ -193,7 +206,13 @@ const Payment = () => {
         if (diff > 0) {
           return [
             ...curr,
-            ...Array.from({ length: diff }, () => ({ firstName: "", lastName: "", email: "", organisation: "", isBuyer: false })),
+            ...Array.from({ length: diff }, () => ({
+              firstName: "",
+              lastName: "",
+              email: "",
+              organisation: "",
+              isBuyer: false,
+            })),
           ];
         }
         if (diff < 0) return curr.slice(0, nextQty);
@@ -208,17 +227,30 @@ const Payment = () => {
   const handleBuyerChange = (field: string, value: string) => {
     if (field.startsWith("address.")) {
       const key = field.split(".")[1];
-      setBuyerInfo((prev) => ({ ...prev, address: { ...prev.address, [key]: value } }));
+      setBuyerInfo((prev) => ({
+        ...prev,
+        address: { ...prev.address, [key]: value },
+      }));
     } else {
       setBuyerInfo((prev) => ({ ...prev, [field]: value }));
     }
   };
 
-  const handleBuyerAddressChange = (field: keyof BuyerInfoType["address"], value: string) => {
-    setBuyerInfo((prev) => ({ ...prev, address: { ...prev.address, [field]: value } }));
+  const handleBuyerAddressChange = (
+    field: keyof BuyerInfoType["address"],
+    value: string
+  ) => {
+    setBuyerInfo((prev) => ({
+      ...prev,
+      address: { ...prev.address, [field]: value },
+    }));
   };
 
-  const handleParticipantChange = (index: number, field: string, value: string) => {
+  const handleParticipantChange = (
+    index: number,
+    field: string,
+    value: string
+  ) => {
     setParticipants((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
@@ -274,11 +306,14 @@ const Payment = () => {
     if (!loaded) return setLoadingINR(false);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildPayload()),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
       const data = await res.json();
 
       const rzp = new (window as any).Razorpay({
@@ -298,7 +333,10 @@ const Payment = () => {
             console.error("Razorpay verification failed:", err);
           }
         },
-        prefill: { name: `${buyerInfo.firstName} ${buyerInfo.lastName}`, email: buyerInfo.email },
+        prefill: {
+          name: `${buyerInfo.firstName} ${buyerInfo.lastName}`,
+          email: buyerInfo.email,
+        },
       });
 
       rzp.open();
@@ -318,11 +356,14 @@ const Payment = () => {
     setLoadingCrypto(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/create-order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(buildPayload()),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/create-order`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload()),
+        }
+      );
       const data = await res.json();
       setPayId(data.paymentId);
       setOrderId(data.orderId);

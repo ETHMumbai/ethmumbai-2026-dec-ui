@@ -12,6 +12,7 @@ interface OrderInfoProps {
     quantity: number;
     paymentMethod: string;
     purchaseDate: string;
+    orderFiat: number;
     totalAmount: number;
     buyerEmail: string;
   };
@@ -116,7 +117,8 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹{999 * orderData.quantity}(${orderData.totalAmount})
+                ₹{orderData.orderFiat * orderData.quantity}($
+                {orderData.totalAmount})
               </span>
             </div>
 
