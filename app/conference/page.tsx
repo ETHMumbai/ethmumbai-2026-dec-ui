@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "@/components/conference/Hero";
-import Navbar from "@/components/conference/Navbar";
+import Navbar from "@/components/Navbar";
 import Overview from "@/components/conference/Overview";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";

@@ -20,7 +20,7 @@ export default function LandingPage() {
         <Hero />
         <Overview />
         <Speakers/>
-        <Sponsors />
+        {/* <Sponsors /> */}
         {/* <Venue type="hackathon" /> */}
         <Agenda />
         <FAQ type="hackathon" />

@@ -43,7 +43,7 @@ export default function Navbar() {
           <Link href="/hackathon" className="hover:text-black transition">
             Hackathon
           </Link>
-          <Link href="/buy-tickets" className="hover:text-black transition">
+          <Link href="/tickets" className="hover:text-black transition">
             Buy Tickets
           </Link>
         </div>
