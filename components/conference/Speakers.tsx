@@ -1,18 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { speakers } from "../../lib/speakersData";
+import { conferenceSpeakers } from "../../lib/speakersData";
 
 export default function Speakers() {
   return (
-    <section className="w-full bg-[#E2231A] py-16 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Past Speakers and Judges
+    <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
+          Speakers
         </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {speakers.map((speaker, index) => (
+        {conferenceSpeakers.map((speaker, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
@@ -28,7 +28,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-white overflow-visible relative">
+                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
@@ -52,7 +52,7 @@ export default function Speakers() {
                 </a>
               ) : (
                 <div className="cursor-default group">
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#BEBEBE] bg-white overflow-visible relative">
+                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
@@ -79,12 +79,12 @@ export default function Speakers() {
 
             {/* Speaker Info */}
             <h3
-              className="text-[16px] leading-6 tracking-[-0.31px] text-white text-center mb-1"
+              className="text-[16px] leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1"
             >
               {speaker.name}
             </h3>
             <p
-              className="text-[14px] leading-5 tracking-[-0.015px] text-white text-center"
+              className="text-[14px] leading-5 tracking-[-0.015px] text-[#575757] text-center"
             >
               {speaker.company}
             </p>
@@ -99,7 +99,7 @@ export default function Speakers() {
         rel="noopener noreferrer"
       >
         <div className="flex justify-center mt-16">
-          <button className="bg-white text-[#E2231A] text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Apply to Speak
           </button>
         </div>

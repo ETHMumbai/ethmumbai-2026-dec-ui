@@ -10,27 +10,28 @@ export default function Hero() {
             <div className="max-w-7xl w-full py-10 grid grid-cols-1 md:grid-cols-2  gap-16 md:gap-20 text-center md:text-left items-start md:items-center sm:items-center lg:items-start">
 
                 {/* LEFT TEXT CONTENT */}
-                <div className="max-w-[480px] pt-2 md:pt-4 mx-auto md:mx-0">
-                    <h2 className="text-4xl font-[MPlusRounded1c] sm:text-5xl font-bold leading-tight tracking-tight">
-                        Web3 <br /> Visionaries Unite
+                <div className="max-w-[480px] pt-2 md:pt-4 mx-2 md:mx-2">
+                    <h2 className="text-4xl pb-2 font-[MPlusRounded1c] sm:text-5xl font-bold leading-tight tracking-tight">
+                        BEST Ethereum Conference 
                     </h2>
-
+                    <br />
                     <p className="text-lg text-gray-800 leading-relaxed">
-                        ETHMumbai Conference is India’s premier Ethereum and Web3 gathering,
-                        designed to spark innovation and accelerate decentralized progress.
+                        ETHMumbai Conference 2026 is an Ethereum-focused conference, organized by the people of Mumbai for the world.
                     </p>
 
-                    <p className="text-lg text-gray-800 leading-relaxed">
-                        Attendees experience four dynamic days of keynote presentations,
-                        technical workshops, and interactive panels led by top minds in blockchain,
-                        DeFi, privacy, and social applications.
+                    <p className="text-lg text-gray-800 mt-2 leading-relaxed">
+                        Join us for a full-day featuring 50 wonderful speakers presenting talks across three tracks: DeFi, Privacy, and AI. 
                     </p>
 
-                    <p className="text-lg text-gray-800 leading-relaxed">
-                        Whether you’re a developer, entrepreneur, or enthusiast, the conference empowers
-                        you to learn from thought leaders, discover new trends, and make critical
-                        connections to shape the future of the Ethereum ecosystem.
+                    <p className="text-lg text-gray-800 mt-2 leading-relaxed">
+                        If you are curious about decentralization, onchain privacy, and the role of AI in shaping the future of Ethereum, ETHMumbai Conference is for you.
                     </p>
+
+                    <Link href="/tickets">
+                        <button className="bg-[#D63A2F] mt-4 border text-white font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
+                            Buy Tickets
+                        </button>
+                    </Link>  
                 </div>
 
                 {/* RIGHT SIDE IMAGE */}
