@@ -40,7 +40,10 @@ export default function Navbar() {
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
-          <Link href="/tickets" className="hover:text-black transition">
+          <Link href="/hackathon" className="hover:text-black transition">
+            Hackathon
+          </Link>
+          <Link href="/buy-tickets" className="hover:text-black transition">
             Buy Tickets
           </Link>
         </div>
@@ -131,11 +134,16 @@ export default function Navbar() {
           <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
             <Link
               href="/conference"
-              
-            
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Conference
+            </Link>
+
+            <Link
+              href="/hackathon"
+              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
+            >
+              Hackathon
             </Link>
 
             <Link

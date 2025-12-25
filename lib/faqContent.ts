@@ -66,13 +66,38 @@ export const conferenceFAQ: FAQItem[] = [
 
 export const hackathonFAQ: FAQItem[] = [
   {
-    title: "Who can participate in the hackathon?",
+    title: "What is ETHMumbai Hackathon?",
     content:
-      "Developers, designers, founders, and students from all backgrounds are welcome to participate.",
+      "ETHMumbai Hackathon is an Ethereum-focused hackathon inviting builders from across the country to build solutions for real-world problems.",
   },
   {
-    title: "Do I need prior blockchain experience?",
+    title: "Who can participate?",
     content:
-      "No prior blockchain experience is required. Mentors will be available throughout the hackathon.",
+      "Anyone and everyone (over 18 years of age) interested in building for the future of Ethereum ecosystem is welcome.",
   },
+  {
+    title: "Can I hack solo?",
+    content: 
+      "Yes, you can hack solo or take part as a team of 2 - 4."
+  },
+  {
+    title: "How much does it cost?",
+    content: 
+      "The hackathon is completely free of cost for accepted hackers and includes meals, snacks, and a resting area for all 3 days."
+  },
+  {
+    title: "Once I am accepted, what do I need to bring?",
+    content: 
+      "You should bring all important things for a convenient travel and hacking experience, including a valid government-issued ID, water bottle, laptop, chargers, power bank, and clothes."
+  },
+  {
+    title: "Is there any travel reimbursements?",
+    content: 
+      "No. You will be responsible for covering your own travel expenses."
+  },
+  {
+    title: "What are the tracks?",
+    content: 
+      "Hackers can build projects across three tracks: DeFi, Privacy, and AI."
+  }
 ];
