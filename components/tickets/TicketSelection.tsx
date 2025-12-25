@@ -84,7 +84,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           src={
             visualTicketType === "earlybird"
               ? "/assets/tickets/earlybird-sm.svg"
-              : visualTicketType === "standard"
+              : visualTicketType === "regular"
               ? "/assets/tickets/standard-sm.svg"
               : "/assets/tickets/christmas-sm.svg"
           }
