@@ -39,7 +39,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
 
         <div className="flex justify-between text-sm mb-2">
           <span>Ticket Type</span>
-          <span>{ticketLabel}</span>
+          <span>"Earlybird</span>
         </div>
 
         <div className="flex justify-between text-sm mb-2">
@@ -63,6 +63,15 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           </span>
         </div>
       </div>
+
+      {ticketType === "christmas" && (
+        <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+          <span className="text-lg">🎄</span>
+          <span className="text-sm font-medium">
+            You're saving ₹{500 * quantity} with Early Bird - Christmas Special Price.
+          </span>
+        </div>
+      )}
     </div>
   );
 };
