@@ -39,7 +39,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
 
         <div className="flex justify-between text-sm mb-2">
           <span>Ticket Type</span>
-          <span>"Earlybird</span>
+          <span>"Early Bird</span>
         </div>
 
         <div className="flex justify-between text-sm mb-2">
