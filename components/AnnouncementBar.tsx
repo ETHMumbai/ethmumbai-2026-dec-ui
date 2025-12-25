@@ -71,7 +71,7 @@ export default function AnnouncementBar() {
               {" "}  🤩
             </>
           ) : (
-            "Tickets are sold out."
+            " "
           )}
         </span>
       </div>
