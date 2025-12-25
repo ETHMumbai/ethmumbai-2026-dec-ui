@@ -29,8 +29,9 @@ export default function LandingPage() {
           ]}
         />
         <Tacks />
+        <Sponsors />
         <Speakers/>
-        {/* <Sponsors /> */}
+        <Sponsors />
         {/* <Venue type="hackathon" /> */}
         <Agenda />
         <FAQ type="hackathon" />
