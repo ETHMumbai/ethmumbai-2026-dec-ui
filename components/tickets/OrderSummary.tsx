@@ -26,8 +26,8 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   const ticketLabel =
     ticketType === "earlybird"
       ? "Early Bird"
-      : ticketType === "standard"
-      ? "Standard"
+      : ticketType === "regular"
+      ? "Regular"
       : ticketType === "christmas"
       ? "Christmas"
       : "—";
