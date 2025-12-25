@@ -9,10 +9,12 @@ import Speakers from "@/components/conference/Speakers";
 import Sponsors from "@/components/conference/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/hackathon/Agenda";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans">
+      <AnnouncementBar />
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />

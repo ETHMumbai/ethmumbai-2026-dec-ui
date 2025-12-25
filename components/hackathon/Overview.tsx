@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Conference from "../../public/assets/hackathon/hackathon.png";
+import Hackathon from "../../public/assets/hackathon/hackathon.svg";
 
 export default function Hero() {
     return (
@@ -12,38 +12,41 @@ export default function Hero() {
                 {/* LEFT TEXT CONTENT */}
                 <div className="max-w-[480px] pt-2 md:pt-4 mx-auto md:mx-0">
                     <h2 className="text-4xl font-[MPlusRounded1c] sm:text-5xl font-bold leading-tight tracking-tight">
-                        Code the Future <br /> ETHMumbai Hackathon
+                        Build from Mumbai, <br />for the world.
                     </h2>
+                    <br />
 
                     <p className="text-lg text-gray-800 leading-relaxed">
-                        Unlock your creative potential and build the next generation 
-                        of decentralized solutions at ETHMumbai Hackathon, 
-                        a 40-hour marathon for global builders and innovators. 
+                        ETHMumbai Hackathon 2026 is an Ethereum-focused hackathon inviting builders from across the country to build robust solutions for real-world problems.
                     </p>
+                    <br />
 
                     <p className="text-lg text-gray-800 leading-relaxed">
-                        Teams and solo hackers tackle real-world challenges in 
-                        privacy, DeFi, and social tracks, supported by 
-                        hands-on mentorship and world-class workshops.
+                        Join us in teams of 2-4 or solo to hack and solve challenges across three tracks: DeFi, Privacy, and AI. 
                     </p>
+                    <br />
 
                     <p className="text-lg text-gray-800 leading-relaxed">
-                        The event culminates in high-energy demos, prize ceremonies, 
-                        and opportunities to win grants, accelerate your project, and 
-                        join a passionate Web3 developer community making a worldwide impact.
+                        Win upto $50,000 in bounties, learn from our panel of mentors, and build with the BEST community.
                     </p>
+
+                    <Link href="/">
+                        <button className="bg-[#D63A2F] mt-4 border text-white font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
+                            Apply to Hack
+                        </button>
+                    </Link>  
                 </div>
 
                 {/* RIGHT SIDE IMAGE */}
                 <div
                     className="
                         flex justify-center md:justify-end
-                        mt-10 md:mt-7 
+                        mt-10 md:mt-7 mb-6
                         pt-2 sm:pt-6 md:pt-14
                     "
                 >
                     <Image
-                        src={Conference}
+                        src={Hackathon}
                         alt="ETHMumbai Conference"
                         width={700}
                         height={550}

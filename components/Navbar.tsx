@@ -113,8 +113,6 @@ export default function Navbar() {
           <div className="flex flex-col items-center justify-center gap-10 flex-1 bg-white">
             <Link
               href="/conference"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Conference
@@ -122,17 +120,15 @@ export default function Navbar() {
 
             <Link
               href="/hackathon"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Hackathon
             </Link>
 
             <Link
-              href="/buy-tickets"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/tickets"
+              // target="_blank"
+              // rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Buy Tickets

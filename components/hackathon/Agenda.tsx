@@ -5,7 +5,10 @@ import { hackathonAgenda } from "../../lib/hackathonAgendaData";
 
 export default function Agenda() {
   const [activeDay, setActiveDay] = useState(0);
-  const days = hackathonAgenda;
+  type AgendaEvent = { time: string; title: string; speaker?: string; subtitle?: string };
+  type Day = { items: AgendaEvent[]; title?: string };
+  const days: Day[] = agendaData as unknown as Day[];
+  const safeActiveDay = days.length > 0 ? Math.min(Math.max(activeDay, 0), days.length - 1) : 0;
 
   return (
     <section className="w-full bg-[#00A859] py-16 px-4">
@@ -17,7 +20,7 @@ export default function Agenda() {
       {/* DAY SWITCHER */}
       <div className="flex justify-center mb-10">
         <div className="bg-[#2E7C42] p-1 rounded-full flex gap-1">
-          {days.map((day, index) => (
+          {days.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveDay(index)}
@@ -29,7 +32,7 @@ export default function Agenda() {
                 }
               `}
             >
-              {day.day}
+              {`Day ${index + 1}`}
             </button>
           ))}
         </div>
@@ -37,32 +40,38 @@ export default function Agenda() {
 
       {/* AGENDA LIST */}
       <div className="max-w-4xl mx-auto flex flex-col gap-6">
-        {days[activeDay].items.map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-2xl p-6 flex items-start gap-6 shadow-sm"
-          >
-            {/* TIME */}
-            <div className="text-lg font-semibold w-20 text-right">{item.time}</div>
-
-            {/* VERTICAL BAR */}
-            <div className="w-1 h-full bg-[#45A85A] rounded-full"></div>
-
-            {/* CONTENT */}
-            <div className="flex flex-col">
-              <p className="text-lg font-medium">{item.title}</p>
-
-              {item.speaker && (
-                <p className="text-sm text-gray-600 mt-1">{item.speaker}</p>
-              )}
-
-              {item.subtitle && (
-                <p className="text-sm text-gray-500">{item.subtitle}</p>
-              )}
-            </div>
-          </div>
-        ))}
+  {days[safeActiveDay]?.items?.map((item, idx) => (
+    <div
+      key={idx}
+      className="bg-white rounded-2xl p-6 flex items-start gap-6 shadow-sm"
+    >
+      <div className="text-lg font-semibold w-20 text-right">
+        {item.time}
       </div>
+
+      <div className="w-1 h-full bg-[#45A85A] rounded-full" />
+
+      <div className="flex flex-col">
+        <p className="text-lg font-medium">{item.title}</p>
+
+        {item.speaker && (
+          <p className="text-sm text-gray-600 mt-1">{item.speaker}</p>
+        )}
+
+        {item.subtitle && (
+          <p className="text-sm text-gray-500">{item.subtitle}</p>
+        )}
+      </div>
+    </div>
+  ))}
+
+  {!days[safeActiveDay]?.items?.length && (
+    <div className="text-center text-white opacity-80">
+      Agenda will be announced soon.
+    </div>
+  )}
+</div>
+
     </section>
   );
 }
