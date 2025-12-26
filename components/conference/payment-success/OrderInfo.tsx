@@ -130,11 +130,11 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
                 <span className="text-lg">🎄</span>
                 <span className="text-sm font-medium">
-                  You're saving ₹{500 * orderData.quantity} with Christmas Special Price.
+                  You're saving ₹{500 * orderData.quantity} with Christmas
+                  Special Price.
                 </span>
               </div>
             )}
-
 
             {/* Download Button */}
             {/* <button className="w-full bg-[#E2231A] hover:bg-[#C51F16] text-white font-medium text-[18px] py-[14px] px-[24px] rounded-xl flex items-center justify-center gap-4 transition-colors">
@@ -150,15 +150,15 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
           </div>
         </div>
 
-        {orderData.ticketType === "christmas" && (
-          <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
-            <span className="text-lg">🎄</span>
-            <span className="text-sm font-medium">
-              You're saving ₹{500 * orderData.quantity} with Christmas Special Price.
-            </span>
-          </div>
-        )}
-
+        {/* {orderData.ticketType === "christmas" && ( */}
+        <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+          <span className="text-lg">🎊</span>
+          <span className="text-sm font-medium">
+            You're saving ₹{1250 * orderData.quantity} with Regular Special
+            Price.
+          </span>
+        </div>
+        {/* )} */}
 
         {/* Check Your Email Box - DYNAMIC EMAIL */}
         <div className="w-full bg-[#EFF6FF] rounded-[14px] border border-[#BEDBFF] p-[30px]">
