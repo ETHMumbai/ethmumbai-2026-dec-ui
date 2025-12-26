@@ -58,7 +58,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
 
   // ---------------- Sold out logic ----------------
 const soldOut =
-  !activeTicket || activeTicket.type !== "earlybird" || activeTicket.remainingQuantity <= 0;
+  !activeTicket || activeTicket.remainingQuantity <= 0;
 
 
   const hasValidPayId = isValidPayId(payId);
