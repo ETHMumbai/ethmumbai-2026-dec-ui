@@ -201,12 +201,6 @@ const Payment = () => {
     setTicketOptionsToShow(options);
     setVisualTicketType(activeTicket.type);
   }, [activeTicket]);
-
-  /* ---------------- Load Razorpay ---------------- */
-  useEffect(() => {
-    loadRazorpay();
-  }, []);
-
   /* ---------------- Quantity Change ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
     if (!activeTicket) return;
