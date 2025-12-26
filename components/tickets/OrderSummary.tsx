@@ -55,7 +55,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
         </div>
 
         <div className="flex justify-between text-sm mb-2 text-green-600">
-          <span>Discounted Price per ticket(50%)</span>
+          <span>Discounted price per ticket (50% OFF)</span>
           <span>
             {/* ₹{originalPricePerTicket} (${originalPricePerTicketUSD.toFixed(2)}) */}
             ₹{pricePerTicket} (${pricePerTicketUSD.toFixed(2)})
@@ -76,12 +76,11 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           </span>
         </div>
       </div>
-
       {/* {ticketType === "regular" && ( */}
       <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
-        <span className="text-lg">🎊</span>
+        <span className="text-lg">😍</span>
         <span className="text-sm font-medium">
-          You're saving ₹{1250 * quantity} with Regular - Special Price.
+          You're saving ₹{1250 * quantity} by buying tickets at 50% OFF!
         </span>
       </div>
       {/* )} */}

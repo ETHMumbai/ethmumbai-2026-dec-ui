@@ -16,7 +16,9 @@ export default function AnnouncementBar() {
   // Fetch current ticket from backend
   const fetchTicket = async () => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/t/current`, { cache: "no-store" });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/t/current`, {
+        cache: "no-store",
+      });
       const data = await res.json();
 
       if (data && data.remainingQuantity > 0) {
@@ -28,7 +30,10 @@ export default function AnnouncementBar() {
         });
       } else {
         // Sold out, try fetching fallback ticket (earlybird)
-        const fallbackRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tickets/earlybird`, { cache: "no-store" });
+        const fallbackRes = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/tickets/earlybird`,
+          { cache: "no-store" }
+        );
         const fallbackData = await fallbackRes.json();
 
         if (fallbackData && fallbackData.remainingQuantity > 0) {
@@ -61,14 +66,14 @@ export default function AnnouncementBar() {
         <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
           {ticketInfo ? (
             <>
-              {ticketInfo.remainingQuantity} {ticketInfo.title} tickets available at ₹{ticketInfo.fiat}.{" "}
+              {ticketInfo.remainingQuantity} tickets are available at 50% OFF.{" "}
               <Link
                 href="/tickets"
                 className="underline underline-offset-2 hover:opacity-80 transition"
               >
                 Buy now
-              </Link>
-              {" "}  🤩
+              </Link>{" "}
+              🥳
             </>
           ) : (
             " "
@@ -94,7 +99,6 @@ export default function AnnouncementBar() {
             ""
           )}
         </span> */}
-
       </div>
     </div>
   );
