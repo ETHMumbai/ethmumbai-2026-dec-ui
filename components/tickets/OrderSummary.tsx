@@ -15,8 +15,12 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   ticketPrices,
   ticketPricesUSD,
 }) => {
-  const pricePerTicket = ticketType && ticketPrices[ticketType] ? ticketPrices[ticketType] : 0;
+  const pricePerTicket =
+    ticketType && ticketPrices[ticketType] ? ticketPrices[ticketType] : 0;
   const total = pricePerTicket * quantity;
+
+  const originalPricePerTicket = 2499;
+  const originalPricePerTicketUSD = 27.7;
 
   const pricePerTicketUSD =
     ticketType && ticketPricesUSD[ticketType] ? ticketPricesUSD[ticketType] : 0;
@@ -27,10 +31,10 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
     ticketType === "earlybird"
       ? "Early Bird"
       : ticketType === "regular"
-      ? "Regular"
-      : ticketType === "christmas"
-      ? "Christmas"
-      : "—";
+        ? "Regular"
+        : ticketType === "christmas"
+          ? "Christmas"
+          : "—";
 
   return (
     <div className="space-y-4">
@@ -39,12 +43,21 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
 
         <div className="flex justify-between text-sm mb-2">
           <span>Ticket Type</span>
-          <span>Early Bird</span>
+          <span>{ticketLabel}</span>
         </div>
 
         <div className="flex justify-between text-sm mb-2">
           <span>Price per ticket</span>
           <span>
+            ₹{originalPricePerTicket} (${originalPricePerTicketUSD.toFixed(2)})
+            {/* ₹{pricePerTicket} (${pricePerTicketUSD.toFixed(2)}) */}
+          </span>
+        </div>
+
+        <div className="flex justify-between text-sm mb-2 text-green-600">
+          <span>Discounted Price per ticket(50%)</span>
+          <span>
+            {/* ₹{originalPricePerTicket} (${originalPricePerTicketUSD.toFixed(2)}) */}
             ₹{pricePerTicket} (${pricePerTicketUSD.toFixed(2)})
           </span>
         </div>
@@ -64,14 +77,14 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
         </div>
       </div>
 
-      {ticketType === "christmas" && (
-        <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
-          <span className="text-lg">🎄</span>
-          <span className="text-sm font-medium">
-            You're saving ₹{500 * quantity} with Early Bird - Christmas Special Price.
-          </span>
-        </div>
-      )}
+      {/* {ticketType === "regular" && ( */}
+      <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+        <span className="text-lg">🎊</span>
+        <span className="text-sm font-medium">
+          You're saving ₹{1250 * quantity} with Regular - Special Price.
+        </span>
+      </div>
+      {/* )} */}
     </div>
   );
 };

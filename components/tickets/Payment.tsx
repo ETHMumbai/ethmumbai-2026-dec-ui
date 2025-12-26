@@ -17,13 +17,13 @@ import { fetchActiveTicket } from "@/lib/tickets";
 const ticketPrices: Record<TicketType, number> = {
   christmas: 499,
   earlybird: 999,
-  regular: 1999,
+  regular: 1249,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
   christmas: 5.5,
   earlybird: 11,
-  regular: 24,
+  regular: 13.8,
 };
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -36,16 +36,16 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 11,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
   {
     type: "regular",
     label: "Regular",
-    price: 1999,
-    priceUSD: 24,
+    price: 1249,
+    priceUSD: 13.8,
     desktopImage: "/assets/tickets/standard-list.svg",
     mobileImage: "/assets/tickets/standard-sm-vertical.svg",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     type: "christmas",
@@ -54,7 +54,7 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 5.5,
     desktopImage: "/assets/tickets/christmas-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
 ];
 
