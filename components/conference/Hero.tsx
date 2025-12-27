@@ -7,7 +7,7 @@ import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
   return (
-    <section className="relative flex justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
+    <section className="relative flex justify-center overflow-hidden bg-[#E2231A] border text-white">
       {/* Centered content */}
       <div
         className="relative z-10 flex flex-col items-center w-full px-4 mt-10

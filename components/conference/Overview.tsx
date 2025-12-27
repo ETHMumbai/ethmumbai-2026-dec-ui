@@ -6,7 +6,7 @@ import Conference from "../../public/assets/conference/conference.svg";
 
 export default function Hero() {
     return (
-        <section className="relative flex justify-center overflow-hidden bg-white text-black py-10 px-6">
+        <section className="relative flex justify-center overflow-hidden bg-white text-black py-8 px-6">
             <div className="max-w-7xl w-full py-10 grid grid-cols-1 md:grid-cols-2  gap-16 md:gap-20 text-center md:text-left items-start md:items-center sm:items-center lg:items-start">
 
                 {/* LEFT TEXT CONTENT */}
