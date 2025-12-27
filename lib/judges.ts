@@ -108,9 +108,9 @@ export const judges: Judge[] = [
   {
     name: "Kunal Gandhi",
     company: "HeyElsa",
-    image: "/assets/hackathon/judges/Kunal Gandhi.png",
+    image: "/assets/hackathon/judges/Kunal Judge.jpeg",
     xLink: "https://x.com/kunalvg",
-    imageScale: "h-[120%]",
+    imageScale: "h-[108%] scale-x-[0.9]",
   },
   {
     name: "Nandit Mehra",

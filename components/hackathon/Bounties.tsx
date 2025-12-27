@@ -16,7 +16,7 @@ export default function Sponsors() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-14 gap-y-16 justify-items-center">
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-14 gap-y-5 justify-items-center">
         {bountyIcons.map((s, i) => (
           <div
             key={i}
