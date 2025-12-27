@@ -225,7 +225,7 @@ export const conferenceSpeakers: Speaker[] = [
     company: "Quicknode",
     image: "/assets/speakers/Sahil Sen - Quicknode.png",
     xLink: "https://x.com/sensahil",
-    imageScale: "h-[190%]"
+    imageScale: "h-[140%]"
   },
   {
     name: "Siddharth Biju",
