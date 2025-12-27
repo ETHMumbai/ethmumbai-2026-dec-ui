@@ -108,9 +108,9 @@ export const judges: Judge[] = [
   {
     name: "Kunal Gandhi",
     company: "HeyElsa",
-    image: "/assets/hackathon/judges/Kunal Judge.jpeg",
+    image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
     xLink: "https://x.com/kunalvg",
-    imageScale: "h-[108%] scale-x-[0.9]",
+    imageScale: "h-[140%] ",
   },
   {
     name: "Nandit Mehra",
@@ -122,9 +122,9 @@ export const judges: Judge[] = [
   {
     name: "Reet Batra",
     company: "",
-    image: "/assets/hackathon/judges/Reet_Judge-removebg-preview.png",
+    image: "/assets/hackathon/judges/Reet_Batra-removebg-preview.png",
     xLink: "https://x.com/reet_batra",
-    imageScale: "h-[140%]",
+    imageScale: "h-[120%]",
   },
   {
     name: "Smit Khakhkhar",
