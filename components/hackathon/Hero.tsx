@@ -21,6 +21,19 @@ export default function Hero() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+
   return (
     <section className="relative flex justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
 
@@ -45,6 +58,12 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+          {/* <div
+            className="apply-button"
+            data-hackathon-slug="ethmumbai2026"
+            data-button-theme="light"
+            style={{ height: '44px', width: '312px' }}
+          ></div> */}
           <Link
             href="#apply-to-hack"
           >
