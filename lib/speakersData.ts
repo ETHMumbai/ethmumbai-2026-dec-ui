@@ -202,9 +202,9 @@ export const conferenceSpeakers: Speaker[] = [
   {
     name: "Aniket Sharma",
     company: "Rath Finance",
-    image: "/assets/speakers/Aniket Sharma - Rath Finance.jpg",
+    image: "/assets/speakers/Aniket Sharma - Rath Finance.png",
     xLink: "https://x.com/0xaniketsharma",
-    imageScale: "h-[130%]"
+    imageScale: "h-[110%]"
   },
   {
     name: "Ayush Bhadauria",
