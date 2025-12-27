@@ -44,88 +44,61 @@ export const pastMentors: Mentor[] = [
   },
 ];
 
-// export const mentors: Mentor[] = [
-//   {
-//     name: "Krishang Shah",
-//     company: "Polygon Labs",
-//     image: "/assets/speakers/Krishang_Shah.png",
-//     xLink: "https://x.com/0xkrishang",
-//     imageScale: "h-[130%]"
-//   },
-//   {
-//     name: "Shiv Bhonde ",
-//     company: "BuidlGuidl",
-//     image: "/assets/speakers/Shiv_Bhonde.png",
-//     xLink: "https://x.com/ShivBhonde",
-//     imageScale: "h-[128%]"
-//   },
-//   {
-//     name: "Aditi Polkam",
-//     company: "Offline Protocol",
-//     image: "/assets/speakers/Aditi_Polkam.png",
-//     xLink: "https://x.com//aditipolkam",
-//     imageScale: "h-[185%]"
-//   },
-//   {
-//     name: "Jatin Pandya",
-//     company: "",
-//     image: "/assets/speakers/Jatin_Pandya.png",
-//     xLink: "https://twitter.com/Jpandya26",
-//     imageScale: "h-[185%]"
-//   },
-//   {
-//     name: "Dhaiwat",
-//     company: "",
-//     image: "/assets/speakers/dhaiwat.png",
-//     xLink: "https://x.com/dhaiwat10",
-//     imageScale: "h-[145%]"
-//   },
-//   {
-//     name: "Sebastian Burkhard",
-//     company: "Yodl Pay",
-//     image: "/assets/speakers/Sebastian_Burkhard.png",
-//     xLink: "https://x.com/yodl_meister",
-//     imageScale: "h-[120%]"
-//   },
-//   {
-//     name: "Kanika Mishra",
-//     company: "USDT Marketplace",
-//     image: "/assets/speakers/Kanika_Mishra.png",
-//     xLink: "https://x.com/mishrakanika3",
-//     imageScale: "h-[140%]"
-//   },
-//   {
-//     name: "Rahat",
-//     company: "Move Industries",
-//     image: "/assets/speakers/Rahat.png",
-//     xLink: "https://x.com/Rahatcodes",
-//     imageScale: "h-[145%]"
-//   },
-//   {
-//     name: "Ayush Bherwani",
-//     company: "MetaMask",
-//     image: "/assets/speakers/Ayush_Bherwani.png",
-//     xLink: "http://x.com/ayushbherwani",
-//     imageScale: "h-[120%]"
-//   },
-//   {
-//     name: "Pareen Lathia",
-//     company: "Monad Foundation",
-//     image: "/assets/speakers/Pareen_Lathai.png",
-//     xLink: "https://x.com/pareen"
-//   },
-//   {
-//     name: "Rahul Bhadoriya",
-//     company: "Dacoit",
-//     image: "/assets/speakers/Rahul_Bhadoriya.png",
-//     xLink: "https://x.com/rahulbhadoriya",
-//     imageScale: "h-[130%]"
-//   },
-//   {
-//     name: "Shyam Sridhar",
-//     company: "Ethereum Foundation",
-//     image: "/assets/speakers/Shyam_Sridhar2.png",
-//     xLink: "https://x.com/ShyamSridhar7",
-//     imageScale: "h-[130%]"
-//   }
-// ];
+export const mentors: Mentor[] = [
+  {
+    name: "Abhayrajsinh Gohil",
+    company: "Web3 Events",
+    image: "/assets/hackathon/mentors/Abhayrajsinh_Mentor-removebg-preview.png",
+    xLink: "https://x.com/mxxnwolf",
+    imageScale: "h-[130%]",
+  },
+  {
+    name: "Abhimanyu Shekhawat",
+    company: "Epoch Protocol",
+    image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
+    xLink: "https://x.com/sokkkkaaa",
+    imageScale: "h-[128%]",
+  },
+  {
+    name: "Jayesh Bhole ",
+    company: "Offchain Labs",
+    image: "/assets/hackathon/mentors/Jayesh_Mentor-removebg-preview.png",
+    xLink: "https://x.com/supremebattak",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Pranav Garg",
+    company: "Router Protocol",
+    image: "/assets/hackathon/mentors/Pranav_Mentor-removebg-preview.png",
+    xLink: "https://x.com/pranav__garg_",
+    imageScale: "h-[185%]",
+  },
+  {
+    name: "Pranay Kundu",
+    company: "Yudai Labs",
+    image: "/assets/hackathon/mentors/Pranay_Mentor-removebg-preview.png",
+    xLink: "https://x.com/pranay5255",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Saurabh Shetty",
+    company: "Khel.fun",
+    image: "/assets/hackathon/mentors/Saurabh_Mentor-removebg-preview.png",
+    xLink: "https://x.com/kryptosauruseth",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Viraj Patva",
+    company: "",
+    image: "/assets/hackathon/mentors/Viraj_Mentor-removebg-preview.png",
+    xLink: "https://x.com/vkpatva",
+    imageScale: "h-[140%]",
+  },
+  {
+    name: "Vishal Singh",
+    company: "ZippelLabs ",
+    image: "/assets/hackathon/mentors/Vishal_Mentor-removebg-preview.png",
+    xLink: "https://x.com/thisvishalsingh",
+    imageScale: "h-[120%]",
+  },
+];

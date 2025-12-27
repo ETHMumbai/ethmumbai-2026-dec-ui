@@ -1,18 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { pastJudges } from "@/lib/judges";
+import { pastJudges, judges } from "@/lib/judges";
 
 export default function Judges() {
   return (
     <section className="w-full bg-[#FFFFFF] py-16 px-4 sm:px-6 lg:px-8">
       <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-        Past Judges
+        Judges
       </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {pastJudges.map((judge, index) => (
+        {judges.map((judge, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"

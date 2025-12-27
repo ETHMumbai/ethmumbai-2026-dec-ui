@@ -1,18 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { pastMentors } from "@/lib/mentors";
+import { pastMentors, mentors } from "@/lib/mentors";
 
 export default function Mentors() {
   return (
     <section className="w-full bg-[#E2231A] py-16 px-4 sm:px-6 lg:px-8">
       <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-        Past Mentors
+        Mentors
       </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {pastMentors.map((mentor, index) => (
+        {mentors.map((mentor, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"

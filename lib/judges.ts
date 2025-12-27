@@ -76,88 +76,68 @@ export const pastJudges: Judge[] = [
   },
 ];
 
-// export const judges: Judge[] = [
-//   {
-//     name: "Krishang Shah",
-//     company: "Polygon Labs",
-//     image: "/assets/speakers/Krishang_Shah.png",
-//     xLink: "https://x.com/0xkrishang",
-//     imageScale: "h-[130%]"
-//   },
-//   {
-//     name: "Shiv Bhonde ",
-//     company: "BuidlGuidl",
-//     image: "/assets/speakers/Shiv_Bhonde.png",
-//     xLink: "https://x.com/ShivBhonde",
-//     imageScale: "h-[128%]"
-//   },
-//   {
-//     name: "Aditi Polkam",
-//     company: "Offline Protocol",
-//     image: "/assets/speakers/Aditi_Polkam.png",
-//     xLink: "https://x.com//aditipolkam",
-//     imageScale: "h-[185%]"
-//   },
-//   {
-//     name: "Jatin Pandya",
-//     company: "",
-//     image: "/assets/speakers/Jatin_Pandya.png",
-//     xLink: "https://twitter.com/Jpandya26",
-//     imageScale: "h-[185%]"
-//   },
-//   {
-//     name: "Dhaiwat",
-//     company: "",
-//     image: "/assets/speakers/dhaiwat.png",
-//     xLink: "https://x.com/dhaiwat10",
-//     imageScale: "h-[145%]"
-//   },
-//   {
-//     name: "Sebastian Burkhard",
-//     company: "Yodl Pay",
-//     image: "/assets/speakers/Sebastian_Burkhard.png",
-//     xLink: "https://x.com/yodl_meister",
-//     imageScale: "h-[120%]"
-//   },
-//   {
-//     name: "Kanika Mishra",
-//     company: "USDT Marketplace",
-//     image: "/assets/speakers/Kanika_Mishra.png",
-//     xLink: "https://x.com/mishrakanika3",
-//     imageScale: "h-[140%]"
-//   },
-//   {
-//     name: "Rahat",
-//     company: "Move Industries",
-//     image: "/assets/speakers/Rahat.png",
-//     xLink: "https://x.com/Rahatcodes",
-//     imageScale: "h-[145%]"
-//   },
-//   {
-//     name: "Ayush Bherwani",
-//     company: "MetaMask",
-//     image: "/assets/speakers/Ayush_Bherwani.png",
-//     xLink: "http://x.com/ayushbherwani",
-//     imageScale: "h-[120%]"
-//   },
-//   {
-//     name: "Pareen Lathia",
-//     company: "Monad Foundation",
-//     image: "/assets/speakers/Pareen_Lathai.png",
-//     xLink: "https://x.com/pareen"
-//   },
-//   {
-//     name: "Rahul Bhadoriya",
-//     company: "Dacoit",
-//     image: "/assets/speakers/Rahul_Bhadoriya.png",
-//     xLink: "https://x.com/rahulbhadoriya",
-//     imageScale: "h-[130%]"
-//   },
-//   {
-//     name: "Shyam Sridhar",
-//     company: "Ethereum Foundation",
-//     image: "/assets/speakers/Shyam_Sridhar2.png",
-//     xLink: "https://x.com/ShyamSridhar7",
-//     imageScale: "h-[130%]"
-//   }
-// ];
+export const judges: Judge[] = [
+  {
+    name: "Akshit",
+    company: "Epoch Protocol",
+    image: "/assets/hackathon/judges/Akshit_Judge-removebg-preview.png",
+    xLink: "https://x.com/OstwalAk",
+    imageScale: "h-[180%]",
+  },
+  {
+    name: "Dhaiwat",
+    company: "",
+    image: "/assets/hackathon/judges/Dhaiwat_Judge-removebg-preview.png",
+    xLink: "https://x.com/dhaiwat10",
+    imageScale: "h-[180%]",
+  },
+  {
+    name: "Harpal Jadeja",
+    company: "Monad Foundation",
+    image: "/assets/hackathon/judges/Harpalsinh_Judge-removebg-preview.png",
+    xLink: "https://x.com/harpaljadeja",
+    imageScale: "h-[150%]",
+  },
+  {
+    name: "Harpreet Singh",
+    company: "Namespace",
+    image: "/assets/hackathon/judges/Harpreet_Judge-removebg-preview.png",
+    xLink: "https://x.com/happys1ngh",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Kunal Gandhi",
+    company: "HeyElsa",
+    image: "/assets/hackathon/judges/Kunal Gandhi.png",
+    xLink: "https://x.com/kunalvg",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Nandit Mehra",
+    company: "Lighthouse",
+    image: "/assets/hackathon/judges/Nandit_Judge-removebg-preview.png",
+    xLink: "https://x.com/nanditmehra",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Reet Batra",
+    company: "",
+    image: "/assets/hackathon/judges/Reet_Judge-removebg-preview.png",
+    xLink: "https://x.com/reet_batra",
+    imageScale: "h-[140%]",
+  },
+  {
+    name: "Smit Khakhkhar",
+    company: "CoinList",
+    image: "/assets/hackathon/judges/Smit_Judge-removebg-preview.png",
+    xLink: "https://x.com/0xSmit",
+    imageScale: "h-[110%]",
+  },
+  {
+    name: "Sweta Shaw",
+    company: "Own Protocol",
+    image: "/assets/hackathon/judges/Sweta_Judge-removebg-preview.png",
+    xLink: "https://x.com/swetashaw_",
+    imageScale: "h-[125%]",
+  },
+];
