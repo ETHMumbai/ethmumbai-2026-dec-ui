@@ -30,11 +30,13 @@ export default function Hero() {
                         Win upto $50,000 in bounties, learn from our panel of mentors, and build with the BEST community.
                     </p>
 
-                    <Link href="/">
-                        <button className="bg-[#D63A2F] mt-4 border text-white font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
-                            Apply to Hack
-                        </button>
-                    </Link>  
+                    <button style={{cursor:'pointer'}}
+                        onClick={() => { window.open('https://ethmumbai2026.devfolio.co/', '_blank');}}
+                        className="bg-[#D63A2F] mt-4 border border text-white
+                                    font-semibold text-base px-6 py-3 rounded-[14px]
+                                   hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
+                        Apply to Hack
+                    </button>
                 </div>
 
                 {/* RIGHT SIDE IMAGE */}

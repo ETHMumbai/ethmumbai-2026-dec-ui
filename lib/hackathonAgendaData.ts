@@ -30,7 +30,7 @@ export const hackathonAgenda: AgendaDay[] = [
     items: [
       { time: "12:00", title: "Lunch" },
       { time: "20:00", title: "Dinner" },
-      { time: "00:00", title: "Late Hight Snack" },
+      { time: "00:00", title: "Late Night Snack" },
     ],
   },
   {

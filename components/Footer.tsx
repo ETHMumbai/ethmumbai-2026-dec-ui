@@ -83,13 +83,18 @@ const Footer = () => {
             <div className="mt-6 flex flex-col gap-3 font-light">
               <a
                 href="/tickets"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Buy Tickets
               </a>
-
+              <a
+                href="https://ethmumbai2026.devfolio.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Apply to Hack
+              </a>
               <a
                 href="https://tally.so/r/nGW5Bz"
                 target="_blank"
@@ -108,16 +113,6 @@ const Footer = () => {
               >
                 Apply to Sponsor
               </a>
-
-              {/* <a
-                href="https://tally.so/r/3NkdGb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                Apply to Hack
-              </a> */}
-              
             </div>
           </div>
         </div>

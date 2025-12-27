@@ -66,7 +66,7 @@ export default function Tracks() {
       {/* MOBILE  */}
       <section className="relative w-full bg-[#FFD600] pt-10 pb-24 overflow-hidden md:hidden">
         {/* Title */}
-        <h2 className="text-black text-4xl font-[MPlusRounded1c] tracking-tight text-center mb-12">
+        <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
           Tracks
         </h2>
 

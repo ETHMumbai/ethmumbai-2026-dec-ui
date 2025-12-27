@@ -58,13 +58,13 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          {/* <div
-            className="apply-button"
-            data-hackathon-slug="ethmumbai2026"
-            data-button-theme="light"
-            style={{ height: '44px', width: '312px' }}
-          ></div> */}
-          <Link
+          <button style={{cursor:'pointer'}}
+            onClick={() => { window.open('https://ethmumbai2026.devfolio.co/', '_blank');}}
+            className="bg-white border border-white text-[#E2231A]
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:bg-gray-300 cursor-pointer transition-all duration-200">
+            Apply to Hack</button>
+          {/* <Link
             href="#apply-to-hack"
           >
             <button
@@ -74,7 +74,7 @@ export default function Hero() {
             >
               Apply To Hack
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 

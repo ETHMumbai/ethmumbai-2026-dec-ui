@@ -27,9 +27,24 @@ export default function Hero() {
           Privacy, and AI in front of 500 attendees.
         </p>
 
-        <div className="mt-[1.2rem] mb-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">
+        <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">
           <Calendar className="w-5 h-5" />
           <span>12 March 2026</span>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+          <Link
+            href="/tickets"
+          >
+            <button
+              className="bg-white border border-white text-[#E2231A]
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
+            >
+              Buy Tickets
+            </button>
+          </Link>
         </div>
       </div>
     </section>

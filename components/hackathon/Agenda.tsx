@@ -24,19 +24,18 @@ export default function Agenda() {
       </h2>
 
       {/* DAY SWITCHER */}
-      <div className="flex justify-center mb-10">
-        <div className="bg-[#E2231A] p-1 rounded-full flex gap-4">
+      <div className="flex justify-center mb-10 px-2 md:px-0">
+        <div className="bg-[#E2231A] p-1 rounded-full flex flex-wrap gap-2 md:gap-4 justify-center">
           {days.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveDay(index)}
-              className={`px-12 py-2 rounded-full text-sm font-medium transition cursor-pointer
-                ${
-                  activeDay === index
-                    ? "bg-white text-black"
-                    : "text-white hover:bg-white/20"
+              className={`px-4 sm:px-6 md:px-12 py-2 rounded-full text-sm font-medium transition cursor-pointer
+          ${activeDay === index
+                  ? "bg-white text-black"
+                  : "text-white hover:bg-white/20"
                 }
-              `}
+        `}
             >
               {`Day ${index + 1}`}
             </button>
