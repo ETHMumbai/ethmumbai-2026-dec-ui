@@ -16,7 +16,7 @@ import Mentors from "@/components/hackathon/Mentors";
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-black font-sans">
+    <div className="flex min-h-screen flex-col bg-black font-sans overflow-x-hidden">
       <AnnouncementBar />
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
