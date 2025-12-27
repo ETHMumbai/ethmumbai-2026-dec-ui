@@ -193,6 +193,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]"
   },
   {
+    name: "Shyam Sridhar",
+    company: "Ethereum Foundation",
+    image: "/assets/speakers/Shyam_Sridhar2.png",
+    xLink: "https://x.com/ShyamSridhar7",
+    imageScale: "h-[130%]"
+  },
+  {
     name: "Abhishek Yadav",
     company: "Etherspot",
     image: "/assets/speakers/Abhishek Yadav - Etherspot.png",
