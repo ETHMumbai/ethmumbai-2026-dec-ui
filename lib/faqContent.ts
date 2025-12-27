@@ -11,13 +11,11 @@ export const generalFAQ: FAQItem[] = [
   },
   {
     title: "When and where is ETHMumbai 2026 happening?",
-    content:
-      "ETHMumbai is happening in Mumbai from 12–15 March 2026.",
+    content: "ETHMumbai is happening in Mumbai from 12–15 March 2026.",
   },
   {
     title: "Can I attend both the conference and the hackathon?",
-    content:
-      "Yes, you can — and we encourage you to.",
+    content: "Yes, you can — and we encourage you to.",
   },
   {
     title: "Who can attend ETHMumbai 2026?",
@@ -28,6 +26,11 @@ export const generalFAQ: FAQItem[] = [
     title: "What are the tracks?",
     content:
       "Both the conference and the hackathon feature three tracks: DeFi, Privacy, and AI.",
+  },
+  {
+    title: "Can I volunteer to be a part of the organizing team?",
+    content:
+      "Yes, you can! We will be inviting applications for volunteers in January 2026. Stay updated about that and a lot more on our X and newsletter.",
   },
 ];
 
@@ -48,20 +51,20 @@ export const conferenceFAQ: FAQItem[] = [
       "The conference will feature talks across three tracks: DeFi, Privacy, and AI.",
   },
   {
-  title: "How can I apply to speak at the conference?",
-  content:
-    "Fill out the [speaker application form](https://tally.so/r/nGW5Bz) to apply for a talk. We will get back to you soon.",
-},
+    title: "How can I apply to speak at the conference?",
+    content:
+      "Fill out the [speaker application form](https://tally.so/r/nGW5Bz) to apply for a talk. We will get back to you soon.",
+  },
   {
     title: "What is included in the ticket?",
     content:
       "One conference ticket includes access to all talks and panels, sponsor booths, swag, activities, and open-floor networking.",
   },
   {
-  title: "How can I become a sponsor?",
-  content:
-    "We love to see this question. You can sponsor the ETHMumbai conference and/or hackathon by filling out the [sponsor application form](https://tally.so/r/3NkdGb). We will reach out to talk to you soon.",
-},
+    title: "How can I become a sponsor?",
+    content:
+      "We love to see this question. You can sponsor the ETHMumbai conference and/or hackathon by filling out the [sponsor application form](https://tally.so/r/3NkdGb). We will reach out to talk to you soon.",
+  },
 ];
 
 export const hackathonFAQ: FAQItem[] = [
@@ -77,27 +80,26 @@ export const hackathonFAQ: FAQItem[] = [
   },
   {
     title: "Can I hack solo?",
-    content: 
-      "Yes, you can hack solo or take part as a team of 2 - 4."
+    content: "Yes, you can hack solo or take part as a team of 2 - 4.",
   },
   {
     title: "How much does it cost?",
-    content: 
-      "The hackathon is completely free of cost for accepted hackers and includes meals, snacks, and a resting area for all 3 days."
+    content:
+      "The hackathon is completely free of cost for accepted hackers and includes meals, snacks, and a resting area for all 3 days.",
   },
   {
     title: "Once I am accepted, what do I need to bring?",
-    content: 
-      "You should bring all important things for a convenient travel and hacking experience, including a valid government-issued ID, water bottle, laptop, chargers, power bank, and clothes."
+    content:
+      "You should bring all important things for a convenient travel and hacking experience, including a valid government-issued ID, water bottle, laptop, chargers, power bank, and clothes.",
   },
   {
     title: "Is there any travel reimbursements?",
-    content: 
-      "No. You will be responsible for covering your own travel expenses."
+    content:
+      "No. You will be responsible for covering your own travel expenses.",
   },
   {
     title: "What are the tracks?",
-    content: 
-      "Hackers can build projects across three tracks: DeFi, Privacy, and AI."
-  }
+    content:
+      "Hackers can build projects across three tracks: DeFi, Privacy, and AI.",
+  },
 ];
