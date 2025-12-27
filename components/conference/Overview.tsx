@@ -26,6 +26,7 @@ export default function Hero() {
                     <p className="text-lg text-gray-800 mt-2 leading-relaxed">
                         If you are curious about decentralization, onchain privacy, and the role of AI in shaping the future of Ethereum, ETHMumbai Conference is for you.
                     </p>
+                    <br />
 
                     <Link href="/tickets">
                         <button className="bg-[#D63A2F] mt-4 border text-white font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">

@@ -34,7 +34,7 @@ export default function Tracks() {
               <PinnedTrack pinClassName="-top-[60px] left-[-30px] -translate-x-1/2">
                 <TrackCard
                   label="Privacy"
-                  text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
+                  text="Develop innovative solutions to reinforce privacy for blockchain apps and platforms."
                   icon="/assets/hackathon/privacy.svg"
                 />
               </PinnedTrack>
@@ -46,7 +46,7 @@ export default function Tracks() {
           <PinnedTrack pinClassName="-bottom-[40px] left-[-40px] -translate-x-1/2">
             <TrackCard
               label="DeFi"
-              text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
+              text="Explore low-risk DeFi apps for payments, savings, and more stablecoin use cases."
               icon="/assets/hackathon/defi.svg"
             />
           </PinnedTrack>
@@ -55,7 +55,7 @@ export default function Tracks() {
           <PinnedTrack pinClassName="-bottom-0 right-[-40px] translate-x-1/2">
             <TrackCard
               label="AI"
-              text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
+              text="Combine AI and blockchain to build smarter, faster and more personal onchain systems."
               icon="/assets/hackathon/ai.svg"
             />
           </PinnedTrack>
