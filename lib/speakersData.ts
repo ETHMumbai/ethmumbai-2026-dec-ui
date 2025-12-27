@@ -193,10 +193,45 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]"
   },
   {
-    name: "Shyam Sridhar",
-    company: "Ethereum Foundation",
-    image: "/assets/speakers/Shyam_Sridhar2.png",
-    xLink: "https://x.com/ShyamSridhar7",
+    name: "Abhishek Yadav",
+    company: "Etherspot",
+    image: "/assets/speakers/Abhishek Yadav - Etherspot.png",
+    xLink: "https://x.com/abhixh",
+    imageScale: "h-[150%]"
+  },
+  {
+    name: "Aniket Sharma",
+    company: "Rath Finance",
+    image: "/assets/speakers/Aniket Sharma - Rath Finance.jpg",
+    xLink: "https://x.com/0xaniketsharma",
+    imageScale: "h-[130%]"
+  },
+  {
+    name: "Ayush Bhadauria",
+    company: "ZisK",
+    image: "/assets/speakers/Ayush Bhadauria - ZisK.png",
+    xLink: "https://x.com/0xAbix",
+    imageScale: "h-[140%]"
+  },
+  {
+    name: "Denver Dsouza",
+    company: "Devfolio",
+    image: "/assets/speakers/Denver Dsouza - Devfolio.png",
+    xLink: "https://x.com/denverjude",
+    imageScale: "h-[130%]"
+  },
+  {
+    name: "Sahil Sen",
+    company: "Quicknode",
+    image: "/assets/speakers/Sahil Sen - Quicknode.png",
+    xLink: "https://x.com/sensahil",
+    imageScale: "h-[190%]"
+  },
+  {
+    name: "Siddharth Biju",
+    company: "",
+    image: "/assets/speakers/Siddharth Biju.png",
+    xLink: "https://x.com/sensahil",
     imageScale: "h-[130%]"
   }
 ];
