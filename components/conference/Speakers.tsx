@@ -15,11 +15,11 @@ export default function Speakers() {
 
       {/* Speakers Grid */}
       <div className="flex justify-center">
-        <div className="w-fit px-4 sm:px-8 lg:px-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-8 md:gap-12 mb-12">
+        <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-12 mx-auto">
           {conferenceSpeakers.map((speaker, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 14 ? "lg:col-start-2" : ""}  
+              className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] 
                `}
             >
               {/* Wrapper with padding for overflow */}
@@ -94,7 +94,7 @@ export default function Speakers() {
       </div>
 
       {/* Apply to Speak Button */}
-      <a
+      {/* <a
         href="https://tally.so/r/nGW5Bz"
         target="_blank"
         rel="noopener noreferrer"
@@ -104,7 +104,7 @@ export default function Speakers() {
             Apply to Speak
           </button>
         </div>
-      </a>
+      </a> */}
     </section>
   );
 }
