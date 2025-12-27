@@ -87,7 +87,7 @@ export default function Tracks() {
           <div className="self-start w-[90%]">
             <TrackCard
               label="Privacy"
-              text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
+              text="Develop innovative solutions to reinforce privacy for blockchain apps and platforms."
               icon="/assets/hackathon/privacy.svg"
             />
           </div>
@@ -96,7 +96,7 @@ export default function Tracks() {
           <div className="self-end w-[90%]">
             <TrackCard
               label="DeFi"
-              text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
+              text="Explore low-risk DeFi apps for payments, savings, and more stablecoin use cases."
               icon="/assets/hackathon/defi.svg"
             />
           </div>
@@ -105,7 +105,7 @@ export default function Tracks() {
           <div className="self-start w-[90%]">
             <TrackCard
               label="AI"
-              text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
+              text="Combine AI and blockchain to build smarter, faster and more personal onchain systems."
               icon="/assets/hackathon/ai.svg"
             />
           </div>
