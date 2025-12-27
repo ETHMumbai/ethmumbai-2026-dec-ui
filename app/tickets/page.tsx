@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "@/components/tickets/Hero";
-import Navbar from "@/components/conference/Navbar";
+import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Payment from "@/components/tickets/Payment";

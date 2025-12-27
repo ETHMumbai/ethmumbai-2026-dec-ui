@@ -1,9 +1,8 @@
 export interface Sponsor {
-    name: string;
-    logo: string;
-    twitter: string;
+  name: string;
+  logo: string;
+  twitter: string;
 }
-
 
 const sponsors: Sponsor[] = [
   {
@@ -48,7 +47,6 @@ const sponsors: Sponsor[] = [
     twitter: "https://purple.construction/about/",
   },
 
-
   {
     logo: "/assets/sponsors/TheGraph.png",
     name: "The Graph",
@@ -66,4 +64,4 @@ export const conferenceSponsors: Sponsor[] = [
     name: "Avail",
     twitter: "https://x.com/AvailProject",
   },
-]
+];
