@@ -11,7 +11,7 @@ export default function Sponsors() {
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
         <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
-          Bounties
+          Past Bounties
         </h2>
       </div>
 
@@ -27,41 +27,57 @@ export default function Sponsors() {
               aspect-[2.32/1]
               rounded-[10px]
               overflow-hidden
-              cursor-pointer
               group
-              ${i === 8 ? "lg:col-start-2" : ""}  
-              ${i === 9 ? "lg:col-start-3" : ""} 
-              bg-[url('/assets/sponsors/sponsors-card-lg.png')]
+              ${i === 8 ? "lg:col-start-1" : ""}  
+              ${i === 9 ? "lg:col-start-2" : ""} 
+              bg-[url('/assets/hackathon/bounties/card.png')]
               bg-contain 
               bg-no-repeat
               bg-center
             `}
-            onClick={() => s.amount && window.open(s.amount, "_blank")}
+            // onClick={() => s.amount && window.open(s.amount, "_blank")}
           >
             {/* Logo and name */}
-            <div className="absolute inset-0 flex items-center justify-center gap-4 z-10 px-6">
-              <Image
-                src={s.logo}
-                alt={s.name}
-                fill
-                className="object-contain p-6"
-              />
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
+              <div className="relative w-[200px] h-[200px]">
+                <Image
+                  src={s.logo}
+                  alt={s.name}
+                  fill
+                  className="object-contain p-4 pb-0"
+                />
+              </div>
+
+              <div className="p-0 mb-2 text-lg">{s.amount}</div>
             </div>
+
+            {/* Logo and name */}
+            {/* <div className="absolute inset-0 z-10 flex items-center px-6 gap-4">
+              <div className="relative w-[90px] h-[90px] shrink-0">
+                <Image
+                  src={s.logo}
+                  alt={s.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center text-left">
+                <span className="text-lg font-semibold leading-tight">
+                  {s.name}
+                </span>
+
+                {s.amount && (
+                  <span className="text-sm opacity-80 mt-1">{s.amount}</span>
+                )}
+              </div>
+            </div> */}
           </div>
         ))}
       </div>
 
-      {/* Fancy dot loader */}
-      <div className="flex justify-center mt-12">
-        <div className="loader">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i}></div>
-          ))}
-        </div>
-      </div>
-
       {/* CTA Button */}
-      <a
+      {/* <a
         href="https://tally.so/r/3NkdGb"
         target="_blank"
         rel="noopener noreferrer"
@@ -71,7 +87,7 @@ export default function Sponsors() {
             Become a Sponsor
           </button>
         </div>
-      </a>
+      </a> */}
     </section>
   );
 }
