@@ -88,13 +88,17 @@ export default function Mentors() {
       </div>
 
       {/* Apply to Speak Button */}
-      {/* <a href="" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://tally.so/r/5BBeoN"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div className="flex justify-center mt-16">
-          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+          <button className="bg-white border border-white text-[#E2231A] font-semibold text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Apply to Mentor
           </button>
         </div>
-      </a> */}
+      </a>
     </section>
   );
 }

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 // import { conferenceSponsors } from "../../lib/sponsorsData";
-import { bounties } from "@/lib/bounties";
+import { bounties, bountyIcons } from "@/lib/bounties";
 
 export default function Sponsors() {
   return (
@@ -16,8 +16,8 @@ export default function Sponsors() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-14 gap-y-16 justify-items-center">
-        {bounties.map((s, i) => (
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-14 gap-y-16 justify-items-center">
+        {bountyIcons.map((s, i) => (
           <div
             key={i}
             className={`
@@ -27,18 +27,21 @@ export default function Sponsors() {
               aspect-[2.32/1]
               rounded-[10px]
               overflow-hidden
+              cursor-pointer
+              hover:scale-105
+              transition-all duration-200
               group
-              ${i === 8 ? "lg:col-start-1" : ""}  
-              ${i === 9 ? "lg:col-start-2" : ""} 
+              ${i === 8 ? "lg:col-start-3" : ""}  
+              ${i === 9 ? "lg:col-start-1" : ""} 
               bg-[url('/assets/hackathon/bounties/card.png')]
               bg-contain 
               bg-no-repeat
               bg-center
             `}
-            // onClick={() => s.amount && window.open(s.amount, "_blank")}
+            onClick={() => s.twitter && window.open(s.twitter, "_blank")}
           >
             {/* Logo and name */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
+            {/* <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
               <div className="relative w-[200px] h-[200px]">
                 <Image
                   src={s.logo}
@@ -49,29 +52,29 @@ export default function Sponsors() {
               </div>
 
               <div className="p-0 mb-2 text-lg">{s.amount}</div>
-            </div>
+            </div> */}
 
             {/* Logo and name */}
-            {/* <div className="absolute inset-0 z-10 flex items-center px-6 gap-4">
-              <div className="relative w-[90px] h-[90px] shrink-0">
+            <div className="absolute inset-0 z-10 flex items-center px-6 gap-2 md:gap-3">
+              <div className="relative w-[100px] h-[100px] shrink-0 md:w-[90px] md:h-[90px] ">
                 <Image
                   src={s.logo}
                   alt={s.name}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2"
                 />
               </div>
 
-              <div className="flex flex-col justify-center text-left">
-                <span className="text-lg font-semibold leading-tight">
-                  {s.name}
-                </span>
+              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-2xl lg:gap-0.2 text-xl ">
+                <span className=" font-semibold leading-tight">{s.name}</span>
 
                 {s.amount && (
-                  <span className="text-sm opacity-80 mt-1">{s.amount}</span>
+                  <span className="text-lg lg:text-lg md:text-sm opacity-80 mt-1">
+                    {s.amount}
+                  </span>
                 )}
               </div>
-            </div> */}
+            </div>
           </div>
         ))}
       </div>

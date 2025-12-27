@@ -37,7 +37,7 @@ export const pastMentors: Mentor[] = [
   },
   {
     name: "Vanshika Rana",
-    company: "Vanshika Rana",
+    company: "Instadapp",
     image: "/assets/hackathon/mentors/Vanshika Rana.png",
     xLink: "https://x.com/aahiknsv",
     imageScale: "h-[140%]",

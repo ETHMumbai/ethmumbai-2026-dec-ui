@@ -5,10 +5,16 @@ import { hackathonAgenda } from "../../lib/hackathonAgendaData";
 
 export default function Agenda() {
   const [activeDay, setActiveDay] = useState(0);
-  type AgendaEvent = { time: string; title: string; speaker?: string; subtitle?: string };
+  type AgendaEvent = {
+    time: string;
+    title: string;
+    speaker?: string;
+    subtitle?: string;
+  };
   type Day = { items: AgendaEvent[]; title?: string };
   const days: Day[] = hackathonAgenda as unknown as Day[];
-  const safeActiveDay = days.length > 0 ? Math.min(Math.max(activeDay, 0), days.length - 1) : 0;
+  const safeActiveDay =
+    days.length > 0 ? Math.min(Math.max(activeDay, 0), days.length - 1) : 0;
 
   return (
     <section className="w-full bg-white py-16 px-4">
@@ -24,7 +30,7 @@ export default function Agenda() {
             <button
               key={index}
               onClick={() => setActiveDay(index)}
-              className={`px-12 py-2 rounded-full text-sm font-medium transition
+              className={`px-12 py-2 rounded-full text-sm font-medium transition cursor-pointer
                 ${
                   activeDay === index
                     ? "bg-white text-black"
@@ -49,31 +55,30 @@ export default function Agenda() {
               {item.time}
             </div>
 
-          <div className="flex justify-center">
-            <div className="w-[4px] h-full min-h-[48px] bg-[#E2231A] rounded-full" />
+            <div className="flex justify-center">
+              <div className="w-[4px] h-full min-h-[48px] bg-[#E2231A] rounded-full" />
+            </div>
+
+            <div className="flex flex-col">
+              <p className="text-lg font-medium">{item.title}</p>
+
+              {item.speaker && (
+                <p className="text-sm text-gray-600 mt-1">{item.speaker}</p>
+              )}
+
+              {item.subtitle && (
+                <p className="text-sm text-gray-500">{item.subtitle}</p>
+              )}
+            </div>
           </div>
+        ))}
 
-          <div className="flex flex-col">
-            <p className="text-lg font-medium">{item.title}</p>
-
-            {item.speaker && (
-              <p className="text-sm text-gray-600 mt-1">{item.speaker}</p>
-            )}
-
-            {item.subtitle && (
-              <p className="text-sm text-gray-500">{item.subtitle}</p>
-            )}
+        {!days[safeActiveDay]?.items?.length && (
+          <div className="text-center text-white opacity-80">
+            Agenda will be announced soon.
           </div>
-    </div>
-  ))}
-
-  {!days[safeActiveDay]?.items?.length && (
-    <div className="text-center text-white opacity-80">
-      Agenda will be announced soon.
-    </div>
-  )}
-</div>
-
+        )}
+      </div>
     </section>
   );
 }
