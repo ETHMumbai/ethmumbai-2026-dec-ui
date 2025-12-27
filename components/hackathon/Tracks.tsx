@@ -11,6 +11,10 @@ export default function Tracks() {
           Tracks
         </h2>
 
+        {/* <Pin className="top-[90px] left-[450px]" />
+        <Pin className="bottom-[80px] left-[140px]" />
+        <Pin className="bottom-[150px] right-[140px]" /> */}
+
         {/* SVG decorative layer */}
         <div className="absolute inset-x-0 top-[80px] bottom-0 pointer-events-none scale-[1.1] ">
           <Image
@@ -24,37 +28,42 @@ export default function Tracks() {
 
         {/* Cards layer */}
         <div className="relative max-w-6xl mx-auto grid grid-cols-2 gap-y-20 gap-x-12">
-          {/* Privacy (centered, NOT full width) */}
-          <div className="flex col-span-2 justify-center">
-            <div className=" w-[600px] max-w-full">
-              <TrackCard
-                label="Privacy"
-                text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
-                icon="/assets/hackathon/privacy.svg"
-              />
+          {/* Privacy */}
+          <div className="col-span-2 flex justify-center">
+            <div className="w-[600px] max-w-full">
+              <PinnedTrack pinClassName="-top-[60px] left-[-30px] -translate-x-1/2">
+                <TrackCard
+                  label="Privacy"
+                  text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
+                  icon="/assets/hackathon/privacy.svg"
+                />
+              </PinnedTrack>
             </div>
           </div>
 
+
           {/* DeFi */}
-          <TrackCard
-            label="DeFi"
-            text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
-            icon="/assets/hackathon/defi.svg"
-          />
+          <PinnedTrack pinClassName="-bottom-[40px] left-[-40px] -translate-x-1/2">
+            <TrackCard
+              label="DeFi"
+              text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
+              icon="/assets/hackathon/defi.svg"
+            />
+          </PinnedTrack>
 
           {/* AI */}
-          <TrackCard
-            label="AI"
-            text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
-            icon="/assets/hackathon/ai.svg"
-          />
+          <PinnedTrack pinClassName="-bottom-0 right-[-40px] translate-x-1/2">
+            <TrackCard
+              label="AI"
+              text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
+              icon="/assets/hackathon/ai.svg"
+            />
+          </PinnedTrack>
         </div>
 
       </section>
 
-      {/* ===================== */}
-      {/* MOBILE (below md)     */}
-      {/* ===================== */}
+      {/* MOBILE  */}
       <section className="relative w-full bg-[#FFD600] pt-10 pb-24 overflow-hidden md:hidden">
         {/* Title */}
         <h2 className="text-black text-4xl font-[MPlusRounded1c] tracking-tight text-center mb-12">
@@ -72,45 +81,40 @@ export default function Tracks() {
           />
         </div>
 
-        {/* Cards stacked */}
-        {/* Cards stacked – zig-zag on mobile */}
-<div className="relative max-w-md mx-auto flex flex-col gap-20 px-4">
-  {/* Privacy — LEFT */}
-  <div className="self-start w-[90%]">
-    <TrackCard
-      label="Privacy"
-      text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
-      icon="/assets/hackathon/privacy.svg"
-    />
-  </div>
+        {/* Cards */}
+        <div className="relative max-w-md mx-auto flex flex-col gap-20 px-4">
+          {/* Privacy*/}
+          <div className="self-start w-[90%]">
+            <TrackCard
+              label="Privacy"
+              text="Deep dive into privacy-preserving technologies, zero-knowledge proofs, and secure decentralized systems."
+              icon="/assets/hackathon/privacy.svg"
+            />
+          </div>
 
-  {/* DeFi — RIGHT */}
-  <div className="self-end w-[90%]">
-    <TrackCard
-      label="DeFi"
-      text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
-      icon="/assets/hackathon/defi.svg"
-    />
-  </div>
+          {/* DeFi */}
+          <div className="self-end w-[90%]">
+            <TrackCard
+              label="DeFi"
+              text="Explore Layer 2 solutions, rollups, and next-generation scaling technologies."
+              icon="/assets/hackathon/defi.svg"
+            />
+          </div>
 
-  {/* AI — LEFT */}
-  <div className="self-start w-[90%]">
-    <TrackCard
-      label="AI"
-      text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
-      icon="/assets/hackathon/ai.svg"
-    />
-  </div>
-</div>
+          {/* AI */}
+          <div className="self-start w-[90%]">
+            <TrackCard
+              label="AI"
+              text="Digital ownership, gaming economies, autonomous agents, and creative AI applications."
+              icon="/assets/hackathon/ai.svg"
+            />
+          </div>
+        </div>
 
       </section>
     </>
   );
 }
-
-/* ----------------------------- */
-/* Track Card                    */
-/* ----------------------------- */
 
 function TrackCard({
   label,
@@ -160,6 +164,32 @@ function TrackCard({
       >
         <Image src={icon} alt={label} fill className="object-contain" />
       </div>
+    </div>
+  );
+}
+
+function PinnedTrack({
+  children,
+  pinClassName,
+}: {
+  children: React.ReactNode;
+  pinClassName: string;
+}) {
+  return (
+    <div className="relative">
+      {/* Pin */}
+      <Pin className={pinClassName} />
+
+      {/* Card */}
+      {children}
+    </div>
+  );
+}
+
+function Pin({ className }: { className: string }) {
+  return (
+    <div className={`absolute w-[96px] h-[96px] ${className}`}>
+      <Image src="/assets/hackathon/pin.svg" alt="pin" fill className="object-contain" />
     </div>
   );
 }
