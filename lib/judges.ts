@@ -110,7 +110,7 @@ export const judges: Judge[] = [
     company: "HeyElsa",
     image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
     xLink: "https://x.com/kunalvg",
-    imageScale: "h-[140%] ",
+    imageScale: "h-[140%] right-[50%]",
   },
   {
     name: "Nandit Mehra",

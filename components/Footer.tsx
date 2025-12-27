@@ -23,12 +23,8 @@ const Footer = () => {
             className="block"
           />
           <div className="flex flex-col gap-3 mt-6 items-stretch">
-            <h2 className="font-['MPlusRounded1c'] flex-1 text-2xl">
-              BEST Conference & Hackathon
-            </h2>
-            <p className="font-['MPlusRounded1c'] font-medium text-lg">
-              12 - 15 March 2026
-            </p>
+            <h2 className=" flex-1 text-2xl">BEST Conference & Hackathon</h2>
+            <p className=" font-medium text-lg">12 - 15 March 2026</p>
           </div>
         </div>
 
@@ -54,15 +50,6 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Brand Kit
-              </a>
-
-              <a
-                href="https://ethmumbai.substack.com/embed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                Newsletter
               </a>
 
               <a
@@ -96,6 +83,14 @@ const Footer = () => {
                 Apply to Hack
               </a>
               <a
+                href="https://ethmumbai.substack.com/embed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Newsletter
+              </a>
+              {/* <a
                 href="https://tally.so/r/nGW5Bz"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -112,7 +107,7 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Apply to Sponsor
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

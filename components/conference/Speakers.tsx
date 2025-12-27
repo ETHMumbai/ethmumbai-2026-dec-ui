@@ -5,10 +5,13 @@ import { conferenceSpeakers } from "../../lib/speakersData";
 
 export default function Speakers() {
   return (
-    <section id="conference-speakers" className="w-full bg-[#FFD600] py-10 px-4 sm:px-6 lg:px-8">
+    <section
+      id="conference-speakers"
+      className="w-full bg-[#FFD600] py-10 px-4 sm:px-6 lg:px-8"
+    >
       <h2 className="text-black text-4xl pb-3 sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Speakers
-        </h2>
+        Speakers
+      </h2>
 
       {/* Speakers Grid */}
       <div className="flex justify-center">
@@ -16,11 +19,11 @@ export default function Speakers() {
           {conferenceSpeakers.map((speaker, index) => (
             <div
               key={index}
-              className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
+              className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 14 ? "lg:col-start-2" : ""}  
+               `}
             >
               {/* Wrapper with padding for overflow */}
               <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-1 group">
-
                 {/* CLICKABLE ONLY IF xLink EXISTS */}
                 {speaker.xLink ? (
                   <a
@@ -79,14 +82,10 @@ export default function Speakers() {
               </div>
 
               {/* Speaker Info */}
-              <h3
-                className="text-[16px] leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1"
-              >
+              <h3 className="text-[16px] leading-6 tracking-[-0.31px] text-[#0A0A0A] text-center mb-1">
                 {speaker.name}
               </h3>
-              <p
-                className="text-[14px] leading-5 tracking-[-0.015px] text-[#575757] text-center"
-              >
+              <p className="text-[14px] leading-5 tracking-[-0.015px] text-[#575757] text-center">
                 {speaker.company}
               </p>
             </div>
