@@ -197,7 +197,7 @@ export const conferenceSpeakers: Speaker[] = [
     company: "Ethereum Foundation",
     image: "/assets/speakers/Shyam_Sridhar2.png",
     xLink: "https://x.com/ShyamSridhar7",
-    imageScale: "h-[130%]"
+    imageScale: "h-[130%]",
   },
   {
     name: "Abhishek Yadav",
@@ -232,11 +232,7 @@ export const conferenceSpeakers: Speaker[] = [
     company: "Quicknode",
     image: "/assets/speakers/Sahil_Sen_-_Quicknode-removebg-preview.png",
     xLink: "https://x.com/sensahil",
-<<<<<<< Updated upstream
-    imageScale: "h-[130%]"
-=======
     imageScale: "h-[125%]",
->>>>>>> Stashed changes
   },
   {
     name: "Siddharth Biju",
