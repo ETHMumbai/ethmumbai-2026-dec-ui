@@ -44,18 +44,18 @@ export default function Agenda() {
       </div>
 
       {/* AGENDA LIST */}
-      <div className="max-w-4xl mx-auto  flex flex-col gap-6">
+      <div className="max-w-3xl mx-auto  flex flex-col gap-6">
         {days[safeActiveDay]?.items?.map((item, idx) => (
           <div
             key={idx}
-            className="rounded-2xl bg-[#F9FAFB] p-6 flex items-center gap-6 shadow-sm"
+            className="rounded-2xl bg-[#E2231A] text-white p-4 flex items-center gap-6 shadow-sm"
           >
             <div className="text-lg font-regular w-20 text-right">
               {item.time}
             </div>
 
             <div className="flex justify-center">
-              <div className="w-[4px] h-full min-h-[48px] bg-[#E2231A] rounded-full" />
+              <div className="w-[4px] h-full min-h-[24px] bg-white rounded-full" />
             </div>
 
             <div className="flex flex-col">
