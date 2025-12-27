@@ -16,13 +16,14 @@ export default function Sponsors() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-14 gap-y-5 justify-items-center">
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-x-10 gap-y-5 justify-items-center">
         {bountyIcons.map((s, i) => (
           <div
             key={i}
             className={`
               relative
-              w-full
+              w-[105%]
+
               max-w-[390px]
               aspect-[2.32/1]
               rounded-[10px]
@@ -31,8 +32,7 @@ export default function Sponsors() {
               hover:scale-105
               transition-all duration-200
               group
-              ${i === 8 ? "lg:col-start-3" : ""}  
-              ${i === 9 ? "lg:col-start-1" : ""} 
+           
               bg-[url('/assets/hackathon/bounties/card.png')]
               bg-contain 
               bg-no-repeat
@@ -55,8 +55,8 @@ export default function Sponsors() {
             </div> */}
 
             {/* Logo and name */}
-            <div className="absolute inset-0 z-10 flex items-center px-6 gap-2 md:gap-3">
-              <div className="relative w-[100px] h-[100px] shrink-0 md:w-[90px] md:h-[90px] ">
+            <div className="absolute inset-0 z-10 flex items-center xl:px-3 lg:px-2 md:px-6 px-8 gap-5 md:gap-2">
+              <div className="relative w-[70px] h-[70px] shrink-0 md:w-[70px] md:h-[70px] lg:w-[70px] lg:h-[70px]">
                 <Image
                   src={s.logo}
                   alt={s.name}
@@ -65,11 +65,11 @@ export default function Sponsors() {
                 />
               </div>
 
-              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-2xl lg:gap-0.2 text-xl ">
+              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-lg lg:gap-0.2 sm:text-xl text-3xl">
                 <span className=" font-semibold leading-tight">{s.name}</span>
 
                 {s.amount && (
-                  <span className="text-lg lg:text-lg md:text-sm opacity-80 mt-1">
+                  <span className="text-lg lg:text-sm md:text-sm opacity-80">
                     {s.amount}
                   </span>
                 )}

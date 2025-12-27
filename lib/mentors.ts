@@ -53,7 +53,7 @@ export const mentors: Mentor[] = [
     imageScale: "h-[130%]",
   },
   {
-    name: "Abhimanyu Shekhawat",
+    name: "Abhimanyu",
     company: "Epoch Protocol",
     image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
     xLink: "https://x.com/sokkkkaaa",
@@ -99,6 +99,6 @@ export const mentors: Mentor[] = [
     company: "ZippelLabs ",
     image: "/assets/hackathon/mentors/Vishal_Mentor-removebg-preview.png",
     xLink: "https://x.com/thisvishalsingh",
-    imageScale: "h-[120%]",
+    imageScale: "h-[110%]",
   },
 ];

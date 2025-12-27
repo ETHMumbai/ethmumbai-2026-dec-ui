@@ -11,11 +11,11 @@ export default function Judges() {
       </h2>
 
       {/* Speakers Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-5 gap-x-12 gap-y-5 justify-items-center">
+      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-5 mx-auto">
         {judges.map((judge, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 5 ? "lg:col-start-2" : ""} ${index === 8 ? "lg:col-start-3" : ""} `}
+            className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">

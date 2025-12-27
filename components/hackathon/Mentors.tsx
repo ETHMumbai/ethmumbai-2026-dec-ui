@@ -11,7 +11,7 @@ export default function Mentors() {
       </h2>
 
       {/* Speakers Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-x-12 gap-y-5 justify-items-center">
+      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-12 mx-auto">
         {mentors.map((mentor, index) => (
           <div
             key={index}
@@ -93,7 +93,7 @@ export default function Mentors() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-10">
           <button className="bg-white border border-white text-[#E2231A] font-semibold text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Apply to Mentor
           </button>
