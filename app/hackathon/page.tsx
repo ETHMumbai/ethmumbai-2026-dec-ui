@@ -5,13 +5,14 @@ import Navbar from "@/components/Navbar";
 import Overview from "@/components/hackathon/Overview";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import Speakers from "@/components/conference/Speakers";
-import Sponsors from "@/components/conference/Sponsors";
+import Judges from "@/components/hackathon/Judges";
+import Bounties from "@/components/hackathon/Bounties";
 import Venue from "@/components/conference/Venue";
 import Icons from "@/components/hackathon/Icons";
 import Tacks from "@/components/hackathon/Tracks";
 import Agenda from "@/components/hackathon/Agenda";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import Mentors from "@/components/hackathon/Mentors";
 
 export default function LandingPage() {
   return (
@@ -29,9 +30,9 @@ export default function LandingPage() {
           ]}
         />
         <Tacks />
-        <Sponsors />
-        <Speakers/>
-        <Sponsors />
+        <Bounties />
+        <Judges />
+        <Mentors />
         {/* <Venue type="hackathon" /> */}
         <Agenda />
         <FAQ type="hackathon" />
