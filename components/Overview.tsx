@@ -126,7 +126,7 @@ export default function Overview() {
           </ul>
         </div>
 
-        <Link
+        {/* <Link
           href="/conference"
           className="bg-white absolute z-10  left-[23%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg"
         >
@@ -137,7 +137,7 @@ export default function Overview() {
           className="bg-white absolute z-10  right-[22%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer transition-all duration-200  hover:scale-105 hover:shadow-lg"
         >
           <h2 className=" font-medium lg:text-xl">Hackathon</h2>
-        </Link>
+        </Link> */}
         <></>
       </div>
 
