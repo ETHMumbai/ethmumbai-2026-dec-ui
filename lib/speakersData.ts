@@ -77,12 +77,12 @@ export const pastSpeakers: Speaker[] = [
     xLink: "https://x.com/0xkrishang",
     imageScale: "h-[130%]",
   },
-   {
+  {
     name: "Kunal Gandhi",
     company: "HeyElsa",
-    image: "/assets/hackathon/judges/Kunal Judge.jpeg",
+    image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
     xLink: "https://x.com/kunalvg",
-    imageScale: "h-[108%] scale-x-[0.9]",
+    imageScale: "h-[130%] right-[50%]",
   },
   {
     name: "Nandit Mehra",
@@ -152,7 +152,7 @@ export const pastSpeakers: Speaker[] = [
     image: "/assets/hackathon/judges/Smit_Judge-removebg-preview.png",
     xLink: "https://x.com/0xSmit",
     imageScale: "h-[110%]",
-  }
+  },
 ];
 
 export const conferenceSpeakers: Speaker[] = [
@@ -282,4 +282,3 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
 ];
-
