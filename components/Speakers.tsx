@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { pastSpeakers } from "../lib/speakersData";
 
 export default function Speakers() {
@@ -92,19 +93,17 @@ export default function Speakers() {
 
       {/* Apply to Speak Button */}
       <div className="flex justify-center gap-6 mt-16 flex-wrap">
-        <a
-          href="#conference-speakers"
-          className="bg-[#D63A2F] text-white text-lg md:text-xl px-14 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center"
-        >
-          View All Speakers
-        </a>
+        <Link href="/conference#conference-speakers" scroll>
+          <span className="bg-[#D63A2F] text-white text-lg md:text-xl px-14 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center">
+            View All Speakers
+          </span>
+        </Link>
 
-        <a
-          href="/#judges-mentors"
-          className="border border-[#D63A2F] text-[#D63A2F] text-lg md:text-xl px-8 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center"
-        >
-          View All Judges & Mentors
-        </a>
+        <Link href="/hackathon#judges-mentors" scroll>
+          <span className="border border-[#D63A2F] text-[#D63A2F] text-lg md:text-xl px-8 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center">
+            View All Judges & Mentors
+          </span>
+        </Link>
       </div>
     </section>
   );
