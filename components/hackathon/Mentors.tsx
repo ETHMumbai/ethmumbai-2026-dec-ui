@@ -5,7 +5,7 @@ import { pastMentors, mentors } from "@/lib/mentors";
 
 export default function Mentors() {
   return (
-    <section className="w-full bg-[#E2231A] py-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#E2231A] py-10 px-4 sm:px-6 lg:px-8">
       <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         Mentors
       </h2>

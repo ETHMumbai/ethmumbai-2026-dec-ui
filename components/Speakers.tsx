@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-// import { pastSpeakers } from "../lib/speakersData";
-import { homeSpeakers } from "../lib/speakersData";
+import { pastSpeakers } from "../lib/speakersData";
+// import { homeSpeakers } from "../lib/speakersData";
 
 export default function Speakers() {
   return (
@@ -14,7 +14,7 @@ export default function Speakers() {
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {homeSpeakers.map((speaker, index) => (
+        {pastSpeakers.map((speaker, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
