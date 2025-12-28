@@ -95,11 +95,18 @@ export default function Hero() {
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]
-                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
+                        hover:bg-gray-300 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
             >
               Buy Tickets
             </button>
           </a>
+          {/* <button style={{cursor:'pointer'}}
+            onClick={() => { window.open('https://ethmumbai2026.devfolio.co/', '_blank');}}
+            className="border border-white text-white
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
+            Apply to Hack
+          </button> */}
         </div>
       {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a

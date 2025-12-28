@@ -1,18 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { pastSpeakers } from "../lib/speakersData";
+import Link from "next/link";
+// import { pastSpeakers } from "../lib/speakersData";
+import { homeSpeakers } from "../lib/speakersData";
 
 export default function Speakers() {
   return (
-    <section className="w-full bg-[#FFD600] py-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#FFD600] py-10 px-4 sm:px-6 lg:px-8">
       <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
-          Past Speakers and Judges
-        </h2>
+        People @ ETHMumbai
+      </h2>
 
       {/* Speakers Grid */}
       <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
-        {pastSpeakers.map((speaker, index) => (
+        {homeSpeakers.map((speaker, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
@@ -34,9 +36,8 @@ export default function Speakers() {
                       alt={speaker.name}
                       width={150}
                       height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
+                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${speaker.imageScale || "h-[118%]"
+                        }`}
                       style={{
                         width: "112%",
                         objectPosition: "center 30%",
@@ -58,9 +59,8 @@ export default function Speakers() {
                       alt={speaker.name}
                       width={150}
                       height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
+                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${speaker.imageScale || "h-[118%]"
+                        }`}
                       style={{
                         width: "112%",
                         objectPosition: "center 30%",
@@ -93,17 +93,19 @@ export default function Speakers() {
       </div>
 
       {/* Apply to Speak Button */}
-      <a
-        href="https://tally.so/r/nGW5Bz"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div className="flex justify-center mt-16">
-          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
-            Apply to Speak
-          </button>
-        </div>
-      </a>
+      <div className="flex justify-center gap-6 mt-16 flex-wrap">
+        <Link href="/conference#conference-speakers" scroll>
+          <span className="bg-[#D63A2F] text-white text-lg md:text-xl px-14 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center">
+            View All Speakers
+          </span>
+        </Link>
+
+        <Link href="/hackathon#judges-mentors" scroll>
+          <span className="border border-[#D63A2F] text-[#D63A2F] text-lg md:text-xl px-8 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg text-center">
+            View All Judges & Mentors
+          </span>
+        </Link>
+      </div>
     </section>
   );
 }

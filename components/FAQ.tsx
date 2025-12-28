@@ -118,7 +118,7 @@ const FAQ: React.FC<FAQProps> = ({ type = "general" }) => {
       : generalFAQ;
 
   return (
-    <section className="relative bg-[#FFD600] py-16 px-4">
+    <section className="relative bg-[#FFD600] py-10 px-4">
       <div className="mb-5">
         <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] tracking-[-1px] text-center text-[#0A0A0A] mb-10">
           FAQs

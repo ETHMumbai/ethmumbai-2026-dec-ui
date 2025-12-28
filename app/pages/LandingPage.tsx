@@ -9,7 +9,8 @@ import Overview from "@/components/Overview";
 import Sponsors from "@/components/Sponsors";
 import Partners from "@/components/Partners";
 import AnnouncementBar from "@/components/AnnouncementBar";
-import Speakers from "@/components/conference/Speakers";
+// import Speakers from "@/components/Speakers";
+import Speakers from "@/components/hackathon/Speakers";
 import ClosingCTA from "@/components/ClosingCTA";
 
 export default function LandingPage() {

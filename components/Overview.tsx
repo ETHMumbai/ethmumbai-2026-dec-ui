@@ -9,6 +9,7 @@ import ScrewsSm from "../public/assets/subhero2/small/screws.svg";
 import InteriorSm from "../public/assets/subhero2/small/interior.svg";
 import Image from "next/image";
 import { Box } from "./Box";
+import Link from "next/link";
 
 export default function Overview() {
   return (
@@ -125,12 +126,18 @@ export default function Overview() {
           </ul>
         </div>
 
-        {/* <button className="bg-white absolute z-10  left-[23%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer">
+        {/* <Link
+          href="/conference"
+          className="bg-white absolute z-10  left-[23%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg"
+        >
           <h2 className=" font-medium lg:text-xl ">Conference</h2>
-        </button>
-        <button className="bg-white absolute z-10  right-[22%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer ">
+        </Link>
+        <Link
+          href="/hackathon"
+          className="bg-white absolute z-10  right-[22%] xl:p-3 md:p-2  top-[70%] p-2 text-center text-[#E53931] w-[15%]  rounded-[14px] cursor-pointer transition-all duration-200  hover:scale-105 hover:shadow-lg"
+        >
           <h2 className=" font-medium lg:text-xl">Hackathon</h2>
-        </button> */}
+        </Link> */}
         <></>
       </div>
 
@@ -149,51 +156,50 @@ export default function Overview() {
         <div className="absolute items-center justify-center w-full flex max-[361px]:translate-y-35 max-[400px]:translate-y-40 translate-y-50">
           <div className="absolute flex flex-col gap-4 max-[345px]:gap-2 min-sm:translate-y-50 translate-y-35 w-[50%]">
             {/* Conference */}
-            {/* <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-            ></a> */}
-            <Box className="relative flex-1 w-full p-6 max-[345px]:p-4 bg-[#E53931] text-white rounded-xl">
-              <Image
-                src={ScrewsSm}
-                fill
-                alt=""
-                className="z-20 object-center p-2"
-              />
+            <a href="/conference" target="_blank" rel="noopener noreferrer">
+              <Box className="relative flex-1 w-full p-6 max-[345px]:p-4 bg-[#E53931] text-white rounded-xl">
+                <Image
+                  src={ScrewsSm}
+                  fill
+                  alt=""
+                  className="z-20 object-center p-2"
+                />
 
-              <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
-                Conference
-              </h2>
-              <p className=" font-light pb-2 text-xs">12 March 2026</p>
-              <ul className="font-light text-sm space-y-1 max-[345px]:-space-y-0.5">
-                <li>Talks and Panels</li>
-                <li>Sponsor Activation</li>
-                <li>Interactive Zones</li>
-                <li>Open Networking</li>
-              </ul>
-            </Box>
+                <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
+                  Conference
+                </h2>
+                <p className=" font-light pb-2 text-xs">12 March 2026</p>
+                <ul className="font-light text-sm space-y-1 max-[345px]:-space-y-0.5">
+                  <li>Talks and Panels</li>
+                  <li>Sponsor Activation</li>
+                  <li>Interactive Zones</li>
+                  <li>Open Networking</li>
+                </ul>
+              </Box>
+            </a>
 
             {/* Hackathon */}
-            <Box className="relative flex-1 w-full p-6  max-[345px]:p-4 bg-[#E53931] text-white rounded-xl">
-              <Image
-                src={ScrewsSm}
-                fill
-                alt=""
-                className="z-20 object-center p-2"
-              />
+            <a href="/hackathon" target="_blank" rel="noopener noreferrer">
+              <Box className="relative flex-1 w-full p-6  max-[345px]:p-4 bg-[#E53931] text-white rounded-xl">
+                <Image
+                  src={ScrewsSm}
+                  fill
+                  alt=""
+                  className="z-20 object-center p-2"
+                />
 
-              <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
-                Hackathon
-              </h2>
-              <p className=" font-light pb-2 text-xs">13 - 15 March 2026</p>
-              <ul className="font-light text-sm space-y-1 max-[345px]:-space-y-0.5">
-                <li>Nonstop Hacking</li>
-                <li>Technical Workshops</li>
-                <li>Sponsor Bounties</li>
-                <li>Mentorship</li>
-              </ul>
-            </Box>
+                <h2 className=" pb-0  font-bold text-2xl font-['MPlusRounded1c']">
+                  Hackathon
+                </h2>
+                <p className=" font-light pb-2 text-xs">13 - 15 March 2026</p>
+                <ul className="font-light text-sm space-y-1 max-[345px]:-space-y-0.5">
+                  <li>Nonstop Hacking</li>
+                  <li>Technical Workshops</li>
+                  <li>Sponsor Bounties</li>
+                  <li>Mentorship</li>
+                </ul>
+              </Box>
+            </a>
 
             {/* Hackathon */}
             {/* <Box className="relative flex-1 w-full bg-[#E53931] p-6 text-white rounded-xl">
