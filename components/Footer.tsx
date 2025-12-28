@@ -74,14 +74,14 @@ const Footer = () => {
               >
                 Buy Tickets
               </a>
-              <a
+              {/* <a
                 href="https://ethmumbai2026.devfolio.co/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Apply to Hack
-              </a>
+              </a> */}
               <a
                 href="https://ethmumbai.substack.com/embed"
                 target="_blank"
