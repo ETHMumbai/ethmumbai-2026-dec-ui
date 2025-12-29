@@ -5,13 +5,16 @@ import { pastJudges, judges } from "@/lib/judges";
 
 export default function Judges() {
   return (
-    <section id="judges-mentors" className="w-full bg-[#FFFFFF] py-10 px-4 sm:px-6 lg:px-8">
+    <section
+      id="judges-mentors"
+      className="w-full bg-[#FFFFFF] py-10 px-4 sm:px-6 lg:px-8"
+    >
       <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         Judges
       </h2>
 
       {/* Speakers Grid */}
-      <div className="px-6 sm:px-10 lg:px-14 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-5 mx-auto">
+      <div className="px-6 sm:px-10 lg:px-20 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-5 mx-auto">
         {judges.map((judge, index) => (
           <div
             key={index}

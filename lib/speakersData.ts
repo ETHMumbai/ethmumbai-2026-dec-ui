@@ -82,7 +82,7 @@ export const pastSpeakers: Speaker[] = [
     company: "HeyElsa",
     image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
     xLink: "https://x.com/kunalvg",
-    imageScale: "h-[130%] right-[50%]",
+    imageScale: "h-[120%] right-[50%]",
   },
   {
     name: "Nandit Mehra",

@@ -78,6 +78,13 @@ export const pastJudges: Judge[] = [
 
 export const judges: Judge[] = [
   {
+    name: "Aditi Polkam",
+    company: "Offline Protocol",
+    image: "/assets/speakers/Aditi_Polkam.png",
+    xLink: "https://x.com//aditipolkam",
+    imageScale: "h-[185%]",
+  },
+  {
     name: "Akshit",
     company: "Epoch Protocol",
     image: "/assets/hackathon/judges/Akshit_Judge-removebg-preview.png",

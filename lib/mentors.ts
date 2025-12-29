@@ -66,13 +66,13 @@ export const mentors: Mentor[] = [
     xLink: "https://x.com/supremebattak",
     imageScale: "h-[120%]",
   },
-  {
-    name: "Pranav Garg",
-    company: "Router Protocol",
-    image: "/assets/hackathon/mentors/Pranav_Mentor-removebg-preview.png",
-    xLink: "https://x.com/pranav__garg_",
-    imageScale: "h-[185%]",
-  },
+  // {
+  //   name: "Pranav Garg",
+  //   company: "Router Protocol",
+  //   image: "/assets/hackathon/mentors/Pranav_Mentor-removebg-preview.png",
+  //   xLink: "https://x.com/pranav__garg_",
+  //   imageScale: "h-[185%]",
+  // },
   {
     name: "Pranay Kundu",
     company: "Yudai Labs",
