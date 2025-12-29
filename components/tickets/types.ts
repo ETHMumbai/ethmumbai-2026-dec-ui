@@ -1,5 +1,5 @@
 // types.ts
-export type TicketType = "earlybird" | "standard" | "christmas";
+export type TicketType = "earlybird" | "regular" | "christmas";
 
 export interface Ticket {
   id: string;

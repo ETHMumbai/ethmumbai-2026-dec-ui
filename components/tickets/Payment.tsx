@@ -17,13 +17,13 @@ import { fetchActiveTicket } from "@/lib/tickets";
 const ticketPrices: Record<TicketType, number> = {
   christmas: 499,
   earlybird: 999,
-  standard: 1999,
+  regular: 1249,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
   christmas: 5.5,
   earlybird: 11,
-  standard: 24,
+  regular: 13.8,
 };
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -36,16 +36,16 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 11,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
   {
-    type: "standard",
-    label: "Standard",
-    price: 1999,
-    priceUSD: 24,
+    type: "regular",
+    label: "Regular",
+    price: 1249,
+    priceUSD: 13.8,
     desktopImage: "/assets/tickets/standard-list.svg",
     mobileImage: "/assets/tickets/standard-sm-vertical.svg",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     type: "christmas",
@@ -54,7 +54,7 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 5.5,
     desktopImage: "/assets/tickets/christmas-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
-    comingSoon: false,
+    comingSoon: true,
   },
 ];
 
@@ -172,22 +172,35 @@ const Payment = () => {
     const activeOption = ticketOptions.find(
       (t) => t.type === activeTicket.type
     );
-    const standardOption = ticketOptions.find((t) => t.type === "standard");
 
-    const options: TicketOption[] = [];
-    if (activeOption) options.push(activeOption);
-    if (standardOption && standardOption.type !== activeTicket.type)
-      options.push(standardOption);
+  const earlybirdOption = ticketOptions.find((t) => t.type === "earlybird");
+  let otherOption: TicketOption | undefined;
+  if (activeTicket.type === "earlybird") {
+    otherOption = ticketOptions.find((t) => t.type === "regular");
+  } else if (activeTicket.type === "regular") {
+    otherOption = ticketOptions.find((t) => t.type !== "earlybird"); // fallback
+  } else {
+    otherOption = undefined;
+  }
+
+  const options: TicketOption[] = [];
+
+  // Push EarlyBird first if it exists
+  if (earlybirdOption) options.push(earlybirdOption);
+
+  // Push the active ticket if it’s not already EarlyBird
+  if (activeOption && activeOption.type !== "earlybird") {
+    options.push(activeOption);
+  }
+
+  // Push the other ticket if it exists and isn’t already added
+  if (otherOption && !options.includes(otherOption)) {
+    options.push(otherOption);
+  }
 
     setTicketOptionsToShow(options);
     setVisualTicketType(activeTicket.type);
   }, [activeTicket]);
-
-  /* ---------------- Load Razorpay ---------------- */
-  useEffect(() => {
-    loadRazorpay();
-  }, []);
-
   /* ---------------- Quantity Change ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
     if (!activeTicket) return;

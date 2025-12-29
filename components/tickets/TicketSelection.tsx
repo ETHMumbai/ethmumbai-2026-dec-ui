@@ -31,15 +31,10 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
               ${!comingSoon ? "group transition-all duration-300 border-black cursor-pointer hover:-translate-y-1 hover:shadow-xl" : "border-gray-300 opacity-50 cursor-not-allowed"}
             `}
           >
-            {comingSoon && (
-              <div className="absolute top-2 right-2 z-20 bg-black text-white text-xs px-2 py-1 rounded-full">
-                Coming Soon
-              </div>
-            )}
 
-            {visualTicketType === "christmas" && index === 0 && !comingSoon && (
-              <div className="absolute top-2 right-2 z-20 bg-[#E2231A] text-white text-xs px-2 py-1 rounded-full">
-                Special Price
+            { comingSoon && (
+              <div className="absolute top-2 right-2 z-20 bg-black text-white text-xs px-2 py-1 rounded-full">
+                Sold Out
               </div>
             )}
 
@@ -84,7 +79,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           src={
             visualTicketType === "earlybird"
               ? "/assets/tickets/earlybird-sm.svg"
-              : visualTicketType === "standard"
+              : visualTicketType === "regular"
               ? "/assets/tickets/standard-sm.svg"
               : "/assets/tickets/christmas-sm.svg"
           }

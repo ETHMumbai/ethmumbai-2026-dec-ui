@@ -139,6 +139,13 @@ export default function Navbar() {
               Conference
             </Link>
 
+            {/* <Link
+              href="/hackathon"
+              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
+            >
+              Hackathon
+            </Link> */}
+
             <Link
               href="/hackathon"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
