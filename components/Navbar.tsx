@@ -40,9 +40,9 @@ export default function Navbar() {
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
-          {/* <Link href="/hackathon" className="hover:text-black transition">
+          <Link href="/hackathon" className="hover:text-black transition">
             Hackathon
-          </Link> */}
+          </Link>
           <Link href="/tickets" className="hover:text-black transition">
             Buy Tickets
           </Link>
@@ -145,6 +145,13 @@ export default function Navbar() {
             >
               Hackathon
             </Link> */}
+
+            <Link
+              href="/hackathon"
+              className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
+            >
+              Hackathon
+            </Link>
 
             <Link
               href="/tickets"

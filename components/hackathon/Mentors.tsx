@@ -5,13 +5,13 @@ import { pastMentors, mentors } from "@/lib/mentors";
 
 export default function Mentors() {
   return (
-    <section className="w-full bg-[#E2231A] py-16 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#E2231A] py-10 px-4 sm:px-6 lg:px-8">
       <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         Mentors
       </h2>
 
       {/* Speakers Grid */}
-      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-12 mx-auto">
+      <div className="px-4 sm:px-8 lg:px-20 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-12 mx-auto">
         {mentors.map((mentor, index) => (
           <div
             key={index}

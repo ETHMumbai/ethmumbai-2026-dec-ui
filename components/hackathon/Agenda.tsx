@@ -17,7 +17,7 @@ export default function Agenda() {
     days.length > 0 ? Math.min(Math.max(activeDay, 0), days.length - 1) : 0;
 
   return (
-    <section className="w-full bg-white py-16 px-4">
+    <section className="w-full bg-white py-10 px-4">
       {/* TITLE */}
       <h2 className="font-[MPlusRounded1c] text-center text-4xl md:text-5xl font-semibold text-black mb-8">
         Agenda
@@ -31,10 +31,11 @@ export default function Agenda() {
               key={index}
               onClick={() => setActiveDay(index)}
               className={`px-4 sm:px-6 md:px-12 py-2 rounded-full text-sm font-medium transition cursor-pointer
-          ${activeDay === index
-                  ? "bg-white text-black"
-                  : "text-white hover:bg-white/20"
-                }
+          ${
+            activeDay === index
+              ? "bg-white text-black"
+              : "text-white hover:bg-white/20"
+          }
         `}
             >
               {`Day ${index + 1}`}
