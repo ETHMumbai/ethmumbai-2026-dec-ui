@@ -173,30 +173,30 @@ const Payment = () => {
       (t) => t.type === activeTicket.type
     );
 
-  const earlybirdOption = ticketOptions.find((t) => t.type === "earlybird");
-  let otherOption: TicketOption | undefined;
-  if (activeTicket.type === "earlybird") {
-    otherOption = ticketOptions.find((t) => t.type === "regular");
-  } else if (activeTicket.type === "regular") {
-    otherOption = ticketOptions.find((t) => t.type !== "earlybird"); // fallback
-  } else {
-    otherOption = undefined;
-  }
+    const earlybirdOption = ticketOptions.find((t) => t.type === "earlybird");
+    let otherOption: TicketOption | undefined;
+    if (activeTicket.type === "earlybird") {
+      otherOption = ticketOptions.find((t) => t.type === "regular");
+    } else if (activeTicket.type === "regular") {
+      otherOption = ticketOptions.find((t) => t.type !== "earlybird"); // fallback
+    } else {
+      otherOption = undefined;
+    }
 
-  const options: TicketOption[] = [];
+    const options: TicketOption[] = [];
 
-  // Push EarlyBird first if it exists
-  if (earlybirdOption) options.push(earlybirdOption);
+    // Push EarlyBird first if it exists
+    if (earlybirdOption) options.push(earlybirdOption);
 
-  // Push the active ticket if it’s not already EarlyBird
-  if (activeOption && activeOption.type !== "earlybird") {
-    options.push(activeOption);
-  }
+    // Push the active ticket if it’s not already EarlyBird
+    if (activeOption && activeOption.type !== "earlybird") {
+      options.push(activeOption);
+    }
 
-  // Push the other ticket if it exists and isn’t already added
-  if (otherOption && !options.includes(otherOption)) {
-    options.push(otherOption);
-  }
+    // Push the other ticket if it exists and isn’t already added
+    if (otherOption && !options.includes(otherOption)) {
+      options.push(otherOption);
+    }
 
     setTicketOptionsToShow(options);
     setVisualTicketType(activeTicket.type);
