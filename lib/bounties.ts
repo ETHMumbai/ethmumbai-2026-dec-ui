@@ -118,7 +118,7 @@ export const bountyIcons: Bounty[] = [
   {
     logo: "/assets/hackathon/bounties/logos/icons/arweave india.png",
     name: "Arweave India",
-    twitter: "https://x.com/ArweaveEco",
+    twitter: " https://x.com/arweaveindia",
     amount: "$2,000",
   },
   {
