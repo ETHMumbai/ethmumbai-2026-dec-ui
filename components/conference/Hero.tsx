@@ -28,15 +28,20 @@ export default function Hero() {
         </p>
 
         <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">
-          <Calendar className="w-5 h-5" />
+          <a
+            title="Add to Calendar"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+          >
+            <Calendar className="w-5 h-5 cursor-pointer" />
+          </a>
           <span>12 March 2026</span>
         </div>
 
         {/* Action Buttons */}
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <Link
-            href="/tickets"
-          >
+          <Link href="/tickets">
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]

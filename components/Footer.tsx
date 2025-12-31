@@ -113,10 +113,17 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="p-6 border-t flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 pb-10">
+      <div className="p-6 px-4 border-t flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5 pb-10">
         {/* Left — Logo + trademark */}
-        <div className="flex flex-row gap-3 items-center">
-          <p className="text-medium text-white text-[14px] leading-6">
+        <div className="flex flex-row items-center">
+          <p className="text-medium text-white text-[14px] leading-6 text-center">
+            All ETHMumbai conference tickets are
+            <br className="md:block sm:hidden"></br> non-cancellable, and
+            non-refundable.
+          </p>
+        </div>
+        <div className="flex flex-row items-center">
+          <p className="text-medium text-white text-[14px] leading-6 text-center">
             © 2026 ETHMumbai. All rights reserved.
           </p>
         </div>
