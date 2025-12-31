@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { hackathonAgenda } from "../../lib/hackathonAgendaData";
+import { Calendar } from "lucide-react";
 
 export default function Agenda() {
   const [activeDay, setActiveDay] = useState(0);
@@ -19,8 +20,17 @@ export default function Agenda() {
   return (
     <section className="w-full bg-white py-10 px-4">
       {/* TITLE */}
-      <h2 className="font-[MPlusRounded1c] text-center text-4xl md:text-5xl font-semibold text-black mb-8">
-        Agenda
+
+      <h2 className="flex items-center justify-center gap-3 font-[MPlusRounded1c] text-center text-4xl md:text-5xl font-semibold text-black mb-8">
+        Agenda{" "}
+        <a
+          title="Add to Calendar"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://calendar.google.com/calendar/?cid=Y183YWRmNTgwNjAzNjI1YzRlNmJlMDM1ODkyZDU1ZGFlOTg3NTk2YzRkYWJkMGQ0NjQ1MzdhYTQ2M2EyNDc5MjEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+        >
+          <Calendar className="w-5 h-5 mt-1 md:mt-2 cursor-pointer" />
+        </a>
       </h2>
 
       {/* DAY SWITCHER */}
