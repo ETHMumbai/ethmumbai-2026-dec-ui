@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ETHMumbai 2026 | BEST Conference & Hackathon",
     description:
-      "ETHMumbai is an Ethereum-focused conference & hackathon taking place on 12 - 15 March 2026 in Mumbai, India.",
+      "ETHMumbai is an Ethereum-focused conference & hackathon taking place on 12 - 15 March 2026 in Mumbai, India. It will host 50 speakers, 500 attendees, and 300 hackers.",
     url: "https://ethmumbai.in",
     siteName: "ETHMumbai",
     images: [
