@@ -30,13 +30,13 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-10 left-0 w-full h-16 bg-white/80 border-b border-gray-200 backdrop-blur-md z-50 box-border">
-      <div className="mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
+      <div className="relative mx-auto flex items-center justify-between h-full px-4 sm:px-6 md:px-8">
         {/* Logo */}
         <Link href="/">
           <Image src={EthMumbaiLogo} alt="ETHMumbai Logo" width={128} height={40} />
         </Link>
 
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-medium text-gray-800">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base absolute left-1/2 -translate-x-1/2 font-medium text-gray-800">
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
