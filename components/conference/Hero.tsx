@@ -32,9 +32,10 @@ export default function Hero() {
             title="Add to Calendar"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+            // href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
           >
-            <Calendar className="w-5 h-5 cursor-pointer" />
+            {/* <Calendar className="w-5 h-5 cursor-pointer" /> */}
+            <Calendar className="w-5 h-5" />
           </a>
           <span>12 March 2026</span>
         </div>

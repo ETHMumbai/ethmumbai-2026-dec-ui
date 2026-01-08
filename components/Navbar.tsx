@@ -52,7 +52,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
           <div className="flex flex-row items-center gap-3 sm:gap-4">
             {/* Twitter */}
-            <a
+            {/* <a
               href="https://x.com/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -62,10 +62,10 @@ export default function Navbar() {
             >
               <Image src={TwitterWhite} alt="Twitter" width={20} height={20} className="block group-hover:hidden" />
               <Image src={TwitterLogo} alt="Twitter" width={20} height={20} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Farcaster */}
-            <a
+            {/* <a
               href="https://farcaster.xyz/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -75,10 +75,10 @@ export default function Navbar() {
             >
               <Image src={FarcasterWhite} alt="Farcaster" width={20} height={20} className="block group-hover:hidden" />
               <Image src={FarcasterLogo} alt="Farcaster" width={20} height={20} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Telegram */}
-            <a
+            {/* <a
               href="https://t.me/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export default function Navbar() {
             >
               <Image src={TelegramWhite} alt="Telegram" width={20} height={20} className="block group-hover:hidden" />
               <Image src={TelegramLogo} alt="Telegram" width={20} height={20} className="hidden group-hover:block" />
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function Navbar() {
           <div className="flex items-center justify-center gap-6 pb-10 bg-white">
 
             {/* Twitter */}
-            <a
+            {/* <a
               href="https://x.com/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -177,10 +177,10 @@ export default function Navbar() {
             >
               <Image src={TwitterWhite} alt="Twitter" width={24} height={24} className="block group-hover:hidden" />
               <Image src={TwitterLogo} alt="Twitter" width={24} height={24} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Farcaster */}
-            <a
+            {/* <a
               href="https://farcaster.xyz/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -190,10 +190,10 @@ export default function Navbar() {
             >
               <Image src={FarcasterWhite} alt="Farcaster" width={24} height={24} className="block group-hover:hidden" />
               <Image src={FarcasterLogo} alt="Farcaster" width={24} height={24} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Telegram */}
-            <a
+            {/* <a
               href="https://t.me/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -203,7 +203,7 @@ export default function Navbar() {
             >
               <Image src={TelegramWhite} alt="Telegram" width={24} height={24} className="block group-hover:hidden" />
               <Image src={TelegramLogo} alt="Telegram" width={24} height={24} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
           </div>
         </div>

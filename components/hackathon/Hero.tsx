@@ -61,9 +61,10 @@ export default function Hero() {
             title="Add to Calendar"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://calendar.google.com/calendar/?cid=Y183YWRmNTgwNjAzNjI1YzRlNmJlMDM1ODkyZDU1ZGFlOTg3NTk2YzRkYWJkMGQ0NjQ1MzdhYTQ2M2EyNDc5MjEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+            // href="https://calendar.google.com/calendar/?cid=Y183YWRmNTgwNjAzNjI1YzRlNmJlMDM1ODkyZDU1ZGFlOTg3NTk2YzRkYWJkMGQ0NjQ1MzdhYTQ2M2EyNDc5MjEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
           >
-            <Calendar className="w-5 h-5 cursor-pointer" />
+            {/* <Calendar className="w-5 h-5 cursor-pointer" /> */}
+            <Calendar className="w-5 h-5" />
           </a>
           <span>13 - 15 March 2026</span>
         </div>

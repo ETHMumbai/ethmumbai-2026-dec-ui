@@ -105,7 +105,7 @@ export default function Sponsors() {
       </div>
 
       {/* CTA Button */}
-      <a
+      {/* <a
         href="https://tally.so/r/3NkdGb"
         target="_blank"
         rel="noopener noreferrer"
@@ -115,7 +115,7 @@ export default function Sponsors() {
             Become a Sponsor
           </button>
         </div>
-      </a>
+      </a> */}
     </section>
   );
 }
