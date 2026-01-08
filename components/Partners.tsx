@@ -41,8 +41,8 @@ export default function Partners() {
         {partners.map((p, i) => (
           <div
             key={i}
-            onClick={() => p.twitter && window.open(p.twitter, "_blank")}
-            className="relative w-full max-w-[320px] h-[107px] flex items-center justify-center gap-4 px-6 bg-[#F9FAFB] border-[2.8px] border-[#E5E7EB] rounded-[29px] cursor-pointer transition-transform duration-200 hover:scale-105"
+            // onClick={() => p.twitter && window.open(p.twitter, "_blank")}
+            className="relative w-full max-w-[320px] h-[107px] flex items-center justify-center gap-4 px-6 bg-[#F9FAFB] border-[2.8px] border-[#E5E7EB] rounded-[29px]  transition-transform duration-200 hover:scale-105"
           >
             <Image
               src={p.logo}
