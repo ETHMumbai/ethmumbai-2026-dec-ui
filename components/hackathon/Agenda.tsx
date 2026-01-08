@@ -29,7 +29,7 @@ export default function Agenda() {
           rel="noopener noreferrer"
           href="https://calendar.google.com/calendar/?cid=Y183YWRmNTgwNjAzNjI1YzRlNmJlMDM1ODkyZDU1ZGFlOTg3NTk2YzRkYWJkMGQ0NjQ1MzdhYTQ2M2EyNDc5MjEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
         > */}
-          <Calendar className="w-5 h-5 mt-1 md:mt-2 " />
+          {/* <Calendar className="w-5 h-5 mt-1 md:mt-2 " /> */}
         {/* </a> */}
       </h2>
 
