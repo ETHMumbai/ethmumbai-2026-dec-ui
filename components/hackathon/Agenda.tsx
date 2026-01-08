@@ -23,14 +23,14 @@ export default function Agenda() {
 
       <h2 className="flex items-center justify-center gap-3 font-[MPlusRounded1c] text-center text-4xl md:text-5xl font-semibold text-black mb-8">
         Agenda{" "}
-        <a
+        {/* <a
           title="Add to Calendar"
           target="_blank"
           rel="noopener noreferrer"
           href="https://calendar.google.com/calendar/?cid=Y183YWRmNTgwNjAzNjI1YzRlNmJlMDM1ODkyZDU1ZGFlOTg3NTk2YzRkYWJkMGQ0NjQ1MzdhYTQ2M2EyNDc5MjEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
-        >
-          <Calendar className="w-5 h-5 mt-1 md:mt-2 cursor-pointer" />
-        </a>
+        > */}
+          <Calendar className="w-5 h-5 mt-1 md:mt-2 " />
+        {/* </a> */}
       </h2>
 
       {/* DAY SWITCHER */}
