@@ -340,15 +340,18 @@ const Payment = () => {
         name: "ETHMumbai",
         handler: async (resp: any) => {
           try {
-            const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                paymentType: "RAZORPAY",
-                orderId,
-                ...resp,
-              }),
-            });
+            const verifyRes = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  paymentType: "RAZORPAY",
+                  orderId,
+                  ...resp,
+                }),
+              }
+            );
 
             if (!verifyRes.ok) {
               throw new Error("Razorpay verification failed");
@@ -362,8 +365,8 @@ const Payment = () => {
             }
 
             router.replace(
-              `/conference/payment-success?orderId=${orderId}`
-            )
+              `/conference/payment-success?orderId=${data.orderId}`
+            );
           } catch (err) {
             console.error("Razorpay verification failed:", err);
             alert("Payment verification failed. Please contact support.");
