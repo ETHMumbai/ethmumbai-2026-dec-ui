@@ -159,15 +159,13 @@ const soldOut =
       {/* ================= INR ================= */}
       <div style={{ position: "relative", display: "inline-block" }}>
         <button
-          disabled
+          disabled={!checkoutValid || soldOut || loadingINR}
           onClick={handlePayWithRazorpay}
-          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg cursor-not-allowed disabled:opacity-50 whitespace-nowrap"
+          className="w-full inline-flex items-center cursor-pointer hover:bg-gray-800 justify-center px-4 py-3 bg-black text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
         >
           {soldOut
             ? "Sold Out"
-            : loadingINR
-            ? "Creating INR order…"
-            : "INR Coming Soon"}
+            : "Pay with INR"}
         </button>
       </div>
     </div>

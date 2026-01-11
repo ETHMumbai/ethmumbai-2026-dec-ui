@@ -17,13 +17,13 @@ import { fetchActiveTicket } from "@/lib/tickets";
 const ticketPrices: Record<TicketType, number> = {
   christmas: 499,
   earlybird: 999,
-  regular: 1249,
+  regular: 2,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
   christmas: 5.5,
   earlybird: 11,
-  regular: 13.8,
+  regular: 0.22,
 };
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -312,7 +312,7 @@ const Payment = () => {
 
   /* ---------------- Razorpay Payment ---------------- */
   const handlePayWithRazorpay = async () => {
-    if (loadingINR) return;
+    if (!validateCheckout() || loadingINR) return;
     setLoadingINR(true);
 
     const loaded = await loadRazorpay();
@@ -327,6 +327,9 @@ const Payment = () => {
           body: JSON.stringify(buildPayload()),
         }
       );
+
+      if (!res.ok) throw new Error("Failed to create Razorpay order");
+
       const data = await res.json();
 
       const rzp = new (window as any).Razorpay({
@@ -337,13 +340,33 @@ const Payment = () => {
         name: "ETHMumbai",
         handler: async (resp: any) => {
           try {
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
+            const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(resp),
+              body: JSON.stringify({
+                paymentType: "RAZORPAY",
+                orderId,
+                ...resp,
+              }),
             });
+
+            if (!verifyRes.ok) {
+              throw new Error("Razorpay verification failed");
+            }
+
+            const latestTicket = await fetchActiveTicket();
+            if (!latestTicket || latestTicket.remainingQuantity <= 0) {
+              alert("Tickets are sold out.");
+              setLoadingINR(false);
+              return;
+            }
+
+            router.replace(
+              `/conference/payment-success?orderId=${orderId}`
+            )
           } catch (err) {
             console.error("Razorpay verification failed:", err);
+            alert("Payment verification failed. Please contact support.");
           }
         },
         prefill: {
