@@ -117,15 +117,12 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
           </div>
 
           {/* Total Amount Paid - DYNAMIC */}
-
           <div className="mt-[32px] pt-[24px] border-t-2 border-gray-200">
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹{orderData.orderFiat * orderData.quantity}{" "}
-                {orderData.paymentMethod == "Crypto" && (
-                  <> (${orderData.totalAmount.toFixed(2)})</>
-                )}
+                ₹{orderData.orderFiat * orderData.quantity} ($
+                {orderData.totalAmount.toFixed(2)})
               </span>
             </div>
 
