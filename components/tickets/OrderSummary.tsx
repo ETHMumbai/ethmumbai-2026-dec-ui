@@ -19,8 +19,8 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
     ticketType && ticketPrices[ticketType] ? ticketPrices[ticketType] : 0;
   const total = pricePerTicket * quantity;
 
-  const originalPricePerTicket = 2;
-  const originalPricePerTicketUSD = 0.22;
+  const originalPricePerTicket = 2499;
+  const originalPricePerTicketUSD = 27.7;
 
   const pricePerTicketUSD =
     ticketType && ticketPricesUSD[ticketType] ? ticketPricesUSD[ticketType] : 0;
