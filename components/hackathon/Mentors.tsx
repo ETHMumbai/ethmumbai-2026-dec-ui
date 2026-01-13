@@ -21,12 +21,12 @@ export default function Mentors() {
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">
               {/* CLICKABLE ONLY IF xLink EXISTS */}
               {mentor.xLink ? (
-                // <a
-                //   href={mentor.xLink}
-                //   target="_blank"
-                //   rel="noopener noreferrer"
-                //   className="cursor-pointer group"
-                // >
+                <a
+                  href={mentor.xLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer group"
+                >
                   <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#FFFFF] bg-[#3FA9F5] overflow-visible relative">
                     <Image
                       src={mentor.image}
@@ -48,7 +48,7 @@ export default function Mentors() {
                       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10" />
                     </div>
                   </div>
-                // </a>
+                </a>
               ) : (
                 <div className="cursor-default group">
                   <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">

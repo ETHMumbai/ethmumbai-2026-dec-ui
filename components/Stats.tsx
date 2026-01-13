@@ -9,11 +9,11 @@ export default function Stats() {
     <section className="relative flex justify-center overflow-hidden bg-white border border-black text-white">
       {/* Medium Screens */}
       <div className="hidden md:flex">
-        {/* <a
+        <a
           href="https://2024.ethmumbai.in/"
           target="_blank"
           rel="noopener noreferrer"
-        > */}
+        >
           <Image
             src={Stat}
             alt=""
@@ -26,16 +26,16 @@ export default function Stats() {
       xl:px-40 xl:py-32  
     "
           />
-        {/* </a> */}
+        </a>
       </div>
 
       {/* Small Screens */}
       <div className="flex md:hidden">
-        {/* <a
+        <a
           href="https://2024.ethmumbai.in/"
           target="_blank"
           rel="noopener noreferrer"
-        > */}
+        >
           <Image
             src={StatSm}
             alt=""
@@ -45,7 +45,7 @@ export default function Stats() {
       sm:px-12 sm:py-10
     "
           />
-        {/* </a> */}
+        </a>
       </div>
     </section>
   );

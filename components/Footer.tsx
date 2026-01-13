@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="p-4  text-white">
             {/* <p className="font-medium text-lg">About Us</p> */}
 
-            {/* <div className="mt-6 flex flex-col gap-3 font-light">
+            <div className="mt-6 flex flex-col gap-3 font-light">
               <a
                 href="https://luma.com/ethmumbai"
                 target="_blank"
@@ -60,7 +60,7 @@ const Footer = () => {
               >
                 ETHMumbai 2024
               </a>
-            </div> */}
+            </div>
           </div>
 
           {/* 1/4 width on desktop */}
@@ -68,7 +68,7 @@ const Footer = () => {
             {/* <p className="font-medium text-lg">Join Us</p> */}
 
             <div className="mt-6 flex flex-col gap-3 font-light">
-              {/* <a
+              <a
                 href="/tickets"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
@@ -89,7 +89,7 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Newsletter
-              </a> */}
+              </a>
               {/* <a
                 href="https://tally.so/r/nGW5Bz"
                 target="_blank"
@@ -129,7 +129,7 @@ const Footer = () => {
         </div>
 
         {/* Right — Social icons */}
-        {/* <div className="flex gap-5">
+        <div className="flex gap-5">
           <a
             href="https://x.com/ethmumbai"
             target="_blank"
@@ -174,7 +174,7 @@ const Footer = () => {
               className="block"
             />
           </a>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
