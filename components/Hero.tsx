@@ -88,10 +88,9 @@ export default function Hero() {
             title="Add to Calendar"
             target="_blank"
             rel="noopener noreferrer"
-            // href="https://calendar.google.com/calendar/?cid=Y180OTNlNmQ3YWRlYzIyMTA0NGE5OWYwOTY4MGVlMzZjZTZlOTkyYjA4ZWM3OTljZDVjMTQ3YzU3MzZiNDA1YjRkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+            href="https://calendar.google.com/calendar/?cid=Y180OTNlNmQ3YWRlYzIyMTA0NGE5OWYwOTY4MGVlMzZjZTZlOTkyYjA4ZWM3OTljZDVjMTQ3YzU3MzZiNDA1YjRkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
           >
-            {/* <Calendar className="w-5 h-5 cursor-pointer" /> */}
-            <Calendar className="w-5 h-5 " />
+            <Calendar className="w-5 h-5 cursor-pointer" />
           </a>
           <span>12 – 15 March 2026</span>
         </div>
@@ -107,7 +106,7 @@ export default function Hero() {
               Buy Tickets
             </button>
           </a>
-          {/* <button
+          <button
             style={{ cursor: "pointer" }}
             onClick={() => {
               window.open("https://ethmumbai2026.devfolio.co/", "_blank");
@@ -117,7 +116,7 @@ export default function Hero() {
                         hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
           >
             Apply to Hack
-          </button> */}
+          </button>
         </div>
         {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a

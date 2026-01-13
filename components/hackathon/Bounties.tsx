@@ -28,6 +28,7 @@ export default function Sponsors() {
               aspect-[2.32/1]
               rounded-[10px]
               overflow-hidden
+              cursor-pointer
               hover:scale-105
               transition-all duration-200
               group
@@ -37,7 +38,7 @@ export default function Sponsors() {
               bg-no-repeat
               bg-center
             `}
-            // onClick={() => s.twitter && window.open(s.twitter, "_blank")}
+            onClick={() => s.twitter && window.open(s.twitter, "_blank")}
           >
             {/* Logo and name */}
             {/* <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6">
@@ -79,7 +80,7 @@ export default function Sponsors() {
       </div>
 
       {/* CTA Button */}
-      {/* <a
+      <a
         href="https://tally.so/r/3NkdGb"
         target="_blank"
         rel="noopener noreferrer"
@@ -89,7 +90,7 @@ export default function Sponsors() {
             Become a Sponsor
           </button>
         </div>
-      </a> */}
+      </a>
     </section>
   );
 }

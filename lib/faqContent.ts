@@ -50,21 +50,21 @@ export const conferenceFAQ: FAQItem[] = [
     content:
       "The conference will feature talks across three tracks: DeFi, Privacy, and AI.",
   },
-  // {
-  //   title: "How can I apply to speak at the conference?",
-  //   content:
-  //     "Fill out the [speaker application form](https://tally.so/r/nGW5Bz) to apply for a talk. We will get back to you soon.",
-  // },
+  {
+    title: "How can I apply to speak at the conference?",
+    content:
+      "Fill out the [speaker application form](https://tally.so/r/nGW5Bz) to apply for a talk. We will get back to you soon.",
+  },
   {
     title: "What is included in the ticket?",
     content:
       "One conference ticket includes access to all talks and panels, sponsor booths, swag, activities, and open-floor networking.",
   },
-  // {
-  //   title: "How can I become a sponsor?",
-  //   content:
-  //     "We love to see this question. You can sponsor the ETHMumbai conference and/or hackathon by filling out the [sponsor application form](https://tally.so/r/3NkdGb). We will reach out to talk to you soon.",
-  // },
+  {
+    title: "How can I become a sponsor?",
+    content:
+      "We love to see this question. You can sponsor the ETHMumbai conference and/or hackathon by filling out the [sponsor application form](https://tally.so/r/3NkdGb). We will reach out to talk to you soon.",
+  },
 ];
 
 export const hackathonFAQ: FAQItem[] = [
