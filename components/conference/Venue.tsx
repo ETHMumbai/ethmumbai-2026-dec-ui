@@ -13,7 +13,7 @@ const Venue: React.FC<VenueProps> = ({ type }) => {
     type === "conference" ? conferenceVenue : hackathonVenue;
 
   return (
-    <section className="w-full bg-[#00A859] py-16">
+    <section className="w-full bg-[#00A859] py-10">
         <div className="flex pb-2 items-center justify-center w-full mt-[-10px]">
             <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
                 Venue

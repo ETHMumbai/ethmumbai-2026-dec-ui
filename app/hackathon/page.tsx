@@ -33,7 +33,7 @@ export default function LandingPage() {
         <Bounties />
         <Judges />
         <Mentors />
-        {/* <Venue type="hackathon" /> */}
+        <Venue type="hackathon" />
         <Agenda />
         <FAQ type="hackathon" />
         <Footer />

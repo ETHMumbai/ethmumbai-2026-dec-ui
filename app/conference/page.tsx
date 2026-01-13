@@ -24,7 +24,7 @@ export default function LandingPage() {
         <Speakers/>
         <Sponsors />
         {/* <Agenda /> */}
-        {/* <Venue type="conference" /> */}
+        <Venue type="conference" />
         <FAQ type="conference" />
         {/* <ClosingCTA /> */}
         <Footer />
