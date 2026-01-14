@@ -17,13 +17,13 @@ import { fetchActiveTicket } from "@/lib/tickets";
 const ticketPrices: Record<TicketType, number> = {
   christmas: 499,
   earlybird: 999,
-  regular: 2,
+  regular: 1249,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
   christmas: 5.5,
   earlybird: 11,
-  regular: 0.22,
+  regular: 13.8,
 };
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -364,9 +364,7 @@ const Payment = () => {
               return;
             }
 
-            router.replace(
-              `/conference/success-rzp?orderId=${data.orderId}`
-            );
+            router.replace(`/conference/success-rzp?orderId=${data.orderId}`);
           } catch (err) {
             console.error("Razorpay verification failed:", err);
             alert("Payment verification failed. Please contact support.");
