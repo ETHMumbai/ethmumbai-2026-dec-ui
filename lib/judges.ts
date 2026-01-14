@@ -147,4 +147,11 @@ export const judges: Judge[] = [
     xLink: "https://x.com/swetashaw_",
     imageScale: "h-[125%]",
   },
+  {
+    name: "Vanshika Srivastava",
+    company: "Gnosis",
+    image: "/assets/hackathon/judges/Vanshika_Judge-removebg-preview.png",
+    xLink: "https://x.com/ThisisVanshika",
+    imageScale: "h-[118%]",
+  },
 ];
