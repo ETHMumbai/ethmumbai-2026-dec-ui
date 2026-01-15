@@ -21,6 +21,7 @@ export default function Speakers() {
     sm:grid-cols-3
     md:grid-cols-4
     lg:grid-cols-7
+    justify-items-center
     gap-6 sm:gap-8 md:gap-10
     mb-12
     mx-auto
