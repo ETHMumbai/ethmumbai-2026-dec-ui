@@ -8,19 +8,32 @@ import { pastSpeakers } from "../lib/speakersData";
 export default function Speakers() {
   return (
     <section className="w-full bg-[#FFD600] py-10 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
+      <h2 className="text-black text-4xl mb-6 sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         People @ ETHMumbai
       </h2>
 
       {/* Speakers Grid */}
-      <div className="px-4 sm:px-8 lg:px-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12 mx-auto">
+      <div
+        className="
+    px-4 sm:px-8 lg:px-12
+    grid
+    grid-cols-2
+    sm:grid-cols-3
+    md:grid-cols-4
+    lg:grid-cols-7
+    gap-6 sm:gap-8 md:gap-10
+    mb-12
+    mx-auto
+    max-w-[1600px]
+  "
+      >
         {pastSpeakers.map((speaker, index) => (
           <div
             key={index}
             className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
           >
             {/* Wrapper with padding for overflow */}
-            <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">
+            <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-3 group">
               {/* CLICKABLE ONLY IF xLink EXISTS */}
               {speaker.xLink ? (
                 <a
@@ -35,9 +48,8 @@ export default function Speakers() {
                       alt={speaker.name}
                       width={150}
                       height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
+                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${speaker.imageScale || "h-[118%]"
+                        }`}
                       style={{
                         width: "112%",
                         objectPosition: "center 30%",
@@ -59,9 +71,8 @@ export default function Speakers() {
                       alt={speaker.name}
                       width={150}
                       height={185}
-                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${
-                        speaker.imageScale || "h-[118%]"
-                      }`}
+                      className={`absolute bottom-0 left-[50%] -translate-x-1/2 object-cover rounded-3xl ${speaker.imageScale || "h-[118%]"
+                        }`}
                       style={{
                         width: "112%",
                         objectPosition: "center 30%",
