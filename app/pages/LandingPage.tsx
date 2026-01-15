@@ -31,11 +31,11 @@ export default function LandingPage() {
           <Hero />
           <Stats />
           <Overview />
-          <Speakers/>
+          <Speakers />
           <Sponsors />
           <Partners />
-          <Venue />
-          <FAQ type="general"/>
+          {/* <Venue /> */}
+          <FAQ type="general" />
           {/* <ClosingCTA /> */}
           <Footer />
         </main>

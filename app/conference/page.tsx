@@ -21,10 +21,10 @@ export default function LandingPage() {
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
         <Overview />
-        <Speakers/>
+        <Speakers />
         <Sponsors />
         {/* <Agenda /> */}
-        <Venue type="conference" />
+        {/* <Venue type="conference" /> */}
         <FAQ type="conference" />
         {/* <ClosingCTA /> */}
         <Footer />
