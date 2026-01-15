@@ -34,7 +34,7 @@ export default function LandingPage() {
           <Speakers />
           <Sponsors />
           <Partners />
-          {/* <Venue /> */}
+          <Venue />
           <FAQ type="general" />
           {/* <ClosingCTA /> */}
           <Footer />
