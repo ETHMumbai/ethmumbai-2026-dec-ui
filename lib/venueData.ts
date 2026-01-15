@@ -1,24 +1,27 @@
 import { StaticImageData } from "next/image";
-import ConferenceImg from "../public/assets/conference/venue.png";
-import HackathonImg from "../public/assets/hackathon/venue.png";
+import ConferenceImg from "../public/assets/conference/venue.jpg";
+import HackathonImg from "../public/assets/hackathon/venue.jpg";
 
 export interface VenueData {
   image: StaticImageData;
   name: string;
   address: string;
   directionLink: string;
+  pincode?: string;
 }
 
 export const conferenceVenue: VenueData = {
   image: ConferenceImg,
-  name: "Jio World Convention Centre",
-  address: "Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051, India",
-  directionLink: "https://www.google.com/maps/place/Mumbai+Exhibition+Center",
+  name: "Yashwantrao Chavan Centre",
+  address: "General Jagannath Bhosle Road, Nariman Point,",
+  directionLink: "https://maps.app.goo.gl/8sobRRBJxqF5ueqz6",
+  pincode: "400021",
 };
 
 export const hackathonVenue: VenueData = {
   image: HackathonImg,
-   name: "Jio World Convention Centre",
-  address: "Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051, India",
-  directionLink: "https://www.google.com/maps/place/Mumbai+Exhibition+Center",
+   name: "World Trade Center",
+  address: "Ganesh Murti Nagar, Cuffe Parade,",
+  directionLink: "https://maps.app.goo.gl/2eV6KSu1RPBnaFXaA",
+  pincode: "400005",
 };

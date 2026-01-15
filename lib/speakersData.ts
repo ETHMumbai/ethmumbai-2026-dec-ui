@@ -86,6 +86,13 @@ export const pastSpeakers: Speaker[] = [
   //   imageScale: "h-[185%]",
   // },
   {
+    name: "Jayesh Bhole",
+    company: "Offchain Labs",
+    image: "/assets/hackathon/mentors/Jayesh Bhole.png",
+    xLink: "https://x.com/supremebattak",
+    imageScale: "h-[125%]",
+  },
+  {
     name: "Kanika Mishra",
     company: "USDT Marketplace",
     image: "/assets/speakers/Kanika_Mishra.png",

@@ -10,6 +10,7 @@ import Sponsors from "@/components/Sponsors";
 import Partners from "@/components/Partners";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Speakers from "@/components/Speakers";
+import Venue from "@/components/Venue";
 // import Speakers from "@/components/hackathon/Speakers";
 import ClosingCTA from "@/components/ClosingCTA";
 
@@ -30,10 +31,11 @@ export default function LandingPage() {
           <Hero />
           <Stats />
           <Overview />
-          <Speakers/>
+          <Speakers />
           <Sponsors />
           <Partners />
-          <FAQ type="general"/>
+          {/* <Venue /> */}
+          <FAQ type="general" />
           {/* <ClosingCTA /> */}
           <Footer />
         </main>

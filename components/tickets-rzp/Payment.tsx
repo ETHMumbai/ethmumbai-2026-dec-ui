@@ -320,7 +320,8 @@ const Payment = () => {
 
     try {
       const res = await fetch(
-        `https://ethmumbai-2026-server-1.onrender.com/payments/order`,
+        // `https://ethmumbai-2026-server-1.onrender.com/payments/order`,
+        `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -341,7 +342,8 @@ const Payment = () => {
         handler: async (resp: any) => {
           try {
             const verifyRes = await fetch(
-              `https://ethmumbai-2026-server-1.onrender.com/payments/verify`,
+              // `https://ethmumbai-2026-server-1.onrender.com/payments/verify`,
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -364,7 +366,7 @@ const Payment = () => {
               return;
             }
 
-            router.replace(`/conference/success-rzp?orderId=${data.orderId}`);
+            router.replace(`/conference/payment-success?orderId=${data.orderId}`);
           } catch (err) {
             console.error("Razorpay verification failed:", err);
             alert("Payment verification failed. Please contact support.");
