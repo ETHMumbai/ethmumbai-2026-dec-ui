@@ -77,10 +77,10 @@ const VenueCard = ({
 
 const Venue = () => {
   return (
-    <section className="w-full bg-[#00A859] py-14">
+    <section className="w-full bg-[#00A859] py-10">
       {/* Title */}
-      <h2 className="text-center text-white text-5xl font-[MPlusRounded1c] font-medium tracking-tighter mb-12">
-        Venue
+      <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
+          Venue
       </h2>
 
       {/* Cards */}

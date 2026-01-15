@@ -60,7 +60,7 @@ const Venue: React.FC<VenueProps> = ({ type }) => {
 
 
           {/* ADDRESS */}
-          <div className="flex items-start justify-center md:justify-start text-center text-white mb-3 gap-2">
+          <div className="flex items-start justify-center md:justify-start text-left text-white mb-3 gap-2">
             <MapPin className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 mt-1" />
             <span className="text-base sm:text-lg md:text-xl leading-relaxed">
               {venue.address}
