@@ -12,9 +12,9 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
   const [ticket, setTicket] = useState<Ticket | null>(null);
 
   async function loadTicket() {
-      const activeTicket = await fetchActiveTicket();
-      setTicket(activeTicket);
-    }
+    const activeTicket = await fetchActiveTicket();
+    setTicket(activeTicket);
+  }
 
   useEffect(() => {
     loadTicket();
@@ -51,7 +51,10 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
 
         <div className="flex justify-between text-sm mb-2 text-green-600">
           <span>
-            Discounted Price per ticket ({ticket.discount?.percentage ?? 0}% OFF)
+            Discounted Price per ticket{" "}
+            <span className="block sm:inline">
+              ({ticket.discount?.percentage ?? 0}% OFF)
+            </span>
           </span>
           <span>
             ₹{discountedPrice} (${(discountedPrice / 90).toFixed(2)})
