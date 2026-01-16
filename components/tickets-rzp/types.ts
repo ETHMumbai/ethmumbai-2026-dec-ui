@@ -1,16 +1,21 @@
 // types.ts
 export type TicketType = "earlybird" | "regular" | "christmas";
 
+export interface DiscountInfo {
+  originalPrice: number;
+  amount: number;
+  percentage: number;
+}
+
 export interface Ticket {
   id: string;
   title: string;
-  type: TicketType;
+  type: "earlybird" | "regular" | "christmas";
   fiat: number;
   crypto: number;
-  quantity: number;
   remainingQuantity: number;
-  isActive: boolean;
   priority: number;
+  discount?: DiscountInfo;
 }
 export interface TicketOption {
   type: TicketType
