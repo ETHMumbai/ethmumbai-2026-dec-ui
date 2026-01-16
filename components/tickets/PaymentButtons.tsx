@@ -150,7 +150,7 @@ const soldOut =
                   : "opacity-50 cursor-not-allowed"
               }`}
             >
-              {soldOut ? "Sold Out" : "Pay with Crypto"}
+              {soldOut ? "Pay with Crypto" : "Pay with Crypto"}
             </button>
           )}
         </DaimoPayButtonCustom>
@@ -164,7 +164,7 @@ const soldOut =
           className="w-full inline-flex items-center cursor-pointer hover:bg-gray-800 justify-center px-4 py-3 bg-black text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
         >
           {soldOut
-            ? "Sold Out"
+            ? "Pay with INR"
             : "Pay with INR"}
         </button>
       </div>
