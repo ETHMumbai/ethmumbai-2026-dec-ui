@@ -80,7 +80,7 @@ const Payment = () => {
   /* ---------------- State ---------------- */
   const [activeTicket, setActiveTicket] = useState<Ticket | null>(null);
   const [visualTicketType, setVisualTicketType] =
-    useState<TicketType>("earlybird");
+    useState<TicketType>("regular");
   const [quantity, setQuantity] = useState(1);
 
   const [loadingINR, setLoadingINR] = useState(false);
@@ -430,6 +430,7 @@ const Payment = () => {
           quantity={quantity}
           handleQuantityChange={handleQuantityChange}
           ticketOptions={ticketOptionsToShow}
+          activeTicket={activeTicket}
         />
 
         <BuyerInfo
@@ -443,10 +444,10 @@ const Payment = () => {
         />
 
         <OrderSummary
-          ticketType={activeTicket?.type ?? null}
+          // ticketType={activeTicket?.type ?? null}
           quantity={quantity}
-          ticketPrices={ticketPrices}
-          ticketPricesUSD={ticketPricesUSD}
+          // ticketPrices={ticketPrices}
+          // ticketPricesUSD={ticketPricesUSD}
         />
 
         <PaymentButtons

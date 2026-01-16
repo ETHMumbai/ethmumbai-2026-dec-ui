@@ -1,8 +1,7 @@
-// TicketSelection.tsx
 "use client";
 
 import Image from "next/image";
-import { TicketOption, TicketType } from "./types";
+import { TicketOption, TicketType, Ticket } from "./types";
 
 interface TicketSelectionProps {
   visualTicketType: TicketType;
@@ -10,6 +9,7 @@ interface TicketSelectionProps {
   quantity: number;
   handleQuantityChange: (type: "inc" | "dec") => void;
   ticketOptions: TicketOption[];
+  activeTicket: Ticket | null;
 }
 
 const TicketSelection: React.FC<TicketSelectionProps> = ({
@@ -18,21 +18,52 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
   quantity,
   handleQuantityChange,
   ticketOptions,
+  activeTicket,
 }) => {
+  // Returns the image path based on ticket price
+  const getImageForTicket = (type: TicketType) => {
+    const option = ticketOptions.find((o) => o.type === type);
+    if (!option) return "";
+
+    if (type === activeTicket?.type) {
+      const price = activeTicket.fiat;
+      // Images are stored as /assets/tickets/{price}.svg
+      return `/assets/tickets/${price}.svg`;
+    }
+
+    return option.desktopImage;
+  };
+
+
+  // For mobile small image
+  const getMobileImageForTicket = (type: TicketType) => {
+    const option = ticketOptions.find((o) => o.type === type);
+    if (!option) return "";
+
+    if (type === activeTicket?.type) {
+      const price = activeTicket.fiat;
+      return `/assets/tickets/${price}-sm.svg`;
+    }
+
+    return option.mobileImage;
+  };
+
   return (
     <div className="bg-white rounded-2xl shadow p-6 mb-6">
       {/* Desktop */}
       <div className="hidden sm:grid sm:grid-cols-2 gap-4">
-        {ticketOptions.map(({ type, desktopImage, label, comingSoon }, index) => (
+        {ticketOptions.map(({ type, label, comingSoon }) => (
           <div
             key={type}
             className={`
               relative border rounded-xl p-4
-              ${!comingSoon ? "group transition-all duration-300 border-black cursor-pointer hover:-translate-y-1 hover:shadow-xl" : "border-gray-300 opacity-50 cursor-not-allowed"}
+              ${!comingSoon
+                ? "group transition-all duration-300 border-black cursor-pointer hover:-translate-y-1 hover:shadow-xl"
+                : "border-gray-300 opacity-50 cursor-not-allowed"
+              }
             `}
           >
-
-            { comingSoon && (
+            {comingSoon && (
               <div className="absolute top-2 right-2 z-20 bg-black text-white text-xs px-2 py-1 rounded-full">
                 Sold Out
               </div>
@@ -40,11 +71,11 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
 
             <div className="relative overflow-hidden rounded-lg">
               <Image
-                src={desktopImage}
+                src={getImageForTicket(type)}
                 alt={label}
                 width={856}
                 height={274}
-                className={`w-full h-auto object-contain`}
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
@@ -53,7 +84,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
 
       {/* Mobile */}
       <div className="flex sm:hidden gap-4">
-        {ticketOptions.map(({ type, mobileImage, label }) => (
+        {ticketOptions.map(({ type, label, mobileImage }) => (
           <div
             key={type}
             onClick={() => setVisualTicketType(type)}
@@ -62,6 +93,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
               ${visualTicketType === type ? "border-black" : "border-gray-300"}
             `}
           >
+            {/* Keep using the original mobileImage here */}
             <Image
               src={mobileImage}
               alt={label}
@@ -77,11 +109,11 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
       <div className="block sm:hidden mt-4">
         <Image
           src={
-            visualTicketType === "earlybird"
-              ? "/assets/tickets/earlybird-sm.svg"
-              : visualTicketType === "regular"
-              ? "/assets/tickets/standard-sm.svg"
-              : "/assets/tickets/christmas-sm.svg"
+            visualTicketType === "regular"
+              ? getMobileImageForTicket("regular")
+              : visualTicketType === "earlybird"
+                ? "/assets/tickets/earlybird-sm.svg"
+                : "/assets/tickets/christmas-sm.svg"
           }
           alt={visualTicketType}
           width={300}
@@ -89,6 +121,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           className="w-full h-auto object-contain"
         />
       </div>
+
+
 
       {/* Quantity */}
       <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
@@ -98,9 +132,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           <button
             onClick={() => handleQuantityChange("dec")}
             disabled={quantity <= 1}
-            className={`px-3 py-1 border rounded-lg ${
-              quantity <= 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            }`}
+            className={`px-3 py-1 border rounded-lg ${quantity <= 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+              }`}
           >
             −
           </button>
@@ -110,9 +143,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           <button
             onClick={() => handleQuantityChange("inc")}
             disabled={quantity >= 4}
-            className={`px-3 py-1 border rounded-lg ${
-              quantity >= 4 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            }`}
+            className={`px-3 py-1 border rounded-lg ${quantity >= 4 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+              }`}
           >
             +
           </button>
