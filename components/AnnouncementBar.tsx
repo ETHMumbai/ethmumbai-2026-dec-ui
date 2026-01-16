@@ -21,13 +21,13 @@ export default function AnnouncementBar() {
 
   const fetchTicket = async () => {
     try {
+      setLoading(true);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/t/current`,
         { cache: "no-store" }
       );
       const data = await res.json();
 
-      // Only update ticketInfo if we get data
       if (data?.remainingQuantity > 0) {
         setTicketInfo(data);
       } else {
@@ -37,7 +37,7 @@ export default function AnnouncementBar() {
       console.error("Ticket fetch failed", err);
       setTicketInfo(null);
     } finally {
-      setLoading(false); // mark loading complete without clearing text
+      setLoading(false);
     }
   };
 
