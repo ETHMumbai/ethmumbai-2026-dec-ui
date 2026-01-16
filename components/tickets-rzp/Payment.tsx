@@ -78,7 +78,9 @@ const Payment = () => {
   const router = useRouter();
 
   /* ---------------- State ---------------- */
-  const [activeTicket, setActiveTicket] = useState<Ticket | null>(null);
+  const [activeTicket, setActiveTicket] = useState<
+    Awaited<ReturnType<typeof fetchActiveTicket>> | null
+  >(null);
   const [visualTicketType, setVisualTicketType] =
     useState<TicketType>("earlybird");
   const [quantity, setQuantity] = useState(1);
