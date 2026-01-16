@@ -23,7 +23,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
   }, []);
 
   if (!ticket) {
-    return <div>Loading order summary...</div>;
+    return ""
   }
 
   const originalPrice = ticket.discount?.originalPrice ?? ticket.fiat;

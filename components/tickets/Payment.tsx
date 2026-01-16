@@ -297,7 +297,7 @@ const Payment = () => {
     if (!activeTicket) throw new Error("No active ticket available");
 
     return {
-      ticketType: activeTicket.type,
+      ticketType: activeTicket.title,
       quantity,
       buyer: buyerInfo,
       participants: participants.map((p) => ({
