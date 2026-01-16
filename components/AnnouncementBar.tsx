@@ -21,13 +21,13 @@ export default function AnnouncementBar() {
 
   const fetchTicket = async () => {
     try {
-      setLoading(true);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/t/current`,
         { cache: "no-store" }
       );
       const data = await res.json();
 
+      // Only update ticketInfo if we get data
       if (data?.remainingQuantity > 0) {
         setTicketInfo(data);
       } else {
@@ -37,7 +37,7 @@ export default function AnnouncementBar() {
       console.error("Ticket fetch failed", err);
       setTicketInfo(null);
     } finally {
-      setLoading(false);
+      setLoading(false); // mark loading complete without clearing text
     }
   };
 
@@ -50,11 +50,11 @@ export default function AnnouncementBar() {
   return (
     <div className="fixed top-0 left-0 h-10 w-full z-[60] bg-[#FFD600] text-black px-3 py-2 flex items-center justify-center text-center">
       <span className="text-[12px] sm:text-sm md:text-base font-bold tracking-wide leading-tight sm:whitespace-nowrap">
-        {loading
-          ? ""
-          : ticketInfo
+        {ticketInfo
           ? `${ticketInfo.remainingQuantity} tickets are available at ${ticketInfo.discount.percentage}% OFF. `
-          : "Tickets are sold out."}
+          : !loading
+          ? ""
+          : ""}
         {ticketInfo && (
           <Link
             href="/tickets"
