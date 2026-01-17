@@ -7,13 +7,33 @@ import OrderInfo from "@/components/conference/payment-success/OrderInfo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import { Share } from "next/font/google";
+import ShareTicketsGrid from "@/components/conference/payment-success/shareTicket";
+
+interface OrderData {
+  orderId: string;
+  transactionId: string;
+  ticketType: string;
+  quantity: number;
+  paymentMethod: string;
+  purchaseDate: string;
+  orderFiat: number;
+  orderCrypto: number;
+  totalAmount: number;
+  buyerEmail: string;
+  participants: {
+    name: string;
+    email: string;
+    ticketCode: string;
+  }[];
+}
 
 export default function PaymentSuccess() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId");
 
-  const [orderData, setOrderData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [orderData, setOrderData] = useState<OrderData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -31,7 +51,7 @@ export default function PaymentSuccess() {
               "Content-Type": "application/json",
               "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
             },
-          }
+          },
         );
 
         if (!res.ok) {
@@ -92,6 +112,10 @@ export default function PaymentSuccess() {
       <main className="flex min-h-screen w-full flex-col bg-black font-sans">
         <Hero />
         <OrderInfo orderData={orderData} />
+        <ShareTicketsGrid
+          ticketType={orderData.ticketType}
+          participants={orderData.participants}
+        />
       </main>
       <Footer />
     </div>
