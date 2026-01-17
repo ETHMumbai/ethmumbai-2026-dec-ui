@@ -43,7 +43,7 @@ export default function ShareTicketsGrid({
           <div className={`grid ${gridClass} gap-6 justify-items-center`}>
             {participants.map((p, index) => {
               const firstName = p.name.split(" ")[0];
-              const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/t/visual/{ticketType}?firstName=${encodeURIComponent(
+              const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/t/visual/${ticketType}?firstName=${encodeURIComponent(
                 firstName,
               )}`;
               const tweetText = encodeURIComponent(
@@ -140,7 +140,6 @@ export default function ShareTicketsGrid({
               );
             })}
           </div>
-
           {/* Footer */}
           <p className="mt-4 text-xs text-gray-500 text-center">
             X doesn’t allow auto-attaching images. Download the image first,

@@ -11,6 +11,7 @@ interface OrderInfoProps {
   orderData: {
     orderId: string;
     transactionId: string;
+    ticketTitle: string;
     ticketType: string;
     quantity: number;
     paymentMethod: string;

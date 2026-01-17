@@ -13,6 +13,7 @@ import ShareTicketsGrid from "@/components/conference/payment-success/shareTicke
 interface OrderData {
   orderId: string;
   transactionId: string;
+  ticketTitle: string;
   ticketType: string;
   quantity: number;
   paymentMethod: string;
