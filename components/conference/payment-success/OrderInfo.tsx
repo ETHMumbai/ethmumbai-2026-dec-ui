@@ -1,8 +1,11 @@
 "use client";
 
+import { Ticket } from "@/components/tickets-rzp/types";
 import { DownloadIcon } from "@/icons/conference/download";
 import { MailIcon } from "@/icons/conference/mail";
 import { RightArrowIcon } from "@/icons/conference/rightArrow";
+import { fetchActiveTicket } from "@/lib/tickets";
+import { useEffect, useState } from "react";
 
 interface OrderInfoProps {
   orderData: {
@@ -20,10 +23,27 @@ interface OrderInfoProps {
 }
 
 export default function OrderInfo({ orderData }: OrderInfoProps) {
+  const [ticket, setTicket] = useState<Ticket | null>(null);
   const normalizedTicketType = orderData.ticketType
     .toLowerCase()
     .replace(/\s+/g, "");
 
+  async function loadTicket() {
+    const activeTicket = await fetchActiveTicket();
+    setTicket(activeTicket);
+  }
+
+  useEffect(() => {
+      loadTicket();
+      const interval = setInterval(loadTicket, 5000);
+      return () => clearInterval(interval);
+    }, []);
+  
+    if (!ticket) {
+      return ""
+    }
+  const discountAmount = ticket.discount?.amount ?? 0;    
+  
   return (
     <section className="w-full bg-[#F9FAFB] flex justify-center px-4 py-[60px]">
       <div className="w-full max-w-[832px] flex flex-col gap-[24px]">
@@ -76,7 +96,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <div className="flex justify-between items-center">
                 <span className="text-[14px] text-[#4A5565]">Ticket Type</span>
                 <span className="text-[14px] text-black font-medium">
-                  {orderData.ticketType}
+                  Regular
                 </span>
               </div>
 
@@ -155,10 +175,11 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
         <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
           <span className="text-lg">😍</span>
           <span className="text-sm font-medium">
-            You've saved ₹{1250 * orderData.quantity} by buying tickets at 50%
+            You've saved ₹{discountAmount * orderData.quantity} by buying tickets at 50%
             OFF!
           </span>
         </div>
+        {/* )} */}
         {/* )} */}
 
         {/* Check Your Email Box - DYNAMIC EMAIL */}
