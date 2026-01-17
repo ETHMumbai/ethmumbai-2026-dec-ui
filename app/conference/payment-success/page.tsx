@@ -50,7 +50,7 @@ export default function PaymentSuccess() {
               "Content-Type": "application/json",
               "x-api-key": process.env.NEXT_PUBLIC_API_KEY as string,
             },
-          }
+          },
         );
 
         if (!res.ok) {
@@ -111,7 +111,10 @@ export default function PaymentSuccess() {
       <main className="flex min-h-screen w-full flex-col bg-black font-sans">
         <Hero />
         <OrderInfo orderData={orderData} />
-        <ShareTicketsGrid participants={orderData.participants} />
+        <ShareTicketsGrid
+          ticketType={orderData.ticketType}
+          participants={orderData.participants}
+        />
       </main>
       <Footer />
     </div>

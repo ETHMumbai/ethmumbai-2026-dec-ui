@@ -9,10 +9,12 @@ interface Participant {
 }
 
 interface ShareTicketsGridProps {
+  ticketType: string;
   participants: Participant[];
 }
 
 export default function ShareTicketsGrid({
+  ticketType,
   participants,
 }: ShareTicketsGridProps) {
   if (!participants?.length) return null;
@@ -25,7 +27,6 @@ export default function ShareTicketsGrid({
   return (
     <section className="w-full bg-[#F9FAFB] flex justify-center px-4 py-6">
       <div className="w-full max-w-[832px] flex flex-col gap-6">
-
         {/* Card container */}
         <div className="w-full bg-white rounded-[14px] border border-gray-200 p-6 flex flex-col gap-6">
           {/* Header */}
@@ -42,11 +43,11 @@ export default function ShareTicketsGrid({
           <div className={`grid ${gridClass} gap-6 justify-items-center`}>
             {participants.map((p, index) => {
               const firstName = p.name.split(" ")[0];
-              const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/t/visual?firstName=${encodeURIComponent(
-                firstName
+              const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/t/visual/{ticketType}?firstName=${encodeURIComponent(
+                firstName,
               )}`;
               const tweetText = encodeURIComponent(
-                `Just got my ticket for ETHMumbai 🚀\nSee you in Mumbai!\n\n@ethmumbai`
+                `Just got my ticket for ETHMumbai 🚀\nSee you in Mumbai!\n\n@ethmumbai`,
               );
 
               return (
@@ -122,7 +123,6 @@ export default function ShareTicketsGrid({
                         <line x1="12" y1="15" x2="12" y2="3" />
                       </svg>
                     </button>
-
                   </div>
 
                   {/* Share Button */}
@@ -143,7 +143,8 @@ export default function ShareTicketsGrid({
 
           {/* Footer */}
           <p className="mt-4 text-xs text-gray-500 text-center">
-            X doesn’t allow auto-attaching images. Download the image first, then upload it in the post.
+            X doesn’t allow auto-attaching images. Download the image first,
+            then upload it in the post.
           </p>
         </div>
 
