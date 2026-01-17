@@ -18,6 +18,7 @@ interface OrderData {
   paymentMethod: string;
   purchaseDate: string;
   orderFiat: number;
+  orderCrypto: number;
   totalAmount: number;
   buyerEmail: string;
   participants: {

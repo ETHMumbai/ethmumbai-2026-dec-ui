@@ -19,27 +19,26 @@ export default function Hero() {
   const [isShortScreen, setIsShortScreen] = useState(false);
 
   useLayoutEffect(() => {
-  const handleResize = () => {
-    const width = window.innerWidth;
-    const height = window.visualViewport?.height || window.innerHeight;
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.visualViewport?.height || window.innerHeight;
 
-    if (width < 640) setScreenType("mobile");
-    else if (width < 1024) setScreenType("tablet");
-    else setScreenType("desktop");
+      if (width < 640) setScreenType("mobile");
+      else if (width < 1024) setScreenType("tablet");
+      else setScreenType("desktop");
 
-    setIsShortScreen(height < 700);
-  };
+      setIsShortScreen(height < 700);
+    };
 
-  handleResize();
-  window.visualViewport?.addEventListener("resize", handleResize);
-  window.addEventListener("orientationchange", handleResize);
+    handleResize();
+    window.visualViewport?.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
 
-  return () => {
-    window.visualViewport?.removeEventListener("resize", handleResize);
-    window.removeEventListener("orientationchange", handleResize);
-  };
-}, []);
-
+    return () => {
+      window.visualViewport?.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
+  }, []);
 
   // Animation start and bottom positions based on screen type
   const getBusInitialX = () => {
@@ -68,11 +67,15 @@ export default function Hero() {
   return (
     <section className="relative top-10 flex min-h-screen h-[100svh] justify-center overflow-hidden bg-[#E2231A] border border-black text-white">
       {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center w-full px-4
+      <div
+        className="relative z-10 flex flex-col items-center w-full px-4
                       pt-[8rem] sm:pt-[8rem] md:pt-[6rem] lg:pt-[7rem]
-                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0">
-        <h1 className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
-                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]">
+                      max-w-[95%] sm:max-w-[85%] md:max-w-[70%] lg:max-w-[60%] flex-shrink-0"
+      >
+        <h1
+          className="font-[MPlusRounded1c] font-extrabold tracking-[-0.05em]
+                       text-[4rem] sm:text-[5.8rem] md:text-[5rem] lg:text-[6rem] leading-[1.05]"
+        >
           ETHMUMBAI
         </h1>
 
@@ -81,27 +84,41 @@ export default function Hero() {
         </p>
 
         <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-gray-100">
-          <Calendar className="w-5 h-5" />
+          <a
+            title="Add to Calendar"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://calendar.google.com/calendar/?cid=Y180OTNlNmQ3YWRlYzIyMTA0NGE5OWYwOTY4MGVlMzZjZTZlOTkyYjA4ZWM3OTljZDVjMTQ3YzU3MzZiNDA1YjRkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+          >
+            <Calendar className="w-5 h-5 cursor-pointer" />
+          </a>
           <span>12 – 15 March 2026</span>
         </div>
 
         {/* Action Buttons */}
         <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <a
-            href="tickets"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="tickets" target="_blank" rel="noopener noreferrer">
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]
-                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
+                        hover:bg-gray-300 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
             >
               Buy Tickets
             </button>
           </a>
+          <button
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              window.open("https://ethmumbai2026.devfolio.co/", "_blank");
+            }}
+            className="border border-white text-white
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
+          >
+            Apply to Hack
+          </button>
         </div>
-      {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+        {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
             href="https://tally.so/r/3NkdGb"
             target="_blank"
@@ -228,15 +245,29 @@ export default function Hero() {
         className="absolute z-[5] pointer-events-none select-none"
         style={{
           left:
-            screenType === "mobile" ? "2vw" :
-              screenType === "tablet" ? "6vw" : "22vw",
+            screenType === "mobile"
+              ? "2vw"
+              : screenType === "tablet"
+                ? "6vw"
+                : "22vw",
           top:
-            screenType === "mobile" ? (isShortScreen ? "58vh" : "46vh") :
-              screenType === "tablet" ? (isShortScreen ? "52vh" : "40vh") :
-                (isShortScreen ? "50vh" : "38vh"),
+            screenType === "mobile"
+              ? isShortScreen
+                ? "58vh"
+                : "46vh"
+              : screenType === "tablet"
+                ? isShortScreen
+                  ? "52vh"
+                  : "40vh"
+                : isShortScreen
+                  ? "50vh"
+                  : "38vh",
           width:
-            screenType === "mobile" ? "35vw" :
-              screenType === "tablet" ? "25vw" : "18vw"
+            screenType === "mobile"
+              ? "35vw"
+              : screenType === "tablet"
+                ? "25vw"
+                : "18vw",
         }}
         animate={{ translateY: [0, -12, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
@@ -249,28 +280,43 @@ export default function Hero() {
         style={{
           right: screenType === "desktop" ? "7vw" : "1vw",
           width:
-            screenType === "mobile" ? "45vw" :
-              screenType === "tablet" ? "30vw" : "20vw",
+            screenType === "mobile"
+              ? "45vw"
+              : screenType === "tablet"
+                ? "30vw"
+                : "20vw",
         }}
         initial={{
           y:
             screenType === "mobile"
-              ? (isShortScreen ? "82vh" : "70vh")
+              ? isShortScreen
+                ? "82vh"
+                : "70vh"
               : screenType === "tablet"
-                ? (isShortScreen ? "67vh" : "55vh")
-                : (isShortScreen ? "62vh" : "50vh"),
+                ? isShortScreen
+                  ? "67vh"
+                  : "55vh"
+                : isShortScreen
+                  ? "62vh"
+                  : "50vh",
           x: -80,
-          opacity: 0
+          opacity: 0,
         }}
         animate={{
           y:
             screenType === "mobile"
-              ? (isShortScreen ? "62vh" : "50vh")
+              ? isShortScreen
+                ? "62vh"
+                : "50vh"
               : screenType === "tablet"
-                ? (isShortScreen ? "57vh" : "45vh")
-                : (isShortScreen ? "54vh" : "42vh"),
+                ? isShortScreen
+                  ? "57vh"
+                  : "45vh"
+                : isShortScreen
+                  ? "54vh"
+                  : "42vh",
           x: 0,
-          opacity: 1
+          opacity: 1,
         }}
         transition={{ duration: 4, ease: "easeOut" }}
       />
@@ -282,17 +328,29 @@ export default function Hero() {
         className="absolute w-auto h-auto z-[5] pointer-events-none select-none"
         style={{
           left:
-            screenType === "mobile" ? "5vw" :
-              screenType === "tablet" ? "8vw" : "16vw",
+            screenType === "mobile"
+              ? "5vw"
+              : screenType === "tablet"
+                ? "8vw"
+                : "16vw",
           top:
             screenType === "mobile"
-              ? (isShortScreen ? "68vh" : "55vh")
+              ? isShortScreen
+                ? "68vh"
+                : "55vh"
               : screenType === "tablet"
-                ? (isShortScreen ? "60vh" : "48vh")
-                : (isShortScreen ? "58vh" : "44vh"),
+                ? isShortScreen
+                  ? "60vh"
+                  : "48vh"
+                : isShortScreen
+                  ? "58vh"
+                  : "44vh",
           width:
-            screenType === "mobile" ? "35vw" :
-              screenType === "tablet" ? "25vw" : "18vw"
+            screenType === "mobile"
+              ? "35vw"
+              : screenType === "tablet"
+                ? "25vw"
+                : "18vw",
         }}
         animate={{ translateX: [0, 10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -305,17 +363,29 @@ export default function Hero() {
         className="absolute w-auto h-auto pointer-events-none select-none"
         style={{
           right:
-            screenType === "mobile" ? "5vw" :
-              screenType === "tablet" ? "18vw" : "25vw",
+            screenType === "mobile"
+              ? "5vw"
+              : screenType === "tablet"
+                ? "18vw"
+                : "25vw",
           top:
             screenType === "mobile"
-              ? (isShortScreen ? "72vh" : "58vh")
+              ? isShortScreen
+                ? "72vh"
+                : "58vh"
               : screenType === "tablet"
-                ? (isShortScreen ? "60vh" : "48vh")
-                : (isShortScreen ? "60vh" : "48vh"),
+                ? isShortScreen
+                  ? "60vh"
+                  : "48vh"
+                : isShortScreen
+                  ? "60vh"
+                  : "48vh",
           width:
-            screenType === "mobile" ? "35vw" :
-              screenType === "tablet" ? "30vw" : "15vw"
+            screenType === "mobile"
+              ? "35vw"
+              : screenType === "tablet"
+                ? "30vw"
+                : "15vw",
         }}
         animate={{ translateX: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

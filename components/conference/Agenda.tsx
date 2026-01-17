@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { agendaData } from "@/lib/agendaData";
+import { agendaData } from "@/lib/conferenceAgendaData";
 
 export default function Agenda() {
   return (

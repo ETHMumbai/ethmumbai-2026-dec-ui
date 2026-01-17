@@ -6,7 +6,7 @@ import Conference from "../../public/assets/conference/conference.svg";
 
 export default function Hero() {
     return (
-        <section className="relative flex justify-center overflow-hidden bg-white text-black py-10 px-6">
+        <section className="relative flex justify-center overflow-hidden bg-white text-black py-8 px-6">
             <div className="max-w-7xl w-full py-10 grid grid-cols-1 md:grid-cols-2  gap-16 md:gap-20 text-center md:text-left items-start md:items-center sm:items-center lg:items-start">
 
                 {/* LEFT TEXT CONTENT */}
@@ -26,6 +26,7 @@ export default function Hero() {
                     <p className="text-lg text-gray-800 mt-2 leading-relaxed">
                         If you are curious about decentralization, onchain privacy, and the role of AI in shaping the future of Ethereum, ETHMumbai Conference is for you.
                     </p>
+                    <br />
 
                     <Link href="/tickets">
                         <button className="bg-[#D63A2F] mt-4 border text-white font-semibold text-base px-6 py-3 rounded-[14px] hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">

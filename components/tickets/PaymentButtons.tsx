@@ -9,7 +9,7 @@ import { useRef, useEffect, useState } from "react";
 /* Daimo */
 export const DaimoPayButtonCustom = dynamic(
   () => import("@daimo/pay").then((m) => m.DaimoPayButton.Custom),
-  { ssr: false }
+  { ssr: false },
 );
 
 interface PaymentButtonsProps {
@@ -57,8 +57,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   }, []);
 
   // ---------------- Sold out logic ----------------
-  const soldOut =
-    !activeTicket || activeTicket.remainingQuantity <= 0;
+  const soldOut = !activeTicket || activeTicket.remainingQuantity <= 0;
 
   const hasValidPayId = isValidPayId(payId);
 
@@ -108,7 +107,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
                     paymentType: "DAIMO",
                     paymentId: payId,
                   }),
-                }
+                },
               );
 
               if (!res.ok) throw new Error("Payment verification failed");
@@ -149,7 +148,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
                   : "opacity-50 cursor-not-allowed"
               }`}
             >
-              {soldOut ? "Sold Out" : "Pay with Crypto"}
+              {soldOut ? "Pay with Crypto" : "Pay with Crypto"}
             </button>
           )}
         </DaimoPayButtonCustom>
@@ -158,15 +157,11 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
       {/* ================= INR ================= */}
       <div style={{ position: "relative", display: "inline-block" }}>
         <button
-          disabled
+          disabled={!checkoutValid || soldOut || loadingINR}
           onClick={handlePayWithRazorpay}
-          className="w-full inline-flex items-center justify-center px-4 py-3 bg-black text-white rounded-lg cursor-not-allowed disabled:opacity-50 whitespace-nowrap"
+          className="w-full inline-flex items-center cursor-pointer hover:bg-gray-800 justify-center px-4 py-3 bg-black text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
         >
-          {soldOut
-            ? "Sold Out"
-            : loadingINR
-            ? "Creating INR order…"
-            : "INR Coming Soon"}
+          {soldOut ? "Pay with INR" : "Pay with INR"}
         </button>
       </div>
     </div>

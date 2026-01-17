@@ -1,11 +1,12 @@
 "use client";
 
 import Hero from "@/components/conference/Hero";
-import Navbar from "@/components/conference/Navbar";
+import Navbar from "@/components/Navbar";
 import Overview from "@/components/conference/Overview";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Speakers from "@/components/conference/Speakers";
+// import Speakers from "@/components/hackathon/Speakers";
 import Sponsors from "@/components/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/conference/Agenda";
@@ -20,10 +21,10 @@ export default function LandingPage() {
       <main className="flex min-h-screen w-full flex-col">
         <Hero />
         <Overview />
-        <Speakers/>
+        <Speakers />
         <Sponsors />
         {/* <Agenda /> */}
-        {/* <Venue type="conference" /> */}
+        <Venue type="conference" />
         <FAQ type="conference" />
         {/* <ClosingCTA /> */}
         <Footer />

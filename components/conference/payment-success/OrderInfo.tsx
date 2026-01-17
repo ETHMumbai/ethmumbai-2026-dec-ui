@@ -1,8 +1,11 @@
 "use client";
 
+import { Ticket } from "@/components/tickets-rzp/types";
 import { DownloadIcon } from "@/icons/conference/download";
 import { MailIcon } from "@/icons/conference/mail";
 import { RightArrowIcon } from "@/icons/conference/rightArrow";
+import { fetchActiveTicket } from "@/lib/tickets";
+import { useEffect, useState } from "react";
 
 interface OrderInfoProps {
   orderData: {
@@ -13,12 +16,34 @@ interface OrderInfoProps {
     paymentMethod: string;
     purchaseDate: string;
     orderFiat: number;
+    orderCrypto: number;
     totalAmount: number;
     buyerEmail: string;
   };
 }
 
 export default function OrderInfo({ orderData }: OrderInfoProps) {
+  const [ticket, setTicket] = useState<Ticket | null>(null);
+  const normalizedTicketType = orderData.ticketType
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+  async function loadTicket() {
+    const activeTicket = await fetchActiveTicket();
+    setTicket(activeTicket);
+  }
+
+  useEffect(() => {
+    loadTicket();
+    const interval = setInterval(loadTicket, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!ticket) {
+    return "";
+  }
+  const discountAmount = ticket.discount?.amount ?? 0;
+
   return (
     <section className="w-full bg-[#F9FAFB] flex justify-center px-4 py-[60px]">
       <div className="w-full max-w-[832px] flex flex-col gap-[24px]">
@@ -71,7 +96,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <div className="flex justify-between items-center">
                 <span className="text-[14px] text-[#4A5565]">Ticket Type</span>
                 <span className="text-[14px] text-black font-medium">
-                  {orderData.ticketType}
+                  Regular
                 </span>
               </div>
 
@@ -105,7 +130,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
-                    }
+                    },
                   )}
                 </span>
               </div>
@@ -117,10 +142,20 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             <div className="flex justify-between items-center mb-[24px]">
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
-                ₹{orderData.orderFiat * orderData.quantity}($
-                {orderData.totalAmount.toFixed(2)})
+                ₹{orderData.orderFiat * orderData.quantity} ($
+                {orderData.orderCrypto * orderData.quantity})
               </span>
             </div>
+
+            {/* {normalizedTicketType.includes("christmas") && (
+              <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+                <span className="text-lg">🎄</span>
+                <span className="text-sm font-medium">
+                  You're saving ₹{500 * orderData.quantity} with Christmas
+                  Special Price.
+                </span>
+              </div>
+            )} */}
 
             {/* Download Button */}
             {/* <button className="w-full bg-[#E2231A] hover:bg-[#C51F16] text-white font-medium text-[18px] py-[14px] px-[24px] rounded-xl flex items-center justify-center gap-4 transition-colors">
@@ -135,6 +170,17 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
             </div> */}
           </div>
         </div>
+
+        {/* {orderData.ticketType === "christmas" && ( */}
+        <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+          <span className="text-lg">😍</span>
+          <span className="text-sm font-medium">
+            You've saved ₹{discountAmount * orderData.quantity} by buying
+            tickets at 50% OFF!
+          </span>
+        </div>
+        {/* )} */}
+        {/* )} */}
 
         {/* Check Your Email Box - DYNAMIC EMAIL */}
         <div className="w-full bg-[#EFF6FF] rounded-[14px] border border-[#BEDBFF] p-[30px]">

@@ -2,7 +2,7 @@
 
 import { Country, State } from "country-state-city";
 import { BuyerInfo as BuyerInfoType, Participant } from "./types";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface BuyerInfoProps {
   buyerInfo: BuyerInfoType;
@@ -145,14 +145,16 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
   };
 
   // ======================== Country → State handling ========================
-  const onCountryChange = (countryName: string) => {
-    // find country by name
-    const countryObj = Country.getAllCountries().find(
-      (c) => c.name.toLowerCase() === countryName.toLowerCase()
-    );
+  useEffect(() => {
+    handleBuyerAddressChange("country", "India");
+  }, []);
 
-    // update country in address
-    handleBuyerAddressChange("country", countryName);
+  useEffect(() => {
+    if (!buyerInfo.address.country) return;
+
+    const countryObj = Country.getAllCountries().find(
+      (c) => c.name.toLowerCase() === buyerInfo.address.country.toLowerCase()
+    );
 
     if (countryObj) {
       const states = State.getStatesOfCountry(countryObj.isoCode).map((s) => ({
@@ -164,10 +166,36 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
     } else {
       setAvailableStates([]);
     }
-    // console.log("Country selected:", countryName, "Found country:", countryObj);
-    // console.log("States:", availableStates);
+  }, [buyerInfo.address.country]);
 
-    // reset state field
+  // const onCountryChange = (countryName: string) => {
+  //   // find country by name
+  //   const countryObj = Country.getAllCountries().find(
+  //     (c) => c.name.toLowerCase() === countryName.toLowerCase()
+  //   );
+
+  //   // update country in address
+  //   handleBuyerAddressChange("country", countryName);
+
+  //   if (countryObj) {
+  //     const states = State.getStatesOfCountry(countryObj.isoCode).map((s) => ({
+  //       name: s.name,
+  //       isoCode: s.isoCode,
+  //       countryCode: s.countryCode,
+  //     }));
+  //     setAvailableStates(states);
+  //   } else {
+  //     setAvailableStates([]);
+  //   }
+  //   // console.log("Country selected:", countryName, "Found country:", countryObj);
+  //   // console.log("States:", availableStates);
+
+  //   // reset state field
+  //   handleBuyerAddressChange("state", "");
+  // };
+
+  const onCountryChange = (countryName: string) => {
+    handleBuyerAddressChange("country", countryName);
     handleBuyerAddressChange("state", "");
   };
 
@@ -373,7 +401,6 @@ const BuyerInfo: React.FC<BuyerInfoProps> = ({
                   handleParticipantChange(i, "email", email);
                   if (touched[`participant.${i}.email`]) {
                     validateEmail(`participant.${i}.email`, email);
-                    
                   }
                   debouncedCheckEmail({ ...p, email }, i);
                 }}

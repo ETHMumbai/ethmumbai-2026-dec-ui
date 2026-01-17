@@ -23,12 +23,8 @@ const Footer = () => {
             className="block"
           />
           <div className="flex flex-col gap-3 mt-6 items-stretch">
-            <h2 className="font-['MPlusRounded1c'] flex-1 text-2xl">
-              BEST Conference & Hackathon
-            </h2>
-            <p className="font-['MPlusRounded1c'] font-medium text-lg">
-              12 - 15 March 2026
-            </p>
+            <h2 className=" flex-1 text-2xl">BEST Conference & Hackathon</h2>
+            <p className=" font-medium text-lg">12 - 15 March 2026</p>
           </div>
         </div>
 
@@ -57,15 +53,6 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://ethmumbai.substack.com/embed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                Newsletter
-              </a>
-
-              <a
                 href="https://2024.ethmumbai.in/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -83,14 +70,27 @@ const Footer = () => {
             <div className="mt-6 flex flex-col gap-3 font-light">
               <a
                 href="/tickets"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Buy Tickets
               </a>
-
               <a
+                href="https://ethmumbai2026.devfolio.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Apply to Hack
+              </a>
+              <a
+                href="https://ethmumbai.substack.com/embed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Newsletter
+              </a>
+              {/* <a
                 href="https://tally.so/r/nGW5Bz"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,26 +107,23 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 Apply to Sponsor
-              </a>
-
-              {/* <a
-                href="https://tally.so/r/3NkdGb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                Apply to Hack
               </a> */}
-              
             </div>
           </div>
         </div>
       </div>
 
-      <div className="p-6 border-t flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 pb-10">
+      <div className="p-6 px-4 border-t flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5 pb-10">
         {/* Left — Logo + trademark */}
-        <div className="flex flex-row gap-3 items-center">
-          <p className="text-medium text-white text-[14px] leading-6">
+        <div className="flex flex-row items-center">
+          <p className="text-medium text-white text-[14px] leading-6 text-center">
+            All ETHMumbai conference tickets are
+            <br className="md:block sm:hidden"></br> non-cancellable, and
+            non-refundable.
+          </p>
+        </div>
+        <div className="flex flex-row items-center">
+          <p className="text-medium text-white text-[14px] leading-6 text-center">
             © 2026 ETHMumbai. All rights reserved.
           </p>
         </div>

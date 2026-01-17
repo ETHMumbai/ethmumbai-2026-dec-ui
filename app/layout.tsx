@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
     "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
 
   openGraph: {
-    title: "ETHMumbai 2026",
+    title: "ETHMumbai 2026 | BEST Conference & Hackathon",
     description:
-      "BEST Conference & Hackathon in Mumbai. 12 – 15 March 2026 in Mumbai",
+      "ETHMumbai is an Ethereum-focused conference & hackathon taking place on 12 - 15 March 2026 in Mumbai, India. It will host 50 speakers, 500 attendees, and 300 hackers.",
     url: "https://ethmumbai.in",
     siteName: "ETHMumbai",
     images: [

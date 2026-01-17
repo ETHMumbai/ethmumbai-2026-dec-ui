@@ -8,7 +8,7 @@ const sponsors = [
   {
     logo: "/assets/sponsors/arweave.png",
     name: "Arweave",
-    twitter: "https://x.com/ArweaveEco",
+    twitter: " https://x.com/arweaveindia",
   },
   {
     logo: "/assets/sponsors/avail.png",

@@ -1,36 +1,38 @@
 "use client";
 
-import { TicketType } from "./types";
+import { useEffect, useState } from "react";
+import { Ticket } from "./types";
+import { fetchActiveTicket } from "../../lib/tickets";
 
 interface OrderSummaryProps {
-  ticketType: TicketType | null;
   quantity: number;
-  ticketPrices: Record<TicketType, number>;
-  ticketPricesUSD: Record<TicketType, number>;
 }
 
-const OrderSummary: React.FC<OrderSummaryProps> = ({
-  ticketType,
-  quantity,
-  ticketPrices,
-  ticketPricesUSD,
-}) => {
-  const pricePerTicket = ticketType && ticketPrices[ticketType] ? ticketPrices[ticketType] : 0;
-  const total = pricePerTicket * quantity;
+const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
+  const [ticket, setTicket] = useState<Ticket | null>(null);
 
-  const pricePerTicketUSD =
-    ticketType && ticketPricesUSD[ticketType] ? ticketPricesUSD[ticketType] : 0;
-  const totalUSD = (pricePerTicketUSD * quantity).toFixed(2);
+  async function loadTicket() {
+    const activeTicket = await fetchActiveTicket();
+    setTicket(activeTicket);
+  }
 
-  // Human-readable label
-  const ticketLabel =
-    ticketType === "earlybird"
-      ? "Early Bird"
-      : ticketType === "standard"
-      ? "Standard"
-      : ticketType === "christmas"
-      ? "Christmas"
-      : "—";
+  useEffect(() => {
+    loadTicket();
+    const interval = setInterval(loadTicket, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!ticket) {
+    return "";
+  }
+
+  const originalPrice = ticket.discount?.originalPrice ?? ticket.fiat;
+  const discountAmount = ticket.discount?.amount ?? 0;
+  const discountedPrice = ticket.fiat; // price after discount
+  const total = discountedPrice * quantity;
+
+  const cryptoPrice = ticket.crypto;
+  const totalCrypto = (cryptoPrice * quantity).toFixed(2);
 
   return (
     <div className="space-y-4">
@@ -39,13 +41,25 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
 
         <div className="flex justify-between text-sm mb-2">
           <span>Ticket Type</span>
-          <span>{ticketLabel}</span>
+          <span>Regular</span>
         </div>
 
         <div className="flex justify-between text-sm mb-2">
-          <span>Price per ticket</span>
+          <span>Original Price per ticket</span>
           <span>
-            ₹{pricePerTicket} (${pricePerTicketUSD.toFixed(2)})
+            ₹{originalPrice} (${(originalPrice / 90).toFixed(2)})
+          </span>
+        </div>
+
+        <div className="flex justify-between text-sm mb-2 text-green-600">
+          <span>
+            Discounted Price per ticket{" "}
+            <span className="block sm:inline">
+              ({ticket.discount?.percentage ?? 0}% OFF)
+            </span>
+          </span>
+          <span>
+            ₹{discountedPrice} (${(discountedPrice / 90).toFixed(2)})
           </span>
         </div>
 
@@ -59,10 +73,20 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
         <div className="flex justify-between font-bold text-lg">
           <span>Total</span>
           <span>
-            ₹{total} (${totalUSD})
+            ₹{total} (${(total / 90).toFixed(2)})
           </span>
         </div>
       </div>
+
+      {discountAmount > 0 && (
+        <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
+          <span className="text-lg">😍</span>
+          <span className="text-sm font-medium">
+            You're saving ₹{discountAmount * quantity} by buying tickets at a
+            discount!
+          </span>
+        </div>
+      )}
     </div>
   );
 };

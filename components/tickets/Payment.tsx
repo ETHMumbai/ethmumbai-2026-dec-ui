@@ -17,13 +17,13 @@ import { fetchActiveTicket } from "@/lib/tickets";
 const ticketPrices: Record<TicketType, number> = {
   christmas: 499,
   earlybird: 999,
-  standard: 1999,
+  regular: 1249,
 };
 
 const ticketPricesUSD: Record<TicketType, number> = {
   christmas: 5.5,
   earlybird: 11,
-  standard: 24,
+  regular: 13.8,
 };
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -36,15 +36,24 @@ const ticketOptions: TicketOption[] = [
     priceUSD: 11,
     desktopImage: "/assets/tickets/earlybird-list.svg",
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
+    comingSoon: true,
+  },
+  {
+    type: "regular",
+    label: "Regular",
+    price: 1249,
+    priceUSD: 13.8,
+    desktopImage: "/assets/tickets/standard-list.svg",
+    mobileImage: "/assets/tickets/standard-sm-vertical.svg",
     comingSoon: false,
   },
   {
-    type: "standard",
-    label: "Standard",
-    price: 1999,
-    priceUSD: 24,
-    desktopImage: "/assets/tickets/standard-list.svg",
-    mobileImage: "/assets/tickets/standard-sm-vertical.svg",
+    type: "christmas",
+    label: "Christmas",
+    price: 499,
+    priceUSD: 5.5,
+    desktopImage: "/assets/tickets/christmas-list.svg",
+    mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
     comingSoon: true,
   },
   {
@@ -80,7 +89,7 @@ const Payment = () => {
   /* ---------------- State ---------------- */
   const [activeTicket, setActiveTicket] = useState<Ticket | null>(null);
   const [visualTicketType, setVisualTicketType] =
-    useState<TicketType>("earlybird");
+    useState<TicketType>("regular");
   const [quantity, setQuantity] = useState(1);
 
   const [loadingINR, setLoadingINR] = useState(false);
@@ -170,24 +179,37 @@ const Payment = () => {
     if (!activeTicket) return;
 
     const activeOption = ticketOptions.find(
-      (t) => t.type === activeTicket.type
+      (t) => t.type === activeTicket.type,
     );
-    const standardOption = ticketOptions.find((t) => t.type === "standard");
+
+    const earlybirdOption = ticketOptions.find((t) => t.type === "earlybird");
+    let otherOption: TicketOption | undefined;
+    if (activeTicket.type === "earlybird") {
+      otherOption = ticketOptions.find((t) => t.type === "regular");
+    } else if (activeTicket.type === "regular") {
+      otherOption = ticketOptions.find((t) => t.type !== "earlybird"); // fallback
+    } else {
+      otherOption = undefined;
+    }
 
     const options: TicketOption[] = [];
-    if (activeOption) options.push(activeOption);
-    if (standardOption && standardOption.type !== activeTicket.type)
-      options.push(standardOption);
+
+    // Push EarlyBird first if it exists
+    if (earlybirdOption) options.push(earlybirdOption);
+
+    // Push the active ticket if it’s not already EarlyBird
+    if (activeOption && activeOption.type !== "earlybird") {
+      options.push(activeOption);
+    }
+
+    // Push the other ticket if it exists and isn’t already added
+    if (otherOption && !options.includes(otherOption)) {
+      options.push(otherOption);
+    }
 
     setTicketOptionsToShow(options);
     setVisualTicketType(activeTicket.type);
   }, [activeTicket]);
-
-  /* ---------------- Load Razorpay ---------------- */
-  useEffect(() => {
-    loadRazorpay();
-  }, []);
-
   /* ---------------- Quantity Change ---------------- */
   const handleQuantityChange = (type: "inc" | "dec") => {
     if (!activeTicket) return;
@@ -238,7 +260,7 @@ const Payment = () => {
 
   const handleBuyerAddressChange = (
     field: keyof BuyerInfoType["address"],
-    value: string
+    value: string,
   ) => {
     setBuyerInfo((prev) => ({
       ...prev,
@@ -249,7 +271,7 @@ const Payment = () => {
   const handleParticipantChange = (
     index: number,
     field: string,
-    value: string
+    value: string,
   ) => {
     setParticipants((prev) => {
       const updated = [...prev];
@@ -284,7 +306,7 @@ const Payment = () => {
     if (!activeTicket) throw new Error("No active ticket available");
 
     return {
-      ticketType: activeTicket.type,
+      ticketType: activeTicket.title,
       quantity,
       buyer: buyerInfo,
       participants: participants.map((p) => ({
@@ -299,7 +321,7 @@ const Payment = () => {
 
   /* ---------------- Razorpay Payment ---------------- */
   const handlePayWithRazorpay = async () => {
-    if (loadingINR) return;
+    if (!validateCheckout() || loadingINR) return;
     setLoadingINR(true);
 
     const loaded = await loadRazorpay();
@@ -307,13 +329,17 @@ const Payment = () => {
 
     try {
       const res = await fetch(
+        // `https://ethmumbai-2026-server-1.onrender.com/payments/order`,
         `${process.env.NEXT_PUBLIC_API_URL}/payments/order`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(buildPayload()),
-        }
+        },
       );
+
+      if (!res.ok) throw new Error("Failed to create Razorpay order");
+
       const data = await res.json();
 
       const rzp = new (window as any).Razorpay({
@@ -324,13 +350,37 @@ const Payment = () => {
         name: "ETHMumbai",
         handler: async (resp: any) => {
           try {
-            await fetch(`${process.env.NEXT_PUBLIC_API_URL}/payments/verify`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(resp),
-            });
+            const verifyRes = await fetch(
+              // `https://ethmumbai-2026-server-1.onrender.com/payments/verify`,
+              `${process.env.NEXT_PUBLIC_API_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  paymentType: "RAZORPAY",
+                  orderId,
+                  ...resp,
+                }),
+              },
+            );
+
+            if (!verifyRes.ok) {
+              throw new Error("Razorpay verification failed");
+            }
+
+            const latestTicket = await fetchActiveTicket();
+            if (!latestTicket || latestTicket.remainingQuantity <= 0) {
+              alert("Tickets are sold out.");
+              setLoadingINR(false);
+              return;
+            }
+
+            router.replace(
+              `/conference/payment-success?orderId=${data.orderId}`,
+            );
           } catch (err) {
             console.error("Razorpay verification failed:", err);
+            alert("Payment verification failed. Please contact support.");
           }
         },
         prefill: {
@@ -362,7 +412,7 @@ const Payment = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(buildPayload()),
-        }
+        },
       );
       const data = await res.json();
       setPayId(data.paymentId);
@@ -391,6 +441,7 @@ const Payment = () => {
           quantity={quantity}
           handleQuantityChange={handleQuantityChange}
           ticketOptions={ticketOptionsToShow}
+          activeTicket={activeTicket}
         />
 
         <BuyerInfo
@@ -404,10 +455,10 @@ const Payment = () => {
         />
 
         <OrderSummary
-          ticketType={activeTicket?.type ?? null}
+          // ticketType={activeTicket?.type ?? null}
           quantity={quantity}
-          ticketPrices={ticketPrices}
-          ticketPricesUSD={ticketPricesUSD}
+          // ticketPrices={ticketPrices}
+          // ticketPricesUSD={ticketPricesUSD}
         />
 
         <PaymentButtons
