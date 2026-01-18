@@ -143,7 +143,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <span className="text-[20px] text-black">Total Amount Paid</span>
               <span className="text-[24px] font-bold text-[#E2231A]">
                 ₹{orderData.orderFiat * orderData.quantity} ($
-                {orderData.orderCrypto * orderData.quantity})
+                {(orderData.orderCrypto * orderData.quantity).toFixed(2)})
               </span>
             </div>
 
