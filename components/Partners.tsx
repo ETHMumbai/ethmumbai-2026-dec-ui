@@ -4,25 +4,65 @@ import React from "react";
 import Image from "next/image";
 
 const partners = [
+  // {
+  //   logo: "/assets/partners/ETHBarcelona.png",
+  //   name: "DaimoPay",
+  //   twitter: "https://x.com/daimopay",
+  // },
   {
-    logo: "/assets/partners/ETHBarcelona.png",
-    name: "ETHBarcelona",
-    twitter: "https://x.com/eth_barcelona",
+    logo: "/assets/partners/Devcon India.svg",
+    name: "Devcon",
+    twitter: "https://x.com/EFDevcon",
   },
   {
-    logo: "/assets/partners/ETHRome.png",
+    logo: "/assets/partners/Devfolio.svg",
+    name: "Devfolio",
+    twitter: "https://x.com/devfolio",
+  },
+  {
+    logo: "/assets/partners/ETH Belgrade.svg",
+    name: "ETHBelgrade",
+    twitter: "https://x.com/ethbelgrade",
+  },
+  {
+    logo: "/assets/partners/ETHCluj.svg",
+    name: "ETHCluj",
+    twitter: "https://x.com/ETHCluj",
+  },
+  {
+    logo: "/assets/partners/ETHRome.svg",
     name: "ETHRome",
     twitter: "https://x.com/ETHRome",
   },
   {
-    logo: "/assets/partners/ethchicago.svg",
-    name: "ETHChicago",
-    twitter: "https://x.com/0xEthChicago",
+    logo: "/assets/partners/NapulETH.svg",
+    name: "NapulETH",
+    twitter: "https://x.com/NapulETH",
   },
   {
-    logo: "/assets/partners/ethbelgrade.svg",
-    name: "ETHBelgrade",
-    twitter: "https://x.com/ethbelgrade",
+    logo: "/assets/partners/POAP.svg",
+    name: "POAP",
+    twitter: "https://x.com/poapxyz",
+  },
+  // {
+  //   logo: "/assets/partners/ETHRome.svg",
+  //   name: "SheFi India",
+  //   twitter: "https://x.com/shefiindia",
+  // },
+  {
+    logo: "/assets/partners/Vidarbha DAO.svg",
+    name: "Vidarbha DAO",
+    twitter: "https://x.com/VidarbhaDao",
+  },
+  {
+    logo: "/assets/partners/Web3 Events.svg",
+    name: "Web3 Events",
+    twitter: "https://x.com/web3_events",
+  },
+  {
+    logo: "/assets/partners/Web3 Mumbai.svg",
+    name: "Web3 Mumbai",
+    twitter: "https://x.com/weareWeb3Mumbai",
   },
 ];
 
@@ -37,7 +77,14 @@ export default function Partners() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[15vw] 2xl:px-[25vw] grid sm:grid-cols-2 gap-x-14 gap-y-10 justify-items-center">
+<div
+  className="max-w-[1600px] mx-auto
+  px-4 sm:px-8 md:px-12 xl:px-16 2xl:px-20
+  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5
+  gap-x-14 gap-y-10 justify-items-center"
+>
+
+
         {partners.map((p, i) => (
           <div
             key={i}
