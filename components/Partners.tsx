@@ -60,7 +60,7 @@ const partners = [
     twitter: "https://x.com/web3_events",
   },
   {
-    logo: "/assets/partners/Web3 Mumbai.svg",
+    logo: "/assets/partners/Web3 mumbai.svg",
     name: "Web3 Mumbai",
     twitter: "https://x.com/weareWeb3Mumbai",
   },
