@@ -2,16 +2,12 @@ import { Ticket } from "../components/tickets/types";
 
 export async function fetchActiveTicket(): Promise<Ticket | null> {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/t/current`,
-      { cache: "no-store" }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/t/current`, {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
-      console.error(
-        "Failed to fetch active ticket:",
-        await res.text()
-      );
+      console.error("Failed to fetch active ticket:", await res.text());
       return null;
     }
 

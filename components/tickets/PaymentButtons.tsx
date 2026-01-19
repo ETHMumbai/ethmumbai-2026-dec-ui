@@ -9,7 +9,7 @@ import { useRef, useEffect, useState } from "react";
 /* Daimo */
 export const DaimoPayButtonCustom = dynamic(
   () => import("@daimo/pay").then((m) => m.DaimoPayButton.Custom),
-  { ssr: false }
+  { ssr: false },
 );
 
 interface PaymentButtonsProps {
@@ -57,9 +57,7 @@ const PaymentButtons: React.FC<PaymentButtonsProps> = ({
   }, []);
 
   // ---------------- Sold out logic ----------------
-const soldOut =
-  !activeTicket || activeTicket.remainingQuantity <= 0;
-
+  const soldOut = !activeTicket || activeTicket.remainingQuantity <= 0;
 
   const hasValidPayId = isValidPayId(payId);
 
@@ -109,7 +107,7 @@ const soldOut =
                     paymentType: "DAIMO",
                     paymentId: payId,
                   }),
-                }
+                },
               );
 
               if (!res.ok) throw new Error("Payment verification failed");
@@ -163,9 +161,7 @@ const soldOut =
           onClick={handlePayWithRazorpay}
           className="w-full inline-flex items-center cursor-pointer hover:bg-gray-800 justify-center px-4 py-3 bg-black text-white rounded-lg disabled:opacity-50 whitespace-nowrap"
         >
-          {soldOut
-            ? "Pay with INR"
-            : "Pay with INR"}
+          {soldOut ? "Pay with INR" : "Pay with INR"}
         </button>
       </div>
     </div>

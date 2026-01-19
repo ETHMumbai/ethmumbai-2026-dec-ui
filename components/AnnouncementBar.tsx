@@ -22,10 +22,9 @@ export default function AnnouncementBar() {
   const fetchTicket = async () => {
     try {
       setLoading(true);
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/t/current`,
-        { cache: "no-store" }
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/t/current`, {
+        cache: "no-store",
+      });
       const data = await res.json();
 
       if (data?.remainingQuantity > 0) {
@@ -53,8 +52,8 @@ export default function AnnouncementBar() {
         {ticketInfo
           ? `${ticketInfo.remainingQuantity} tickets are available at ${ticketInfo.discount.percentage}% OFF. `
           : !loading
-          ? ""
-          : ""}
+            ? ""
+            : ""}
         {ticketInfo && (
           <Link
             href="/tickets"

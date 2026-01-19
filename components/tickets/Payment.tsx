@@ -56,6 +56,15 @@ const ticketOptions: TicketOption[] = [
     mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
     comingSoon: true,
   },
+  {
+    type: "christmas",
+    label: "Christmas",
+    price: 499,
+    priceUSD: 5.5,
+    desktopImage: "/assets/tickets/christmas-list.svg",
+    mobileImage: "/assets/tickets/earlybird-sm-vertical.svg",
+    comingSoon: false,
+  },
 ];
 
 /* ---------------- Razorpay Loader ---------------- */
@@ -170,7 +179,7 @@ const Payment = () => {
     if (!activeTicket) return;
 
     const activeOption = ticketOptions.find(
-      (t) => t.type === activeTicket.type
+      (t) => t.type === activeTicket.type,
     );
 
     const earlybirdOption = ticketOptions.find((t) => t.type === "earlybird");
@@ -251,7 +260,7 @@ const Payment = () => {
 
   const handleBuyerAddressChange = (
     field: keyof BuyerInfoType["address"],
-    value: string
+    value: string,
   ) => {
     setBuyerInfo((prev) => ({
       ...prev,
@@ -262,7 +271,7 @@ const Payment = () => {
   const handleParticipantChange = (
     index: number,
     field: string,
-    value: string
+    value: string,
   ) => {
     setParticipants((prev) => {
       const updated = [...prev];
@@ -326,7 +335,7 @@ const Payment = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(buildPayload()),
-        }
+        },
       );
 
       if (!res.ok) throw new Error("Failed to create Razorpay order");
@@ -352,7 +361,7 @@ const Payment = () => {
                   orderId,
                   ...resp,
                 }),
-              }
+              },
             );
 
             if (!verifyRes.ok) {
@@ -366,7 +375,9 @@ const Payment = () => {
               return;
             }
 
-            router.replace(`/conference/payment-success?orderId=${data.orderId}`);
+            router.replace(
+              `/conference/payment-success?orderId=${data.orderId}`,
+            );
           } catch (err) {
             console.error("Razorpay verification failed:", err);
             alert("Payment verification failed. Please contact support.");
@@ -401,7 +412,7 @@ const Payment = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(buildPayload()),
-        }
+        },
       );
       const data = await res.json();
       setPayId(data.paymentId);
