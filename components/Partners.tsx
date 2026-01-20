@@ -9,11 +9,11 @@ const partners = [
   //   name: "DaimoPay",
   //   twitter: "https://x.com/daimopay",
   // },
-  // {
-  //   logo: "/assets/partners/Dev3Pack.svg",
-  //   name: "Dev3Pack",
-  //   twitter: "https://x.com/dev3pack",
-  // },
+  {
+    logo: "/assets/partners/Dev3Pack.svg",
+    name: "Dev3Pack",
+    twitter: "https://x.com/dev3pack",
+  },
   {
     logo: "/assets/partners/Devcon India.svg",
     name: "Devcon",
@@ -82,19 +82,32 @@ export default function Partners() {
       </div>
 
       {/* Grid */}
-<div
-  className="max-w-[1600px] mx-auto
-  px-4 sm:px-8 md:px-12 xl:px-16 2xl:px-20
-  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5
-  gap-x-14 gap-y-10 justify-items-center"
->
-
-
+      <div
+        className="max-w-[1600px] mx-auto
+          px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 2xl:px-36
+          flex flex-wrap justify-center
+          gap-x-14 gap-y-10"
+      >
         {partners.map((p, i) => (
           <div
             key={i}
             onClick={() => p.twitter && window.open(p.twitter, "_blank")}
-            className="relative w-full max-w-[320px] h-[107px] flex items-center justify-center gap-4 px-6 bg-[#F9FAFB] border-[2.8px] border-[#E5E7EB] rounded-[29px] cursor-pointer transition-transform duration-200 hover:scale-105"
+            className="
+              relative
+              h-[107px]
+              flex items-center justify-center
+              px-6
+              bg-[#F9FAFB]
+              border-[2.8px] border-[#E5E7EB]
+              rounded-[29px]
+              cursor-pointer
+              transition-transform duration-200 hover:scale-105
+
+              w-full
+              sm:basis-[calc(50%-3.5rem)]
+              md:basis-[calc(33.333%-3.5rem)]
+              lg:basis-[calc(25%-3.5rem)]
+            "
           >
             <Image
               src={p.logo}
@@ -104,6 +117,7 @@ export default function Partners() {
             />
           </div>
         ))}
+
       </div>
     </section>
   );
