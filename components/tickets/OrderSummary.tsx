@@ -23,7 +23,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
   }, []);
 
   if (!ticket) {
-    return "";
+    return ""
   }
 
   const originalPrice = ticket.discount?.originalPrice ?? ticket.fiat;
@@ -46,9 +46,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
 
         <div className="flex justify-between text-sm mb-2">
           <span>Original Price per ticket</span>
-          <span>
-            ₹{originalPrice} (${(originalPrice / 90).toFixed(2)})
-          </span>
+          <span>₹{originalPrice} (${(originalPrice / 90).toFixed(2)})</span>
         </div>
 
         <div className="flex justify-between text-sm mb-2 text-green-600">
@@ -82,8 +80,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
         <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
           <span className="text-lg">😍</span>
           <span className="text-sm font-medium">
-            You're saving ₹{discountAmount * quantity} by buying tickets at a
-            discount!
+            You're saving ₹{discountAmount * quantity} by buying tickets at a discount!
           </span>
         </div>
       )}

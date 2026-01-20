@@ -34,6 +34,7 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
     return option.desktopImage;
   };
 
+
   // For mobile small image
   const getMobileImageForTicket = (type: TicketType) => {
     const option = ticketOptions.find((o) => o.type === type);
@@ -56,10 +57,9 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
             key={type}
             className={`
               relative border rounded-xl p-4
-              ${
-                !comingSoon
-                  ? "group transition-all duration-300 border-black cursor-pointer hover:-translate-y-1 hover:shadow-xl"
-                  : "border-gray-300 opacity-50 cursor-not-allowed"
+              ${!comingSoon
+                ? "group transition-all duration-300 border-black cursor-pointer hover:-translate-y-1 hover:shadow-xl"
+                : "border-gray-300 opacity-50 cursor-not-allowed"
               }
             `}
           >
@@ -122,6 +122,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
         />
       </div>
 
+
+
       {/* Quantity */}
       <div className="flex items-center bg-[#F9FAFB] rounded-lg py-2 justify-between mt-6">
         <h3 className="px-2 font-regular">Quantity</h3>
@@ -130,9 +132,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           <button
             onClick={() => handleQuantityChange("dec")}
             disabled={quantity <= 1}
-            className={`px-3 py-1 border rounded-lg ${
-              quantity <= 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            }`}
+            className={`px-3 py-1 border rounded-lg ${quantity <= 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+              }`}
           >
             −
           </button>
@@ -142,9 +143,8 @@ const TicketSelection: React.FC<TicketSelectionProps> = ({
           <button
             onClick={() => handleQuantityChange("inc")}
             disabled={quantity >= 4}
-            className={`px-3 py-1 border rounded-lg ${
-              quantity >= 4 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            }`}
+            className={`px-3 py-1 border rounded-lg ${quantity >= 4 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+              }`}
           >
             +
           </button>

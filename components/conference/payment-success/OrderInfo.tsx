@@ -11,7 +11,6 @@ interface OrderInfoProps {
   orderData: {
     orderId: string;
     transactionId: string;
-    ticketTitle: string;
     ticketType: string;
     quantity: number;
     paymentMethod: string;
@@ -35,16 +34,16 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
   }
 
   useEffect(() => {
-    loadTicket();
-    const interval = setInterval(loadTicket, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!ticket) {
-    return "";
-  }
-  const discountAmount = ticket.discount?.amount ?? 0;
-
+      loadTicket();
+      const interval = setInterval(loadTicket, 5000);
+      return () => clearInterval(interval);
+    }, []);
+  
+    if (!ticket) {
+      return ""
+    }
+  const discountAmount = ticket.discount?.amount ?? 0;    
+  
   return (
     <section className="w-full bg-[#F9FAFB] flex justify-center px-4 py-[60px]">
       <div className="w-full max-w-[832px] flex flex-col gap-[24px]">
@@ -131,7 +130,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
-                    },
+                    }
                   )}
                 </span>
               </div>
@@ -176,8 +175,8 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
         <div className="flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-green-700">
           <span className="text-lg">😍</span>
           <span className="text-sm font-medium">
-            You've saved ₹{discountAmount * orderData.quantity} by buying
-            tickets at 50% OFF!
+            You've saved ₹{discountAmount * orderData.quantity} by buying tickets at 50%
+            OFF!
           </span>
         </div>
         {/* )} */}

@@ -18,7 +18,7 @@ export interface Ticket {
   discount?: DiscountInfo;
 }
 export interface TicketOption {
-  type: TicketType;
+  type: TicketType
   label: string;
   price: number; // INR
   priceUSD: number; // USD
@@ -26,6 +26,7 @@ export interface TicketOption {
   mobileImage: string;
   comingSoon: boolean;
 }
+
 
 export interface Address {
   line1: string;
