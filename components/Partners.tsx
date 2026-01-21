@@ -4,11 +4,11 @@ import React from "react";
 import Image from "next/image";
 
 const partners = [
-  // {
-  //   logo: "/assets/partners/ETHBarcelona.png",
-  //   name: "DaimoPay",
-  //   twitter: "https://x.com/daimopay",
-  // },
+  {
+    logo: "/assets/partners/Daimo Pay.svg",
+    name: "DaimoPay",
+    twitter: "https://x.com/daimopay",
+  },
   {
     logo: "/assets/partners/Dev3Pack.svg",
     name: "Dev3Pack",
