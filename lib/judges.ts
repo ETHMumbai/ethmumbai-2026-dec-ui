@@ -98,13 +98,13 @@ export const judges: Judge[] = [
     xLink: "https://x.com/OstwalAk",
     imageScale: "h-[180%]",
   },
-  {
-    name: "Aniket",
-    company: "Remix Labs (Remix IDE)",
-    image: "/assets/hackathon/judges/Aniket_Remix_Judge-removebg-preview.png",
-    xLink: "https://x.com/EthereumRemix",
-    imageScale: "h-[140%]",
-  },
+  // {
+  //   name: "Aniket",
+  //   company: "Remix Labs (Remix IDE)",
+  //   image: "/assets/hackathon/judges/Aniket_Remix_Judge-removebg-preview.png",
+  //   xLink: "https://x.com/EthereumRemix",
+  //   imageScale: "h-[140%]",
+  // },
   {
     name: "Dhaiwat",
     company: "",
