@@ -34,7 +34,8 @@ export default function ShareTicketsGrid({
     )}`;
   };
 
-  const tweetText = encodeURIComponent(`I just got my tickets for EthMumbai 2026! 🎟️ Can't wait to join the BEST Conference. Get yours now at https://ethmumbai.com \n See you in Mumbai! @ethmumbai`);
+  const tweetText = encodeURIComponent(`I'm attending @ethmumbai 2026 🥳
+\n\nBEST Ethereum Conference in Mumbai on 12th March 2026 with 50 speakers & 500 participants. See you there!`);
 
   const downloadAllTickets = async () => {
     try {
