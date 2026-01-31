@@ -45,7 +45,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
   const discountAmount = ticket.discount?.amount ?? 0;    
   
   return (
-    <section className="w-full bg-[#F9FAFB] flex justify-center px-4 py-[60px]">
+    <section className="w-full bg-[#F9FAFB] flex justify-center px-4 pt-[60px]">
       <div className="w-full max-w-[832px] flex flex-col gap-[24px]">
         {/* Order Confirmation Box */}
         <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px]">
@@ -212,7 +212,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
 
         {/* Back to home + view conference schedule */}
         {/* Back to home + view conference schedule */}
-        <div className="w-full flex flex-col sm:flex-row gap-4 justify-between">
+        {/* <div className="w-full flex flex-col sm:flex-row gap-4 justify-between">
           <a href="/" className="no-underline flex-1">
             <div className="w-full h-[50px] border border-gray-200 rounded-[14px] flex items-center justify-center text-[#0A0A0A] font-medium text-[14px] bg-white">
               Back to Home
@@ -226,7 +226,7 @@ export default function OrderInfo({ orderData }: OrderInfoProps) {
               <RightArrowIcon />
             </div>
           </a>
-        </div>
+        </div> */}
 
         {/* Contact support */}
         {/* <div className="w-full bg-white rounded-[14px] border border-gray-200 p-[30px] flex items-center flex-col gap-[24px]">
