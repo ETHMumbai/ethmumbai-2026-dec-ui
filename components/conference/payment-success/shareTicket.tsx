@@ -115,7 +115,7 @@ export default function ShareTicketsGrid({
             </div>
           </div>
           {/* Share Buttons */}
-          <div className="flex justify-center pt-4">
+          <div className="flex justify-center pt-7">
             <a
               href={`https://twitter.com/intent/tweet?text=${tweetText}`}
               target="_blank"
