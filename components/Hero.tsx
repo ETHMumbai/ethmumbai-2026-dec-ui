@@ -115,7 +115,7 @@ export default function Hero() {
                         font-semibold text-base px-6 py-3 rounded-[14px]
                         hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
           >
-            Apply to Hack
+            Go to Devfolio
           </button>
         </div>
         {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
+import DayCountdown from "./Counter";
+import Countdown from "./Counter";
 
 export default function Hero() {
   const balloonRef = useRef<HTMLImageElement | null>(null);
@@ -70,7 +72,8 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <button
+              <Countdown />
+          {/* <button
             style={{ cursor: "pointer" }}
             onClick={() => {
               window.open("https://ethmumbai2026.devfolio.co/", "_blank");
@@ -79,8 +82,8 @@ export default function Hero() {
                         font-semibold text-base px-6 py-3 rounded-[14px]
                         hover:bg-gray-300 cursor-pointer transition-all duration-200"
           >
-            Apply to Hack
-          </button>
+        
+          </button> */}
           {/* <Link
             href="#apply-to-hack"
           >

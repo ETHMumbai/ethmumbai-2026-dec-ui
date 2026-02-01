@@ -65,7 +65,7 @@ export default function Navbar() {
             </a>
 
             {/* Farcaster */}
-            <a
+            {/* <a
               href="https://farcaster.xyz/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -75,7 +75,7 @@ export default function Navbar() {
             >
               <Image src={FarcasterWhite} alt="Farcaster" width={20} height={20} className="block group-hover:hidden" />
               <Image src={FarcasterLogo} alt="Farcaster" width={20} height={20} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Telegram */}
             <a
@@ -180,7 +180,7 @@ export default function Navbar() {
             </a>
 
             {/* Farcaster */}
-            <a
+            {/* <a
               href="https://farcaster.xyz/ethmumbai"
               target="_blank"
               rel="noopener noreferrer"
@@ -190,7 +190,7 @@ export default function Navbar() {
             >
               <Image src={FarcasterWhite} alt="Farcaster" width={24} height={24} className="block group-hover:hidden" />
               <Image src={FarcasterLogo} alt="Farcaster" width={24} height={24} className="hidden group-hover:block" />
-            </a>
+            </a> */}
 
             {/* Telegram */}
             <a

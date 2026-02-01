@@ -64,7 +64,7 @@ export const mentors: Mentor[] = [
     company: "",
     image: "/assets/hackathon/mentors/Akhil_Mentor-removebg-preview.png",
     xLink: "https://x.com/akhilnanavati",
-    imageScale: "h-[100%]",
+    imageScale: "h-[115%]",
   },
   {
     name: "Jayesh Bhole ",
