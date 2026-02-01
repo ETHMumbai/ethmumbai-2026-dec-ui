@@ -35,12 +35,12 @@ const Footer = () => {
 
             <div className="mt-6 flex flex-col gap-3 font-light">
               <a
-                href="https://luma.com/ethmumbai"
+                href="https://www.mumbaiblockchainweek.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
-                Luma
+                Mumbai Blockchain Week
               </a>
 
               <a
@@ -75,12 +75,12 @@ const Footer = () => {
                 Buy Tickets
               </a>
               <a
-                href="https://ethmumbai2026.devfolio.co/"
+                href="https://luma.com/ethmumbai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
-                Apply to Hack
+                Luma
               </a>
               <a
                 href="https://ethmumbai.substack.com/embed"
@@ -145,7 +145,7 @@ const Footer = () => {
             />
           </a>
 
-          <a
+          {/* <a
             href="https://farcaster.xyz/ethmumbai"
             target="_blank"
             rel="noopener noreferrer"
@@ -158,7 +158,7 @@ const Footer = () => {
               height={20}
               className="block"
             />
-          </a>
+          </a> */}
 
           <a
             href="https://t.me/ethmumbai"

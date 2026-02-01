@@ -36,7 +36,7 @@ export default function Hero() {
                         className="bg-[#D63A2F] mt-4 border border text-white
                                     font-semibold text-base px-6 py-3 rounded-[14px]
                                    hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200">
-                        Apply to Hack
+                        Go to Devfolio
                     </button>
                 </div>
 

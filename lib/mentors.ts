@@ -60,11 +60,25 @@ export const mentors: Mentor[] = [
     imageScale: "h-[128%]",
   },
   {
+    name: "Akhil Nanavati",
+    company: "",
+    image: "/assets/hackathon/mentors/Akhil_Mentor-removebg-preview.png",
+    xLink: "https://x.com/akhilnanavati",
+    imageScale: "h-[115%]",
+  },
+  {
     name: "Jayesh Bhole ",
     company: "Offchain Labs",
     image: "/assets/hackathon/mentors/Jayesh_Mentor-removebg-preview.png",
     xLink: "https://x.com/supremebattak",
     imageScale: "h-[120%]",
+  },
+   {
+    name: "Kenil Shah",
+    company: "",
+    image: "/assets/hackathon/mentors/Kenil_Mentor-removebg-preview.png",
+    xLink: "https://x.com/kenilshahh",
+    imageScale: "h-[125%]",
   },
   // {
   //   name: "Pranav Garg",
@@ -81,11 +95,25 @@ export const mentors: Mentor[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Rishh",
+    company: "Germina Labs",
+    image: "/assets/hackathon/mentors/Rishh_Mentor-removebg-preview.png",
+    xLink: "https://x.com/callMeRishhh",
+    imageScale: "h-[125%]",
+  },
+  {
     name: "Saurabh Shetty",
     company: "Khel.fun",
     image: "/assets/hackathon/mentors/Saurabh_Mentor-removebg-preview.png",
     xLink: "https://x.com/kryptosauruseth",
     imageScale: "h-[120%]",
+  },
+  {
+    name: "Thiru",
+    company: "Metis Foundation",
+    image: "/assets/hackathon/mentors/Thiru_Mentor-removebg-preview.png",
+    xLink: "https://x.com/0xthiru",
+    imageScale: "h-[115%]",
   },
   {
     name: "Viraj Patva",
@@ -96,9 +124,16 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Vishal Singh",
-    company: "ZippelLabs ",
+    company: "ZippelLabs",
     image: "/assets/hackathon/mentors/Vishal_Mentor-removebg-preview.png",
     xLink: "https://x.com/thisvishalsingh",
     imageScale: "h-[110%]",
+  },
+  {
+    name: "Yash Saraswat",
+    company: "",
+    image: "/assets/hackathon/mentors/Yash_Mentor-removebg-preview.png",
+    xLink: "https://x.com/0xpanicError",
+    imageScale: "h-[180%]",
   },
 ];
