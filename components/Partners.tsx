@@ -40,6 +40,11 @@ const partners = [
     twitter: "https://x.com/ETHRome",
   },
   {
+    logo: "/assets/partners/fileverse.svg",
+    name: "Fileverse",
+    twitter: "https://x.com/fileverse",
+  },
+  {
     logo: "/assets/partners/NapulETH.svg",
     name: "NapulETH",
     twitter: "https://x.com/NapulETH",
@@ -48,6 +53,11 @@ const partners = [
     logo: "/assets/partners/POAP.svg",
     name: "POAP",
     twitter: "https://x.com/poapxyz",
+  },
+  {
+    logo: "/assets/partners/Polygon.svg",
+    name: "Polygon",
+    twitter: "https://x.com/0xPolygon",
   },
   // {
   //   logo: "/assets/partners/ETHRome.svg",
@@ -69,6 +79,11 @@ const partners = [
     name: "Web3 Mumbai",
     twitter: "https://x.com/weareWeb3Mumbai",
   },
+  {
+    logo: "/assets/partners/web3privacy.svg",
+    name: "Web3Privacy",
+    twitter: "https://x.com/web3privacy",
+  },
 ];
 
 export default function Partners() {
@@ -83,10 +98,12 @@ export default function Partners() {
 
       {/* Grid */}
       <div
-        className="max-w-[1600px] mx-auto
-          px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 2xl:px-36
+        className="
+          max-w-[1600px] mx-auto
+          px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
           flex flex-wrap justify-center
-          gap-x-14 gap-y-10"
+          gap-x-14 gap-y-10
+        "
       >
         {partners.map((p, i) => (
           <div
@@ -107,6 +124,7 @@ export default function Partners() {
               sm:basis-[calc(50%-3.5rem)]
               md:basis-[calc(33.333%-3.5rem)]
               lg:basis-[calc(25%-3.5rem)]
+              xl:basis-[calc(20%-3.5rem)]
             "
           >
             <Image
@@ -117,7 +135,6 @@ export default function Partners() {
             />
           </div>
         ))}
-
       </div>
     </section>
   );
