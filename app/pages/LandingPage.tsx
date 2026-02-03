@@ -24,7 +24,7 @@ export default function LandingPage() {
           Mumbai from 12–15 March 2026.
         </p>
       </section>
-      <div className="flex min-h-screen flex-col bg-black font-sans">
+      <div className="flex min-h-screen flex-col bg-[#FFD600] font-sans">
         <AnnouncementBar />
         <Navbar />
         <main className="flex min-h-screen w-full flex-col">
