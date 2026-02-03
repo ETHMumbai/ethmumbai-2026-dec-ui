@@ -86,7 +86,7 @@ export const judges: Judge[] = [
   },
   {
     name: "Agnish Ghosh",
-    company: "Nimbus Ethereum Team ",
+    company: "Nimbus",
     image: "/assets/hackathon/judges/Agnish_Judge.png",
     xLink: "https://x.com/0xagnish",
     imageScale: "h-[145%]",
@@ -98,16 +98,16 @@ export const judges: Judge[] = [
     xLink: "https://x.com/OstwalAk",
     imageScale: "h-[180%]",
   },
-  {
-    name: "Aniket",
-    company: "Remix Labs (Remix IDE)",
-    image: "/assets/hackathon/judges/Aniket_Remix_Judge-removebg-preview.png",
-    xLink: "https://x.com/EthereumRemix",
-    imageScale: "h-[140%]",
-  },
+  // {
+  //   name: "Aniket",
+  //   company: "Remix Labs (Remix IDE)",
+  //   image: "/assets/hackathon/judges/Aniket_Remix_Judge-removebg-preview.png",
+  //   xLink: "https://x.com/EthereumRemix",
+  //   imageScale: "h-[140%]",
+  // },
   {
     name: "Dhaiwat",
-    company: "",
+    company: "ENS",
     image: "/assets/hackathon/judges/Dhaiwat_Judge-removebg-preview.png",
     xLink: "https://x.com/dhaiwat10",
     imageScale: "h-[185%]",
