@@ -106,7 +106,7 @@ export default function Hero() {
               Buy Tickets
             </button>
           </a>
-          <button
+          {/* <button
             style={{ cursor: "pointer" }}
             onClick={() => {
               window.open("https://ethmumbai2026.devfolio.co/", "_blank");
@@ -116,7 +116,7 @@ export default function Hero() {
                         hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
           >
             Go to Devfolio
-          </button>
+          </button> */}
         </div>
         {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
