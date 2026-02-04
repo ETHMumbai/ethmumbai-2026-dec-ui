@@ -76,9 +76,9 @@ export const mentors: Mentor[] = [
   {
     name: "Jayesh Bhole ",
     company: "Offchain Labs",
-    image: "/assets/hackathon/mentors/Jayesh_Mentor-removebg-preview.png",
+    image: "/assets/hackathon/mentors/Jayesh Bhole.png",
     xLink: "https://x.com/supremebattak",
-    imageScale: "h-[120%]",
+    imageScale: "h-[125%]",
   },
    {
     name: "Kenil Shah",
