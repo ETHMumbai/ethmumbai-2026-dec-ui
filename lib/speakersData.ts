@@ -406,6 +406,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[185%]",
   },
   {
+    name: "Jobin Ayathil",
+    company: "TEN Protocol",
+    image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
+    xLink: "https://x.com/0xjba",
+    imageScale: "h-[165%]",
+  },
+  {
     name: "Kanika Mishra",
     company: "USDT Marketplace",
     image: "/assets/speakers/Kanika_Mishra.png",
