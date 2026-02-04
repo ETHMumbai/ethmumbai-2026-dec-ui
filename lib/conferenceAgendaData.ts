@@ -146,6 +146,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:40 AM",
+    duration: "20 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Vishal", company: "Zippel Labs", image:"/assets/speakers/Vishal_Mentor-removebg-preview.png" }],
@@ -167,6 +168,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "12:20 PM",
+    duration: "20 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Abhishek Yadav", company: "Etherspot", image:"/assets/speakers/Abhishek Yadav - Etherspot.png" }],
@@ -188,6 +190,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "12:40 PM",
+    duration: "20 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Naina Sachdev", company: "dev3pack", image:"/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png" }],
@@ -222,6 +225,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "02:15 PM",
+    duration: "15 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Aniket", company: "Remix Labs", image:"/assets/speakers/Aniket_Remix_Judge-removebg-preview.png" }],
@@ -248,6 +252,7 @@ export const agendaData: AgendaItem[] = [
    {
     stage: "COMMUNITY_STAGE",
     time: "02:30 PM",
+    duration: "20 mins",
     type: "TALK",
     title: " Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Aniket Sharma", company: "Rath Finance", image:"/assets/speakers/Aniket Sharma - Rath Finance.png" }],
@@ -269,6 +274,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "02:50 PM",
+    duration: "15 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Ayush Bhadauria", company: "ZisK", image:"/assets/speakers/Ayush Bhadauria - ZisK.png" }],
@@ -290,6 +296,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "03:05 PM",
+    duration: "15 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Ayush Bherwani", company: "MetaMask", image:"/assets/speakers/Ayush_Bherwani.png" }],
@@ -315,6 +322,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "03:20 PM",
+    duration: "20 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Siddharth Biju", company: "", image:"/assets/speakers/Siddharth Biju.png" }],
