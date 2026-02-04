@@ -67,6 +67,13 @@ export const mentors: Mentor[] = [
     imageScale: "h-[115%]",
   },
   {
+    name: "Didier Krux",
+    company: "Devcon - Ethereum Foundation",
+    image: "/assets/hackathon/mentors/Didier_Mentor-removebg-preview.png",
+    xLink: "https://x.com/DidierKrux",
+    imageScale: "h-[130%]",
+  },
+  {
     name: "Jayesh Bhole ",
     company: "Offchain Labs",
     image: "/assets/hackathon/mentors/Jayesh_Mentor-removebg-preview.png",
@@ -107,6 +114,13 @@ export const mentors: Mentor[] = [
     image: "/assets/hackathon/mentors/Saurabh_Mentor-removebg-preview.png",
     xLink: "https://x.com/kryptosauruseth",
     imageScale: "h-[120%]",
+  },
+  {
+    name: "Shagun Prasad",
+    company: "Polkadot India",
+    image: "/assets/hackathon/mentors/shagun_mentor-removebg-preview-crop.png",
+    xLink: "https://x.com/0xDEADSHAE",
+    imageScale: "h-[115%]",
   },
   {
     name: "Thiru",
