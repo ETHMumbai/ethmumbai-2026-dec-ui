@@ -25,16 +25,23 @@ export default function Agenda() {
   };
 
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-10">
       {/* TITLE */}
       <div className="flex justify-center items-center mb-10">
         <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] tracking-[-1px] text-center text-[#0A0A0A] mb-10">
           Agenda
         </h2>
 
-        <button className="ml-4 bg-[#3FA9F5] text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-80 transition">
-          + Add to Calendar
-        </button>
+        <a
+            title="Add to Calendar"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+          >
+          <button className="ml-4 bg-[#3FA9F5] cursor-pointer text-white px-4 py-2 mb-8 rounded-xl text-sm font-medium hover:opacity-80 transition">
+            + Add to Calendar
+          </button>
+        </a>
       </div>
 
       {/* GRID */}
