@@ -328,6 +328,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]",
   },
   {
+    name: "Ale Marin",
+    company: "NERDCONF",
+    image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+    xLink: "https://x.com/AleeeM1",
+    imageScale: "h-[120%]",
+  },
+  {
     name: "Aniket",
     company: "Remix Labs",
     image: "/assets/speakers/Aniket_Remix_Judge-removebg-preview.png",
@@ -397,6 +404,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Jatin_Pandya.png",
     xLink: "https://twitter.com/Jpandya26",
     imageScale: "h-[185%]",
+  },
+  {
+    name: "Jobin Ayathil",
+    company: "TEN Protocol",
+    image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
+    xLink: "https://x.com/0xjba",
+    imageScale: "h-[165%]",
   },
   {
     name: "Kanika Mishra",
@@ -493,6 +507,13 @@ export const conferenceSpeakers: Speaker[] = [
     company: "",
     image: "/assets/speakers/Siddharth Biju.png",
     xLink: "https://x.com/sidbharth",
+    imageScale: "h-[120%]",
+  },
+  {
+    name: "Tomas Octavio",
+    company: "NERDCONF",
+    image: "/assets/speakers/TOMAS_OCTAVIO_NERDCONF-removebg-preview.png",
+    xLink: "https://x.com/tomasoctavio_",
     imageScale: "h-[120%]",
   },
   {
