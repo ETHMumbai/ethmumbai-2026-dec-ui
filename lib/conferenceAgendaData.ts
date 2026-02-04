@@ -70,6 +70,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "10:50 AM",
+    duration: "20 mins",
     type: "TALK",
     title: "Stitching off-chain and on-chain data to make sense of web3",
     speakers: [{ name: "Robin Roy", company: "Avail", image:"/assets/speakers/Robin-Roy-removebg-preview.png" }],
