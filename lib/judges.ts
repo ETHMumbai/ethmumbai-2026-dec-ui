@@ -149,7 +149,7 @@ export const judges: Judge[] = [
   },
   {
     name: "Smit Khakhkhar",
-    company: "CoinList",
+    company: "Degen",
     image: "/assets/hackathon/judges/Smit_Judge-removebg-preview.png",
     xLink: "https://x.com/0xSmit",
     imageScale: "h-[110%]",

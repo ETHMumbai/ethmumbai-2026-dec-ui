@@ -68,7 +68,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Didier Krux",
-    company: "Devcon - Ethereum Foundation",
+    company: "Devcon",
     image: "/assets/hackathon/mentors/Didier_Mentor-removebg-preview.png",
     xLink: "https://x.com/DidierKrux",
     imageScale: "h-[130%]",
@@ -131,7 +131,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Viraj Patva",
-    company: "",
+    company: "Engineer",
     image: "/assets/hackathon/mentors/Viraj_Mentor-removebg-preview.png",
     xLink: "https://x.com/vkpatva",
     imageScale: "h-[140%]",
@@ -145,7 +145,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Yash Saraswat",
-    company: "",
+    company: "Protocol Engineer",
     image: "/assets/hackathon/mentors/Yash_Mentor-removebg-preview.png",
     xLink: "https://x.com/0xpanicError",
     imageScale: "h-[180%]",
