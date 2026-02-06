@@ -8,8 +8,8 @@ export default function Agenda() {
     { bg: string; text: string; border: string }
   > = {
     DeFi: {
-      bg: "bg-[#FFF7CC]",     
-      text: "text-[#B38600]", 
+      bg: "bg-[#FFF7CC]",
+      text: "text-[#B38600]",
       border: "border-[#E6C200]",
     },
     Privacy: {
@@ -33,11 +33,11 @@ export default function Agenda() {
         </h2>
 
         <a
-            title="Add to Calendar"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
-          >
+          title="Add to Calendar"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://calendar.google.com/calendar/?cid=Y18wYTU4ODdkMWJkNDU4YmY2ZDllNmQ2OWRiODg5OTAzMjAyOTM4OWJhMmY1OWMwNjI5NzZlODlmMGVmODAwZjI4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+        >
           <button className="ml-4 bg-[#3FA9F5] cursor-pointer text-white px-4 py-2 mb-8 rounded-xl text-sm font-medium hover:opacity-80 transition">
             + Add to Calendar
           </button>
@@ -110,15 +110,22 @@ export default function Agenda() {
                       <div className="flex items-center">
                         {/* Speaker Image (SQUARE) */}
                         {speaker.image ? (
-                          <Image
-                            src={speaker.image}
-                            alt={speaker.name}
-                            width={56}
-                            height={56}
-                            className="rounded-lg object-cover"
-                          />
+                          <div className="w-14 h-14 bg-[#FFD600] rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                              src={speaker.image}
+                              alt={speaker.name}
+                              width={48}
+                              height={48}
+                              className="object-cover transition-transform duration-300 z-0 pointer-events-none"
+                              style={{
+                                transform: speaker.scale
+                                  ? `scale(${parseInt(speaker.scale) / 100})`
+                                  : "scale(1)",
+                              }}
+                            />
+                          </div>
                         ) : (
-                          <div className="w-14 h-14 rounded-lg bg-gray-200" />
+                          <div className="w-14 h-14 rounded-lg bg-[#FFD600]" />
                         )}
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
@@ -129,7 +136,7 @@ export default function Agenda() {
                               alt="Project Logo"
                               width={52}
                               height={52}
-                              className="object-contain rounded-full"
+                              className="object-contain rounded-full z-10"
                             />
                           </div>
                         )}
