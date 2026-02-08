@@ -156,7 +156,7 @@ export const judges: Judge[] = [
   },
   {
     name: "Sweta Shaw",
-    company: "Own Protocol",
+    company: "Own Finance",
     image: "/assets/hackathon/judges/Sweta_Judge-removebg-preview.png",
     xLink: "https://x.com/swetashaw_",
     imageScale: "h-[125%]",
