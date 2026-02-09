@@ -131,7 +131,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Viraj Patva",
-    company: "Engineer",
+    company: "",
     image: "/assets/hackathon/mentors/Viraj_Mentor-removebg-preview.png",
     xLink: "https://x.com/vkpatva",
     imageScale: "h-[140%]",
@@ -145,7 +145,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Yash Saraswat",
-    company: "Protocol Engineer",
+    company: "",
     image: "/assets/hackathon/mentors/Yash_Mentor-removebg-preview.png",
     xLink: "https://x.com/0xpanicError",
     imageScale: "h-[180%]",
