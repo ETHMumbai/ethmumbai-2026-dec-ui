@@ -11,7 +11,19 @@ export default function Mentors() {
       </h2>
 
       {/* Speakers Grid */}
-      <div className="px-4 sm:px-8 lg:px-20 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-x-12 md:gap-y-10 mb-12 mx-auto">
+      <div className="
+          px-4 sm:px-8 lg:px-12
+          grid
+          grid-cols-2
+          sm:grid-cols-3
+          md:grid-cols-4
+          lg:grid-cols-7
+          justify-items-center
+          gap-6 sm:gap-8 md:gap-10
+          mb-12
+          mx-auto
+          max-w-[1600px]
+        ">
         {mentors.map((mentor, index) => (
           <div
             key={index}
