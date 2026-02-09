@@ -31,7 +31,7 @@ export default function Speakers() {
         {pastSpeakers.map((speaker, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
+            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 21 ? "lg:col-start-3" : ""}`}
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-3 group">
@@ -43,7 +43,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
+                  <div className={`w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative `}>
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
