@@ -131,7 +131,7 @@ export const pastSpeakers: Speaker[] = [
     name: "Naina Sachdev",
     company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
-    xLink: "https://x.com/Nainasachdev11",
+    xLink: "https://x.com/nainasachdev_?s=11",
     imageScale: "h-[150%]",
   },
   {
@@ -487,7 +487,7 @@ export const conferenceSpeakers: Speaker[] = [
     name: "Naina Sachdev",
     company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
-    xLink: "https://x.com/Nainasachdev11",
+    xLink: "https://x.com/nainasachdev_?s=11",
     imageScale: "h-[150%]",
   },
   {
