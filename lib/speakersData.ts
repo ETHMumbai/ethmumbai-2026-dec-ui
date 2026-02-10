@@ -436,8 +436,7 @@ export const conferenceSpeakers: Speaker[] = [
   {
     name: "Devansh Mehta",
     company: "Ethereum Foundation",
-    image:
-      "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+    image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
     xLink: "https://x.com/devanshmehta",
     imageScale: "h-[115%]",
   },
@@ -553,6 +552,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Sharvil",
+    company: "CapX",
+    image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+    xLink: "https://x.com/0xsharvil",
+    imageScale: "h-[138%]",
+  },
+  {
     name: "Shiv Bhonde ",
     company: "BuidlGuidl",
     image: "/assets/speakers/Shiv_Bhonde.png",
@@ -581,6 +587,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]",
   },
   {
+    name: "Siddharth Biju",
+    company: "",
+    image: "/assets/speakers/Siddharth Biju.png",
+    xLink: "https://x.com/sidbharth",
+    imageScale: "h-[120%]",
+  },
+  {
     name: "Sweta Shaw",
     company: "Own Finance",
     image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
@@ -588,11 +601,11 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[125%]",
   },
   {
-    name: "Siddharth Biju",
-    company: "",
-    image: "/assets/speakers/Siddharth Biju.png",
-    xLink: "https://x.com/sidbharth",
-    imageScale: "h-[120%]",
+    name: "Tanay",
+    company: "PropellerHeads",
+    image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
+    xLink: "https://x.com/tanayjain",
+    imageScale: "h-[150%]",
   },
   {
     name: "Tanay",
