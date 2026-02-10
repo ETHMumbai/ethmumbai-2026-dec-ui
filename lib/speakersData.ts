@@ -565,6 +565,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/ShivBhonde",
     imageScale: "h-[128%]",
   },
+   {
+    name: "Sharvil",
+    company: "CapX",
+    image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+    xLink: "https://x.com/0xsharvil",
+    imageScale: "h-[138%]",
+  },
   {
     name: "Shubham Bhandari",
     company: "Manta Network",
