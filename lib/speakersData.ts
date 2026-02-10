@@ -581,13 +581,6 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]",
   },
   {
-    name: "Sweta Shaw",
-    company: "Own Finance",
-    image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
-    xLink: "https://x.com/swetashaw_",
-    imageScale: "h-[125%]",
-  },
-  {
     name: "Siddharth Biju",
     company: "",
     image: "/assets/speakers/Siddharth Biju.png",
@@ -595,11 +588,11 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
-    name: "Tanay",
-    company: "PropellerHeads",
-    image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
-    xLink: "https://x.com/tanayjain",
-    imageScale: "h-[155%]",
+    name: "Sweta Shaw",
+    company: "Own Finance",
+    image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
+    xLink: "https://x.com/swetashaw_",
+    imageScale: "h-[125%]",
   },
   {
     name: "Tomas Octavio",
