@@ -522,7 +522,7 @@ export const conferenceSpeakers: Speaker[] = [
     company: "Touch Grass Podcast",
     image: "/assets/speakers/Rachit.png",
     xLink: "https://x.com/rachit",
-    imageScale: "h-[125%]",
+    imageScale: "h-[115%]",
   },
   {
     name: "Rahul Bhadoriya",
