@@ -35,15 +35,25 @@ const partners = [
     twitter: "https://x.com/ETHCluj",
   },
   {
+    logo: "/assets/partners/ethereum nigeria.svg",
+    name: "Ethereum Nigeria",
+    twitter: "https://x.com/EthereumNigeria",
+  },
+  {
+    logo: "/assets/partners/eth lagos.svg",
+    name: "ETH Lagos",
+    twitter: "https://x.com/EthereumLagos",
+  },
+  {
     logo: "/assets/partners/ETHRome.svg",
     name: "ETHRome",
     twitter: "https://x.com/ETHRome",
   },
-  {
-    logo: "/assets/partners/fileverse.svg",
-    name: "Fileverse",
-    twitter: "https://x.com/fileverse",
-  },
+  // {
+  //   logo: "/assets/partners/fileverse.svg",
+  //   name: "Fileverse",
+  //   twitter: "https://x.com/fileverse",
+  // },
   {
     logo: "/assets/partners/NapulETH.svg",
     name: "NapulETH",
@@ -55,9 +65,9 @@ const partners = [
     twitter: "https://x.com/poapxyz",
   },
   {
-    logo: "/assets/partners/Polygon.svg",
-    name: "Polygon",
-    twitter: "https://x.com/0xPolygon",
+    logo: "/assets/partners/se7en.svg",
+    name: "Seven & Co",
+    twitter: "https://x.com/sevennco",
   },
   // {
   //   logo: "/assets/partners/ETHRome.svg",
@@ -102,7 +112,7 @@ export default function Partners() {
           max-w-[1600px] mx-auto
           px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
           flex flex-wrap justify-center
-          gap-x-14 gap-y-10
+          gap-x-18 gap-y-10
         "
       >
         {partners.map((p, i) => (
