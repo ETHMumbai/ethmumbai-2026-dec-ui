@@ -15,23 +15,23 @@ export default function Speakers() {
       {/* Speakers Grid */}
       <div
         className="
-    px-4 sm:px-8 lg:px-12
-    grid
-    grid-cols-2
-    sm:grid-cols-3
-    md:grid-cols-4
-    lg:grid-cols-7
-    justify-items-center
-    gap-6 sm:gap-8 md:gap-10
-    mb-12
-    mx-auto
-    max-w-[1600px]
-  "
+          px-4 sm:px-8 lg:px-12
+          grid
+          grid-cols-2
+          sm:grid-cols-3
+          md:grid-cols-4
+          lg:grid-cols-8
+          justify-items-center
+          gap-6 sm:gap-8 md:gap-10
+          mb-12
+          mx-auto
+          max-w-[1600px]
+        "
       >
         {pastSpeakers.map((speaker, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 21 ? "lg:col-start-3" : ""}`}
+            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] `}
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-3 group">

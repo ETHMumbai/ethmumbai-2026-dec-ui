@@ -131,7 +131,7 @@ export const pastSpeakers: Speaker[] = [
     name: "Naina Sachdev",
     company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
-    xLink: "https://x.com/nainasachdev_?s=11",
+    xLink: "https://x.com/Nainasachdev11",
     imageScale: "h-[150%]",
   },
   {
@@ -456,6 +456,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Iptisha",
+    company: "Circulox",
+    image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
+    xLink: "https://x.com/iptishax",
+    imageScale: "h-[148%]",
+  },
+  {
     name: "Jatin Pandya",
     company: "Canton Foundation",
     image: "/assets/speakers/Jatin_Pandya.png",
@@ -484,6 +491,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]",
   },
    {
+    name: "Kunal Gandhi",
+    company: "HeyElsa",
+    image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
+    xLink: "https://x.com/kunalvg",
+    imageScale: "h-[120%] right-[50%]",
+  },
+   {
     name: "Naina Sachdev",
     company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
@@ -503,6 +517,13 @@ export const conferenceSpeakers: Speaker[] = [
   //   xLink: "https://x.com/Rahatcodes",
   //   imageScale: "h-[145%]",
   // },
+   {
+    name: "Rachit",
+    company: "Touch Grass Podcast",
+    image: "/assets/speakers/Rachit.png",
+    xLink: "https://x.com/rachit",
+    imageScale: "h-[115%]",
+  },
   {
     name: "Rahul Bhadoriya",
     company: "Dacoit",
@@ -517,13 +538,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/robin_rrtx",
     imageScale: "h-[125%]",
   },
-  {
-    name: "Sahil",
-    company: "Quicknode",
-    image: "/assets/speakers/Sahil_Sen_-_Quicknode-removebg-preview.png",
-    xLink: "https://x.com/sensahil",
-    imageScale: "h-[125%]",
-  },
+  // {
+  //   name: "Sahil",
+  //   company: "Quicknode",
+  //   image: "/assets/speakers/Sahil_Sen_-_Quicknode-removebg-preview.png",
+  //   xLink: "https://x.com/sensahil",
+  //   imageScale: "h-[125%]",
+  // },
   {
     name: "Sebastian Burkhard",
     company: "Yodl Pay",
@@ -537,6 +558,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Shiv_Bhonde.png",
     xLink: "https://x.com/ShivBhonde",
     imageScale: "h-[128%]",
+  },
+   {
+    name: "Sharvil",
+    company: "CapX",
+    image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+    xLink: "https://x.com/0xsharvil",
+    imageScale: "h-[138%]",
   },
   {
     name: "Shubham Bhandari",
@@ -565,6 +593,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Siddharth Biju.png",
     xLink: "https://x.com/sidbharth",
     imageScale: "h-[120%]",
+  },
+  {
+    name: "Tanay",
+    company: "PropellerHeads",
+    image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
+    xLink: "https://x.com/tanayjain",
+    imageScale: "h-[155%]",
   },
   {
     name: "Tomas Octavio",
