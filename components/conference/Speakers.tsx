@@ -60,7 +60,7 @@ export default function Speakers() {
                 grid-flow-col
                 auto-cols-max
                 justify-center
-                gap-4 lg:gap-5
+                gap-6 sm:gap-8 md:gap-10
               "
             >
               {conferenceSpeakers

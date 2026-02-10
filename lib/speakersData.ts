@@ -436,8 +436,7 @@ export const conferenceSpeakers: Speaker[] = [
   {
     name: "Devansh Mehta",
     company: "Ethereum Foundation",
-    image:
-      "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+    image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
     xLink: "https://x.com/devanshmehta",
     imageScale: "h-[115%]",
   },
@@ -553,18 +552,18 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
-    name: "Shiv Bhonde ",
-    company: "BuidlGuidl",
-    image: "/assets/speakers/Shiv_Bhonde.png",
-    xLink: "https://x.com/ShivBhonde",
-    imageScale: "h-[128%]",
-  },
-   {
     name: "Sharvil",
     company: "CapX",
     image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
     xLink: "https://x.com/0xsharvil",
     imageScale: "h-[138%]",
+  },
+  {
+    name: "Shiv Bhonde ",
+    company: "BuidlGuidl",
+    image: "/assets/speakers/Shiv_Bhonde.png",
+    xLink: "https://x.com/ShivBhonde",
+    imageScale: "h-[128%]",
   },
   {
     name: "Shubham Bhandari",
@@ -593,6 +592,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
     xLink: "https://x.com/swetashaw_",
     imageScale: "h-[125%]",
+  },
+  {
+    name: "Tanay",
+    company: "PropellerHeads",
+    image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
+    xLink: "https://x.com/tanayjain",
+    imageScale: "h-[150%]",
   },
   {
     name: "Tomas Octavio",
