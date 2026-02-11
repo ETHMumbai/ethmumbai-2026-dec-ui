@@ -13,19 +13,19 @@ const tierStyles: Record<
   }
 > = {
   one: {
-    card: "w-full max-w-[560px] sm:max-w-[820px] aspect-[3.2/1]",
-    imagePadding: "p-10 sm:p-14",
-  },
-  two: {
-    card: "w-full max-w-[480px] sm:max-w-[600px] aspect-[3/1]",
-    imagePadding: "p-8 sm:p-12",
-  },
-  three: {
     card: "w-full max-w-[380px] sm:max-w-[420px] aspect-[2.6/1]",
     imagePadding: "p-6 sm:p-8",
   },
+  two: {
+    card: "w-full max-w-[380px] sm:max-w-[420px] aspect-[2.6/1]",
+    imagePadding: "p-6 sm:p-8",
+  },
+  three: {
+    card: "w-full max-w-[280px] sm:max-w-[320px] aspect-[2.4/0.9]",
+    imagePadding: "p-6 sm:p-8",
+  },
   four: {
-    card: "w-full max-w-[320px] sm:max-w-[340px] aspect-[2.3/1]",
+    card: "w-full max-w-[220px] sm:max-w-[280px] aspect-[2.1/0.7]",
     imagePadding: "p-4 sm:p-6",
   },
 };
@@ -54,7 +54,7 @@ export default function Sponsors() {
       </div>
 
       {/* TIERS */}
-      <div className="flex flex-col items-center space-y-24">
+      <div className="flex flex-col items-center space-y-14">
         {(Object.keys(sponsorsByTier) as SponsorTier[]).map((tier) => {
           const sponsors = sponsorsByTier[tier];
           const styles = tierStyles[tier];
@@ -81,12 +81,11 @@ export default function Sponsors() {
                       ? "sm:grid-cols-2"
                       : "sm:grid-cols-3"
                   }
-
-                  lg:flex
-                  lg:flex-row
-                  lg:justify-between
-                  lg:items-center
-                  lg:gap-12
+                lg:flex
+                lg:flex-row
+                lg:items-center
+                lg:gap-12
+                ${tier === "one" ? "lg:justify-center" : "lg:justify-between"}
                 `}
               >
                 {sponsors.map((s, i) => (
