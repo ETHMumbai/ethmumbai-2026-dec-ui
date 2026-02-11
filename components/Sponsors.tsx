@@ -2,120 +2,139 @@
 
 import React from "react";
 import Image from "next/image";
-import TwitterLogo from "../public/assets/x-logo.png";
+import { currentSponsors, SponsorTier } from "@/lib/sponsorsData";
 
-const sponsors = [
+/* ---------- TIER STYLES (MOBILE + DESKTOP) ---------- */
+const tierStyles: Record<
+  SponsorTier,
   {
-    logo: "/assets/sponsors/arweave.png",
-    name: "Arweave",
-    twitter: " https://x.com/arweaveindia",
+    card: string;
+    imagePadding: string;
+  }
+> = {
+  one: {
+    card: "w-full max-w-[560px] sm:max-w-[820px] aspect-[3.2/1]",
+    imagePadding: "p-10 sm:p-14",
   },
-  {
-    logo: "/assets/sponsors/avail.png",
-    name: "Avail",
-    twitter: "https://x.com/AvailProject",
+  two: {
+    card: "w-full max-w-[480px] sm:max-w-[600px] aspect-[3/1]",
+    imagePadding: "p-8 sm:p-12",
   },
-  {
-    logo: "/assets/sponsors/esp.png",
-    name: "ESP",
-    twitter: "https://x.com/EF_ESP",
+  three: {
+    card: "w-full max-w-[380px] sm:max-w-[420px] aspect-[2.6/1]",
+    imagePadding: "p-6 sm:p-8",
   },
-  {
-    logo: "/assets/sponsors/Polygon.png",
-    name: "Polygon",
-    twitter: "https://twitter.com/0xPolygon",
+  four: {
+    card: "w-full max-w-[320px] sm:max-w-[340px] aspect-[2.3/1]",
+    imagePadding: "p-4 sm:p-6",
   },
-
-  {
-    logo: "/assets/sponsors/core.png",
-    name: "Core",
-    twitter: "https://x.com/Coredao_Org",
-  },
-  {
-    logo: "/assets/sponsors/Fuel.png",
-    name: "Fuel",
-    twitter: "https://x.com/fuel_network",
-  },
-  {
-    logo: "/assets/sponsors/lumio.png",
-    name: "Lumio",
-    twitter: "https://x.com/lumioFDN",
-  },
-  {
-    logo: "/assets/sponsors/purpledao.png",
-    name: "Purple DAO",
-    twitter: "https://purple.construction/about/",
-  },
-
-  {
-    logo: "/assets/sponsors/TheGraph.png",
-    name: "The Graph",
-    twitter: "https://x.com/graphprotocol",
-  },
-  {
-    logo: "/assets/sponsors/VaraNetwork.png",
-    name: "Vara",
-    twitter: "https://x.com/VaraNetwork",
-  },
-];
+};
 
 export default function Sponsors() {
+  /* ---------- GROUP BY TIER ---------- */
+  const sponsorsByTier: Record<SponsorTier, typeof currentSponsors> = {
+    one: [],
+    two: [],
+    three: [],
+    four: [],
+  };
+
+  currentSponsors.forEach((s) => {
+    const tier = (s.tier ?? "three") as SponsorTier;
+    sponsorsByTier[tier].push(s);
+  });
+
   return (
     <section className="bg-[#3FA9F5] w-full py-10">
       {/* Title */}
-      <div className="flex pb-6 items-center justify-center w-full">
-        <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
-          Past Sponsors
+      <div className="flex justify-center pb-10">
+        <h2 className="text-white text-4xl sm:text-5xl md:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium">
+          Sponsors
         </h2>
       </div>
 
-      {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-14 gap-y-16 justify-items-center">
-        {sponsors.map((s, i) => (
-          <div
-            key={i}
-            className={`
-              relative
-              w-full
-              max-w-[320px]
-              aspect-[2.4/1]
-              rounded-[10px]
-              overflow-hidden
-              cursor-pointer
-              group
-              ${i === 8 ? "lg:col-start-2" : ""}  
-              ${i === 9 ? "lg:col-start-3" : ""} 
-              bg-[url('/assets/sponsors/sponsors-card.png')]
-              bg-cover
-              bg-center
-            `}
-            onClick={() => s.twitter && window.open(s.twitter, "_blank")}
-          >
-            {/* Logo and name */}
-            <div className="absolute inset-0 flex items-center justify-center gap-4 z-10 px-6">
-              <Image
-                src={s.logo}
-                alt={s.name}
-                fill
-                className="object-contain p-6"
-              />
+      {/* TIERS */}
+      <div className="flex flex-col items-center space-y-24">
+        {(Object.keys(sponsorsByTier) as SponsorTier[]).map((tier) => {
+          const sponsors = sponsorsByTier[tier];
+          const styles = tierStyles[tier];
+
+          if (!sponsors.length) return null;
+
+          return (
+            <div
+              key={tier}
+              className="w-full max-w-[1400px] px-6 sm:px-12 lg:px-24"
+            >
+              <div
+                className={`
+                  flex flex-col items-center gap-6
+
+                  sm:grid
+                  sm:justify-items-center
+                  ${
+                    tier === "one"
+                      ? "sm:grid-cols-1"
+                      : tier === "two"
+                      ? "sm:grid-cols-2"
+                      : tier === "three"
+                      ? "sm:grid-cols-2"
+                      : "sm:grid-cols-3"
+                  }
+
+                  lg:flex
+                  lg:flex-row
+                  lg:justify-between
+                  lg:items-center
+                  lg:gap-12
+                `}
+              >
+                {sponsors.map((s, i) => (
+                  <div
+                    key={i}
+                    onClick={() =>
+                      s.twitter && window.open(s.twitter, "_blank")
+                    }
+                    className={`
+                      relative
+                      ${styles.card}
+                      rounded-[14px]
+                      overflow-hidden
+                      cursor-pointer
+                      bg-[url('/assets/sponsors/sponsors-card.png')]
+                      bg-cover
+                      bg-center
+                      cursor-pointer
+                    `}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Image
+                        src={s.logo}
+                        alt={s.name}
+                        fill
+                        className={`object-contain ${styles.imagePadding}`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {/* CTA Button */}
-      <a
-        href="https://tally.so/r/3NkdGb"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div className="flex justify-center mt-16">
-          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+      {/* CTA */}
+      <div className="flex justify-center mt-12">
+        <a
+          href="https://tally.so/r/3NkdGb"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Become a Sponsor
           </button>
-        </div>
-      </a>
+        </a>
+      </div>
     </section>
   );
 }
