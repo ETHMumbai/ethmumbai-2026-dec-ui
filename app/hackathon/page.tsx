@@ -25,7 +25,7 @@ export default function LandingPage() {
         <Icons
           icons={[
             { src: "/assets/hackathon/clock.svg", title: "42 Hours" },
-            { src: "/assets/hackathon/trophy.svg", title: "$50K Prizes" },
+            { src: "/assets/hackathon/trophy.svg", title: "$30K Prizes" },
             { src: "/assets/hackathon/guy.svg", title: "300 Hackers" },
           ]}
         />

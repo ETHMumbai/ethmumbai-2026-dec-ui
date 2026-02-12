@@ -54,7 +54,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-[1rem] font-medium text-center text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
-          Build for 42 hours, learn from a panel of mentors, and win $50,000 in
+          Build for 42 hours, learn from a panel of mentors, and win $30,000 in
           bounties — all with the BEST community.
         </p>
 
