@@ -72,6 +72,19 @@ export default function Speakers() {
           )}
         </div>
       </div>
+
+      {/* CTA Button */}
+      <a
+        href="https://docs.fileverse.io/0xe59f51d0fd360e0dc5c73f17d2cfaf314244bbb8/0#key=e-MSDsPvPh4H92CVFBCrivuIo6kqqsDT31ZcdqwBEcW3baeCn_vL4-F55ca08Tkc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="flex justify-center">
+          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+            About Us
+          </button>
+        </div>
+      </a>
     </section>
   );
 }

@@ -81,14 +81,14 @@ export const teamMembers: TeamMember[] = [
     name: "Parth",
     image: "/assets/team/Parth.png",
     xLink: "https://x.com/Parthm71",
-    imageScale: "h-[110%]",
+    imageScale: "h-[120%]",
     bgColor: "bg-[#04a758]",
     },
     {
     name: "Pooja",
     image: "/assets/team/Pooja.png",
     xLink: "https://x.com/poojaasanwal",
-    imageScale: "h-[120%]",
+    imageScale: "h-[115%]",
     bgColor: "bg-[#fed602]",
     },
     {
@@ -102,7 +102,7 @@ export const teamMembers: TeamMember[] = [
     name: "Tanu",
     image: "/assets/team/Tanu.png",
     xLink: "https://x.com/txnuushree",
-    imageScale: "h-[120%]",
+    imageScale: "h-[115%]",
     bgColor: "bg-[#3fa9f4]",
     },
     {
