@@ -122,7 +122,9 @@ function SpeakerImage({ member }: { member: any }) {
         alt={member.name}
         width={150}
         height={185}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover rounded-3xl"
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 object-cover rounded-3xl ${
+          member.imageScale || "h-[118%]"
+        }`}
         style={{
           width: member.imageScale ?? "112%",
           objectPosition: "center 30%",
