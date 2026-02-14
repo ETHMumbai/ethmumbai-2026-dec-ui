@@ -427,6 +427,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Candela",
+    company: "EF Devcon",
+    image: "/assets/speakers/Candella_-_EF_Devcon-removebg-preview.png",
+    xLink: "https://x.com/candufaz",
+    imageScale: "h-[130%]",
+  },
+  {
     name: "Denver",
     company: "Devfolio",
     image: "/assets/speakers/Denver Dsouza - Devfolio.png",
@@ -455,11 +462,25 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Harsh Bajpai",
+    company: "Aztec Labs",
+    image: "/assets/speakers/Harsh_Bajpai_-_Aztec_Labs-removebg-preview.png",
+    xLink: "https://x.com/bajpaiharsh244",
+    imageScale: "h-[125%]",
+  },
+  {
     name: "Iptisha",
     company: "Circulox",
     image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
     xLink: "https://x.com/iptishax",
     imageScale: "h-[148%]",
+  },
+  {
+    name: "Irshad Ahmed",
+    company: "",
+    image: "/assets/speakers/Irshad_Ahmed-removebg-preview.png",
+    xLink: "https://x.com/irshaddahmed",
+    imageScale: "h-[155%]",
   },
   {
     name: "Jatin Pandya",
@@ -496,12 +517,27 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/kunalvg",
     imageScale: "h-[120%] right-[50%]",
   },
+    {
+    name: "Mykola Siusko",
+    company: "Web3Privacy",
+    image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
+    xLink: "https://x.com/nicksvyaznoy",
+    imageScale: "h-[140%]",
+  },
    {
     name: "Naina Sachdev",
     company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
     xLink: "https://x.com/nainasachdev_?s=11",
     imageScale: "h-[150%]",
+  },
+ 
+   {
+    name: "Ornella Vallana",
+    company: "EF Devcon",
+    image: "/assets/speakers/Ornella_-_EF_Devcon-removebg-preview.png",
+    xLink: "https://x.com/ornellaweb3",
+    imageScale: "h-[115%]",
   },
   {
     name: "Pareen Lathia",
@@ -585,6 +621,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Siddharth Biju.png",
     xLink: "https://x.com/sidbharth",
     imageScale: "h-[120%]",
+  },
+   {
+    name: "Sunny Singh",
+    company: "Gnosis Business",
+    image: "/assets/speakers/Sunny_Singh_-_Gnosis_Business-removebg-preview.png",
+    xLink: "https://x.com/TheSupremeDegen",
+    imageScale: "h-[130%]",
   },
   {
     name: "Sweta Shaw",
