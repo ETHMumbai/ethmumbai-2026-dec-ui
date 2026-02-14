@@ -57,7 +57,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
             </span>
           </span>
           <span>
-            ₹{discountedPrice} (${(discountedPrice / 90).toFixed(2)})
+            ₹{discountedPrice} (${(discountedPrice / 90.04).toFixed(2)})
           </span>
         </div>
 
@@ -71,7 +71,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ quantity }) => {
         <div className="flex justify-between font-bold text-lg">
           <span>Total</span>
           <span>
-            ₹{total} (${(total / 90).toFixed(2)})
+            ₹{total} (${(total / 90.04).toFixed(2)})
           </span>
         </div>
       </div>
