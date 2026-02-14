@@ -25,7 +25,7 @@ const tierStyles: Record<
     imagePadding: "p-6 sm:p-8",
   },
   four: {
-    card: "w-full max-w-[240px] sm:max-w-[280px] aspect-[2.1/0.8]",
+    card: "w-full max-w-[220px] sm:max-w-[260px] aspect-[2.1/0.7]",
     imagePadding: "p-4 sm:p-6",
   },
 };

@@ -111,12 +111,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/fileverse",
     tier: "four"
   },
-  {
-    logo: "/assets/sponsors/se7en.svg",
-    name: "Seven & Co",
-    twitter: "https://x.com/sevennco",
-    tier: "four"
-  }
+  // {
+  //   logo: "/assets/sponsors/se7en.svg",
+  //   name: "Seven & Co",
+  //   twitter: "https://x.com/sevennco",
+  //   tier: "four"
+  // }
 ];
 
 export const conferenceSponsors: Sponsor[] = [

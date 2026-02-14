@@ -64,11 +64,11 @@ const partners = [
     name: "POAP",
     twitter: "https://x.com/poapxyz",
   },
-  // {
-  //   logo: "/assets/partners/se7en.svg",
-  //   name: "Seven & Co",
-  //   twitter: "https://x.com/sevennco",
-  // },
+  {
+    logo: "/assets/partners/se7en.svg",
+    name: "Seven & Co",
+    twitter: "https://x.com/sevennco",
+  },
   // {
   //   logo: "/assets/partners/ETHRome.svg",
   //   name: "SheFi India",
@@ -107,42 +107,15 @@ export default function Partners() {
       </div>
 
       {/* Grid */}
-      <div
-        className="
-          max-w-[1600px] mx-auto
-          px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-3
-          lg:grid-cols-4
-          xl:grid-cols-5
-          gap-x-8 gap-y-10
-        "
-      >
-        {partners.map((p, i) => (
-          <div
-            key={i}
-            onClick={() => p.twitter && window.open(p.twitter, "_blank")}
-            className="
-              relative
-              h-[107px]
-              flex items-center justify-center
-              px-6
-              bg-[#F9FAFB]
-              border-[2.8px] border-[#E5E7EB]
-              rounded-[29px]
-              cursor-pointer
-              transition-transform duration-200 hover:scale-105
-            "
-          >
-            <Image
-              src={p.logo}
-              alt={p.name}
-              fill
-              className="object-contain p-5"
-            />
-          </div>
+      <div className=" max-w-[1600px] mx-auto px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 flex flex-wrap justify-center gap-x-18 gap-y-10 " >
+        {partners.map((p, i) =>
+        (<div key={i} onClick={() => p.twitter && window.open(p.twitter, "_blank")} className=" relative h-[107px] flex items-center justify-center px-6 bg-[#F9FAFB] border-[2.8px] border-[#E5E7EB] rounded-[29px] cursor-pointer transition-transform duration-200 hover:scale-105 w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-[20%] " >
+          <Image src={p.logo}
+            alt={p.name}
+            fill
+            className="object-contain p-5"
+          />
+        </div>
         ))}
       </div>
     </section>
