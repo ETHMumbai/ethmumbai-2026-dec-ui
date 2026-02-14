@@ -25,7 +25,7 @@ const tierStyles: Record<
     imagePadding: "p-6 sm:p-8",
   },
   four: {
-    card: "w-full max-w-[220px] sm:max-w-[280px] aspect-[2.1/0.7]",
+    card: "w-full max-w-[240px] sm:max-w-[280px] aspect-[2.1/0.8]",
     imagePadding: "p-4 sm:p-6",
   },
 };
@@ -97,7 +97,7 @@ export default function Sponsors() {
                     className={`
                       relative
                       ${styles.card}
-                      rounded-[14px]
+                      rounded-[10px]
                       overflow-hidden
                       cursor-pointer
                       bg-[url('/assets/sponsors/sponsors-card.png')]
@@ -129,7 +129,7 @@ export default function Sponsors() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="bg-[#D63A2F] text-white text-lg md:text-xl px-10 py-3 rounded-xl transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
+          <button className="bg-[#D63A2F] text-white cursor-pointer text-lg md:text-xl px-10 py-3 rounded-xl transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-lg">
             Become a Sponsor
           </button>
         </a>

@@ -82,6 +82,12 @@ export const currentSponsors: Sponsor[] = [
     tier: "three"
   },
   {
+    logo: "/assets/sponsors/Avantis.svg",
+    name: "Avantis",
+    twitter: "https://x.com/avantisfi",
+    tier: "three"
+  },
+  {
     logo: "/assets/sponsors/ens.svg",
     name: "ENS",
     twitter: "https://x.com/ensdomains",
@@ -103,6 +109,12 @@ export const currentSponsors: Sponsor[] = [
     logo: "/assets/sponsors/fileverse.svg",
     name: "Fileverse",
     twitter: "https://x.com/fileverse",
+    tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/se7en.svg",
+    name: "Seven & Co",
+    twitter: "https://x.com/sevennco",
     tier: "four"
   }
 ];
