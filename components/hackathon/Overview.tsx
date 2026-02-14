@@ -27,7 +27,7 @@ export default function Hero() {
                     <br />
 
                     <p className="text-lg text-gray-800 leading-relaxed">
-                        Win upto $50,000 in bounties, learn from our panel of mentors, and build with the BEST community.
+                        Win upto $30,000 in bounties, learn from our panel of mentors, and build with the BEST community.
                     </p>
                     <br />
 
