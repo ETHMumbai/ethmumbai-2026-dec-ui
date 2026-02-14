@@ -64,11 +64,11 @@ const partners = [
     name: "POAP",
     twitter: "https://x.com/poapxyz",
   },
-  {
-    logo: "/assets/partners/se7en.svg",
-    name: "Seven & Co",
-    twitter: "https://x.com/sevennco",
-  },
+  // {
+  //   logo: "/assets/partners/se7en.svg",
+  //   name: "Seven & Co",
+  //   twitter: "https://x.com/sevennco",
+  // },
   // {
   //   logo: "/assets/partners/ETHRome.svg",
   //   name: "SheFi India",
@@ -111,8 +111,13 @@ export default function Partners() {
         className="
           max-w-[1600px] mx-auto
           px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
-          flex flex-wrap justify-center
-          gap-x-18 gap-y-10
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          xl:grid-cols-5
+          gap-x-8 gap-y-10
         "
       >
         {partners.map((p, i) => (
@@ -129,12 +134,6 @@ export default function Partners() {
               rounded-[29px]
               cursor-pointer
               transition-transform duration-200 hover:scale-105
-
-              w-full
-              sm:basis-[calc(50%-3.5rem)]
-              md:basis-[calc(33.333%-3.5rem)]
-              lg:basis-[calc(25%-3.5rem)]
-              xl:basis-[calc(20%-3.5rem)]
             "
           >
             <Image
