@@ -4,29 +4,26 @@ import React from "react";
 import Image from "next/image";
 import { currentSponsors, SponsorTier } from "@/lib/sponsorsData";
 
-/* ---------- TIER STYLES (MOBILE + DESKTOP) ---------- */
+/* ---------- TIER STYLES (SIZE SHRINKS PER TIER) ---------- */
 const tierStyles: Record<
   SponsorTier,
-  {
-    card: string;
-    imagePadding: string;
-  }
+  { card: string; imagePadding: string }
 > = {
   one: {
-    card: "w-full max-w-[380px] sm:max-w-[420px] aspect-[2.6/1]",
-    imagePadding: "p-6 sm:p-8",
+    card: "w-full max-w-[340px] sm:max-w-[420px] aspect-[2.8/1]",
+    imagePadding: "p-8 sm:p-10",
   },
   two: {
-    card: "w-full max-w-[380px] sm:max-w-[420px] aspect-[2.6/1]",
+    card: "w-full max-w-[300px] sm:max-w-[360px] aspect-[2.6/1]",
     imagePadding: "p-6 sm:p-8",
   },
   three: {
-    card: "w-full max-w-[280px] sm:max-w-[320px] aspect-[2.4/0.9]",
-    imagePadding: "p-6 sm:p-8",
+    card: "w-full max-w-[240px] sm:max-w-[300px] aspect-[2.4/1]",
+    imagePadding: "p-5 sm:p-6",
   },
   four: {
-    card: "w-full max-w-[220px] sm:max-w-[260px] aspect-[2.1/0.7]",
-    imagePadding: "p-4 sm:p-6",
+    card: "w-full max-w-[170px] sm:max-w-[210px] aspect-[2.1/1]",
+    imagePadding: "p-5 sm:p-7",
   },
 };
 
@@ -54,7 +51,7 @@ export default function Sponsors() {
       </div>
 
       {/* TIERS */}
-      <div className="flex flex-col items-center space-y-14">
+      <div className="flex flex-col items-center space-y-12 md:space-y-14">
         {(Object.keys(sponsorsByTier) as SponsorTier[]).map((tier) => {
           const sponsors = sponsorsByTier[tier];
           const styles = tierStyles[tier];
@@ -81,11 +78,21 @@ export default function Sponsors() {
                       ? "sm:grid-cols-2"
                       : "sm:grid-cols-3"
                   }
-                lg:flex
-                lg:flex-row
-                lg:items-center
-                lg:gap-12
-                ${tier === "one" ? "lg:justify-center" : "lg:justify-between"}
+
+                  lg:flex
+                  lg:flex-row
+                  lg:items-center
+                  lg:justify-center
+
+                  ${
+                    tier === "one"
+                      ? "lg:gap-16"
+                      : tier === "two"
+                      ? "lg:gap-12"
+                      : tier === "three"
+                      ? "lg:gap-8"
+                      : "lg:gap-6"
+                  }
                 `}
               >
                 {sponsors.map((s, i) => (
@@ -103,7 +110,8 @@ export default function Sponsors() {
                       bg-[url('/assets/sponsors/sponsors-card.png')]
                       bg-cover
                       bg-center
-                      cursor-pointer
+                      hover:scale-105
+                      transition-transform duration-200
                     `}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
