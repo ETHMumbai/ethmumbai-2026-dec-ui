@@ -64,6 +64,12 @@ const pastSponsors: Sponsor[] = [
 
 export const currentSponsors: Sponsor[] = [
   {
+    logo: "/assets/sponsors/bitgo.svg",
+    name: "BitGo",
+    twitter: "https://x.com/BitGo",
+    tier: "two"
+  },
+  {
     logo: "/assets/sponsors/datahaven.svg",
     name: "Data Haven",
     twitter: "https://x.com/DataHaven_xyz",
@@ -111,12 +117,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/fileverse",
     tier: "four"
   },
-  // {
-  //   logo: "/assets/sponsors/se7en.svg",
-  //   name: "Seven & Co",
-  //   twitter: "https://x.com/sevennco",
-  //   tier: "four"
-  // }
+  {
+    logo: "/assets/sponsors/base.svg",
+    name: "Base",
+    twitter: "https://x.com/base",
+    tier: "four"
+  }
 ];
 
 export const conferenceSponsors: Sponsor[] = [
