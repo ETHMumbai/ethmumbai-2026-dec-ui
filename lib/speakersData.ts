@@ -92,6 +92,13 @@ export const pastSpeakers: Speaker[] = [
     xLink: "https://x.com/heettike",
     imageScale: "h-[120%]",
   },
+   {
+    name: "Irshad Ahmed",
+    company: "",
+    image: "/assets/speakers/Irshad_Ahmed-removebg-preview.png",
+    xLink: "https://x.com/irshaddahmed",
+    imageScale: "h-[155%]",
+  },
   {
     name: "Jatin Pandya",
     company: "Canton Foundation",
@@ -168,13 +175,13 @@ export const pastSpeakers: Speaker[] = [
     xLink: "https://x.com/reet_batra",
     imageScale: "h-[120%]",
   },
-    {
-    name: "Robin Roy",
-    company: "Avail",
-    image: "/assets/speakers/Robin_Roy_-_Avail-removebg-preview.png",
-    xLink: "https://x.com/robin_rrtx",
-    imageScale: "h-[125%]",
-  },
+  //   {
+  //   name: "Robin Roy",
+  //   company: "Avail",
+  //   image: "/assets/speakers/Robin_Roy_-_Avail-removebg-preview.png",
+  //   xLink: "https://x.com/robin_rrtx",
+  //   imageScale: "h-[125%]",
+  // },
   // {
   //   name: "Sahil",
   //   company: "Quicknode",
@@ -531,6 +538,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/nainasachdev_?s=11",
     imageScale: "h-[150%]",
   },
+   {
+    name: "Nidhi Harihar",
+    company: "VoiceDeck",
+    image: "/assets/speakers/nidhi.png",
+    xLink: "https://x.com/NidhiHarihar",
+    imageScale: "h-[117%]",
+  },
  
    {
     name: "Ornella Vallana",
@@ -544,6 +558,13 @@ export const conferenceSpeakers: Speaker[] = [
     company: "Monad Foundation",
     image: "/assets/speakers/Pareen_Lathai.png",
     xLink: "https://x.com/pareen",
+  },
+   {
+    name: "Piyush D",
+    company: "Avantis",
+    image: "/assets/speakers/piyush.png",
+    xLink: "https://x.com/314yush",
+    imageScale: "h-[130%]",
   },
   // {
   //   name: "Rahat",
@@ -566,13 +587,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/rahulbhadoriya",
     imageScale: "h-[130%]",
   },
-  {
-    name: "Robin Roy",
-    company: "Avail",
-    image: "/assets/speakers/Robin_Roy_-_Avail-removebg-preview.png",
-    xLink: "https://x.com/robin_rrtx",
-    imageScale: "h-[125%]",
-  },
+  // {
+  //   name: "Robin Roy",
+  //   company: "Avail",
+  //   image: "/assets/speakers/Robin_Roy_-_Avail-removebg-preview.png",
+  //   xLink: "https://x.com/robin_rrtx",
+  //   imageScale: "h-[125%]",
+  // },
   // {
   //   name: "Sahil",
   //   company: "Quicknode",
