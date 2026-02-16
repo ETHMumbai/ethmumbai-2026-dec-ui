@@ -10,6 +10,12 @@ export default function Speakers() {
   const remainder = total % COLS_LG;
   const lastRowStartIndex = remainder === 0 ? total : total - remainder;
 
+  // Calculate starting column for centered last row
+  const getColStart = () => {
+    if (remainder === 0) return 1;
+    return Math.floor((COLS_LG - remainder) / 2) + 1;
+  };
+
   return (
     <section
       id="conference-speakers"
@@ -28,7 +34,6 @@ export default function Speakers() {
             sm:grid-cols-3
             md:grid-cols-4
             lg:grid-cols-8
-            justify-items-center
             gap-6 sm:gap-8 md:gap-10
             mb-12
             mx-auto
@@ -42,34 +47,27 @@ export default function Speakers() {
             ))}
           </div>
 
-          {/* ================= DESKTOP FULL ROWS ================= */}
+          {/* ================= DESKTOP ================= */}
           <div className="hidden lg:contents">
-            {conferenceSpeakers
-              .slice(0, lastRowStartIndex)
-              .map((speaker, index) => (
-                <SpeakerCard key={index} speaker={speaker} />
-              ))}
+            {conferenceSpeakers.map((speaker, index) => {
+              const isLastRow = index >= lastRowStartIndex;
+              const isFirstInLastRow = index === lastRowStartIndex;
+
+              return (
+                <div
+                  key={index}
+                  style={
+                    isFirstInLastRow && remainder !== 0
+                      ? { gridColumnStart: Math.floor((COLS_LG - remainder) / 2) + 1 }
+                      : undefined
+                  }
+                >
+                  <SpeakerCard speaker={speaker} />
+                </div>
+              );
+            })}
           </div>
 
-          {/* ================= DESKTOP CENTERED LAST ROW ================= */}
-          {remainder !== 0 && (
-            <div
-              className="
-                hidden lg:grid
-                lg:col-span-8
-                grid-flow-col
-                auto-cols-max
-                justify-center
-                gap-6 sm:gap-8 md:gap-10
-              "
-            >
-              {conferenceSpeakers
-                .slice(lastRowStartIndex)
-                .map((speaker, index) => (
-                  <SpeakerCard key={index} speaker={speaker} />
-                ))}
-            </div>
-          )}
         </div>
       </div>
     </section>
@@ -114,9 +112,8 @@ function SpeakerImage({ speaker }: { speaker: any }) {
         alt={speaker.name}
         width={150}
         height={185}
-        className={`absolute bottom-0 left-1/2 -translate-x-1/2 object-cover rounded-3xl ${
-          speaker.imageScale || "h-[118%]"
-        }`}
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 object-cover rounded-3xl ${speaker.imageScale || "h-[118%]"
+          }`}
         style={{
           width: "112%",
           objectPosition: "center 30%",
