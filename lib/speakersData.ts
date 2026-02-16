@@ -92,6 +92,13 @@ export const pastSpeakers: Speaker[] = [
     xLink: "https://x.com/heettike",
     imageScale: "h-[120%]",
   },
+   {
+    name: "Irshad Ahmed",
+    company: "",
+    image: "/assets/speakers/Irshad_Ahmed-removebg-preview.png",
+    xLink: "https://x.com/irshaddahmed",
+    imageScale: "h-[155%]",
+  },
   {
     name: "Jatin Pandya",
     company: "Canton Foundation",
