@@ -118,16 +118,17 @@ export default function Partners() {
 
       {/* Grid */}
       <div
-        className="
-          max-w-[1600px] mx-auto
-          px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-5
-          gap-x-10 gap-y-10
-        "
-      >
+  className="
+    max-w-[1600px] mx-auto
+    px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-5
+    justify-items-center sm:justify-items-stretch
+    gap-x-10 gap-y-10
+  "
+>
         {partners.map((p, i) => {
           const isLastRow = i >= lastRowStartIndex;
 
@@ -140,7 +141,7 @@ export default function Partners() {
                 h-[107px]
                 flex items-center justify-center
                 px-6
-                w-full
+                w-[75%] sm:w-full
                 bg-[#F9FAFB]
                 border-[2.8px] border-[#E5E7EB]
                 rounded-[29px]
