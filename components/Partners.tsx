@@ -103,6 +103,10 @@ const partners = [
 ];
 
 export default function Partners() {
+  const total = partners.length;
+  const remainder = total % 5;
+  const lastRowStartIndex = remainder === 0 ? total : total - remainder;
+
   return (
     <section className="bg-white w-full pt-10 pb-15">
       {/* Title */}
@@ -117,38 +121,49 @@ export default function Partners() {
         className="
           max-w-[1600px] mx-auto
           px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
-          flex flex-wrap justify-center
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-5
           gap-x-10 gap-y-10
         "
       >
-        {partners.map((p, i) => (
-          <div
-            key={i}
-            onClick={() => p.twitter && window.open(p.twitter, "_blank")}
-            className="
-              relative
-              h-[107px]
-              flex items-center justify-center
-              px-6
-              bg-[#F9FAFB]
-              border-[2.8px] border-[#E5E7EB]
-              rounded-[29px]
-              cursor-pointer
-              transition-transform duration-200 hover:scale-105
+        {partners.map((p, i) => {
+          const isLastRow = i >= lastRowStartIndex;
 
-              w-[75%]
-              sm:basis-1/2
-              md:basis-1/5
-            "
-          >
-            <Image
-              src={p.logo}
-              alt={p.name}
-              fill
-              className="object-contain p-5"
-            />
-          </div>
-        ))}
+          return (
+            <div
+              key={i}
+              onClick={() => p.twitter && window.open(p.twitter, "_blank")}
+              className={`
+                relative
+                h-[107px]
+                flex items-center justify-center
+                px-6
+                w-full
+                bg-[#F9FAFB]
+                border-[2.8px] border-[#E5E7EB]
+                rounded-[29px]
+                cursor-pointer
+                transition-transform duration-200 hover:scale-105
+                ${
+                  isLastRow && remainder === 3
+                    ? i === lastRowStartIndex
+                      ? "lg:col-start-2"
+                      : ""
+                    : ""
+                }
+              `}
+            >
+              <Image
+                src={p.logo}
+                alt={p.name}
+                fill
+                className="object-contain p-5"
+              />
+            </div>
+          );
+        })}
       </div>
     </section>
   );
