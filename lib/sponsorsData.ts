@@ -111,12 +111,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/CantonFdn",
     tier: "four"
   },
-  { 
-    logo: "/assets/sponsors/fileverse.svg",
-    name: "Fileverse",
-    twitter: "https://x.com/fileverse",
-    tier: "four"
-  },
+  // { 
+  //   logo: "/assets/sponsors/fileverse.svg",
+  //   name: "Fileverse",
+  //   twitter: "https://x.com/fileverse",
+  //   tier: "four"
+  // },
   {
     logo: "/assets/sponsors/base.svg",
     name: "Base",
