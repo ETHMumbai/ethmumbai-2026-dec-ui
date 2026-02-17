@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { log } from "console";
 
 const partners = [
   {
@@ -49,11 +50,16 @@ const partners = [
     name: "ETHRome",
     twitter: "https://x.com/ETHRome",
   },
-  // {
-  //   logo: "/assets/partners/fileverse.svg",
-  //   name: "Fileverse",
-  //   twitter: "https://x.com/fileverse",
-  // },
+  {
+    logo: "/assets/partners/fileverse.svg",
+    name: "Fileverse",
+    twitter: "https://x.com/fileverse",
+  },
+  {
+    logo: "/assets/partners/future creative lab.svg",
+    name: "Future Creative Lab",
+    twitter: "https://x.com/kundhiya",
+  },
   {
     logo: "/assets/partners/NapulETH.svg",
     name: "NapulETH",
@@ -112,7 +118,7 @@ export default function Partners() {
           max-w-[1600px] mx-auto
           px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
           flex flex-wrap justify-center
-          gap-x-18 gap-y-10
+          gap-x-10 gap-y-10
         "
       >
         {partners.map((p, i) => (
@@ -130,11 +136,9 @@ export default function Partners() {
               cursor-pointer
               transition-transform duration-200 hover:scale-105
 
-              w-full
-              sm:basis-[calc(50%-3.5rem)]
-              md:basis-[calc(33.333%-3.5rem)]
-              lg:basis-[calc(25%-3.5rem)]
-              xl:basis-[calc(20%-3.5rem)]
+              w-[75%]
+              sm:basis-1/2
+              md:basis-1/5
             "
           >
             <Image
