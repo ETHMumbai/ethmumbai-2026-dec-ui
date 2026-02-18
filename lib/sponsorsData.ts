@@ -63,12 +63,12 @@ const pastSponsors: Sponsor[] = [
 ];
 
 export const currentSponsors: Sponsor[] = [
-  {
-    logo: "/assets/sponsors/bitgo.svg",
-    name: "BitGo",
-    twitter: "https://x.com/BitGo",
-    tier: "two"
-  },
+  // {
+  //   logo: "/assets/sponsors/bitgo.svg",
+  //   name: "BitGo",
+  //   twitter: "https://x.com/BitGo",
+  //   tier: "two"
+  // },
   {
     logo: "/assets/sponsors/datahaven.svg",
     name: "Data Haven",
