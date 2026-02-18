@@ -31,7 +31,7 @@ export default function AnnouncementBar() {
 
       case 1999:
         if (ticket.remainingQuantity > 0 && ticket.discount) {
-          return `${ticket.remainingQuantity} tickets are available at ${ticket.discount.percentage}% OFF.`;
+          return `${ticket.discount.percentage}% OFF until 28th February 2026.`;
         }
         return '';
 

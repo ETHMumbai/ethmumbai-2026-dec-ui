@@ -68,7 +68,7 @@ export const mentors: Mentor[] = [
   },
   {
     name: "Didier Krux",
-    company: "Devcon - Ethereum Foundation",
+    company: "EF Devcon",
     image: "/assets/hackathon/mentors/Didier_Mentor-removebg-preview.png",
     xLink: "https://x.com/DidierKrux",
     imageScale: "h-[130%]",

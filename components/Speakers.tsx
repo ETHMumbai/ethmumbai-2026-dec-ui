@@ -15,23 +15,23 @@ export default function Speakers() {
       {/* Speakers Grid */}
       <div
         className="
-    px-4 sm:px-8 lg:px-12
-    grid
-    grid-cols-2
-    sm:grid-cols-3
-    md:grid-cols-4
-    lg:grid-cols-7
-    justify-items-center
-    gap-6 sm:gap-8 md:gap-10
-    mb-12
-    mx-auto
-    max-w-[1600px]
-  "
+          px-4 sm:px-8 lg:px-12
+          grid
+          grid-cols-2
+          sm:grid-cols-3
+          md:grid-cols-4
+          lg:grid-cols-8
+          justify-items-center
+          gap-6 sm:gap-8 md:gap-10
+          mb-12
+          mx-auto
+          max-w-[1600px]
+        "
       >
         {pastSpeakers.map((speaker, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
+            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] `}
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-3 group">
@@ -43,7 +43,7 @@ export default function Speakers() {
                   rel="noopener noreferrer"
                   className="cursor-pointer group"
                 >
-                  <div className="w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative">
+                  <div className={`w-[150px] h-[150px] sm:w-40 sm:h-40 lg:w-[150px] lg:h-[150px] rounded-4xl border-[5px] border-[#EBEBEB] bg-[#E2231A] overflow-visible relative `}>
                     <Image
                       src={speaker.image}
                       alt={speaker.name}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { log } from "console";
 
 const partners = [
   {
@@ -35,6 +36,16 @@ const partners = [
     twitter: "https://x.com/ETHCluj",
   },
   {
+    logo: "/assets/partners/ethereum nigeria.svg",
+    name: "Ethereum Nigeria",
+    twitter: "https://x.com/EthereumNigeria",
+  },
+  {
+    logo: "/assets/partners/eth lagos.svg",
+    name: "ETH Lagos",
+    twitter: "https://x.com/EthereumLagos",
+  },
+  {
     logo: "/assets/partners/ETHRome.svg",
     name: "ETHRome",
     twitter: "https://x.com/ETHRome",
@@ -43,6 +54,11 @@ const partners = [
     logo: "/assets/partners/fileverse.svg",
     name: "Fileverse",
     twitter: "https://x.com/fileverse",
+  },
+  {
+    logo: "/assets/partners/future creative lab.svg",
+    name: "Future Creative Lab",
+    twitter: "https://x.com/kundhiya",
   },
   {
     logo: "/assets/partners/NapulETH.svg",
@@ -55,9 +71,9 @@ const partners = [
     twitter: "https://x.com/poapxyz",
   },
   {
-    logo: "/assets/partners/Polygon.svg",
-    name: "Polygon",
-    twitter: "https://x.com/0xPolygon",
+    logo: "/assets/partners/se7en.svg",
+    name: "Seven & Co",
+    twitter: "https://x.com/sevennco",
   },
   // {
   //   logo: "/assets/partners/ETHRome.svg",
@@ -87,6 +103,10 @@ const partners = [
 ];
 
 export default function Partners() {
+  const total = partners.length;
+  const remainder = total % 5;
+  const lastRowStartIndex = remainder === 0 ? total : total - remainder;
+
   return (
     <section className="bg-white w-full pt-10 pb-15">
       {/* Title */}
@@ -98,43 +118,53 @@ export default function Partners() {
 
       {/* Grid */}
       <div
-        className="
-          max-w-[1600px] mx-auto
-          px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
-          flex flex-wrap justify-center
-          gap-x-14 gap-y-10
-        "
-      >
-        {partners.map((p, i) => (
-          <div
-            key={i}
-            onClick={() => p.twitter && window.open(p.twitter, "_blank")}
-            className="
-              relative
-              h-[107px]
-              flex items-center justify-center
-              px-6
-              bg-[#F9FAFB]
-              border-[2.8px] border-[#E5E7EB]
-              rounded-[29px]
-              cursor-pointer
-              transition-transform duration-200 hover:scale-105
+  className="
+    max-w-[1600px] mx-auto
+    px-3 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-5
+    justify-items-center sm:justify-items-stretch
+    gap-x-10 gap-y-10
+  "
+>
+        {partners.map((p, i) => {
+          const isLastRow = i >= lastRowStartIndex;
 
-              w-full
-              sm:basis-[calc(50%-3.5rem)]
-              md:basis-[calc(33.333%-3.5rem)]
-              lg:basis-[calc(25%-3.5rem)]
-              xl:basis-[calc(20%-3.5rem)]
-            "
-          >
-            <Image
-              src={p.logo}
-              alt={p.name}
-              fill
-              className="object-contain p-5"
-            />
-          </div>
-        ))}
+          return (
+            <div
+              key={i}
+              onClick={() => p.twitter && window.open(p.twitter, "_blank")}
+              className={`
+                relative
+                h-[107px]
+                flex items-center justify-center
+                px-6
+                w-[75%] sm:w-full
+                bg-[#F9FAFB]
+                border-[2.8px] border-[#E5E7EB]
+                rounded-[29px]
+                cursor-pointer
+                transition-transform duration-200 hover:scale-105
+                ${
+                  isLastRow && remainder === 3
+                    ? i === lastRowStartIndex
+                      ? "lg:col-start-2"
+                      : ""
+                    : ""
+                }
+              `}
+            >
+              <Image
+                src={p.logo}
+                alt={p.name}
+                fill
+                className="object-contain p-5"
+              />
+            </div>
+          );
+        })}
       </div>
     </section>
   );
