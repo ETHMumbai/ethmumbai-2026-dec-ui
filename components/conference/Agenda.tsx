@@ -58,7 +58,7 @@ export default function Agenda() {
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 {/* TIME + DURATION */}
                 <span className="bg-[#E2231A] text-white text-xs font-semibold px-4 py-1 rounded-full">
-                  {item.time} — {item.duration}
+                  {item.time}
                 </span>
 
                 {/* STAGE TAG */}
