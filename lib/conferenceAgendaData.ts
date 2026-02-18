@@ -32,8 +32,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Chandresh",
         company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
-        scale: "110%"
+        image: "/assets/team/Chandresh.png",
+        scale: "120%"
       }
     ],
     speakerProjectsImage: ["/1.png"],
@@ -44,28 +44,45 @@ export const agendaData: AgendaItem[] = [
     time: "10:30 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Building a unicorn startup in the AI era",
     speakers: [
       {
-        name: "Shiv Bhonde",
-        company: "BuidlGuidl",
-        image: "/assets/speakers/Shiv_Bhonde.png",
+        name: "Pareen Lathia",
+        company: "Monad",
+        image: "/assets/speakers/Pareen_Lathai.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
   },
   {
     stage: "COMMUNITY_STAGE",
     time: "10:30 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "TBD",
     speakers: [
       {
-        name: "Shyam Sridhar",
-        company: "Ethereum Foundation",
-        image: "/assets/speakers/Shyam_Sridhar2.png",
+        name: "",
+        company: "",
+        image: "",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "10:45 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "TBD",
+    speakers: [
+      {
+        name: "",
+        company: "",
+        image: "",
         scale: "120%"
       }
     ],
@@ -76,165 +93,24 @@ export const agendaData: AgendaItem[] = [
     time: "10:50 AM",
     duration: "15 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Shipping onchain apps with agents",
     speakers: [
       {
-        name: "Pareen Lathia",
-        company: "Monad Foundation",
-        image: "/assets/speakers/Pareen_Lathai.png",
+        name: "Shiv Bhonde",
+        company: "Buidlguidl",
+        image: "/assets/speakers/Shiv_Bhonde.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "10:50 AM",
+    time: "11:00 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Robin Roy",
-        company: "Avail",
-        image: "/assets/speakers/Robin-Roy-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "11:05 AM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Sebastian Burkhard",
-        company: "Yodl Pay",
-        image: "/assets/speakers/Sebastian_Burkhard.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "11:10 AM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Krishang Shah",
-        company: "Polygon Labs",
-        image: "/assets/speakers/Krishang_Shah.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "11:20 AM",
-    duration: "40 mins",
-    type: "PANEL",
-    title: "The Future of DeFi",
-    speakers: [
-      {
-        name: "Zeel",
-        company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Archana",
-        company: "SSV Network",
-        image: "/assets/speakers/archana-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
-    label: ["DeFi"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "11:25 AM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "Privacy Panel",
-    speakers: [
-      {
-        name: "Vijay",
-        company: "Fileverse",
-        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Jobin",
-        company: "TEN Protocol",
-        image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
-    label: ["Privacy"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "12:00 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Rahul Bhadoriya",
-        company: "Dacoit",
-        image: "/assets/speakers/Rahul_Bhadoriya.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "11:40 AM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Vishal",
-        company: "Zippel Labs",
-        image: "/assets/speakers/Vishal_Mentor-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "12:20 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name : "Aditi Polkam",
-        company: "Offline Protocol",
-        image: "/assets/speakers/Aditi_Polkam.png",
-        scale: "160%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "12:20 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Account Abstraction with EIP 7702",
     speakers: [
       {
         name: "Abhishek Yadav",
@@ -247,15 +123,15 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "12:40 PM",
-    duration: "20 mins",
+    time: "11:10 AM",
+    duration: "15 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Agentic Commerce on Ethereum",
     speakers: [
       {
-        name: "Kanika Mishra",
-        company: "USDT Marketplace",
-        image: "/assets/speakers/Kanika_Mishra.png",
+        name: "Dhaiwat",
+        company: "ENS",
+        image: "/assets/speakers/Dhaiwat.png",
         scale: "120%"
       }
     ],
@@ -263,10 +139,44 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "12:40 PM",
+    time: "11:15 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Banks are the real shadow economy",
+    speakers: [
+      {
+        name: "Siddharth Biju",
+        company: "",
+        image: "/assets/speakers/Siddharth Biju.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "11:30 AM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Markets for public goods",
+    speakers: [
+      {
+        name: "Devansh Menta",
+        company: "Ethereum Foundation",
+        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "11:30 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Onboarding builders from Web2 to Web3",
     speakers: [
       {
         name: "Naina Sachdev",
@@ -279,31 +189,100 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "02:00 PM",
+    time: "11:45 PM",
     duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    type: "PANEL",
+    title: "Cracking distribution with content",
     speakers: [
       {
-        name: "Shankar Jayaraman",
-        company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        name: "Kunal"
+      },
+      {
+        name: "Rachit"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "12:10 AM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "Privacy Panel",
+    speakers: [
+      {
+        name: "Mykola",
+        company: "",
+        image: "",
+        scale: ""
+      },
+      {
+        name: "Vijay",
+        company: "Fileverse",
+        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Jobin",
+        company: "TEN Protocol",
+        image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Harsh Bajpai",
+        company: "",
+        image: "",
+        scale: ""
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png"],
+    label: ["Privacy"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "12:25 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Raising from the internet",
+    speakers: [
+      {
+        name: "Heet",
+        company: "noice",
+        image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "02:15 PM",
-    duration: "15 mins",
+    time: "12:25 PM",
+    duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Decentralize QR payments",
     speakers: [
       {
-        name: "Aniket",
-        company: "Remix Labs",
-        image: "/assets/speakers/Aniket_Remix_Judge-removebg-preview.png",
+        name: "Sebastian Burkhard",
+        company: "Yodl Pay",
+        image: "/assets/speakers/Sebastian_Burkhard.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "12:40 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Integrating a brand and its soul into a product",
+    speakers: [
+      {
+        name: "Rahul Bhadoriya",
+        company: "Dacoit Design",
+        image: "/assets/speakers/Rahul_Bhadoriya.png",
         scale: "120%"
       }
     ],
@@ -311,10 +290,26 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "02:20 PM",
+    time: "02:00 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Stablecoins as global rails",
+    speakers: [
+      {
+        name: "Kanika Mishra",
+        company: "USDT Marketplace",
+        image: "/assets/speakers/Kanika_Mishra.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+    {
+    stage: "MAIN_STAGE",
+    time: "02:15 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "ETH's biggest bug? A lack of business model",
     speakers: [
       {
         name: "Ale Marin",
@@ -330,14 +325,97 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/1.png", "/1.png"],
-    label: ["Privacy", "DeFi"]
+  },
+    {
+    stage: "COMMUNITY_STAGE",
+    time: "02:15 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Ethereum needs India’s institutions",
+    speakers: [
+      {
+        name: "Shyam Sridhar",
+        company: "Ethereum Foundation",
+        image: "/assets/speakers/Shyam_Sridhar2.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "02:30 PM",
+    duration: "40 mins",
+    type: "PANEL",
+    title: "Stablecoins are the real product, not DeFi",
+    speakers: [
+      {
+        name: "Sunny",
+        company: "",
+        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Archana",
+        company: "SSV Network",
+        image: "/assets/speakers/archana-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Tanay",
+        company: "",
+        image: "/assets/speakers/archana-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Piyus",
+        company: "Avantis",
+        image: "/assets/speakers/archana-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png", "/1.png", "/1.png"],
+    label: ["DeFi"]
+  },
+    {
+    stage: "COMMUNITY_STAGE",
+    time: "02:30 AM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "What's next for DeFi and AA: EIP-8141",
+    speakers: [
+      {
+        name: "Krishang Shah",
+        company: "Polygon Labs",
+        image: "/assets/speakers/Krishang_Shah.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "02:30 PM",
+    time: "02:45 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Vibe coding with Remix IDE",
+    speakers: [
+      {
+        name: "Aniket",
+        company: "Remix Labs",
+        image: "/assets/speakers/Aniket_Remix_Judge-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+    {
+    stage: "COMMUNITY_STAGE",
+    time: "03:00 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Past, present and future of interop",
     speakers: [
       {
         name: "Aniket Sharma",
@@ -350,10 +428,66 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "02:40 PM",
+    time: "03:10 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Scaling Revenue: From L2 to Consumer apps",
+    speakers: [
+      {
+        name: "Shubham Bhandari",
+        company: "ETHMumbai",
+        image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "03:20 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "crypto x ai: marriage or mismatch?",
+    speakers: [
+      {
+        name: "Sarvil",
+        company: "",
+        image: "",
+        scale: "120%"
+      },
+      {
+        name: "Iptisha",
+        company: "",
+        image: "",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png"],
+    label: ["AI"]
+  },
+    {
+    stage: "MAIN_STAGE",
+    time: "03:25 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "How to architect event-driven Ethereum apps",
+    speakers: [
+      {
+        name : "Aditi Polkam",
+        company: "Offline Protocol",
+        image: "/assets/speakers/Aditi_Polkam.png",
+        scale: "160%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "03:40 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Privacy Trilemma in single global state chains",
     speakers: [
       {
         name: "Jatin Pandya",
@@ -362,14 +496,91 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["Privacy"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "03:55 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Account Abstraction as a privacy primitive",
+    speakers: [
+      {
+        name: "Akash Balasubramani",
+        company: "StarkWare",
+        image: "/assets/speakers/akash_-_starkware-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["Privacy"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "04:00 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "DeFi without the buzzwords",
+    speakers: [
+      {
+        name: "Sweta Shaw",
+        company: "Own Protocol",
+        image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+ {
+    stage: "MAIN_STAGE",
+    time: "04:10 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "India's crypto story",
+    speakers: [
+      {
+        name: "Denver",
+        company: "Devfolio",
+        image: "/assets/speakers/Denver-Dsouza-removebg-preview.png"
+      },
+      {
+        name: "Irshad",
+        company: "",
+        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Nidhi",
+        company: "",
+        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png", "/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "04:20 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Make Agents safe again",
+    speakers: [
+      {
+        name: "Ayush Bherwani",
+        company: "MetaMask",
+        image: "/assets/speakers/Ayush_Bherwani.png",
+        scale: "120%"
+      }
+    ],
     speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "02:50 PM",
+    time: "04:35 PM",
     duration: "15 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "Engineering 128-Bit soundness with PIL2",
     speakers: [
       {
         name: "Ayush Bhadauria",
@@ -382,79 +593,10 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "03:00 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Dhaiwat",
-        company: "ENS",
-        image: "/assets/speakers/Dhaiwat.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "03:05 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Ayush Bherwani",
-        company: "MetaMask",
-        image: "/assets/speakers/Ayush_Bherwani.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "03:15 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "India Panel",
-    speakers: [
-      {
-        name: "Denver",
-        company: "Devfolio",
-        image: "/assets/speakers/Denver-Dsouza-removebg-preview.png"
-      },
-      {
-        name: "Devansh",
-        company: "ETHMumbai",
-        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "03:20 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Siddharth Biju",
-        company: "",
-        image: "/assets/speakers/Siddharth Biju.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "03:30 PM",
+    time: "04:50 PM",
     duration: "45 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "My secret agents (IYKYN)",
     speakers: [
       {
         name: "Vijay",
@@ -466,16 +608,16 @@ export const agendaData: AgendaItem[] = [
     speakerProjectsImage: ["/1.png"]
   },
   {
-    stage: "MAIN_STAGE",
-    time: "04:15 PM",
+    stage: "COMMUNITY_STAGE",
+    time: "04:50 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "What don't we know? AI, ZK Auditing and zkVM",
     speakers: [
       {
-        name: "Akash",
-        company: "StarkWare",
-        image: "/assets/speakers/akash_-_starkware-removebg-preview.png",
+        name: "Vishal",
+        company: "Zippel Labs",
+        image: "/assets/speakers/Vishal_Mentor-removebg-preview.png",
         scale: "120%"
       }
     ],
@@ -483,31 +625,15 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "04:35 PM",
-    duration: "15 mins",
+    time: "05:05 AM",
+    duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "TBD",
     speakers: [
       {
-        name: "Shubham Bhandari",
-        company: "ETHMumbai",
-        image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "04:50 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
-    speakers: [
-      {
-        name: "Heet",
-        company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        name: "",
+        company: "",
+        image: "",
         scale: "120%"
       }
     ],
@@ -515,45 +641,15 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "04:50 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "AI Panel",
-    speakers: [
-      {
-        name: "Sahil",
-        company: "Quicknode",
-        image: "/assets/speakers/Sahil Sen - Quicknode.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["AI"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "05:05 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "Marketing Panel",
-    speakers: [
-      {
-        name: "Se7en"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "05:20 PM",
+    time: "05:05 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "TBD",
     speakers: [
       {
-        name: "Sweta Shaw",
-        company: "Own Protocol",
-        image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
+        name: "",
+        company: "",
+        image: "",
         scale: "120%"
       }
     ],
@@ -561,15 +657,63 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "05:40 PM",
+    time: "05:20 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Stitching off-chain and on-chain data to make sense of web3",
+    title: "TBD",
     speakers: [
       {
-        name: "Candela",
-        company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        name: "",
+        company: "",
+        image: "",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "05:20 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "TBD",
+    speakers: [
+      {
+        name: "",
+        company: "",
+        image: "",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "05:35 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "TBD",
+    speakers: [
+      {
+        name: "",
+        company: "",
+        image: "",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "05:50 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Devcon 8 India: What Comes Next",
+    speakers: [
+      {
+        name: "Ornella",
+        company: "EF Devcon",
+        image: "",
         scale: "120%"
       }
     ],
@@ -583,9 +727,9 @@ export const agendaData: AgendaItem[] = [
     title: "Closing Ceremony",
     speakers: [
       {
-        name: "Parth",
+        name: "Parth Mohite",
         company: "ETHMumbai",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        image: "/assets/team/Parth.png",
         scale: "120%"
       }
     ],
