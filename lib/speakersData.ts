@@ -672,6 +672,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Tomas Octavio",
+    company: "NERDCONF",
+    image: "/assets/speakers/TOMAS_OCTAVIO_NERDCONF-removebg-preview.png",
+    xLink: "https://x.com/tomasoctavio_",
+    imageScale: "h-[120%]",
+  },
+  {
     name: "Vijay",
     company: "Fileverse",
     image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
