@@ -15,6 +15,7 @@ export default function Speakers() {
       id="conference-speakers"
       className="w-full bg-white py-10 px-4 sm:px-6 lg:px-8"
     >
+      <p className="text-center text-black text-sm font-medium mb-2">Built With Love By</p>
       <h2 className="text-black text-4xl pb-3 sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         ETHMumbai Mitra Mandal
       </h2>
