@@ -106,6 +106,13 @@ export const judges: Judge[] = [
   //   imageScale: "h-[140%]",
   // },
   {
+    name: "Aniket",
+    company: "Remix Labs (Remix IDE)",
+    image: "/assets/hackathon/judges/Aniket_Remix_Judge-removebg-preview.png",
+    xLink: "https://x.com/EthereumRemix",
+    imageScale: "h-[140%]",
+  },
+  {
     name: "Dhaiwat",
     company: "ENS",
     image: "/assets/speakers/dhaiwat.png",
