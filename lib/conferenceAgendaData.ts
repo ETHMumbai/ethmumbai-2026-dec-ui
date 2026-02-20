@@ -465,7 +465,7 @@ export const agendaData: AgendaItem[] = [
         scale: "160%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/offline-protocol.jpg"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -498,7 +498,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/Canton-Foundation-Logo-Light.svg"],
     label: ["Privacy"]
   },
   {
@@ -537,7 +537,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/StarkWare.svg"],
     label: ["Privacy"]
   },
   {
@@ -554,7 +554,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/own-finance.jpg"],
     label: ["DeFi"]
   },
   {
@@ -571,7 +571,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/fileverse.jpg"],
     label: ["AI"]
   },
   {
@@ -588,7 +588,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/ZisK.jpg"],
     label: ["Privacy"]
   },
 {
@@ -601,7 +601,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Denver",
         company: "Devfolio",
-        image: "/assets/speakers/Denver-Dsouza-removebg-preview.png"
+        image: "/assets/speakers/Denver-Dsouza-removebg-preview.png",
+        scale: "130%"
       },
       {
         name: "Irshad",
@@ -612,8 +613,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Nidhi",
         company: "VoiceDeck",
-        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
-        scale: "120%"
+        image: "/assets/speakers/nidhi.png",
+        scale: "145%"
       }
     ],
     speakerProjectsImage: ["/1.png", "/1.png", "/1.png"]
