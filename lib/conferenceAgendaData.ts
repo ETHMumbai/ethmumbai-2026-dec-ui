@@ -498,7 +498,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Canton-Foundation-Logo-Light.svg"],
+    speakerProjectsImage: ["/assets/organisation/canton-Ff.jpg"],
     label: ["Privacy"]
   },
   {
