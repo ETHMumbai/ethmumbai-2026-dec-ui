@@ -756,7 +756,7 @@ export const agendaData: AgendaItem[] = [
     title: "Announcements",
     speakers: [
       {
-        name: "Dev3Pack",
+        name: "dev3Pack",
         image: "/assets/organisation/Dev3Pack.svg"
       },
       {

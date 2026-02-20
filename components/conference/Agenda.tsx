@@ -104,12 +104,12 @@ export default function Agenda() {
               {/* SPEAKERS */}
               {item.speakers && item.speakers.length > 0 && (
                 <div
-  className={
-    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT" || item.type === "PANEL" || item.type === "TALK" && item.speakers.length > 1
-      ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
-      : "flex flex-col gap-6"
-  }
->
+                  className={
+                    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT" || item.type === "PANEL" || item.type === "TALK" && item.speakers.length > 1
+                      ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
+                      : "flex flex-col gap-6"
+                  }
+                >
                   {item.speakers.map((speaker, idx) => (
                     <div key={idx} className="flex items-center gap-4">
                       {/* AVATARS (OVERLAPPED) */}
@@ -131,7 +131,7 @@ export default function Agenda() {
                             />
                           </div>
                         ) : (
-                          <div className="w-14 h-14 rounded-lg" />
+                          <div className="w-16 h-16 rounded-lg" />
                         )}
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
