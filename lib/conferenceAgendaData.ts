@@ -617,7 +617,7 @@ export const agendaData: AgendaItem[] = [
         scale: "145%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/india-denver.svg", "", "/assets/organisation/india-nidhi.jpg"]
+    speakerProjectsImage: ["/assets/organisation/devfolio-v2.png", "", "/assets/organisation/india-nidhi.jpg"]
   },
   {
     stage: "COMMUNITY_STAGE",
