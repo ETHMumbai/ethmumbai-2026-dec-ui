@@ -105,7 +105,7 @@ export default function Agenda() {
               {item.speakers && item.speakers.length > 0 && (
                 <div
   className={
-    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT"
+    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT" || item.type === "PANEL"
       ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
       : "flex flex-col gap-6"
   }
