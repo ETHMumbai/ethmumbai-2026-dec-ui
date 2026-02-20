@@ -116,7 +116,7 @@ export default function Agenda() {
                       <div className="flex items-center">
                         {/* Speaker Image (SQUARE) */}
                         {speaker.image ? (
-                          <div className="w-16 h-16 border-2 border-black-200 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden">
+                          <div className="w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden">
                             <Image
                               src={speaker.image}
                               alt={speaker.name}
@@ -136,7 +136,7 @@ export default function Agenda() {
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
                         {item.speakerProjectsImage?.[idx] && (
-                          <div className="-ml-3 w-12 h-12 rounded-full flex items-center justify-center border-2 border-white">
+                          <div className="-ml-3 w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-white">
                             <Image
                               src={item.speakerProjectsImage[idx]}
                               alt="Project Logo"
