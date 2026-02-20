@@ -86,7 +86,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/BuidlGuidl.svg"],
+    speakerProjectsImage: ["/assets/organisation/buidlguild.png"],
     label: ["AI"]
   },
   {
@@ -119,7 +119,7 @@ export const agendaData: AgendaItem[] = [
         scale: "125%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/ENS.svg"]
+    speakerProjectsImage: ["/assets/organisation/ens.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -270,7 +270,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/dacoit design.png"]
+    speakerProjectsImage: ["/assets/organisation/dacoit.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
