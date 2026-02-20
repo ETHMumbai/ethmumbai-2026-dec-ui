@@ -521,7 +521,7 @@ export const agendaData: AgendaItem[] = [
         scale: "115%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/marketing-kunal.jpg", "/assets/organisation/marketing-rachit.jpg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -607,8 +607,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Irshad",
         company: "",
-        image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
-        scale: "120%"
+        image: "/assets/speakers/Irshad_Ahmed-removebg-preview.png",
+        scale: "150%"
       },
       {
         name: "Nidhi",
@@ -617,7 +617,7 @@ export const agendaData: AgendaItem[] = [
         scale: "145%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "", "/1.png"]
+    speakerProjectsImage: ["/assets/organisation/india-denver.svg", "", "/assets/organisation/india-nidhi.jpg"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -761,7 +761,7 @@ export const agendaData: AgendaItem[] = [
       },
       {
         name: "Devfolio",
-        image: "/assets/partners/Devfolio.svg"
+        image: "/assets/organisation/india-denver.svg"
       },
       {
         name: "Devcon",
