@@ -253,7 +253,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: [""],
     label: ["DeFi"]
   },
   {
@@ -617,7 +617,7 @@ export const agendaData: AgendaItem[] = [
         scale: "145%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png", "/1.png"]
+    speakerProjectsImage: ["/1.png", "", "/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
