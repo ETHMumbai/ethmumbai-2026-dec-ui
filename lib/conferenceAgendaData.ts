@@ -270,7 +270,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/dacoit design.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
