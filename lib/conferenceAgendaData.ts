@@ -72,25 +72,9 @@ export const agendaData: AgendaItem[] = [
     ],
     // speakerProjectsImage: ["/1.png"]
   },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "10:45 AM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
-  {
+{
     stage: "MAIN_STAGE",
-    time: "10:50 AM",
+    time: "10:45 AM",
     duration: "15 mins",
     type: "TALK",
     title: "Shipping onchain apps with agents",
@@ -107,19 +91,19 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "11:00 AM",
+    time: "10:45 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Onboarding builders from Web2 to Web3",
+    title: "TBD",
     speakers: [
       {
-        name: "Naina Sachdev",
-        company: "dev3pack",
-        image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
-        scale: "135%"
+        name: "",
+        company: "",
+        image: "",
+        scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -139,16 +123,16 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "11:15 AM",
+    time: "11:00 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Account Abstraction with EIP 7702",
+    title: "Onboarding builders from Web2 to Web3",
     speakers: [
       {
-        name: "Abhishek Yadav",
-        company: "Etherspot",
-        image: "/assets/speakers/Abhishek Yadav - Etherspot.png",
-        scale: "145%"
+        name: "Naina Sachdev",
+        company: "dev3pack",
+        image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
+        scale: "135%"
       }
     ],
     speakerProjectsImage: ["/1.png"]
@@ -172,20 +156,19 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "11:30 PM",
+    time: "11:15 AM",
     duration: "20 mins",
     type: "TALK",
-    title: "Decentralize QR payments",
+    title: "Account Abstraction with EIP 7702",
     speakers: [
       {
-        name: "Sebastian Burkhard",
-        company: "Yodl Pay",
-        image: "/assets/speakers/Sebastian_Burkhard.png",
-        scale: "120%"
+        name: "Abhishek Yadav",
+        company: "Etherspot",
+        image: "/assets/speakers/Abhishek Yadav - Etherspot.png",
+        scale: "145%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["DeFi"]
+    speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -196,7 +179,7 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Mykola",
-        company: "",
+        company: "Web3Privacy",
         image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
         scale: "120%"
       },
@@ -214,13 +197,47 @@ export const agendaData: AgendaItem[] = [
       },
       {
         name: "Harsh",
-        company: "",
-        image: "",
-        scale: ""
+        company: "Aztec Labs",
+        image: "/assets/speakers/Harsh_Bajpai_-_Aztec_Labs-removebg-preview.png",
+        scale: "110%"
       }
     ],
     speakerProjectsImage: ["/1.png", "/1.png"],
     label: ["Privacy"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "11:30 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Decentralize QR payments",
+    speakers: [
+      {
+        name: "Sebastian Burkhard",
+        company: "Yodl Pay",
+        image: "/assets/speakers/Sebastian_Burkhard.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+ {
+    stage: "MAIN_STAGE",
+    time: "12:10 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Raising from the internet",
+    speakers: [
+      {
+        name: "Heet Tike",
+        company: "noice",
+        image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -240,51 +257,11 @@ export const agendaData: AgendaItem[] = [
     label: ["DeFi"]
   },
   {
-    stage: "COMMUNITY_STAGE",
-    time: "12:00 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "crypto x ai: marriage or mismatch?",
-    speakers: [
-      {
-        name: "Sharvil",
-        company: "",
-        image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Iptisha",
-        company: "",
-        image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
-    label: ["AI"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "12:10 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Raising from the internet",
-    speakers: [
-      {
-        name: "Heet Tike",
-        company: "noice",
-        image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["AI"]
-  },
-  {
     stage: "MAIN_STAGE",
     time: "12:25 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Integrating a brand and its soul into a product",
+    title: "Brand Soul in the era of Design AI",
     speakers: [
       {
         name: "Rahul Bhadoriya",
@@ -294,6 +271,29 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "12:00 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "crypto x ai: marriage or mismatch?",
+    speakers: [
+      {
+        name: "Sharvil",
+        company: "CapX",
+        image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Iptisha",
+        company: "Circulox",
+        image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png"],
+    label: ["AI"]
   },
   {
     stage: "MAIN_STAGE",
@@ -313,6 +313,22 @@ export const agendaData: AgendaItem[] = [
     label: ["DeFi"]
   },
     {
+    stage: "COMMUNITY_STAGE",
+    time: "02:15 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Past, present and future of interop",
+    speakers: [
+      {
+        name: "Aniket Sharma",
+        company: "Rath Finance",
+        image: "/assets/speakers/Aniket Sharma - Rath Finance.png",
+        scale: "100%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
     stage: "MAIN_STAGE",
     time: "02:15 PM",
     duration: "20 mins",
@@ -334,25 +350,9 @@ export const agendaData: AgendaItem[] = [
     ],
     speakerProjectsImage: ["/1.png", "/1.png"],
   },
-    {
-    stage: "COMMUNITY_STAGE",
-    time: "02:15 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Past, present and future of interop",
-    speakers: [
-      {
-        name: "Aniket Sharma",
-        company: "Rath Finance",
-        image: "/assets/speakers/Aniket Sharma - Rath Finance.png",
-        scale: "100%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
   {
     stage: "COMMUNITY_STAGE",
-    time: "02:15 PM",
+    time: "02:30 PM",
     duration: "15 mins",
     type: "TALK",
     title: "Vibe coding with Remix IDE",
@@ -375,8 +375,8 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Sunny",
-        company: "",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        company: "Gnosis Business",
+        image: "/assets/speakers/Sunny_Singh_-_Gnosis_Business-removebg-preview.png",
         scale: "120%"
       },
       {
@@ -387,7 +387,7 @@ export const agendaData: AgendaItem[] = [
       },
       {
         name: "Tanay",
-        company: "",
+        company: "PropellerHeads",
         image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
         scale: "150%"
       },
@@ -417,9 +417,26 @@ export const agendaData: AgendaItem[] = [
     ],
     speakerProjectsImage: ["/1.png"]
   },
+{
+    stage: "MAIN_STAGE",
+    time: "03:10 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Scaling Revenue: From L2 to Consumer apps",
+    speakers: [
+      {
+        name: "Shubham Bhandari",
+        company: "Manta Network",
+        image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
   {
     stage: "COMMUNITY_STAGE",
-    time: "03:00 AM",
+    time: "03:00 PM",
     duration: "15 mins",
     type: "TALK",
     title: "What's next for DeFi and AA: EIP-8141",
@@ -436,20 +453,19 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "03:10 PM",
-    duration: "15 mins",
+    time: "03:25 PM",
+    duration: "20 mins",
     type: "TALK",
-    title: "Scaling Revenue: From L2 to Consumer apps",
+    title: "How to architect event-driven Ethereum apps",
     speakers: [
       {
-        name: "Shubham Bhandari",
-        company: "ETHMumbai",
-        image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
-        scale: "120%"
+        name : "Aditi Polkam",
+        company: "Offline Protocol",
+        image: "/assets/speakers/Aditi_Polkam.png",
+        scale: "160%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["DeFi"]
+    speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -468,44 +484,6 @@ export const agendaData: AgendaItem[] = [
     speakerProjectsImage: ["/1.png"],
     label: ["AI"]
   },
-    {
-    stage: "MAIN_STAGE",
-    time: "03:25 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "How to architect event-driven Ethereum apps",
-    speakers: [
-      {
-        name : "Aditi Polkam",
-        company: "Offline Protocol",
-        image: "/assets/speakers/Aditi_Polkam.png",
-        scale: "160%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "03:30 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "Is marketing dead?",
-    speakers: [
-      {
-        name: "Kunal",
-        company: "HeyElsaAI",
-        image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
-        scale: "95%"
-      },
-      {
-        name: "Rachit",
-        company: "",
-        image: "/assets/speakers/Rachit.png",
-        scale: "115%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
   {
     stage: "MAIN_STAGE",
     time: "03:40 PM",
@@ -522,6 +500,28 @@ export const agendaData: AgendaItem[] = [
     ],
     speakerProjectsImage: ["/1.png"],
     label: ["Privacy"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "03:30 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "Is marketing dead?",
+    speakers: [
+      {
+        name: "Kunal Gandhi",
+        company: "HeyElsa",
+        image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
+        scale: "95%"
+      },
+      {
+        name: "Rachit",
+        company: "Touch Grass Podcast",
+        image: "/assets/speakers/Rachit.png",
+        scale: "115%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -574,7 +574,24 @@ export const agendaData: AgendaItem[] = [
     speakerProjectsImage: ["/1.png"],
     label: ["AI"]
   },
- {
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "04:25 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Engineering 128-Bit soundness with PIL2",
+    speakers: [
+      {
+        name: "Ayush Bhadauria",
+        company: "ZisK",
+        image: "/assets/speakers/Ayush Bhadauria - ZisK.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["Privacy"]
+  },
+{
     stage: "MAIN_STAGE",
     time: "04:25 PM",
     duration: "15 mins",
@@ -594,29 +611,12 @@ export const agendaData: AgendaItem[] = [
       },
       {
         name: "Nidhi",
-        company: "",
+        company: "VoiceDeck",
         image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
         scale: "120%"
       }
     ],
     speakerProjectsImage: ["/1.png", "/1.png", "/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "04:25 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Engineering 128-Bit soundness with PIL2",
-    speakers: [
-      {
-        name: "Ayush Bhadauria",
-        company: "ZisK",
-        image: "/assets/speakers/Ayush Bhadauria - ZisK.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["Privacy"]
   },
   {
     stage: "COMMUNITY_STAGE",
