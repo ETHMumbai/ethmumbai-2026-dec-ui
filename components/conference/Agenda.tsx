@@ -103,7 +103,13 @@ export default function Agenda() {
 
               {/* SPEAKERS */}
               {item.speakers && item.speakers.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                <div
+  className={
+    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT"
+      ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
+      : "flex flex-col gap-6"
+  }
+>
                   {item.speakers.map((speaker, idx) => (
                     <div key={idx} className="flex items-center gap-4">
                       {/* AVATARS (OVERLAPPED) */}
