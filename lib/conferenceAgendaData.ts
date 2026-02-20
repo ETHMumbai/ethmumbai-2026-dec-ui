@@ -326,7 +326,7 @@ export const agendaData: AgendaItem[] = [
         scale: "100%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/rath-finance.jpg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -348,7 +348,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
+    speakerProjectsImage: ["/assets/organisation/nerdconf.png", "/assets/organisation/nerdconf.png"],
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -364,7 +364,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/remix-labs.jpg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -431,7 +431,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/manta-option1.svg"],
     label: ["DeFi"]
   },
   {
@@ -448,7 +448,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/polygon.svg"],
     label: ["DeFi"]
   },
   {
