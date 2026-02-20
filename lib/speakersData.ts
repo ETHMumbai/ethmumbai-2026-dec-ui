@@ -163,7 +163,7 @@ export const pastSpeakers: Speaker[] = [
   // },
   {
     name: "Rahul Bhadoriya",
-    company: "Dacoit",
+    company: "Dacoit Design",
     image: "/assets/speakers/Rahul_Bhadoriya.png",
     xLink: "https://x.com/rahulbhadoriya",
     imageScale: "h-[130%]",
@@ -335,7 +335,7 @@ export const homeSpeakers: Speaker[] = [
   },
   {
     name: "Rahul Bhadoriya",
-    company: "Dacoit",
+    company: "Dacoit Design",
     image: "/assets/speakers/Rahul_Bhadoriya.png",
     xLink: "https://x.com/rahulbhadoriya",
     imageScale: "h-[130%]",

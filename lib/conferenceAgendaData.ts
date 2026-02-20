@@ -145,7 +145,7 @@ export const agendaData: AgendaItem[] = [
     title: "Markets for public goods",
     speakers: [
       {
-        name: "Devansh Menta",
+        name: "Devansh Mehta",
         company: "Ethereum Foundation",
         image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
         scale: "120%"
@@ -199,10 +199,10 @@ export const agendaData: AgendaItem[] = [
         name: "Harsh",
         company: "Aztec Labs",
         image: "/assets/speakers/Harsh_Bajpai_-_Aztec_Labs-removebg-preview.png",
-        scale: "110%"
+        scale: "110%",
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
+    speakerProjectsImage: ["/assets/organisation/privacy-mykola.jpg", "/assets/organisation/fileverse.jpg", "/assets/organisation/privacy-jobin.jpg", "/assets/organisation/privacy-harsh.svg"],
     label: ["Privacy"]
   },
   {
@@ -292,7 +292,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
+    speakerProjectsImage: ["/assets/organisation/ai-sharvil.jpg", "/assets/organisation/ai-iptisha.png"],
     label: ["AI"]
   },
   {
@@ -398,7 +398,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png", "/1.png", "/1.png"],
+    speakerProjectsImage: ["/assets/organisation/defi-sunny.jpg", "/assets/organisation/defi-archana.png", "/assets/organisation/defi-tanay.jpg", "/assets/organisation/defi-piyush.png"],
     label: ["DeFi"]
   },
   {
@@ -628,7 +628,7 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Vishal Singh",
-        company: "Zippel Labs",
+        company: "ZippelLabs",
         image: "/assets/speakers/Vishal_Mentor-removebg-preview.png",
         scale: "120%"
       }
