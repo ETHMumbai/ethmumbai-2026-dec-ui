@@ -415,7 +415,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/EF.svg"]
   },
 {
     stage: "MAIN_STAGE",
@@ -565,7 +565,7 @@ export const agendaData: AgendaItem[] = [
     title: "My secret agents (IYKYN)",
     speakers: [
       {
-        name: "Vijay",
+        name: "Vijay Krishnavanshi",
         company: "Fileverse",
         image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
         scale: "120%"
@@ -633,7 +633,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/zippel.png"],
     label: ["Privacy"]
   },
   {
