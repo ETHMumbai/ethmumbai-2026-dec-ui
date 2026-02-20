@@ -13,7 +13,7 @@ export interface AgendaItem {
   stage: StageType;
   time: string;          // '10:15 AM'
   duration?: string;     // optional if unknown
-  type: 'CEREMONY' | 'PANEL' | 'TALK' | 'BREAK' | 'ANNOUNCEMENT';
+  type: 'CEREMONY' | 'PANEL' | 'TALK' | 'FIRESIDE CHAT' | 'ANNOUNCEMENT';
   title: string;
   speakers?: Speaker[];
   speakerProjectsImage?: string[];
@@ -30,7 +30,7 @@ export const agendaData: AgendaItem[] = [
     title: "Opening Ceremony",
     speakers: [
       {
-        name: "Chandresh",
+        name: "Chandresh Jain",
         company: "ETHMumbai",
         image: "/assets/team/Chandresh.png",
         scale: "120%"
@@ -70,7 +70,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -86,7 +86,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -107,7 +107,39 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "11:00 PM",
+    time: "11:00 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Onboarding builders from Web2 to Web3",
+    speakers: [
+      {
+        name: "Naina Sachdev",
+        company: "dev3pack",
+        image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
+        scale: "135%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "11:00 AM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Agentic Commerce on Ethereum",
+    speakers: [
+      {
+        name: "Dhaiwat Pandya",
+        company: "ENS",
+        image: "/assets/speakers/Dhaiwat.png",
+        scale: "125%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "11:15 AM",
     duration: "20 mins",
     type: "TALK",
     title: "Account Abstraction with EIP 7702",
@@ -116,47 +148,14 @@ export const agendaData: AgendaItem[] = [
         name: "Abhishek Yadav",
         company: "Etherspot",
         image: "/assets/speakers/Abhishek Yadav - Etherspot.png",
-        scale: "120%"
+        scale: "145%"
       }
     ],
     speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
-    time: "11:10 AM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Agentic Commerce on Ethereum",
-    speakers: [
-      {
-        name: "Dhaiwat",
-        company: "ENS",
-        image: "/assets/speakers/Dhaiwat.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "11:15 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Banks are the real shadow economy",
-    speakers: [
-      {
-        name: "Siddharth Biju",
-        company: "",
-        image: "/assets/speakers/Siddharth Biju.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["DeFi"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "11:30 AM",
+    time: "11:15 AM",
     duration: "15 mins",
     type: "TALK",
     title: "Markets for public goods",
@@ -176,90 +175,6 @@ export const agendaData: AgendaItem[] = [
     time: "11:30 PM",
     duration: "20 mins",
     type: "TALK",
-    title: "Onboarding builders from Web2 to Web3",
-    speakers: [
-      {
-        name: "Naina Sachdev",
-        company: "dev3pack",
-        image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "11:45 PM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "Cracking distribution with content",
-    speakers: [
-      {
-        name: "Kunal"
-      },
-      {
-        name: "Rachit"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "12:10 AM",
-    duration: "15 mins",
-    type: "PANEL",
-    title: "Privacy Panel",
-    speakers: [
-      {
-        name: "Mykola",
-        company: "",
-        image: "",
-        scale: ""
-      },
-      {
-        name: "Vijay",
-        company: "Fileverse",
-        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Jobin",
-        company: "TEN Protocol",
-        image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Harsh Bajpai",
-        company: "",
-        image: "",
-        scale: ""
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
-    label: ["Privacy"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "12:25 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Raising from the internet",
-    speakers: [
-      {
-        name: "Heet",
-        company: "noice",
-        image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"],
-    label: ["AI"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "12:25 PM",
-    duration: "20 mins",
-    type: "TALK",
     title: "Decentralize QR payments",
     speakers: [
       {
@@ -274,7 +189,99 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "12:40 PM",
+    time: "11:30 AM",
+    duration: "15 mins",
+    type: "FIRESIDE CHAT",
+    title: "Privacy enables crime and that's the point",
+    speakers: [
+      {
+        name: "Mykola",
+        company: "",
+        image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Vijay",
+        company: "Fileverse",
+        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Jobin",
+        company: "TEN Protocol",
+        image: "/assets/speakers/Jobin_-_ten-removebg-preview.png",
+        scale: "170%"
+      },
+      {
+        name: "Harsh",
+        company: "",
+        image: "",
+        scale: ""
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png"],
+    label: ["Privacy"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "11:45 AM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Banks are the real shadow economy",
+    speakers: [
+      {
+        name: "Siddharth Biju",
+        company: "",
+        image: "/assets/speakers/Siddharth Biju.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "12:00 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "crypto x ai: marriage or mismatch?",
+    speakers: [
+      {
+        name: "Sharvil",
+        company: "",
+        image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Iptisha",
+        company: "",
+        image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png"],
+    label: ["AI"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "12:10 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Raising from the internet",
+    speakers: [
+      {
+        name: "Heet Tike",
+        company: "noice",
+        image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "12:25 PM",
     duration: "20 mins",
     type: "TALK",
     title: "Integrating a brand and its soul into a product",
@@ -299,10 +306,11 @@ export const agendaData: AgendaItem[] = [
         name: "Kanika Mishra",
         company: "USDT Marketplace",
         image: "/assets/speakers/Kanika_Mishra.png",
-        scale: "120%"
+        scale: "110%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
   },
     {
     stage: "MAIN_STAGE",
@@ -328,7 +336,74 @@ export const agendaData: AgendaItem[] = [
   },
     {
     stage: "COMMUNITY_STAGE",
-    time: "02:15 AM",
+    time: "02:15 PM",
+    duration: "20 mins",
+    type: "TALK",
+    title: "Past, present and future of interop",
+    speakers: [
+      {
+        name: "Aniket Sharma",
+        company: "Rath Finance",
+        image: "/assets/speakers/Aniket Sharma - Rath Finance.png",
+        scale: "100%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "02:15 PM",
+    duration: "15 mins",
+    type: "TALK",
+    title: "Vibe coding with Remix IDE",
+    speakers: [
+      {
+        name: "Aniket",
+        company: "Remix Labs",
+        image: "/assets/speakers/Aniket_Remix_Judge-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "02:30 PM",
+    duration: "40 mins",
+    type: "FIRESIDE CHAT",
+    title: "Stablecoins are the real product, not DeFi",
+    speakers: [
+      {
+        name: "Sunny",
+        company: "",
+        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
+        scale: "120%"
+      },
+      {
+        name: "Archana",
+        company: "SSV Network",
+        image: "/assets/speakers/archana-removebg-preview.png",
+        scale: "100%"
+      },
+      {
+        name: "Tanay",
+        company: "",
+        image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
+        scale: "150%"
+      },
+      {
+        name: "Piyush",
+        company: "Avantis",
+        image: "/assets/speakers/piyush.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png", "/1.png", "/1.png", "/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "02:45 PM",
     duration: "20 mins",
     type: "TALK",
     title: "Ethereum needs India’s institutions",
@@ -343,43 +418,8 @@ export const agendaData: AgendaItem[] = [
     speakerProjectsImage: ["/1.png"]
   },
   {
-    stage: "MAIN_STAGE",
-    time: "02:30 PM",
-    duration: "40 mins",
-    type: "PANEL",
-    title: "Stablecoins are the real product, not DeFi",
-    speakers: [
-      {
-        name: "Sunny",
-        company: "",
-        image: "/assets/speakers/ALE_MARIN_NERDCONF-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Archana",
-        company: "SSV Network",
-        image: "/assets/speakers/archana-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Tanay",
-        company: "",
-        image: "/assets/speakers/archana-removebg-preview.png",
-        scale: "120%"
-      },
-      {
-        name: "Piyus",
-        company: "Avantis",
-        image: "/assets/speakers/archana-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png", "/1.png", "/1.png", "/1.png"],
-    label: ["DeFi"]
-  },
-    {
     stage: "COMMUNITY_STAGE",
-    time: "02:30 AM",
+    time: "03:00 AM",
     duration: "15 mins",
     type: "TALK",
     title: "What's next for DeFi and AA: EIP-8141",
@@ -393,38 +433,6 @@ export const agendaData: AgendaItem[] = [
     ],
     speakerProjectsImage: ["/1.png"],
     label: ["DeFi"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "02:45 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Vibe coding with Remix IDE",
-    speakers: [
-      {
-        name: "Aniket",
-        company: "Remix Labs",
-        image: "/assets/speakers/Aniket_Remix_Judge-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-    {
-    stage: "COMMUNITY_STAGE",
-    time: "03:00 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "Past, present and future of interop",
-    speakers: [
-      {
-        name: "Aniket Sharma",
-        company: "Rath Finance",
-        image: "/assets/speakers/Aniket Sharma - Rath Finance.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -445,25 +453,19 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "03:20 PM",
+    time: "03:15 PM",
     duration: "15 mins",
-    type: "PANEL",
-    title: "crypto x ai: marriage or mismatch?",
+    type: "TALK",
+    title: "Make Agents safe again",
     speakers: [
       {
-        name: "Sarvil",
-        company: "",
-        image: "",
-        scale: "120%"
-      },
-      {
-        name: "Iptisha",
-        company: "",
-        image: "",
+        name: "Ayush Bherwani",
+        company: "MetaMask",
+        image: "/assets/speakers/Ayush_Bherwani.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png", "/1.png"],
+    speakerProjectsImage: ["/1.png"],
     label: ["AI"]
   },
     {
@@ -478,6 +480,28 @@ export const agendaData: AgendaItem[] = [
         company: "Offline Protocol",
         image: "/assets/speakers/Aditi_Polkam.png",
         scale: "160%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"]
+  },
+  {
+    stage: "COMMUNITY_STAGE",
+    time: "03:30 PM",
+    duration: "15 mins",
+    type: "PANEL",
+    title: "Is marketing dead?",
+    speakers: [
+      {
+        name: "Kunal",
+        company: "HeyElsaAI",
+        image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
+        scale: "95%"
+      },
+      {
+        name: "Rachit",
+        company: "",
+        image: "/assets/speakers/Rachit.png",
+        scale: "115%"
       }
     ],
     speakerProjectsImage: ["/1.png"]
@@ -518,7 +542,7 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "04:00 PM",
+    time: "04:10 PM",
     duration: "20 mins",
     type: "TALK",
     title: "DeFi without the buzzwords",
@@ -530,13 +554,31 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["DeFi"]
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "04:10 PM",
+    duration: "45 mins",
+    type: "TALK",
+    title: "My secret agents (IYKYN)",
+    speakers: [
+      {
+        name: "Vijay",
+        company: "Fileverse",
+        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
+        scale: "120%"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    label: ["AI"]
   },
  {
     stage: "MAIN_STAGE",
-    time: "04:10 PM",
+    time: "04:25 PM",
     duration: "15 mins",
-    type: "PANEL",
+    type: "FIRESIDE CHAT",
     title: "India's crypto story",
     speakers: [
       {
@@ -561,23 +603,7 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "04:20 PM",
-    duration: "15 mins",
-    type: "TALK",
-    title: "Make Agents safe again",
-    speakers: [
-      {
-        name: "Ayush Bherwani",
-        company: "MetaMask",
-        image: "/assets/speakers/Ayush_Bherwani.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "04:35 PM",
+    time: "04:25 PM",
     duration: "15 mins",
     type: "TALK",
     title: "Engineering 128-Bit soundness with PIL2",
@@ -589,43 +615,29 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "04:50 PM",
-    duration: "45 mins",
-    type: "TALK",
-    title: "My secret agents (IYKYN)",
-    speakers: [
-      {
-        name: "Vijay",
-        company: "Fileverse",
-        image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
-        scale: "120%"
-      }
-    ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["Privacy"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "04:50 AM",
+    time: "04:40 PM",
     duration: "20 mins",
     type: "TALK",
     title: "What don't we know? AI, ZK Auditing and zkVM",
     speakers: [
       {
-        name: "Vishal",
+        name: "Vishal Singh",
         company: "Zippel Labs",
         image: "/assets/speakers/Vishal_Mentor-removebg-preview.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    label: ["Privacy"]
   },
   {
     stage: "MAIN_STAGE",
-    time: "05:05 AM",
+    time: "05:05 PM",
     duration: "20 mins",
     type: "TALK",
     title: "TBD",
@@ -637,11 +649,11 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "05:05 AM",
+    time: "05:05 PM",
     duration: "20 mins",
     type: "TALK",
     title: "TBD",
@@ -653,11 +665,11 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
-    time: "05:20 AM",
+    time: "05:20 PM",
     duration: "20 mins",
     type: "TALK",
     title: "TBD",
@@ -669,11 +681,11 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
-    time: "05:20 AM",
+    time: "05:20 PM",
     duration: "20 mins",
     type: "TALK",
     title: "TBD",
@@ -685,11 +697,11 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
-    time: "05:35 AM",
+    time: "05:35 PM",
     duration: "20 mins",
     type: "TALK",
     title: "TBD",
@@ -701,7 +713,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    // speakerProjectsImage: ["/1.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -713,7 +725,7 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Ornella",
         company: "EF Devcon",
-        image: "",
+        image: "/assets/speakers/Ornella_-_EF_Devcon-removebg-preview.png",
         scale: "120%"
       }
     ],

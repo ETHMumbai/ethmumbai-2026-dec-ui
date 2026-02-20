@@ -110,12 +110,12 @@ export default function Agenda() {
                       <div className="flex items-center">
                         {/* Speaker Image (SQUARE) */}
                         {speaker.image ? (
-                          <div className="w-14 h-14 bg-[#FFD600] rounded-lg flex items-center justify-center overflow-hidden">
+                          <div className="w-16 h-16 border-2 border-black-200 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden">
                             <Image
                               src={speaker.image}
                               alt={speaker.name}
-                              width={48}
-                              height={48}
+                              width={56}
+                              height={56}
                               className="object-cover transition-transform duration-300 z-0 pointer-events-none"
                               style={{
                                 transform: speaker.scale
@@ -125,7 +125,7 @@ export default function Agenda() {
                             />
                           </div>
                         ) : (
-                          <div className="w-14 h-14 rounded-lg bg-[#FFD600]" />
+                          <div className="w-14 h-14 rounded-lg" />
                         )}
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
