@@ -104,21 +104,12 @@ export default function Agenda() {
               {/* SPEAKERS */}
               {item.speakers && item.speakers.length > 0 && (
                 <div
-<<<<<<< Updated upstream
   className={
     item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT" || item.type === "PANEL" || item.type === "TALK" && item.speakers.length > 1
       ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
       : "flex flex-col gap-6"
   }
 >
-=======
-                  className={
-                    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT"
-                      ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
-                      : "flex flex-col gap-6"
-                  }
-                >
->>>>>>> Stashed changes
                   {item.speakers.map((speaker, idx) => (
                     <div key={idx} className="flex items-center gap-4">
                       {/* AVATARS (OVERLAPPED) */}
