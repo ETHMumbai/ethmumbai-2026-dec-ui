@@ -115,7 +115,7 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Dhaiwat Pandya",
         company: "ENS",
-        image: "/assets/speakers/Dhaiwat.png",
+        image: "/assets/speakers/Dhaiwat2.png",
         scale: "125%"
       }
     ],
@@ -481,7 +481,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/MetaMask-fox.svg"],
     label: ["AI"]
   },
   {
