@@ -87,12 +87,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/buidlguidl",
     tier: "three"
   },
-  {
-    logo: "/assets/sponsors/Avantis.svg",
-    name: "Avantis",
-    twitter: "https://x.com/avantisfi",
-    tier: "three"
-  },
+  // {
+  //   logo: "/assets/sponsors/Avantis.svg",
+  //   name: "Avantis",
+  //   twitter: "https://x.com/avantisfi",
+  //   tier: "three"
+  // },
   {
     logo: "/assets/sponsors/ens.svg",
     name: "ENS",
