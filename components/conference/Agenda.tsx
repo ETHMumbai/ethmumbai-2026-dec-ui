@@ -32,7 +32,7 @@ export default function Agenda() {
           Agenda
         </h2>
 
-        <a
+        {/* <a
           title="Add to Calendar"
           target="_blank"
           rel="noopener noreferrer"
@@ -41,7 +41,7 @@ export default function Agenda() {
           <button className="ml-4 bg-[#3FA9F5] cursor-pointer text-white px-4 py-2 mb-8 rounded-xl text-sm font-medium hover:opacity-80 transition">
             + Add to Calendar
           </button>
-        </a>
+        </a> */}
       </div>
 
       {/* GRID */}
