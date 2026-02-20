@@ -730,7 +730,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/devcon.jpg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -765,7 +765,7 @@ export const agendaData: AgendaItem[] = [
       },
       {
         name: "Devcon",
-        image: "/assets/partners/Devcon India.svg"
+        image: "/assets/organisation/devcon.jpg"
       }
     ]
   }
