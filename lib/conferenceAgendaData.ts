@@ -53,7 +53,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/Monad.svg"],
     label: ["AI"]
   },
   {
@@ -81,12 +81,12 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Shiv Bhonde",
-        company: "Buidlguidl",
+        company: "BuidlGuidl",
         image: "/assets/speakers/Shiv_Bhonde.png",
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/BuidlGuidl.svg"],
     label: ["AI"]
   },
   {
@@ -119,7 +119,7 @@ export const agendaData: AgendaItem[] = [
         scale: "125%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/ENS.svg"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -135,7 +135,7 @@ export const agendaData: AgendaItem[] = [
         scale: "135%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/Dev3Pack.svg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -151,7 +151,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/EF.svg"],
     label: ["DeFi"]
   },
   {
@@ -168,7 +168,7 @@ export const agendaData: AgendaItem[] = [
         scale: "145%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/assets/organisation/Etherspot.svg"]
   },
   {
     stage: "MAIN_STAGE",
@@ -219,7 +219,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/Yodl Pay.svg"],
     label: ["DeFi"]
   },
  {
@@ -236,7 +236,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/noice.png"],
     label: ["AI"]
   },
   {
@@ -309,7 +309,7 @@ export const agendaData: AgendaItem[] = [
         scale: "110%"
       }
     ],
-    speakerProjectsImage: ["/1.png"],
+    speakerProjectsImage: ["/assets/organisation/usdt-marketplace.png"],
     label: ["DeFi"]
   },
     {
@@ -756,7 +756,7 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Dev3Pack",
-        image: "/assets/partners/Dev3Pack.svg"
+        image: "/assets/organisation/Dev3Pack.svg"
       },
       {
         name: "Devfolio",
