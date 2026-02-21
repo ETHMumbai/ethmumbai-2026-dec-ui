@@ -4,22 +4,22 @@ import { agendaData } from "@/lib/conferenceAgendaData";
 
 export default function Agenda() {
   const LABEL_STYLES: Record<
-    "DeFi" | "Privacy" | "AI",
+    "DEFI" | "Privacy" | "AI",
     { bg: string; text: string; border: string }
   > = {
-    DeFi: {
-      bg: "bg-[#FFF9DA]",
-      text: "text-[#FFD600]",
+    DEFI: {
+      bg: "bg-[#FFD600]",
+      text: "text-black",
       border: "border-[#FFD600]",
     },
     Privacy: {
-      bg: "bg-[#FFD7D5]",
-      text: "text-[#E2231A]",
-      border: "border-[#E2231A]",
+      bg: "bg-[#1C1C1C]",
+      text: "text-white",
+      border: "border-[#1C1C1C]",
     },
     AI: {
-      bg: "bg-[#ECFDF5]",
-      text: "text-[#00A859]",
+      bg: "bg-[#00A859]",
+      text: "text-white",
       border: "border-[#00A859]",
     },
   };
@@ -55,20 +55,23 @@ export default function Agenda() {
           >
             {/* TOP */}
             <div>
-              <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 {/* TIME + DURATION */}
-                <span className="bg-[#E2231A] text-white text-xs font-semibold px-4 py-1 rounded-full">
+                <span className="bg-white border border-black text-black text-xs font-semibold px-4 py-1 rounded-full">
                   {item.time}
+                  {(item.type === "TALK" || item.type === "PANEL") && (
+                    <> - {item.duration}</>
+                  )}
                 </span>
 
                 {/* STAGE TAG */}
                 <span
                   className={`text-xs font-semibold px-3 py-1 rounded-full border ${item.stage === "MAIN_STAGE"
-                    ? "border-black text-black bg-gray-200"
-                    : "border-[#3FA9F5] text-[#3FA9F5] bg-[#E6F4FF]"
+                    ? "text-white bg-[#E2231A]"
+                    : "text-white bg-[#3FA9F5]"
                     }`}
                 >
-                  {item.stage === "MAIN_STAGE" ? "MAIN STAGE" : "COMMUNITY STAGE"}
+                  {item.stage === "MAIN_STAGE" ? "DOUBLE DECKER STAGE" : "SINGLE DECKER STAGE"}
                 </span>
 
                 {/* LABELS */}
@@ -90,8 +93,13 @@ export default function Agenda() {
                 )}
 
                 {/* TYPE */}
-                <span className="text-xs font-semibold text-gray-500 uppercase">
-                  {item.type}
+                <span className="text-xs font-semibold text-black uppercase">
+                  
+                  {item.type === "TALK"
+                    ? "TALK"
+                    : item.type === "PANEL"
+                    ? "PANEL"
+                    : ""}
                 </span>
               </div>
 

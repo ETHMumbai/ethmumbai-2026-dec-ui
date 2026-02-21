@@ -17,7 +17,7 @@ export interface AgendaItem {
   title: string;
   speakers?: Speaker[];
   speakerProjectsImage?: string[];
-  label?: Array<'DeFi' | 'Privacy' | 'AI'>;
+  label?: Array<'DEFI' | 'Privacy' | 'AI'>;
   isFullWidth?: boolean;
 }
 
@@ -25,7 +25,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "10:15 AM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "CEREMONY",
     title: "Opening Ceremony",
     speakers: [
@@ -42,40 +42,41 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "10:30 AM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Building a unicorn startup in the AI era",
     speakers: [
       {
         name: "Pareen Lathia",
-        company: "Monad",
+        company: "Monad Foundation",
         image: "/assets/conference/agenda/speakers/Pareen_Lathai.png",
         scale: "100%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/Monad.svg"],
-    label: ["AI"]
+    label: ["AI"],
+    isFullWidth: true
   },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "10:30 AM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
+  // {
+  //   stage: "COMMUNITY_STAGE",
+  //   time: "10:30 AM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
 {
     stage: "MAIN_STAGE",
     time: "10:45 AM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Shipping onchain apps with agents",
     speakers: [
@@ -87,28 +88,29 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/buidlguild.png"],
-    label: ["AI"]
+    label: ["AI"],
+    isFullWidth: true
   },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "10:45 AM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
+  // {
+  //   stage: "COMMUNITY_STAGE",
+  //   time: "10:45 AM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
   {
     stage: "MAIN_STAGE",
     time: "11:00 AM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Agentic Commerce on Ethereum",
     speakers: [
@@ -124,7 +126,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:00 AM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Onboarding builders from Web2 to Web3",
     speakers: [
@@ -140,7 +142,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "11:15 AM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Markets for public goods",
     speakers: [
@@ -152,12 +154,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/EF.svg"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "COMMUNITY_STAGE",
     time: "11:15 AM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Account Abstraction with EIP 7702",
     speakers: [
@@ -173,7 +175,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "11:30 AM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "FIRESIDE CHAT",
     title: "Privacy enables crime and that's the point",
     speakers: [
@@ -208,7 +210,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:30 AM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Decentralize QR payments",
     speakers: [
@@ -220,12 +222,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/Yodl Pay.svg"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
  {
     stage: "MAIN_STAGE",
     time: "12:10 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Raising from the internet",
     speakers: [
@@ -242,7 +244,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:45 AM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Banks are the real shadow economy",
     speakers: [
@@ -254,12 +256,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: [""],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "MAIN_STAGE",
     time: "12:25 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Brand Soul in the era of Design AI",
     speakers: [
@@ -275,7 +277,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "12:00 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "PANEL",
     title: "crypto x ai: marriage or mismatch?",
     speakers: [
@@ -298,7 +300,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "02:00 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Stablecoins as global rails",
     speakers: [
@@ -310,12 +312,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/usdt-marketplace.png"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
     {
     stage: "COMMUNITY_STAGE",
     time: "02:15 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Past, present and future of interop",
     speakers: [
@@ -331,7 +333,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "02:15 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "ETH's biggest bug? A lack of business model",
     speakers: [
@@ -353,7 +355,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "02:30 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Vibe coding with Remix IDE",
     speakers: [
@@ -369,7 +371,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "02:30 PM",
-    duration: "40 mins",
+    duration: "40 MIN",
     type: "FIRESIDE CHAT",
     title: "Stablecoins are the real product, not DeFi",
     speakers: [
@@ -399,12 +401,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/defi-sunny.jpg", "/assets/organisation/defi-archana.png", "/assets/organisation/defi-tanay.jpg", "/assets/organisation/avantis-v2.png"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "COMMUNITY_STAGE",
     time: "02:45 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Ethereum needs India’s institutions",
     speakers: [
@@ -420,7 +422,7 @@ export const agendaData: AgendaItem[] = [
 {
     stage: "MAIN_STAGE",
     time: "03:10 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Scaling Revenue: From L2 to Consumer apps",
     speakers: [
@@ -432,12 +434,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/manta-option1.svg"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "COMMUNITY_STAGE",
     time: "03:00 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "What's next for DeFi and AA: EIP-8141",
     speakers: [
@@ -449,12 +451,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/polygon.svg"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "MAIN_STAGE",
     time: "03:25 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "How to architect event-driven Ethereum apps",
     speakers: [
@@ -470,7 +472,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "03:15 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Make Agents safe again",
     speakers: [
@@ -487,7 +489,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "03:40 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Privacy Trilemma in single global state chains",
     speakers: [
@@ -504,7 +506,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "03:30 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "PANEL",
     title: "Is marketing dead?",
     speakers: [
@@ -526,7 +528,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "03:55 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Account Abstraction as a privacy primitive",
     speakers: [
@@ -543,7 +545,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "04:10 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "DeFi without the buzzwords",
     speakers: [
@@ -555,12 +557,12 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/own-finance.jpg"],
-    label: ["DeFi"]
+    label: ["DEFI"]
   },
   {
     stage: "MAIN_STAGE",
     time: "04:10 PM",
-    duration: "45 mins",
+    duration: "45 MIN",
     type: "TALK",
     title: "My secret agents (IYKYN)",
     speakers: [
@@ -577,7 +579,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "04:25 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "TALK",
     title: "Engineering 128-Bit soundness with PIL2",
     speakers: [
@@ -594,7 +596,7 @@ export const agendaData: AgendaItem[] = [
 {
     stage: "MAIN_STAGE",
     time: "04:25 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
     type: "FIRESIDE CHAT",
     title: "India's crypto story",
     speakers: [
@@ -622,7 +624,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "04:40 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "What don't we know? AI, ZK Auditing and zkVM",
     speakers: [
@@ -638,9 +640,9 @@ export const agendaData: AgendaItem[] = [
   },
   {
     stage: "MAIN_STAGE",
-    time: "05:05 PM",
-    duration: "20 mins",
-    type: "TALK",
+    time: "05:05 PM - 05:50 PM",
+    duration: "",
+    type: "CEREMONY",
     title: "TBD",
     speakers: [
       {
@@ -651,75 +653,76 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     // speakerProjectsImage: ["/1.png"]
+    isFullWidth: true
   },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "05:05 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "05:20 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "COMMUNITY_STAGE",
-    time: "05:20 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "05:35 PM",
-    duration: "20 mins",
-    type: "TALK",
-    title: "TBD",
-    speakers: [
-      {
-        name: "",
-        company: "",
-        image: "",
-        scale: "120%"
-      }
-    ],
-    // speakerProjectsImage: ["/1.png"]
-  },
+  // {
+  //   stage: "COMMUNITY_STAGE",
+  //   time: "05:00 PM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
+  // {
+  //   stage: "MAIN_STAGE",
+  //   time: "05:20 PM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
+  // {
+  //   stage: "COMMUNITY_STAGE",
+  //   time: "05:20 PM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
+  // {
+  //   stage: "MAIN_STAGE",
+  //   time: "05:35 PM",
+  //   duration: "20 MIN",
+  //   type: "TALK",
+  //   title: "TBD",
+  //   speakers: [
+  //     {
+  //       name: "",
+  //       company: "",
+  //       image: "",
+  //       scale: "120%"
+  //     }
+  //   ],
+  //   // speakerProjectsImage: ["/1.png"]
+  // },
   {
     stage: "MAIN_STAGE",
     time: "05:50 PM",
-    duration: "20 mins",
+    duration: "20 MIN",
     type: "TALK",
     title: "Devcon 8 India: What Comes Next",
     speakers: [
@@ -730,12 +733,42 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/devcon.jpg"]
+    speakerProjectsImage: ["/assets/organisation/devcon.jpg"],
+    isFullWidth: true
   },
   {
     stage: "MAIN_STAGE",
     time: "06:00 PM",
-    duration: "15 mins",
+    duration: "15 MIN",
+    type: "ANNOUNCEMENT",
+    title: "Announcements",
+    speakers: [
+      {
+        name: "Naina Sachdev",
+        company: "Dev3pack",
+        image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
+        scale: "135%"
+      },
+      {
+        name: "Denver",
+        company: "Devfolio",
+        image: "/assets/speakers/Denver-Dsouza-removebg-preview.png",
+        scale: "130%"
+      },
+      {
+        name: "Candela",
+        company: "EF Devcon",
+        image: "/assets/speakers/Candella_-_EF_Devcon-removebg-preview.png",
+        scale: "170%"
+      }
+    ],
+    speakerProjectsImage: ["/assets/organisation/Dev3Pack.svg", "/assets/organisation/devfolio-v2.png", "/assets/organisation/devcon.jpg"],
+    isFullWidth: true
+  },
+  {
+    stage: "MAIN_STAGE",
+    time: "06:15 PM",
+    duration: "15 MIN",
     type: "CEREMONY",
     title: "Closing Ceremony",
     speakers: [
@@ -747,28 +780,6 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/1.png"],
-    isFullWidth: true
-  },
-  {
-    stage: "MAIN_STAGE",
-    time: "06:15 PM",
-    duration: "15 mins",
-    type: "ANNOUNCEMENT",
-    title: "Announcements",
-    speakers: [
-      {
-        name: "Dev3Pack",
-        image: "/assets/organisation/Dev3Pack.svg"
-      },
-      {
-        name: "Devfolio",
-        image: "/assets/organisation/india-denver.svg"
-      },
-      {
-        name: "Devcon",
-        image: "/assets/organisation/devcon.jpg"
-      }
-    ],
     isFullWidth: true
   }
 ]
