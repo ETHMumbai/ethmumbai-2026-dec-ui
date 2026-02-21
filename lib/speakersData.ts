@@ -462,18 +462,18 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[145%]",
   },
   {
-    name: "Heet Tike",
-    company: "noice",
-    image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
-    xLink: "https://x.com/heettike",
-    imageScale: "h-[120%]",
-  },
-  {
     name: "Harsh Bajpai",
     company: "Aztec Labs",
     image: "/assets/speakers/Harsh_Bajpai_-_Aztec_Labs-removebg-preview.png",
     xLink: "https://x.com/bajpaiharsh244",
     imageScale: "h-[125%]",
+  },
+  {
+    name: "Heet Tike",
+    company: "noice",
+    image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
+    xLink: "https://x.com/heettike",
+    imageScale: "h-[120%]",
   },
   {
     name: "Iptisha",
