@@ -136,7 +136,7 @@ export const pastSpeakers: Speaker[] = [
   },
    {
     name: "Naina Sachdev",
-    company: "Dev3pack",
+    company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
     xLink: "https://x.com/Nainasachdev11",
     imageScale: "h-[150%]",
@@ -163,7 +163,7 @@ export const pastSpeakers: Speaker[] = [
   // },
   {
     name: "Rahul Bhadoriya",
-    company: "Dacoit Design",
+    company: "Dacoit",
     image: "/assets/speakers/Rahul_Bhadoriya.png",
     xLink: "https://x.com/rahulbhadoriya",
     imageScale: "h-[130%]",
@@ -335,7 +335,7 @@ export const homeSpeakers: Speaker[] = [
   },
   {
     name: "Rahul Bhadoriya",
-    company: "Dacoit Design",
+    company: "Dacoit",
     image: "/assets/speakers/Rahul_Bhadoriya.png",
     xLink: "https://x.com/rahulbhadoriya",
     imageScale: "h-[130%]",
@@ -533,7 +533,7 @@ export const conferenceSpeakers: Speaker[] = [
   },
    {
     name: "Naina Sachdev",
-    company: "Dev3pack",
+    company: "dev3pack",
     image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
     xLink: "https://x.com/nainasachdev_?s=11",
     imageScale: "h-[150%]",
@@ -663,13 +663,6 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
     xLink: "https://x.com/tanayjain",
     imageScale: "h-[150%]",
-  },
-  {
-    name: "Tomas Octavio",
-    company: "NERDCONF",
-    image: "/assets/speakers/TOMAS_OCTAVIO_NERDCONF-removebg-preview.png",
-    xLink: "https://x.com/tomasoctavio_",
-    imageScale: "h-[120%]",
   },
   {
     name: "Tomas Octavio",
