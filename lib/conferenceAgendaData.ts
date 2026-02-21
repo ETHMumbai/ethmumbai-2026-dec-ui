@@ -49,8 +49,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Pareen Lathia",
         company: "Monad",
-        image: "/assets/speakers/Pareen_Lathai.png",
-        scale: "120%"
+        image: "/assets/conference/agenda/speakers/Pareen_Lathai.png",
+        scale: "100%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/Monad.svg"],
@@ -82,7 +82,7 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Shiv Bhonde",
         company: "BuidlGuidl",
-        image: "/assets/speakers/Shiv_Bhonde.png",
+        image: "/assets/conference/agenda/speakers/Shiv_Bhonde.png",
         scale: "120%"
       }
     ],
@@ -411,8 +411,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Shyam Sridhar",
         company: "Ethereum Foundation",
-        image: "/assets/speakers/Shyam_Sridhar2.png",
-        scale: "120%"
+        image: "/assets/conference/agenda/speakers/Shyam_Sridhar2.png",
+        scale: "100%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/EF.svg"]
@@ -461,8 +461,8 @@ export const agendaData: AgendaItem[] = [
       {
         name : "Aditi Polkam",
         company: "Offline Protocol",
-        image: "/assets/speakers/Aditi_Polkam.png",
-        scale: "160%"
+        image: "/assets/conference/agenda/speakers/Aditi_Polkam.png",
+        scale: "100%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/offline-protocol.jpg"]
@@ -494,7 +494,7 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Jatin Pandya",
         company: "Canton Foundation",
-        image: "/assets/speakers/Jatin_Pandya.png",
+        image: "/assets/conference/agenda/speakers/Jatin_Pandya.png",
         scale: "120%"
       }
     ],
@@ -512,7 +512,7 @@ export const agendaData: AgendaItem[] = [
         name: "Kunal Gandhi",
         company: "HeyElsa",
         image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
-        scale: "95%"
+        scale: "90%"
       },
       {
         name: "Rachit",
@@ -550,8 +550,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Sweta Shaw",
         company: "Own Protocol",
-        image: "/assets/speakers/Sweta_Judge-removebg-preview.png",
-        scale: "120%"
+        image: "/assets/conference/agenda/speakers/Sweta_Judge-removebg-preview.png",
+        scale: "100%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/own-finance.jpg"],
@@ -584,8 +584,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Ayush Bhadauria",
         company: "ZisK",
-        image: "/assets/speakers/Ayush Bhadauria - ZisK.png",
-        scale: "120%"
+        image: "/assets/conference/agenda/speakers/Ayush Bhadauria - ZisK.png",
+        scale: "110%"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/ZisK.jpg"],
