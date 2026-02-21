@@ -169,7 +169,7 @@ export default function Agenda() {
                       {/* NAME + META */}
                       <div className="leading-tight">
                         <p className="text-lg font-semibold text-black">
-                          {speaker.name}
+                          <a href={speaker.xLink} target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-all duration-300">{speaker.name}</a>
                         </p>
 
                         {(speaker.company || speaker.role) && (
