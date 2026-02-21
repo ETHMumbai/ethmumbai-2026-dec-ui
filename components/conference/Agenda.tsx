@@ -141,17 +141,21 @@ export default function Agenda() {
                         )}
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
-                        {item.speakerProjectsImage?.[idx] && (
-                          <div className="-ml-3 w-12 h-12 rounded-full bg-white border-2 border-black flex items-center justify-center border-2 border-white">
-                            <Image
-                              src={item.speakerProjectsImage[idx]}
-                              alt="Project Logo"
-                              width={52}
-                              height={52}
-                              className="object-contain rounded-full z-10"
-                            />
-                          </div>
-                        )}
+                        <div className="-ml-3 w-12 h-12 flex items-center justify-center">
+  {item.speakerProjectsImage?.[idx] ? (
+    <div className="w-12 h-12 rounded-full bg-white border-2 border-white flex items-center justify-center">
+      <Image
+        src={item.speakerProjectsImage[idx]}
+        alt="Project Logo"
+        width={52}
+        height={52}
+        className="object-contain rounded-full z-10"
+      />
+    </div>
+  ) : (
+    <div className="w-12 h-12" />
+  )}
+</div>
                       </div>
 
                       {/* NAME + META */}
