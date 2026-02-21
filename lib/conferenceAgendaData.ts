@@ -398,7 +398,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/defi-sunny.jpg", "/assets/organisation/defi-archana.png", "/assets/organisation/defi-tanay.jpg", "/assets/organisation/defi-piyush.png"],
+    speakerProjectsImage: ["/assets/organisation/defi-sunny.jpg", "/assets/organisation/defi-archana.png", "/assets/organisation/defi-tanay.jpg", "/assets/organisation/avantis-v2.png"],
     label: ["DeFi"]
   },
   {
@@ -746,7 +746,8 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/1.png"]
+    speakerProjectsImage: ["/1.png"],
+    isFullWidth: true
   },
   {
     stage: "MAIN_STAGE",
@@ -767,6 +768,7 @@ export const agendaData: AgendaItem[] = [
         name: "Devcon",
         image: "/assets/organisation/devcon.jpg"
       }
-    ]
+    ],
+    isFullWidth: true
   }
 ]

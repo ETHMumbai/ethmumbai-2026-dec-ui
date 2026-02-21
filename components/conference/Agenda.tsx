@@ -8,19 +8,19 @@ export default function Agenda() {
     { bg: string; text: string; border: string }
   > = {
     DeFi: {
-      bg: "bg-[#FFF7CC]",
-      text: "text-[#B38600]",
-      border: "border-[#E6C200]",
+      bg: "bg-[#FFF9DA]",
+      text: "text-[#FFD600]",
+      border: "border-[#FFD600]",
     },
     Privacy: {
-      bg: "bg-[#F3E8FF]",
-      text: "text-[#6B21A8]",
-      border: "border-[#6B21A8]",
+      bg: "bg-[#FFD7D5]",
+      text: "text-[#E2231A]",
+      border: "border-[#E2231A]",
     },
     AI: {
       bg: "bg-[#ECFDF5]",
-      text: "text-[#047857]",
-      border: "border-[#047857]",
+      text: "text-[#00A859]",
+      border: "border-[#00A859]",
     },
   };
 
@@ -103,20 +103,26 @@ export default function Agenda() {
 
               {/* SPEAKERS */}
               {item.speakers && item.speakers.length > 0 && (
-                <div
-                  className={
-                    item.type === "FIRESIDE CHAT" || item.type === "ANNOUNCEMENT" || item.type === "PANEL" || item.type === "TALK" && item.speakers.length > 1
-                      ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
-                      : "flex flex-col gap-6"
-                  }
-                >
+              <div
+                className={
+                  item.type === "ANNOUNCEMENT" && item.isFullWidth
+                    ? "flex flex-col sm:flex-row items-start sm:items-center justify-start gap-6 sm:gap-12 md:gap-20 lg:gap-36 w-full"
+                    : item.speakers.length > 1
+                    ? "grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6"
+                    : "flex flex-col gap-6"
+                }
+              >
                   {item.speakers.map((speaker, idx) => (
                     <div key={idx} className="flex items-center gap-4">
                       {/* AVATARS (OVERLAPPED) */}
                       <div className="flex items-center">
                         {/* Speaker Image (SQUARE) */}
                         {speaker.image ? (
-                          <div className="w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden">
+                          <div
+                            className={`w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden ${
+                              item.type === "ANNOUNCEMENT" ? "bg-white" : "bg-[#DFDFDF]"
+                            }`}
+                          >                            
                             <Image
                               src={speaker.image}
                               alt={speaker.name}
