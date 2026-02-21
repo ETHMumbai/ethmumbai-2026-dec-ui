@@ -821,7 +821,7 @@ export const agendaData: AgendaItem[] = [
     title: "Closing Ceremony",
     speakers: [
       {
-        name: "Parth Mohite",
+        name: "Parth",
         company: "ETHMumbai",
         image: "/assets/team/Parth.png",
         scale: "120%",
