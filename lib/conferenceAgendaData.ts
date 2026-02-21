@@ -130,7 +130,7 @@ export const agendaData: AgendaItem[] = [
     speakers: [
       {
         name: "Naina Sachdev",
-        company: "dev3pack",
+        company: "Dev3pack",
         image: "/assets/speakers/Naina_Sachdev_-_dev3pack-removebg-preview.png",
         scale: "135%"
       }
@@ -756,7 +756,7 @@ export const agendaData: AgendaItem[] = [
     title: "Announcements",
     speakers: [
       {
-        name: "dev3Pack",
+        name: "Dev3Pack",
         image: "/assets/organisation/Dev3Pack.svg"
       },
       {
