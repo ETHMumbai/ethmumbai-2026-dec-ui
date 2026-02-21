@@ -13,6 +13,7 @@ import Tacks from "@/components/hackathon/Tracks";
 import Agenda from "@/components/hackathon/Agenda";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Mentors from "@/components/hackathon/Mentors";
+import Sponsors from "@/components/Sponsors";
 
 export default function LandingPage() {
   return (
@@ -30,7 +31,8 @@ export default function LandingPage() {
           ]}
         />
         <Tacks />
-        <Bounties />
+        {/* <Bounties /> */}
+        <Sponsors />
         <Judges />
         <Mentors />
         <Venue type="hackathon" />

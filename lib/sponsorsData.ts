@@ -1,10 +1,13 @@
+export type SponsorTier = "one" | "two" | "three" | "four";
+
 export interface Sponsor {
   name: string;
   logo: string;
   twitter: string;
+  tier?: SponsorTier;
 }
 
-const sponsors: Sponsor[] = [
+const pastSponsors: Sponsor[] = [
   {
     logo: "/assets/sponsors/arweave.png",
     name: "Arweave",
@@ -58,6 +61,70 @@ const sponsors: Sponsor[] = [
     twitter: "https://x.com/VaraNetwork",
   },
 ];
+
+export const currentSponsors: Sponsor[] = [
+  // {
+  //   logo: "/assets/sponsors/bitgo.svg",
+  //   name: "BitGo",
+  //   twitter: "https://x.com/BitGo",
+  //   tier: "two"
+  // },
+  {
+    logo: "/assets/sponsors/datahaven.svg",
+    name: "Data Haven",
+    twitter: "https://x.com/DataHaven_xyz",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/starknet.svg",
+    name: "Starknet",
+    twitter: "https://x.com/Starknet",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/buidlguidl-logo-color.svg",
+    name: "BuidlGuidl",
+    twitter: "https://x.com/buidlguidl",
+    tier: "three"
+  },
+  // {
+  //   logo: "/assets/sponsors/Avantis.svg",
+  //   name: "Avantis",
+  //   twitter: "https://x.com/avantisfi",
+  //   tier: "three"
+  // },
+  {
+    logo: "/assets/sponsors/ens.svg",
+    name: "ENS",
+    twitter: "https://x.com/ensdomains",
+    tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/boundless.svg",
+    name: "Boundless",
+    twitter: "https://x.com/boundless_xyz",
+    tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/canton.svg",
+    name: "Canton",
+    twitter: "https://x.com/CantonFdn",
+    tier: "four"
+  },
+  // { 
+  //   logo: "/assets/sponsors/fileverse.svg",
+  //   name: "Fileverse",
+  //   twitter: "https://x.com/fileverse",
+  //   tier: "four"
+  // },
+  {
+    logo: "/assets/sponsors/base.svg",
+    name: "Base",
+    twitter: "https://x.com/base",
+    tier: "four"
+  }
+];
+
 export const conferenceSponsors: Sponsor[] = [
   {
     logo: "/assets/sponsors/avail-logo.svg",
