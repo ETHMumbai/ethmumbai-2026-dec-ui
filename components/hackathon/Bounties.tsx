@@ -3,28 +3,30 @@
 import React from "react";
 import Image from "next/image";
 // import { conferenceSponsors } from "../../lib/sponsorsData";
-import { bounties, bountyIcons } from "@/lib/bounties";
+import { bounties, pastBountyIcons, currentBountyIcons } from "@/lib/bounties";
 
-export default function Sponsors() {
+export default function Bounties() {
   return (
     <section className="bg-[#3FA9F5] w-full py-10">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
         <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
-          Past Bounties
+          Bounties
         </h2>
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4 gap-x-10 gap-y-5 justify-items-center">
-        {bountyIcons.map((s, i) => (
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-10 gap-y-5 justify-items-center">
+        {currentBountyIcons.map((s, i) => (
           <div
             key={i}
             className={`
               relative
               w-[105%]
-
-              max-w-[390px]
+              ${currentBountyIcons.length === 5 && i === 3 ? "lg:col-span-2 lg:col-start-1 lg:row-start-2" : ""}
+  ${currentBountyIcons.length === 5 && i === 4 ? "lg:col-span-2 lg:col-start-2 lg:row-start-2" : ""}
+            
+              max-w-[350px]
               aspect-[2.32/1]
               rounded-[10px]
               overflow-hidden

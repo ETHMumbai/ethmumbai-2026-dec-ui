@@ -31,8 +31,8 @@ export default function LandingPage() {
           ]}
         />
         <Tacks />
-        {/* <Bounties /> */}
-        <Sponsors />
+        <Bounties />
+        {/* <Sponsors /> */}
         <Judges />
         <Mentors />
         <Venue type="hackathon" />
