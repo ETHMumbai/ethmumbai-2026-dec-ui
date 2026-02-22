@@ -20,6 +20,7 @@ export interface AgendaItem {
   speakerProjectsImage?: string[];
   label?: Array<'DEFI' | 'Privacy' | 'AI'>;
   isFullWidth?: boolean;
+  hasModerator?: boolean;
 }
 
 export const agendaData: AgendaItem[] = [
@@ -44,7 +45,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "10:30 AM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Building a unicorn startup in the AI era",
     speakers: [
@@ -131,7 +132,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:00 AM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Onboarding builders from Web2 to Web3",
     speakers: [
@@ -166,7 +167,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:15 AM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Account Abstraction with EIP 7702",
     speakers: [
@@ -183,7 +184,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "11:30 AM",
-    duration: "15 MIN",
+    duration: "40 MIN",
     type: "FIRESIDE CHAT",
     title: "Privacy enables crime and that's the point",
     speakers: [
@@ -222,7 +223,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:30 AM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Decentralize QR payments",
     speakers: [
@@ -258,7 +259,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "11:45 AM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Banks are the real shadow economy",
     speakers: [
@@ -276,7 +277,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "12:25 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Brand Soul in the era of Design AI",
     speakers: [
@@ -293,7 +294,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "12:00 PM",
-    duration: "15 MIN",
+    duration: "40 MIN",
     type: "PANEL",
     title: "crypto x ai: marriage or mismatch?",
     speakers: [
@@ -313,12 +314,13 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/ai-sharvil.jpg", "/assets/organisation/ai-iptisha.png"],
-    label: ["AI"]
+    label: ["AI"],
+    hasModerator: true,
   },
   {
     stage: "MAIN_STAGE",
     time: "02:00 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Stablecoins as global rails",
     speakers: [
@@ -336,7 +338,7 @@ export const agendaData: AgendaItem[] = [
     {
     stage: "COMMUNITY_STAGE",
     time: "02:15 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Past, present and future of interop",
     speakers: [
@@ -353,7 +355,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "02:15 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "ETH's biggest bug? A lack of business model",
     speakers: [
@@ -433,7 +435,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "02:45 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Ethereum needs India’s institutions",
     speakers: [
@@ -486,7 +488,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "03:25 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "How to architect event-driven Ethereum apps",
     speakers: [
@@ -521,7 +523,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "03:40 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Privacy Trilemma in single global state chains",
     speakers: [
@@ -539,7 +541,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "03:30 PM",
-    duration: "15 MIN",
+    duration: "40 MIN",
     type: "PANEL",
     title: "Is marketing dead?",
     speakers: [
@@ -558,12 +560,13 @@ export const agendaData: AgendaItem[] = [
         xLink: "hhttps://x.com/rachit"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/marketing-kunal.jpg", "/assets/organisation/marketing-rachit.jpg"]
+    speakerProjectsImage: ["/assets/organisation/marketing-kunal.jpg", "/assets/organisation/marketing-rachit.jpg"],
+    hasModerator: true,
   },
   {
     stage: "MAIN_STAGE",
     time: "03:55 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Account Abstraction as a privacy primitive",
     speakers: [
@@ -581,7 +584,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "04:10 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "DeFi without the buzzwords",
     speakers: [
@@ -599,7 +602,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "04:10 PM",
-    duration: "45 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "My secret agents (IYKYN)",
     speakers: [
@@ -635,7 +638,7 @@ export const agendaData: AgendaItem[] = [
 {
     stage: "MAIN_STAGE",
     time: "04:25 PM",
-    duration: "15 MIN",
+    duration: "40 MIN",
     type: "FIRESIDE CHAT",
     title: "India's crypto story",
     speakers: [
@@ -666,7 +669,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "COMMUNITY_STAGE",
     time: "04:40 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "What don't we know? AI, ZK Auditing and zkVM",
     speakers: [
@@ -766,7 +769,7 @@ export const agendaData: AgendaItem[] = [
   {
     stage: "MAIN_STAGE",
     time: "05:50 PM",
-    duration: "20 MIN",
+    duration: "15 MIN",
     type: "TALK",
     title: "Devcon 8 India: What Comes Next",
     speakers: [
