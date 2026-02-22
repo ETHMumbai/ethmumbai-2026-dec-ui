@@ -73,19 +73,19 @@ export const currentSponsors: Sponsor[] = [
     logo: "/assets/sponsors/datahaven.svg",
     name: "Data Haven",
     twitter: "https://x.com/DataHaven_xyz",
-    tier: "three"
+    tier: "two"
   },
   {
     logo: "/assets/sponsors/starknet.svg",
     name: "Starknet",
     twitter: "https://x.com/Starknet",
-    tier: "three"
+    tier: "two"
   },
   {
     logo: "/assets/sponsors/buidlguidl-logo-color.svg",
     name: "BuidlGuidl",
     twitter: "https://x.com/buidlguidl",
-    tier: "three"
+    tier: "two"
   },
   // {
   //   logo: "/assets/sponsors/Avantis.svg",
@@ -97,13 +97,13 @@ export const currentSponsors: Sponsor[] = [
     logo: "/assets/sponsors/ens.svg",
     name: "ENS",
     twitter: "https://x.com/ensdomains",
-    tier: "four"
+    tier: "three"
   },
   {
     logo: "/assets/sponsors/boundless.svg",
     name: "Boundless",
     twitter: "https://x.com/boundless_xyz",
-    tier: "four"
+    tier: "three"
   },
   {
     logo: "/assets/sponsors/canton.svg",
