@@ -1,4 +1,4 @@
-export type StageType = 'MAIN_STAGE' | 'COMMUNITY_STAGE';
+export type StageType = 'MAIN_STAGE' | 'COMMUNITY_STAGE' | 'OPEN_STAGE';
 
 export interface Speaker {
   name: string;
@@ -835,3 +835,78 @@ export const agendaData: AgendaItem[] = [
     isFullWidth: true
   }
 ]
+
+export const communityHub: AgendaItem[] = [
+  {
+    stage: "OPEN_STAGE",
+    time: "10:15 AM",
+    duration: "15 MIN",
+    type: "CEREMONY",
+    title: "Opening Ceremony",
+    speakers: [
+      {
+        name: "Chandresh Jain",
+        company: "ETHMumbai",
+        image: "/assets/team/Chandresh.png",
+        scale: "120%",
+        xLink: "https://x.com/thisischandresh"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    isFullWidth: true
+  },
+  {
+    stage: "OPEN_STAGE",
+    time: "10:15 AM",
+    duration: "15 MIN",
+    type: "CEREMONY",
+    title: "Opening Ceremony",
+    speakers: [
+      {
+        name: "Chandresh Jain",
+        company: "ETHMumbai",
+        image: "/assets/team/Chandresh.png",
+        scale: "120%",
+        xLink: "https://x.com/thisischandresh"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    isFullWidth: true
+  },
+  {
+    stage: "OPEN_STAGE",
+    time: "10:15 AM",
+    duration: "15 MIN",
+    type: "CEREMONY",
+    title: "Opening Ceremony",
+    speakers: [
+      {
+        name: "Chandresh Jain",
+        company: "ETHMumbai",
+        image: "/assets/team/Chandresh.png",
+        scale: "120%",
+        xLink: "https://x.com/thisischandresh"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    isFullWidth: true
+  },
+  {
+    stage: "OPEN_STAGE",
+    time: "10:15 AM",
+    duration: "15 MIN",
+    type: "CEREMONY",
+    title: "Opening Ceremony",
+    speakers: [
+      {
+        name: "Chandresh Jain",
+        company: "ETHMumbai",
+        image: "/assets/team/Chandresh.png",
+        scale: "120%",
+        xLink: "https://x.com/thisischandresh"
+      }
+    ],
+    speakerProjectsImage: ["/1.png"],
+    isFullWidth: true
+  },
+];
