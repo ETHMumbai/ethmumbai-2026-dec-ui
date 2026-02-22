@@ -47,7 +47,7 @@ export const agendaData: AgendaItem[] = [
     time: "10:30 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Building a unicorn startup in the AI era",
+    title: "Building a Unicorn Startup in the AI Era",
     speakers: [
       {
         name: "Pareen Lathia",
@@ -82,7 +82,7 @@ export const agendaData: AgendaItem[] = [
     time: "10:45 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Shipping onchain apps with agents",
+    title: "Shipping Onchain Apps with Agents",
     speakers: [
       {
         name: "Shiv Bhonde",
@@ -151,7 +151,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:15 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Markets for public goods",
+    title: "Markets for Public Goods",
     speakers: [
       {
         name: "Devansh Mehta",
@@ -186,7 +186,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:30 AM",
     duration: "40 MIN",
     type: "FIRESIDE CHAT",
-    title: "Privacy enables crime and that's the point",
+    title: "Privacy Enables Crime and that's the Point",
     speakers: [
       {
         name: "Mykola",
@@ -243,7 +243,7 @@ export const agendaData: AgendaItem[] = [
     time: "12:10 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Raising from the internet",
+    title: "Raising from the Internet",
     speakers: [
       {
         name: "Heet Tike",
@@ -261,7 +261,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:45 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Banks are the real shadow economy",
+    title: "Banks are the Real Shadow Economy",
     speakers: [
       {
         name: "Siddharth Biju",
@@ -279,7 +279,7 @@ export const agendaData: AgendaItem[] = [
     time: "12:25 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Brand Soul in the era of Design AI",
+    title: "Brand Soul in the Era of Design AI",
     speakers: [
       {
         name: "Rahul Bhadoriya",
@@ -296,7 +296,7 @@ export const agendaData: AgendaItem[] = [
     time: "12:00 PM",
     duration: "40 MIN",
     type: "PANEL",
-    title: "crypto x ai: marriage or mismatch?",
+    title: "Crypto x Ai: Marriage or Mismatch?",
     speakers: [
       {
         name: "Sharvil",
@@ -322,7 +322,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:00 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Stablecoins as global rails",
+    title: "Stablecoins as Global Rails",
     speakers: [
       {
         name: "Kanika Mishra",
@@ -340,7 +340,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:15 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Past, present and future of interop",
+    title: "Past, Present and Future of Interop",
     speakers: [
       {
         name: "Aniket Sharma",
@@ -357,7 +357,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:15 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "ETH's biggest bug? A lack of business model",
+    title: "ETH's Biggest Bug? A Lack of Business Model",
     speakers: [
       {
         name: "Ale Marin",
@@ -381,7 +381,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:30 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Vibe coding with Remix IDE",
+    title: "Vibe Coding with Remix IDE",
     speakers: [
       {
         name: "Aniket",
@@ -398,7 +398,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:30 PM",
     duration: "40 MIN",
     type: "FIRESIDE CHAT",
-    title: "Stablecoins are the real product, not DeFi",
+    title: "Stablecoins are the Real Product, not DeFi",
     speakers: [
       {
         name: "Sunny",
@@ -437,7 +437,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:45 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Ethereum needs India’s institutions",
+    title: "Ethereum needs India’s Institutions",
     speakers: [
       {
         name: "Shyam Sridhar",
@@ -454,7 +454,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:10 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Scaling Revenue: From L2 to Consumer apps",
+    title: "Scaling Revenue: From L2 to Consumer Apps",
     speakers: [
       {
         name: "Shubham Bhandari",
@@ -472,7 +472,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:00 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "What's next for DeFi and AA: EIP-8141",
+    title: "What's Next for DeFi and AA: EIP-8141",
     speakers: [
       {
         name: "Krishang Shah",
@@ -490,7 +490,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:25 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "How to architect event-driven Ethereum apps",
+    title: "How to Architect vent-driven Ethereum Apps",
     speakers: [
       {
         name : "Aditi Polkam",
@@ -507,7 +507,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:15 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Make Agents safe again",
+    title: "Make Agents Safe Again",
     speakers: [
       {
         name: "Ayush Bherwani",
@@ -525,7 +525,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:40 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Privacy Trilemma in single global state chains",
+    title: "Privacy Trilemma in Single Global State Chains",
     speakers: [
       {
         name: "Jatin Pandya",
@@ -543,7 +543,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:30 PM",
     duration: "40 MIN",
     type: "PANEL",
-    title: "Is marketing dead?",
+    title: "Is Marketing Dead?",
     speakers: [
       {
         name: "Kunal Gandhi",
@@ -568,7 +568,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:55 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Account Abstraction as a privacy primitive",
+    title: "Account Abstraction as a Privacy Primitive",
     speakers: [
       {
         name: "Akash Balasubramani",
@@ -586,7 +586,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:10 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "DeFi without the buzzwords",
+    title: "DeFi without the Buzzwords",
     speakers: [
       {
         name: "Sweta Shaw",
@@ -604,7 +604,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:10 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "My secret agents (IYKYN)",
+    title: "My Secret Agents (IYKYN)",
     speakers: [
       {
         name: "Vijay Krishnavanshi",
@@ -622,7 +622,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:25 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Engineering 128-Bit soundness with PIL2",
+    title: "Engineering 128-Bit Soundness with PIL2",
     speakers: [
       {
         name: "Ayush Bhadauria",
@@ -640,7 +640,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:25 PM",
     duration: "40 MIN",
     type: "FIRESIDE CHAT",
-    title: "India's crypto story",
+    title: "India's Crypto Story",
     speakers: [
       {
         name: "Denver",
@@ -671,7 +671,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:40 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "What don't we know? AI, ZK Auditing and zkVM",
+    title: "What Don't We Know? AI, ZK Auditing and zkVM",
     speakers: [
       {
         name: "Vishal Singh",
