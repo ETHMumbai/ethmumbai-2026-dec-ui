@@ -127,7 +127,7 @@ export default function Agenda() {
                         {/* Speaker Image (SQUARE) */}
                         {speaker.image ? (
                           <div
-                            className={`w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden ${item.type === "ANNOUNCEMENT" ? "bg-white" : "bg-[#DFDFDF]"
+                            className={`w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden ${item.type === "ANNOUNCEMENT" ? "bg-white" : "bg-white"
                               }`}
                           >
                             <Image
@@ -135,7 +135,7 @@ export default function Agenda() {
                               alt={speaker.name}
                               width={56}
                               height={56}
-                              className="object-cover transition-transform duration-300 z-0 pointer-events-none"
+                              className="object-cover rounded-lg transition-transform duration-300 z-0 pointer-events-none"
                               style={{
                                 transform: speaker.scale
                                   ? `scale(${parseInt(speaker.scale) / 100})`
