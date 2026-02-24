@@ -55,7 +55,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Monad.svg"],
+    speakerProjectsImage: ["/assets/organisation/monad.png"],
     label: ["AI"],
     isFullWidth: true
   },
@@ -89,7 +89,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/buidlguild.png"],
+    speakerProjectsImage: ["/assets/organisation/buidlguidl.png"],
     label: ["AI"],
     isFullWidth: true
   },
@@ -139,7 +139,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Dev3Pack.svg"]
+    speakerProjectsImage: ["/assets/organisation/dev3pack.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -155,7 +155,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/EF.svg"],
+    speakerProjectsImage: ["/assets/organisation/ethereum.png"],
     label: ["DEFI"]
   },
   {
@@ -172,7 +172,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Etherspot.svg"]
+    speakerProjectsImage: ["/assets/organisation/etherspot.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -207,7 +207,7 @@ export const agendaData: AgendaItem[] = [
         xLink: "https://x.com/bajpaiharsh244"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/privacy-mykola.jpg", "/assets/organisation/fileverse.jpg", "/assets/organisation/privacy-jobin.jpg", "/assets/organisation/privacy-harsh.svg"],
+    speakerProjectsImage: ["/assets/organisation/web3privacy now.png", "/assets/organisation/fileverse.png", "/assets/organisation/ten.png", "/assets/organisation/aztec.png"],
     label: ["Privacy"]
   },
   {
@@ -224,7 +224,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Yodl Pay.svg"],
+    speakerProjectsImage: ["/assets/organisation/yodl pay.png"],
     label: ["DEFI"]
   },
  {
@@ -297,7 +297,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/ai-sharvil.jpg", "/assets/organisation/ai-iptisha.png"],
+    speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png"],
     label: ["AI"],
     hasModerator: true,
   },
@@ -315,7 +315,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/usdt-marketplace.png"],
+    speakerProjectsImage: ["/assets/organisation/usdt marketplace.png"],
     label: ["DEFI"]
   },
     {
@@ -332,7 +332,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/rath-finance.jpg"]
+    speakerProjectsImage: ["/assets/organisation/rath.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -370,7 +370,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/remix-labs.jpg"]
+    speakerProjectsImage: ["/assets/organisation/remix ide.png"]
   },
   {
     stage: "MAIN_STAGE",
@@ -404,7 +404,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/defi-sunny.jpg", "/assets/organisation/defi-archana.png", "/assets/organisation/defi-tanay.jpg", "/assets/organisation/avantis-v2.png"],
+    speakerProjectsImage: ["/assets/organisation/Gnosis.png", "/assets/organisation/ssv network.png", "/assets/organisation/propellerheads.png", "/assets/organisation/avantis.png"],
     label: ["DEFI"]
   },
   {
@@ -421,7 +421,7 @@ export const agendaData: AgendaItem[] = [
         scale: "100%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/EF.svg"]
+    speakerProjectsImage: ["/assets/organisation/ethereum.png"]
   },
 {
     stage: "MAIN_STAGE",
@@ -437,7 +437,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/manta-option1.svg"],
+    speakerProjectsImage: ["/assets/organisation/manta.png"],
     label: ["DEFI"]
   },
   {
@@ -454,7 +454,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/polygon.svg"],
+    speakerProjectsImage: ["/assets/organisation/polygon.png"],
     label: ["DEFI"]
   },
   {
@@ -471,7 +471,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/offline-protocol.jpg"]
+    speakerProjectsImage: ["/assets/organisation/offline.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -487,7 +487,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/MetaMask-fox.svg"],
+    speakerProjectsImage: ["/assets/organisation/metamask.png"],
     label: ["AI"]
   },
   {
@@ -504,7 +504,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/canton-Ff.jpg"],
+    speakerProjectsImage: ["/assets/organisation/canton.png"],
     label: ["Privacy"]
   },
   {
@@ -527,7 +527,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/marketing-kunal.jpg", "/assets/organisation/marketing-rachit.jpg"],
+    speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png"],
     hasModerator: true,
   },
   {
@@ -544,7 +544,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/StarkWare.svg"],
+    speakerProjectsImage: ["/assets/organisation/starkware.png"],
     label: ["Privacy"]
   },
   {
@@ -561,7 +561,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/own-finance.jpg"],
+    speakerProjectsImage: ["/assets/organisation/own.png"],
     label: ["DEFI"]
   },
   {
@@ -578,7 +578,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/fileverse.jpg"],
+    speakerProjectsImage: ["/assets/organisation/fileverse.png"],
     label: ["AI"]
   },
   {
@@ -595,7 +595,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/ZisK.jpg"],
+    speakerProjectsImage: ["/assets/organisation/zisk.png"],
     label: ["Privacy"]
   },
 {
@@ -624,7 +624,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/devfolio-v2.png", "", "/assets/organisation/india-nidhi.jpg"]
+    speakerProjectsImage: ["/assets/organisation/devfolio.png", "", "/assets/organisation/voicedeck.png"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -640,7 +640,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/zippel.png"],
+    speakerProjectsImage: ["/assets/organisation/zippel labs.png"],
     label: ["Privacy"]
   },
   {
@@ -739,7 +739,7 @@ export const agendaData: AgendaItem[] = [
         scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/devcon.jpg"],
+    speakerProjectsImage: ["/assets/organisation/devcon.png"],
     isFullWidth: true
   },
   {
@@ -771,7 +771,7 @@ export const agendaData: AgendaItem[] = [
         xLink: "https://x.com/candufaz"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/Dev3Pack.svg", "/assets/organisation/devfolio-v2.png", "/assets/organisation/devcon.jpg"],
+    speakerProjectsImage: ["/assets/organisation/dev3pack.png", "/assets/organisation/devfolio.png", "/assets/organisation/devcon.png"],
     isFullWidth: true
   },
   {
