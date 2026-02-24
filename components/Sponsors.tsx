@@ -10,8 +10,8 @@ const tierStyles: Record<
   { card: string; imagePadding: string }
 > = {
   one: {
-    card: "w-full max-w-[340px] sm:max-w-[420px] aspect-[2.8/1]",
-    imagePadding: "p-8 sm:p-10",
+    card: "w-full max-w-[300px] sm:max-w-[400px] aspect-[2.8/1]",
+    imagePadding: "p-7 sm:p-10",
   },
   two: {
     card: "w-full max-w-[260px] sm:max-w-[320px] aspect-[2.6/1]",
@@ -51,7 +51,7 @@ export default function Sponsors() {
       </div>
 
       {/* TIERS */}
-      <div className="flex flex-col items-center space-y-12 md:space-y-14">
+      <div className="flex flex-col items-center space-y-12 md:space-y-8">
         {(Object.keys(sponsorsByTier) as SponsorTier[]).map((tier) => {
           const sponsors = sponsorsByTier[tier];
           const styles = tierStyles[tier];
