@@ -4,7 +4,7 @@ import { agendaData, communityHub } from "@/lib/conferenceAgendaData";
 
 export default function Agenda() {
   const LABEL_STYLES: Record<
-    "DEFI" | "Privacy" | "AI",
+    "DEFI" | "PRIVACY" | "AI",
     { bg: string; text: string; border: string }
   > = {
     DEFI: {
@@ -12,7 +12,7 @@ export default function Agenda() {
       text: "text-black",
       border: "border-[#FFD600]",
     },
-    Privacy: {
+    PRIVACY: {
       bg: "bg-[#1C1C1C]",
       text: "text-white",
       border: "border-[#1C1C1C]",

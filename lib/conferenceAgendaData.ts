@@ -18,7 +18,7 @@ export interface AgendaItem {
   title: string;
   speakers?: Speaker[];
   speakerProjectsImage?: string[];
-  label?: Array<'DEFI' | 'Privacy' | 'AI'>;
+  label?: Array<'DEFI' | 'PRIVACY' | 'AI'>;
   isFullWidth?: boolean;
   hasModerator?: boolean;
 }
@@ -208,7 +208,7 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/web3privacy now.png", "/assets/organisation/fileverse.png", "/assets/organisation/ten.png", "/assets/organisation/aztec.png"],
-    label: ["Privacy"]
+    label: ["PRIVACY"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -505,7 +505,7 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/canton.png"],
-    label: ["Privacy"]
+    label: ["PRIVACY"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -545,7 +545,7 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/starkware.png"],
-    label: ["Privacy"]
+    label: ["PRIVACY"]
   },
   {
     stage: "COMMUNITY_STAGE",
@@ -596,7 +596,7 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/zisk.png"],
-    label: ["Privacy"]
+    label: ["PRIVACY"]
   },
 {
     stage: "MAIN_STAGE",
@@ -641,7 +641,7 @@ export const agendaData: AgendaItem[] = [
       }
     ],
     speakerProjectsImage: ["/assets/organisation/zippel labs.png"],
-    label: ["Privacy"]
+    label: ["PRIVACY"]
   },
   {
     stage: "MAIN_STAGE",
