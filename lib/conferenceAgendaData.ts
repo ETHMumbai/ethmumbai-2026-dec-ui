@@ -130,7 +130,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:00 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Onboarding builders from Web2 to Web3",
+    title: "Onboarding Builders from Web2 to Web3",
     speakers: [
       {
         name: "Naina Sachdev",
@@ -179,7 +179,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:30 AM",
     duration: "40 MIN",
     type: "FIRESIDE CHAT",
-    title: "Privacy Enables Crime and that's the Point",
+    title: "Privacy Enables Crime and That's the Point",
     speakers: [
       {
         name: "Mykola",
@@ -295,9 +295,15 @@ export const agendaData: AgendaItem[] = [
         company: "Circulox",
         image: "/assets/agenda-speakers/iptisha.png",
         scale: "120%"
+      },
+      {
+        name: "Sheena",
+        company: "NodeOps",
+        image: "",
+        scale: "120%"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png"],
+    speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png", ""],
     label: ["AI"],
     hasModerator: true,
   },
@@ -462,7 +468,7 @@ export const agendaData: AgendaItem[] = [
     time: "03:25 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "How to Architect vent-driven Ethereum Apps",
+    title: "How to Architect Event-Driven Ethereum Apps",
     speakers: [
       {
         name : "Aditi Polkam",
@@ -525,9 +531,14 @@ export const agendaData: AgendaItem[] = [
         company: "Touch Grass Podcast",
         image: "/assets/agenda-speakers/rachit.png",
         scale: "120%"
+      },
+      {
+        name: "Satyaki",
+        company: "SE7EN & Co.",
+        // image: "/assets/agenda-speakers/satyaki mode.png"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png"],
+    speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png",""],
     hasModerator: true,
   },
   {
