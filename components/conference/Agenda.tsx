@@ -25,6 +25,7 @@ export default function Agenda() {
   };
 
   return (
+
     <section className="w-full bg-white py-10">
       {/* TITLE */}
       <div className="flex justify-center items-center mb-0">
