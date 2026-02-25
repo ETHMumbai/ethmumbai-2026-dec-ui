@@ -7,7 +7,7 @@ import { bounties, pastBountyIcons, currentBountyIcons } from "@/lib/bounties";
 
 export default function Bounties() {
   return (
-    <section className="bg-[#FFD600] w-full py-10">
+    <section className="bg-[#FFD600] w-full py-10 pb-12">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
         <h2 className="text-[#0f0f0f] text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
@@ -82,7 +82,7 @@ export default function Bounties() {
       </div>
 
       {/* CTA Button */}
-      <a
+      {/* <a
         href="https://tally.so/r/3NkdGb"
         target="_blank"
         rel="noopener noreferrer"
@@ -92,7 +92,7 @@ export default function Bounties() {
             Become a Sponsor
           </button>
         </div>
-      </a>
+      </a> */}
     </section>
   );
 }
