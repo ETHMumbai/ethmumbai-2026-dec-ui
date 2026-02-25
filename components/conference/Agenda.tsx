@@ -154,8 +154,8 @@ export default function Agenda() {
                         )}
 
                         {/* Project Logo (ROUND, OVERLAPPED) */}
-                        <div className="-ml-3 w-12 h-12 flex items-center justify-center">
-                          {item.speakerProjectsImage?.[idx] ? (
+                        {item.speakerProjectsImage?.[idx] && (
+                          <div className="-ml-3 w-12 h-12 flex items-center justify-center">
                             <div className="w-12 h-12 rounded-full bg-white border-2 border-white flex items-center justify-center">
                               <Image
                                 src={item.speakerProjectsImage[idx]}
@@ -165,10 +165,8 @@ export default function Agenda() {
                                 className="object-contain rounded-full z-10"
                               />
                             </div>
-                          ) : (
-                            <div className="w-12 h-12" />
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </div>
 
                       {/* NAME + META */}
