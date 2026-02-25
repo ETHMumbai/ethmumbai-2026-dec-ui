@@ -199,49 +199,44 @@ export default function Agenda() {
         ))}
       </div>
 
-      {/* SEPARATOR */}
-      <div className="max-w-7xl mx-auto px-4 mt-10 mb-6">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-      </div>
-
       {/* COMMUNITY HUB TITLE */}
-      <div className="flex justify-center items-center mb-12">
+      {/* <div className="flex justify-center items-center mt-10 mb-12">
         <h2 className="font-['MPlusRounded1c'] font-medium text-3xl sm:text-[48px] tracking-[-1px] text-center text-[#0A0A0A]">
-          Community Hub
+          Open Deck
         </h2>
-      </div>
+      </div> */}
 
       {/* COMMUNITY HUB GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 max-w-7xl mx-auto px-4 pb-20">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 max-w-7xl mx-auto px-4 pb-20">
         {communityHub.map((item, index) => (
           <div
             key={index}
             className="bg-white border border-gray-200 rounded-[14px] shadow-sm px-8 py-7 flex flex-col justify-between"
-          >
+          > */}
             
               {/* TOP */}
-              <div>
-                <div className="flex flex-wrap items-center gap-3 mb-4">
+              {/* <div>
+                <div className="flex flex-wrap items-center gap-3 mb-4"> */}
                   {/* TIME + DURATION */}
-                  <span className="bg-white border border-black text-black text-xs font-semibold px-4 py-1 rounded-full">
+                  {/* <span className="bg-white border border-black text-black text-xs font-semibold px-4 py-1 rounded-full">
                     {item.time}
                     {(item.type === "TALK" || item.type === "PANEL") && (
                       <> - {item.duration}</>
                     )}
-                  </span>
+                  </span> */}
 
                   {/* STAGE TAG */}
-                  <span
+                  {/* <span
                     className={`text-xs font-semibold px-3 py-1 rounded-full border ${item.stage === "MAIN_STAGE"
                       ? "text-white bg-[#E2231A]"
                       : "text-white bg-[#3FA9F5]"
                       }`}
                   >
                     {item.stage === "OPEN_STAGE" ? "OPEN DECK" : ""}
-                  </span>
+                  </span> */}
 
                   {/* LABELS */}
-                  {item.label && item.label.length > 0 && (
+                  {/* {item.label && item.label.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2">
                       {item.label.map((label, idx) => {
                         const style = LABEL_STYLES[label];
@@ -256,10 +251,10 @@ export default function Agenda() {
                         );
                       })}
                     </div>
-                  )}
+                  )} */}
 
                   {/* TYPE */}
-                  <span className="text-xs font-semibold text-black uppercase">
+                  {/* <span className="text-xs font-semibold text-black uppercase">
 
                     {item.type === "TALK"
                       ? "TALK"
@@ -267,16 +262,16 @@ export default function Agenda() {
                         ? "PANEL"
                         : ""}
                   </span>
-                </div>
+                </div> */}
 
 
                 {/* TITLE */}
-                <h3 className="text-2xl font-semibold mb-6 leading-snug">
+                {/* <h3 className="text-2xl font-semibold mb-6 leading-snug">
                   {item.title}
-                </h3>
+                </h3> */}
 
                 {/* SPEAKERS */}
-                {item.speakers && item.speakers.length > 0 && (
+                {/* {item.speakers && item.speakers.length > 0 && (
                   <div
                     className={
                       item.type === "ANNOUNCEMENT" && item.isFullWidth
@@ -287,11 +282,11 @@ export default function Agenda() {
                     }
                   >
                     {item.speakers.map((speaker, idx) => (
-                      <div key={idx} className="flex items-center gap-4">
+                      <div key={idx} className="flex items-center gap-4"> */}
                         {/* AVATARS (OVERLAPPED) */}
-                        <div className="flex items-center">
+                        {/* <div className="flex items-center"> */}
                           {/* Speaker Image (SQUARE) */}
-                          {speaker.image ? (
+                          {/* {speaker.image ? (
                             <div
                               className={`w-16 h-16 rounded-lg flex items-center justify-center pointer-events-none origin-top overflow-hidden ${item.type === "ANNOUNCEMENT" ? "bg-white" : "bg-[#DFDFDF]"
                                 }`}
@@ -311,10 +306,10 @@ export default function Agenda() {
                             </div>
                           ) : (
                             <div className="w-16 h-16 rounded-lg" />
-                          )}
+                          )} */}
 
                           {/* Project Logo (ROUND, OVERLAPPED) */}
-                          <div className="-ml-3 w-12 h-12 flex items-center justify-center">
+                          {/* <div className="-ml-3 w-12 h-12 flex items-center justify-center">
                             {item.speakerProjectsImage?.[idx] ? (
                               <div className="w-12 h-12 rounded-full bg-white border-2 border-white flex items-center justify-center">
                                 <Image
@@ -329,10 +324,10 @@ export default function Agenda() {
                               <div className="w-12 h-12" />
                             )}
                           </div>
-                        </div>
+                        </div> */}
 
                         {/* NAME + META */}
-                        <div className="leading-tight">
+                        {/* <div className="leading-tight">
                           <p className="text-lg font-semibold text-black">
                             <a href={speaker.xLink} target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-all duration-300">{speaker.name}</a>
                           </p>
@@ -357,13 +352,13 @@ export default function Agenda() {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* OPTIONAL BOTTOM PROJECT ICON */}
 
-          </div>
+          {/* </div>
         ))}
-      </div>
+      </div> */}
     </section>
-  );
+  ); 
 }

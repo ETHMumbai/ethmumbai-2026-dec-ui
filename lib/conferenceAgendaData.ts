@@ -300,7 +300,8 @@ export const agendaData: AgendaItem[] = [
         name: "Sheena",
         company: "NodeOps",
         image: "",
-        scale: "120%"
+        scale: "120%",
+        isModerator: true
       }
     ],
     speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png", ""],
@@ -407,7 +408,8 @@ export const agendaData: AgendaItem[] = [
         name: "Piyush",
         company: "Avantis",
         image: "/assets/agenda-speakers/piyush.png",
-        scale: "120%"
+        scale: "120%",
+        isModerator: true
       }
     ],
     speakerProjectsImage: ["/assets/organisation/Gnosis.png", "/assets/organisation/ssv network.png", "/assets/organisation/propellerheads.png", "/assets/organisation/avantis.png"],
@@ -535,6 +537,8 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Satyaki",
         company: "SE7EN & Co.",
+        scale: "120%",
+        isModerator: true
         // image: "/assets/agenda-speakers/satyaki mode.png"
       }
     ],
