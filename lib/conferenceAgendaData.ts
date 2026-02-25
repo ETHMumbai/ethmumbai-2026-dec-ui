@@ -299,12 +299,12 @@ export const agendaData: AgendaItem[] = [
       {
         name: "Sheena",
         company: "NodeOps",
-        image: "",
+        image: "/assets/agenda-speakers/sheena.png",
         scale: "120%",
         isModerator: true
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png", ""],
+    speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png", "/assets/organisation/nodeops.png"],
     label: ["AI"],
     hasModerator: true,
   },
@@ -538,11 +538,11 @@ export const agendaData: AgendaItem[] = [
         name: "Satyaki",
         company: "SE7EN & Co.",
         scale: "120%",
-        isModerator: true
-        // image: "/assets/agenda-speakers/satyaki mode.png"
+        isModerator: true,
+        image: "/assets/agenda-speakers/satyaki.png"
       }
     ],
-    speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png",""],
+    speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png","/assets/organisation/seven & co.png"],
     hasModerator: true,
   },
   {
