@@ -7,10 +7,10 @@ import { bounties, pastBountyIcons, currentBountyIcons } from "@/lib/bounties";
 
 export default function Bounties() {
   return (
-    <section className="bg-[#3FA9F5] w-full py-10">
+    <section className="bg-[#FFD600] w-full py-10">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
-        <h2 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
+        <h2 className="text-[#0f0f0f] text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
           Bounties
         </h2>
       </div>
@@ -67,7 +67,7 @@ export default function Bounties() {
                 />
               </div>
 
-              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-lg lg:gap-0.2 sm:text-xl text-3xl">
+              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-xl lg:gap-0.2 sm:text-xl text-3xl">
                 <span className=" font-semibold leading-tight">{s.name}</span>
 
                 {s.amount && (
