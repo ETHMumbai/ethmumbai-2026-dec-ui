@@ -145,11 +145,11 @@ export default function Agenda() {
                                   : "scale(1)",
                               }}
                             />
-                             {speaker.isModerator && (
+                             {/* {speaker.isModerator && (
                               <span className="absolute -top-2 -left-4 bg-black text-white text-[10px] font-bold px-2 py-[2px] rounded-full shadow-sm tracking-wide">
                                 MOD
                               </span>
-                            )}
+                            )} */}
                           </div>
                         ) : (
                           <div className="w-16 h-16 rounded-lg" />
@@ -172,23 +172,23 @@ export default function Agenda() {
                       </div>
 
                       {/* NAME + META */}
-                      <div className="leading-tight">
-                        <div className="flex items-center gap-2 flex-wrap">
-  <a
-    href={speaker.xLink}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-lg font-semibold text-black cursor-pointer transition-all duration-300"
-  >
-    {speaker.name}
-  </a>
+                      <div className="flex flex-col justify-center">
+                        <div className="flex items-center gap-2">
+                          <a
+                            href={speaker.xLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-lg font-semibold text-black leading-none"
+                          >
+                            {speaker.name}
+                          </a>
 
-  {speaker.isModerator && (
-    <span className="text-[11px] font-semibold px-2 py-[3px] rounded-full bg-black text-white tracking-wide">
-      MOD
-    </span>
-  )}
-</div>
+                          {speaker.isModerator === true && (
+                            <span className="text-[10px] font-semibold px-2 py-[3px] rounded-full border border-black bg-white bg-black text-black leading-none -translate-y-[1px]">
+                        MOD
+                      </span>
+                          )}
+                        </div>
 
                         {(speaker.company || speaker.role) && (
                           <p className="text-sm text-gray-600">
