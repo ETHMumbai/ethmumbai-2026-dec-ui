@@ -83,7 +83,7 @@ export const bounties: Bounty[] = [
   },
 ];
 
-export const bountyIcons: Bounty[] = [
+export const pastBountyIcons: Bounty[] = [
   {
     logo: "/assets/hackathon/bounties/logos/icons/Fuel.png",
     name: "Fuel",
@@ -158,5 +158,40 @@ export const bountyIcons: Bounty[] = [
     name: "ETHMumbai",
     twitter: "https://x.com/ethmumbai",
     amount: "$1,500",
+  },
+];
+
+
+export const currentBountyIcons: Bounty[] = [
+  {
+    logo: "/assets/ethmumbai-logo-icon.svg",
+    name: "ETHMumbai",
+    twitter: "https://x.com/ethmumbai",
+    amount: "$1,500",
+  },
+  {
+    logo: "/assets/sponsors/datahaven.svg",
+    name: "Data Haven",
+    twitter: "https://x.com/DataHaven_xyz",
+    amount: "$2,000",
+  },
+
+  {
+    logo: "/assets/sponsors/ens.svg",
+    name: "ENS",
+    twitter: "https://x.com/ensdomains",
+    amount: "$2,000",
+  },
+  {
+    logo: "/assets/sponsors/fileverse.svg",
+    name: "Fileverse",
+    twitter: "https://x.com/fileverse",
+    amount: "$1,000",
+  },
+  {
+    logo: "/assets/sponsors/base.svg",
+    name: "Base",
+    twitter: "https://x.com/base",
+    amount: "$1,000",
   },
 ];
