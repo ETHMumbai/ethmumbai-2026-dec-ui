@@ -16,13 +16,13 @@ export default function Bounties() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-10 gap-y-5 justify-items-center">
+      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-2 gap-y-5 justify-items-center">
         {currentBountyIcons.map((s, i) => (
           <div
             key={i}
             className={`
               relative
-              w-[105%]
+              w-[75%]
               ${currentBountyIcons.length === 5 && i === 3 ? "lg:col-span-2 lg:col-start-1 lg:row-start-2" : ""}
   ${currentBountyIcons.length === 5 && i === 4 ? "lg:col-span-2 lg:col-start-2 lg:row-start-2" : ""}
             
@@ -57,7 +57,7 @@ export default function Bounties() {
             </div> */}
 
             {/* Logo and name */}
-            <div className="absolute inset-0 z-10 flex items-center xl:px-3 lg:px-2 md:px-6 px-8 gap-5 md:gap-2">
+            <div className="absolute inset-0 z-10 flex items-center xl:px-3 lg:px-2 md:px-6 px-5 gap-5 md:gap-2">
               <div className="relative w-[70px] h-[70px] shrink-0 md:w-[70px] md:h-[70px] lg:w-[70px] lg:h-[70px]">
                 <Image
                   src={s.logo}
@@ -67,7 +67,7 @@ export default function Bounties() {
                 />
               </div>
 
-              <div className="flex flex-col justify-center text-left md:text-2xl lg:text-xl lg:gap-0.2 sm:text-xl text-3xl">
+              <div className="flex flex-col justify-center text-left md:text-xl lg:text-xl lg:gap-0.2 text-2xl">
                 <span className=" font-semibold leading-tight">{s.name}</span>
 
                 {s.amount && (
