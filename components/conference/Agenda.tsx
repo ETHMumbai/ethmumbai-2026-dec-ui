@@ -59,7 +59,7 @@ export default function Agenda() {
                 {/* TIME + DURATION */}
                 <span className="bg-white border border-black text-black text-xs font-semibold px-4 py-1 rounded-full">
                   {item.time}
-                  {(item.type === "TALK" || item.type === "PANEL") && (
+                  {(item.type === "TALK" || item.type === "PANEL" || item.type === "FIRESIDE CHAT") && (
                     <> - {item.duration}</>
                   )}
                 </span>
@@ -95,11 +95,13 @@ export default function Agenda() {
                 {/* TYPE */}
                 <span className="text-xs font-semibold text-black uppercase">
 
-                  {item.type === "TALK"
-                    ? "TALK"
-                    : item.type === "PANEL"
-                      ? "PANEL"
-                      : ""}
+                  {(item.type === "TALK" ||
+                    item.type === "PANEL" ||
+                    item.type === "FIRESIDE CHAT") && (
+                    <span className="text-xs font-semibold text-black uppercase">
+                      {item.type}
+                    </span>
+                  )}
                 </span>
               </div>
 
@@ -171,9 +173,22 @@ export default function Agenda() {
 
                       {/* NAME + META */}
                       <div className="leading-tight">
-                        <p className="text-lg font-semibold text-black">
-                          <a href={speaker.xLink} target="_blank" rel="noopener noreferrer" className="cursor-pointer transition-all duration-300">{speaker.name}</a>
-                        </p>
+                        <div className="flex items-center gap-2 flex-wrap">
+  <a
+    href={speaker.xLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-lg font-semibold text-black cursor-pointer transition-all duration-300"
+  >
+    {speaker.name}
+  </a>
+
+  {speaker.isModerator && (
+    <span className="text-[11px] font-semibold px-2 py-[3px] rounded-full bg-black text-white tracking-wide">
+      MOD
+    </span>
+  )}
+</div>
 
                         {(speaker.company || speaker.role) && (
                           <p className="text-sm text-gray-600">

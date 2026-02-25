@@ -215,7 +215,7 @@ export const agendaData: AgendaItem[] = [
     time: "11:30 AM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Decentralize QR payments",
+    title: "Decentralize QR Payments",
     speakers: [
       {
         name: "Sebastian Burkhard",
@@ -420,7 +420,7 @@ export const agendaData: AgendaItem[] = [
     time: "02:45 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "Ethereum needs India’s Institutions",
+    title: "Ethereum Needs India’s Institutions",
     speakers: [
       {
         name: "Shyam Sridhar",
@@ -567,7 +567,7 @@ export const agendaData: AgendaItem[] = [
     time: "04:10 PM",
     duration: "15 MIN",
     type: "TALK",
-    title: "DeFi without the Buzzwords",
+    title: "DeFi Without the Buzzwords",
     speakers: [
       {
         name: "Sweta Shaw",
