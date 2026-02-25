@@ -10,24 +10,24 @@ export default function Bounties() {
     <section className="bg-[#FFD600] w-full py-10 pb-12">
       {/* Title */}
       <div className="flex pb-6 items-center justify-center w-full">
-        <h2 className="text-[#0f0f0f] text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-8">
+        <h2 className="text-[#0f0f0f] text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-2">
           Bounties
         </h2>
       </div>
 
       {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-[6vw] md:px-[8vw] xl:px-[10vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-x-2 gap-y-5 justify-items-center">
+      <div className="max-w-[1200px] mx-auto px-[5vw] md:px-[5vw] xl:px-[5vw] 2xl:px-[12vw] grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-3 justify-items-center">
         {currentBountyIcons.map((s, i) => (
           <div
             key={i}
             className={`
               relative
-              w-[75%]
+              w-full
               ${currentBountyIcons.length === 5 && i === 3 ? "lg:col-span-2 lg:col-start-1 lg:row-start-2" : ""}
   ${currentBountyIcons.length === 5 && i === 4 ? "lg:col-span-2 lg:col-start-2 lg:row-start-2" : ""}
             
-              max-w-[350px]
-              aspect-[2.32/1]
+              max-w-[300px]
+              aspect-[2.22/1]
               rounded-[10px]
               overflow-hidden
               cursor-pointer
@@ -57,7 +57,7 @@ export default function Bounties() {
             </div> */}
 
             {/* Logo and name */}
-            <div className="absolute inset-0 z-10 flex items-center xl:px-3 lg:px-2 md:px-6 px-5 gap-5 md:gap-2">
+            <div className="absolute inset-0 z-10 flex items-center xl:px-8 lg:px-8 md:px-8 px-8 gap-5 md:gap-2">
               <div className="relative w-[70px] h-[70px] shrink-0 md:w-[70px] md:h-[70px] lg:w-[70px] lg:h-[70px]">
                 <Image
                   src={s.logo}
