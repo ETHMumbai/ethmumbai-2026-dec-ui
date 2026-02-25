@@ -559,13 +559,13 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Pareen_Lathai.png",
     xLink: "https://x.com/pareen",
   },
-   {
-    name: "Piyush D",
-    company: "Avantis",
-    image: "/assets/speakers/piyush.png",
-    xLink: "https://x.com/314yush",
-    imageScale: "h-[130%]",
-  },
+  //  {
+  //   name: "Piyush D",
+  //   company: "Avantis",
+  //   image: "/assets/speakers/piyush.png",
+  //   xLink: "https://x.com/314yush",
+  //   imageScale: "h-[130%]",
+  // },
   // {
   //   name: "Rahat",
   //   company: "Move Industries",
