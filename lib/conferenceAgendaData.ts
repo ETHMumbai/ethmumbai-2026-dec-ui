@@ -419,7 +419,7 @@ export const agendaData: AgendaItem[] = [
         name: "Archana",
         company: "SSV Network",
         image: "/assets/agenda-speakers/archana.png",
-        scale: "100%",
+        scale: "120%",
         xLink: "https://x.com/0xArchana"
       },
       {
