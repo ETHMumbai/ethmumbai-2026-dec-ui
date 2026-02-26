@@ -844,7 +844,8 @@ export const agendaData: AgendaItem[] = [
         name: "Parth",
         company: "ETHMumbai",
         image: "/assets/agenda-speakers/Parth.png",
-        scale: "120%"
+        scale: "120%",
+        xLink: "https://x.com/Parthm71"
       }
     ],
     speakerProjectsImage: ["/1.png"],

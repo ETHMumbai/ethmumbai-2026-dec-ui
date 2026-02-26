@@ -164,32 +164,38 @@ export const pastBountyIcons: Bounty[] = [
 
 export const currentBountyIcons: Bounty[] = [
   {
-    logo: "/assets/ethmumbai-logo-icon.svg",
+    logo: "/assets/hackathon/bounties/currentLogos/ethmumbai.svg",
     name: "ETHMumbai",
     twitter: "https://x.com/ethmumbai",
-    amount: "$1,500",
+    amount: "$2,000",
   },
   {
-    logo: "/assets/sponsors/datahaven.svg",
+    logo: "/assets/hackathon/bounties/currentLogos/bitgo.svg",
+    name: "BitGo",
+    twitter: "https://x.com/BitGo",
+    amount: "$2,000",
+  },
+  {
+    logo: "/assets/hackathon/bounties/currentLogos/datahaven.svg",
     name: "Data Haven",
     twitter: "https://x.com/DataHaven_xyz",
     amount: "$2,000",
   },
 
   {
-    logo: "/assets/sponsors/ens.svg",
+    logo: "/assets/hackathon/bounties/currentLogos/ens.svg",
     name: "ENS",
     twitter: "https://x.com/ensdomains",
     amount: "$2,000",
   },
   {
-    logo: "/assets/sponsors/fileverse.svg",
+    logo: "/assets/hackathon/bounties/currentLogos/fileverse.svg",
     name: "Fileverse",
     twitter: "https://x.com/fileverse",
     amount: "$1,000",
   },
   {
-    logo: "/assets/sponsors/base.svg",
+    logo: "/assets/hackathon/bounties/currentLogos/base.svg",
     name: "Base",
     twitter: "https://x.com/base",
     amount: "$1,000",
