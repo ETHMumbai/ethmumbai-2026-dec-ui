@@ -56,10 +56,10 @@ export default function Speakers() {
               return (
                 <div
                   key={index}
-                  style={
-                    isFirstInLastRow && remainder !== 0
-                      ? { gridColumnStart: Math.floor((COLS_LG - remainder) / 2) + 1 }
-                      : undefined
+                  className={
+                    isFirstInLastRow && remainder === 1
+            ? "lg:col-span-8 flex justify-center"
+            : ""
                   }
                 >
                   <SpeakerCard speaker={speaker} />

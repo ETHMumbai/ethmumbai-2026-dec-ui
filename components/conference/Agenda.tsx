@@ -133,7 +133,9 @@ export default function Agenda() {
                             className={`relative w-16 h-16 rounded-lg flex items-center justify-center origin-top overflow-visible ${
                               item.type === "ANNOUNCEMENT" ? "bg-white" : "bg-white"
                             }`}
-                          >
+                          ><a href={speaker.xLink}
+                            target="_blank"
+                            rel="noopener noreferrer" >
                             <Image
                               src={speaker.image}
                               alt={speaker.name}
@@ -145,7 +147,7 @@ export default function Agenda() {
                                   ? `scale(${parseInt(speaker.scale) / 100})`
                                   : "scale(1)",
                               }}
-                            />
+                            /></a>
                              {/* {speaker.isModerator && (
                               <span className="absolute -top-2 -left-4 bg-black text-white text-[10px] font-bold px-2 py-[2px] rounded-full shadow-sm tracking-wide">
                                 MOD

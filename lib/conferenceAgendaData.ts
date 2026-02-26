@@ -317,7 +317,8 @@ export const agendaData: AgendaItem[] = [
         company: "NodeOps",
         image: "/assets/agenda-speakers/sheena.png",
         scale: "120%",
-        isModerator: true
+        isModerator: true,
+        xLink: "https://x.com/shrutiKohli_13"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/capx.png", "/assets/organisation/circulox.png", "/assets/organisation/nodeops.png"],
@@ -540,7 +541,7 @@ export const agendaData: AgendaItem[] = [
         company: "Canton Foundation",
         image: "/assets/agenda-speakers/jatin.png",
         scale: "120%",
-        xLink: "ttps://twitter.com/Jpandya26"
+        xLink: "https://twitter.com/Jpandya26"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/canton.png"],
@@ -565,14 +566,15 @@ export const agendaData: AgendaItem[] = [
         company: "Touch Grass Podcast",
         image: "/assets/agenda-speakers/rachit.png",
         scale: "120%",
-        xLink: "hhttps://x.com/rachit"
+        xLink: "https://x.com/rachit"
       },
       {
         name: "Satyaki",
         company: "SE7EN & Co.",
         scale: "120%",
         isModerator: true,
-        image: "/assets/agenda-speakers/satyaki.png"
+        image: "/assets/agenda-speakers/satyaki.png",
+        xLink: "https://x.com/satyaki44"
       }
     ],
     speakerProjectsImage: ["/assets/organisation/hey elsa.png", "/assets/organisation/touch grass pod.png","/assets/organisation/seven & co.png"],
