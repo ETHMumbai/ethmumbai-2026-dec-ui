@@ -385,7 +385,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[110%]",
   },
   {
-    name: "Vijay",
+    name: "Vijay Krishnavanshi",
     company: "Fileverse",
     image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
     xLink: "https://x.com/0x6b8",
@@ -399,7 +399,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
-    name: "Tanay",
+    name: "Tanay Jain",
     company: "PropellerHeads",
     image: "/assets/speakers/Tanay_-_PropellerHeads-removebg-preview.png",
     xLink: "https://x.com/tanayjain",
@@ -448,7 +448,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[128%]",
   },
   {
-    name: "Sharvil",
+    name: "Sharvil Malik",
     company: "CapX",
     image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
     xLink: "https://x.com/0xsharvil",
@@ -469,7 +469,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[130%]",
   },
   {
-    name: "Rachit",
+    name: "Rachit Agarwal",
     company: "Touch Grass Podcast",
     image: "/assets/speakers/Rachit.png",
     xLink: "https://x.com/rachit",
@@ -564,7 +564,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[155%]",
   },
   {
-    name: "Iptisha",
+    name: "Iptisha M",
     company: "Circulox",
     image: "/assets/speakers/Iptisha_-_Circulox-removebg-preview.png",
     xLink: "https://x.com/iptishax",
@@ -585,7 +585,7 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[125%]",
   },
   {
-    name: "Dhaiwat",
+    name: "Dhaiwat Pandya",
     company: "ENS",
     image: "/assets/speakers/dhaiwat.png",
     xLink: "https://x.com/dhaiwat10",
@@ -599,14 +599,14 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[115%]",
   },
   {
-    name: "Denver",
+    name: "Denver Jude",
     company: "Devfolio",
     image: "/assets/speakers/Denver Dsouza - Devfolio.png",
     xLink: "https://x.com/denverjude",
     imageScale: "h-[130%]",
   },
   {
-    name: "Candela",
+    name: "Candela Fazzano",
     company: "EF Devcon",
     image: "/assets/speakers/Candella_-_EF_Devcon-removebg-preview.png",
     xLink: "https://x.com/candufaz",

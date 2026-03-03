@@ -33,7 +33,8 @@ export default function Speakers() {
             grid-cols-2
             sm:grid-cols-3
             md:grid-cols-4
-            lg:grid-cols-7
+            lg:grid-cols-8
+            
             gap-6 sm:gap-8 md:gap-10
             mb-12
             mx-auto
@@ -57,9 +58,7 @@ export default function Speakers() {
                 <div
                   key={index}
                   className={
-                    isFirstInLastRow && remainder === 1
-            ? "lg:col-span-8 flex justify-center"
-            : ""
+                    `${index === 40 ? "lg:col-start-2" : ""}`
                   }
                 >
                   <SpeakerCard speaker={speaker} />

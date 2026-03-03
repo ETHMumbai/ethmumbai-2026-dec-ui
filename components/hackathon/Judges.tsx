@@ -29,7 +29,7 @@ export default function Judges() {
         {judges.map((judge, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 7 ? "lg:col-start-2" : ""}`}
+            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]`}
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">
