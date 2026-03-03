@@ -482,7 +482,7 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/0xratnakar",
   },
   {
-    name: "Pratham Pasoon",
+    name: "Pratham Prasoon",
     company: "Asymptica",
     image: "/assets/speakers/pratham-removebg-preview.png",
     xLink: "https://x.com/prasoonpratham",
