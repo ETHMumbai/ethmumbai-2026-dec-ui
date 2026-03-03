@@ -27,7 +27,7 @@ export default function Mentors() {
         {mentors.map((mentor, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px]"
+            className={`flex flex-col items-center w-[150px] sm:w-40 lg:w-[150px] ${index === 7 ? "lg:col-start-2" : ""}`}
           >
             {/* Wrapper with padding for overflow */}
             <div className="relative w-[150px] sm:w-40 lg:w-[150px] mb-3 pt-6 group">

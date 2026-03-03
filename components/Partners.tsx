@@ -5,6 +5,11 @@ import Image from "next/image";
 import { log } from "console";
 
 const partners = [
+   {
+    logo: "/assets/partners/cointelegraph.svg",
+    name: "Cointelegraph",
+    twitter: "https://x.com/Cointelegraph",
+  },
   {
     logo: "/assets/partners/Daimo Pay.svg",
     name: "DaimoPay",
@@ -74,6 +79,11 @@ const partners = [
     logo: "/assets/partners/se7en.svg",
     name: "Seven & Co",
     twitter: "https://x.com/sevennco",
+  },
+  {
+    logo: "/assets/partners/sickwear.svg",
+    name: "Sickwear",
+    twitter: "https://x.com/sickwear_xyz",
   },
   // {
   //   logo: "/assets/partners/ETHRome.svg",

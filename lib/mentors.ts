@@ -52,13 +52,13 @@ export const mentors: Mentor[] = [
     xLink: "https://x.com/mxxnwolf",
     imageScale: "h-[130%]",
   },
-  {
-    name: "Abhimanyu",
-    company: "Epoch Protocol",
-    image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
-    xLink: "https://x.com/sokkkkaaa",
-    imageScale: "h-[128%]",
-  },
+  // {
+  //   name: "Abhimanyu",
+  //   company: "Epoch Protocol",
+  //   image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
+  //   xLink: "https://x.com/sokkkkaaa",
+  //   imageScale: "h-[128%]",
+  // },
   {
     name: "Akhil Nanavati",
     company: "",
@@ -73,13 +73,13 @@ export const mentors: Mentor[] = [
     xLink: "https://x.com/DidierKrux",
     imageScale: "h-[130%]",
   },
-  {
-    name: "Jayesh Bhole ",
-    company: "Offchain Labs",
-    image: "/assets/hackathon/mentors/Jayesh Bhole.png",
-    xLink: "https://x.com/supremebattak",
-    imageScale: "h-[125%]",
-  },
+  // {
+  //   name: "Jayesh Bhole ",
+  //   company: "Offchain Labs",
+  //   image: "/assets/hackathon/mentors/Jayesh Bhole.png",
+  //   xLink: "https://x.com/supremebattak",
+  //   imageScale: "h-[125%]",
+  // },
    {
     name: "Kenil Shah",
     company: "",

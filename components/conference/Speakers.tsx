@@ -33,7 +33,7 @@ export default function Speakers() {
             grid-cols-2
             sm:grid-cols-3
             md:grid-cols-4
-            lg:grid-cols-8
+            lg:grid-cols-7
             gap-6 sm:gap-8 md:gap-10
             mb-12
             mx-auto
