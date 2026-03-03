@@ -34,6 +34,12 @@ export default function Agenda() {
           Agenda
         </h2>
 
+        <p className="mt-4 mb-2 text-center text-sm sm:text-md text-gray-700 max-w-xl px-6 sm:px-10 md:px-0">
+          Experience a self-sovereign space for the Ethereum Mumbai community!
+          <br className="hidden lg:block" />
+          {" "} Download the PWA on your phone for easy access 💛
+        </p>
+
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <Link href="https://agenda.ethmumbai.in/?view=events">
             <button
@@ -45,7 +51,7 @@ export default function Agenda() {
                         active:scale-[0.98]
                         cursor-pointer transition-all duration-200"
             >
-              Download the Agenda App
+              Download App
             </button>
           </Link>
         </div>
@@ -54,7 +60,7 @@ export default function Agenda() {
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mt-10">
           <iframe
             src="https://agenda.ethmumbai.in/?view=events"
-            className="w-full h-[900px] rounded-2xl border border-gray-200 shadow-lg"
+            className="w-full h-[700px] rounded-2xl border border-gray-200 shadow-lg"
             loading="lazy"
             allow="fullscreen"
           />
