@@ -35,9 +35,9 @@ export default function Agenda() {
         </h2>
 
         <p className="mt-4 mb-2 text-center text-sm sm:text-md text-gray-700 max-w-xl px-6 sm:px-10 md:px-0">
-          Experience a self-sovereign space for the Ethereum Mumbai community!
+          Experience a self-sovereign space for the ETHMumbai agenda.
           <br className="hidden lg:block" />
-          {" "} Download the PWA on your phone for easy access 💛
+          {" "} Download the PWA on your phone for easy access. Powered by Fileverse 💛
         </p>
 
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
