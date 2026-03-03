@@ -50,6 +50,20 @@ export default function Hero() {
               Buy Tickets
             </button>
           </Link>
+
+           
+            <button
+            onClick={() => {
+              window.open("https://agenda.ethmumbai.in/", "_blank");
+            }}
+              className="bg-white border border-white text-[#E2231A]
+                        font-semibold text-base px-6 py-3 rounded-[14px]
+                        hover:bg-gray-300 cursor-pointer transition-all duration-200"
+            >
+              Download the Agenda App
+            </button>
+      
+
         </div>
       </div>
     </section>

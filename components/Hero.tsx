@@ -106,17 +106,17 @@ export default function Hero() {
               Buy Tickets
             </button>
           </a>
-          {/* <button
+          <button
             style={{ cursor: "pointer" }}
             onClick={() => {
-              window.open("https://ethmumbai2026.devfolio.co/", "_blank");
+              window.open("https://agenda.ethmumbai.in/", "_blank");
             }}
             className="border border-white text-white
                         font-semibold text-base px-6 py-3 rounded-[14px]
                         hover:opacity-90 hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200"
           >
-            Go to Devfolio
-          </button> */}
+            Download the Agenda App
+          </button>
         </div>
         {/* <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
           <a
