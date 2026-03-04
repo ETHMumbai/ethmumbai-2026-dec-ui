@@ -34,6 +34,7 @@ export default function Speakers() {
             sm:grid-cols-3
             md:grid-cols-4
             lg:grid-cols-8
+            
             gap-6 sm:gap-8 md:gap-10
             mb-12
             mx-auto
@@ -48,25 +49,39 @@ export default function Speakers() {
           </div>
 
           {/* ================= DESKTOP ================= */}
-          <div className="hidden lg:contents">
-            {conferenceSpeakers.map((speaker, index) => {
-              const isLastRow = index >= lastRowStartIndex;
-              const isFirstInLastRow = index === lastRowStartIndex;
+         <div className="hidden lg:contents">
+  {conferenceSpeakers.map((speaker, index) => {
+    const columns = 8;
+    const total = conferenceSpeakers.length;
+    const remainder = total % columns;
 
-              return (
-                <div
-                  key={index}
-                  className={
-                    isFirstInLastRow && remainder === 1
-            ? "lg:col-span-8 flex justify-center"
-            : ""
-                  }
-                >
-                  <SpeakerCard speaker={speaker} />
-                </div>
-              );
-            })}
-          </div>
+    const lastRowStartIndex =
+      remainder === 0 ? total - columns : total - remainder;
+
+    const emptySpaces = columns - remainder;
+
+    // Proper grid centering
+    const colStart =
+      remainder === 0
+        ? undefined
+        : Math.floor(emptySpaces / 2) + 1;
+
+    const isLastRow = index >= lastRowStartIndex && remainder !== 0;
+    const isFirstInLastRow = index === lastRowStartIndex && remainder !== 0;
+
+    return (
+      <div
+        key={index}
+        className={`
+          ${isFirstInLastRow ? `lg:col-start-${colStart}` : ""}
+          ${isLastRow ? "lg:translate-x-17" : ""}
+        `}
+      >
+        <SpeakerCard speaker={speaker} />
+      </div>
+    );
+  })}
+</div>
 
         </div>
       </div>

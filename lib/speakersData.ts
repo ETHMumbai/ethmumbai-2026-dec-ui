@@ -205,7 +205,7 @@ export const pastSpeakers: Speaker[] = [
   },
    {
     name: "Shubham Bhandari",
-    company: "Manta Network",
+    company: "",
     image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
     xLink: "https://x.com/Shubhamb",
     imageScale: "h-[128%]",
@@ -412,6 +412,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/0xaniketsharma",
     imageScale: "h-[110%]",
   },
+    {
+    name: "Anshita Soni",
+    company: "VidarbhaDao",
+    image: "/assets/speakers/anshita-removebg-preview.png",
+    xLink: "https://x.com/anshitaksoni",
+    imageScale: "h-[120%]",
+  },
   {
     name: "Archana Bakshi",
     company: "SSV Network",
@@ -431,6 +438,13 @@ export const conferenceSpeakers: Speaker[] = [
     company: "MetaMask",
     image: "/assets/speakers/Ayush_Bherwani.png",
     xLink: "http://x.com/ayushbherwani",
+    imageScale: "h-[120%]",
+  },
+   {
+    name: "Barath Jawahar",
+    company: "BitGo",
+    image: "/assets/speakers/barath-removebg-preview.png",
+    xLink: "https://www.linkedin.com/in/barath-jawahar-12317525/",
     imageScale: "h-[120%]",
   },
   {
@@ -559,6 +573,18 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/Pareen_Lathai.png",
     xLink: "https://x.com/pareen",
   },
+   {
+    name: "Pratham Prasoon",
+    company: "Asymptica",
+    image: "/assets/speakers/pratham-removebg-preview.png",
+    xLink: "https://x.com/prasoonpratham",
+  },
+   {
+    name: "Priyanshu Ratnakar",
+    company: "",
+    image: "/assets/speakers/priyanshu-removebg-preview.png",
+    xLink: "https://x.com/0xratnakar",
+  },
   //  {
   //   name: "Piyush D",
   //   company: "Avantis",
@@ -624,7 +650,7 @@ export const conferenceSpeakers: Speaker[] = [
   },
   {
     name: "Shubham Bhandari",
-    company: "Manta Network",
+    company: "",
     image: "/assets/speakers/Shubham_Bhandari_-_Manta_Network-removebg-preview.png",
     xLink: "https://x.com/Shubhamb",
     imageScale: "h-[128%]",
@@ -643,13 +669,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/sidbharth",
     imageScale: "h-[120%]",
   },
-   {
-    name: "Sunny Singh",
-    company: "Gnosis Business",
-    image: "/assets/speakers/Sunny_Singh_-_Gnosis_Business-removebg-preview.png",
-    xLink: "https://x.com/TheSupremeDegen",
-    imageScale: "h-[130%]",
-  },
+  //  {
+  //   name: "Sunny Singh",
+  //   company: "Gnosis Business",
+  //   image: "/assets/speakers/Sunny_Singh_-_Gnosis_Business-removebg-preview.png",
+  //   xLink: "https://x.com/TheSupremeDegen",
+  //   imageScale: "h-[130%]",
+  // },
   {
     name: "Sweta Shaw",
     company: "Own Finance",
@@ -683,6 +709,13 @@ export const conferenceSpeakers: Speaker[] = [
     company: "ZippelLabs",
     image: "/assets/speakers/Vishal_Mentor-removebg-preview.png",
     xLink: "https://x.com/thisvishalsingh",
+    imageScale: "h-[110%]",
+  },
+ {
+    name: "Vitalik (Remote)",
+    company: "Ethereum",
+    image: "/assets/speakers/vitalik-removebg-preview.png",
+    xLink: "https://x.com/VitalikButerin",
     imageScale: "h-[110%]",
   }
 ];

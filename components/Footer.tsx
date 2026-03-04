@@ -75,12 +75,12 @@ const Footer = () => {
                 Buy Tickets
               </a>
               <a
-                href="https://luma.com/ethmumbai"
+                href="https://agenda.ethmumbai.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
-                Luma
+                  Download Agenda App
               </a>
               <a
                 href="https://ethmumbai.substack.com/embed"

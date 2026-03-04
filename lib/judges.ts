@@ -77,6 +77,13 @@ export const pastJudges: Judge[] = [
 ];
 
 export const judges: Judge[] = [
+    {
+    name: "Abhimanyu",
+    company: "Epoch Protocol",
+    image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
+    xLink: "https://x.com/sokkkkaaa",
+    imageScale: "h-[128%]",
+  },
   {
     name: "Aditi Polkam",
     company: "Offline Protocol",
@@ -105,12 +112,12 @@ export const judges: Judge[] = [
   //   xLink: "https://x.com/EthereumRemix",
   //   imageScale: "h-[140%]",
   // },
-  {
-    name: "Dhaiwat",
-    company: "ENS",
-    image: "/assets/speakers/dhaiwat.png",
-    xLink: "https://x.com/dhaiwat10",
-    imageScale: "h-[145%]",
+ {
+    name: "Devansh Mehta",
+    company: "Ethereum Foundation",
+    image: "/assets/speakers/devansh_mehta_-_ethereum_foundation-removebg-preview.png",
+    xLink: "https://x.com/devanshmehta",
+    imageScale: "h-[115%]",
   },
   {
     name: "Harpal Jadeja",
@@ -119,13 +126,20 @@ export const judges: Judge[] = [
     xLink: "https://x.com/harpaljadeja",
     imageScale: "h-[150%]",
   },
-  {
-    name: "Harpreet Singh",
-    company: "Namespace",
-    image: "/assets/hackathon/judges/Harpreet_Judge-removebg-preview.png",
-    xLink: "https://x.com/happys1ngh",
-    imageScale: "h-[120%]",
+    {
+    name: "Jayesh Bhole ",
+    company: "Offchain Labs",
+    image: "/assets/hackathon/mentors/Jayesh Bhole.png",
+    xLink: "https://x.com/supremebattak",
+    imageScale: "h-[125%]",
   },
+  // {
+  //   name: "Harpreet Singh",
+  //   company: "Namespace",
+  //   image: "/assets/hackathon/judges/Harpreet_Judge-removebg-preview.png",
+  //   xLink: "https://x.com/happys1ngh",
+  //   imageScale: "h-[120%]",
+  // },
   {
     name: "Kunal Gandhi",
     company: "HeyElsa",
