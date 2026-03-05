@@ -175,12 +175,12 @@ export const currentBountyIcons: Bounty[] = [
     twitter: "https://x.com/BitGo",
     amount: "$2,000",
   },
-  {
-    logo: "/assets/hackathon/bounties/currentLogos/datahaven.svg",
-    name: "Data Haven",
-    twitter: "https://x.com/DataHaven_xyz",
-    amount: "$2,000",
-  },
+  // {
+  //   logo: "/assets/hackathon/bounties/currentLogos/datahaven.svg",
+  //   name: "Data Haven",
+  //   twitter: "https://x.com/DataHaven_xyz",
+  //   amount: "$2,000",
+  // },
 
   {
     logo: "/assets/hackathon/bounties/currentLogos/ens.svg",

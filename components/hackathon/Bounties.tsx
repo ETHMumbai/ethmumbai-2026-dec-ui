@@ -23,8 +23,9 @@ export default function Bounties() {
             className={`
               relative
               w-full
-              ${currentBountyIcons.length === 5 && i === 3 ? "lg:col-span-2 lg:col-start-1 lg:row-start-2" : ""}
-  ${currentBountyIcons.length === 5 && i === 4 ? "lg:col-span-2 lg:col-start-2 lg:row-start-2" : ""}
+              ${currentBountyIcons.length === 5 && i >= 3 ? "lg:translate-x-40 2xl:translate-x-30" : ""}
+
+  
             
               max-w-[300px]
               aspect-[2.22/1]

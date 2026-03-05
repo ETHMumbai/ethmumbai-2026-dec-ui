@@ -69,12 +69,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/BitGo",
     tier: "one"
   },
-  {
-    logo: "/assets/sponsors/datahaven.svg",
-    name: "Data Haven",
-    twitter: "https://x.com/DataHaven_xyz",
-    tier: "two"
-  },
+  // {
+  //   logo: "/assets/sponsors/datahaven.svg",
+  //   name: "Data Haven",
+  //   twitter: "https://x.com/DataHaven_xyz",
+  //   tier: "two"
+  // },
   {
     logo: "/assets/sponsors/starknet.svg",
     name: "Starknet",
