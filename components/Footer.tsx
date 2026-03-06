@@ -80,7 +80,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
-                  Download Agenda App
+                  Download App
               </a>
               <a
                 href="https://ethmumbai.substack.com/embed"

@@ -11,7 +11,7 @@ type TimeLeft = {
 
 export default function Countdown() {
   // 🔴 CHANGE YOUR TARGET DATE HERE
-  const targetDate = new Date("2026-03-13T00:00:00");
+  const targetDate = new Date("2026-03-13T15:00:00");
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
