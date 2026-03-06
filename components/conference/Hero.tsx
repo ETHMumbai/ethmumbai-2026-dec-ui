@@ -60,7 +60,7 @@ export default function Hero() {
                         font-semibold text-base px-6 py-3 rounded-[14px]
                         hover:bg-gray-300 cursor-pointer transition-all duration-200"
             >
-              Download Agenda App
+              Download App
             </button>
       
 
