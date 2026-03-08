@@ -111,6 +111,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/HashedEM",
     tier: "three"
   },
+    {
+    logo: "/assets/sponsors/heyelsa.svg",
+    name: "HeyElsa",
+    twitter: "https://x.com/HeyElsaAI",
+    tier: "four"
+  },
   {
     logo: "/assets/sponsors/canton.svg",
     name: "Canton",

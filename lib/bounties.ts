@@ -184,6 +184,12 @@ export const currentBountyIcons: Bounty[] = [
     amount: "$2,000",
   },
   {
+    logo: "/assets/hackathon/bounties/currentLogos/heyelsa-icon.svg",
+    name: "HeyElsa",
+    twitter: "https://x.com/HeyElsaAI",
+    amount: "$2,000",
+  },
+  {
     logo: "/assets/hackathon/bounties/currentLogos/fileverse.svg",
     name: "Fileverse",
     twitter: "https://x.com/fileverse",
