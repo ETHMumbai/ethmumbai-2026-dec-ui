@@ -31,7 +31,7 @@ export default function AnnouncementBar() {
 
       case 1999:
         if (ticket.remainingQuantity > 0 && ticket.discount) {
-          return `${ticket.discount.percentage}% OFF until 8th March 2026.`;
+          return `${ticket.discount.percentage}% OFF until 10th March 2026.`;
         }
         return '';
 
