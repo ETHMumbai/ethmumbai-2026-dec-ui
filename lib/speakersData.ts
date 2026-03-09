@@ -794,7 +794,7 @@ export const conferenceSpeakers: Speaker[] = [
   {
     name: "Vikram Barandwal",
     company: "Hashed Emergent",
-    image: "/assets/hackathon/speakers/vikram-removebg-preview.png",
+    image: "/assets/speakers/vikram-removebg-preview.png",
     xLink: "https://x.com/powersoftau",
     imageScale: "h-[118%]",
   },
