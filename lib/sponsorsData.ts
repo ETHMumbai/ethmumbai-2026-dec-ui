@@ -111,6 +111,12 @@ export const currentSponsors: Sponsor[] = [
     twitter: "https://x.com/HashedEM",
     tier: "three"
   },
+  {
+    logo: "/assets/sponsors/tether.png",
+    name: "Tether",
+    twitter: "https://x.com/tether",
+    tier: "three"
+  },
     {
     logo: "/assets/sponsors/heyelsa.svg",
     name: "HeyElsa",
@@ -122,6 +128,12 @@ export const currentSponsors: Sponsor[] = [
     name: "Canton",
     twitter: "https://x.com/CantonFdn",
     tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/fluid.svg",
+    name: "Tether",
+    twitter: "https://x.com/0xFluid",
+    tier: "four",
   },
    {
     logo: "/assets/sponsors/geode.svg",
