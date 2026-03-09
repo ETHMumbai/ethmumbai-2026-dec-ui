@@ -444,6 +444,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[185%]",
   },
   {
+    name: "Adithya",
+    company: "Starkware",
+    image: "/assets/speakers/adithya-v2.png",
+    xLink: "https://x.com/adiiHQ",
+    imageScale: "h-[135%]",
+  },
+  {
     name: "Akash Balasubramani",
     company: "Starkware",
     image: "/assets/speakers/akash_-_starkware-removebg-preview.png",
@@ -483,6 +490,13 @@ export const conferenceSpeakers: Speaker[] = [
     company: "SSV Network",
     image: "/assets/speakers/archana-removebg-preview.png",
     xLink: "https://x.com/0xArchana",
+    imageScale: "h-[110%]",
+  },
+  {
+    name: "Ashish",
+    company: "TogetherCrew",
+    image: "/assets/speakers/Ashish_Gangrade-removebg-preview.png",
+    xLink: "https://x.com/a_gangrade",
     imageScale: "h-[110%]",
   },
   {
@@ -757,11 +771,32 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
+    name: "Tushar Mehta",
+    company: "Bangers Only",
+    image: "/assets/speakers/tushar-removebg-preview.png",
+    xLink: "https://x.com/tushaarmehtaa",
+    imageScale: "h-[150%]",
+  },
+  {
+    name: "Vanshika Srivastava",
+    company: "Gnosis",
+    image: "/assets/hackathon/judges/Vanshika_Judge-removebg-preview.png",
+    xLink: "https://x.com/ThisisVanshika",
+    imageScale: "h-[118%]",
+  },
+  {
     name: "Vijay Krishnavanshi",
     company: "Fileverse",
     image: "/assets/speakers/vijay_-_fileverse-removebg-preview.png",
     xLink: "https://x.com/0x6b8",
     imageScale: "h-[135%]",
+  },
+  {
+    name: "Vikram Barandwal",
+    company: "Hashed Emergent",
+    image: "/assets/hackathon/speakers/vikram-removebg-preview.png",
+    xLink: "https://x.com/powersoftau",
+    imageScale: "h-[118%]",
   },
   {
     name: "Vishal Singh",
@@ -776,5 +811,12 @@ export const conferenceSpeakers: Speaker[] = [
     image: "/assets/speakers/vitalik-removebg-preview.png",
     xLink: "https://x.com/VitalikButerin",
     imageScale: "h-[110%]",
+  },
+  {
+    name: "Yash Atreya",
+    company: "copilot.markets",
+    image: "/assets/speakers/yashatreya-removebg-preview.png",
+    xLink: "https://x.com/yashatreya",
+    imageScale: "h-[130%]",
   }
 ];
