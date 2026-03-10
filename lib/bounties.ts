@@ -184,6 +184,12 @@ export const currentBountyIcons: Bounty[] = [
     amount: "$2,000",
   },
   {
+    logo: "/assets/hackathon/bounties/currentLogos/ethmumbai.svg",
+    name: "ETHMumbai",
+    twitter: "https://x.com/ethmumbai",
+    amount: "$2,000",
+  },
+  {
     logo: "/assets/hackathon/bounties/currentLogos/heyelsa-icon.svg",
     name: "HeyElsa",
     twitter: "https://x.com/HeyElsaAI",
@@ -199,12 +205,6 @@ export const currentBountyIcons: Bounty[] = [
     logo: "/assets/hackathon/bounties/currentLogos/base.svg",
     name: "Base",
     twitter: "https://x.com/base",
-    amount: "$1,000",
-  },
-    {
-    logo: "/assets/hackathon/bounties/currentLogos/ethmumbai.svg",
-    name: "ETHMumbai",
-    twitter: "https://x.com/ethmumbai",
     amount: "$1,000",
   },
 ];
