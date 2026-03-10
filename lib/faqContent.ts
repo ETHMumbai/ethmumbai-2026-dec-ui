@@ -27,11 +27,6 @@ export const generalFAQ: FAQItem[] = [
     content:
       "Both the conference and the hackathon feature 3 key tracks: DeFi, Privacy, and AI.",
   },
-  {
-    title: "How can I become a sponsor?",
-  content:
-    'We love to see this question. You can sponsor the ETHMumbai by sending a message on Telegram at [@thisischandresh](https://t.me/thisischandresh) or via email at chandresh@ethmumbai.in.',
-},
 ];
 
 export const conferenceFAQ: FAQItem[] = [
@@ -59,11 +54,7 @@ export const conferenceFAQ: FAQItem[] = [
     title: "Can I cancel my ticket if I'm not attending?",
     content:
       "All ETHMumbai conference tickets are non-cancellable, and non-refundable.",
-  },{
-  title: "How can I become a sponsor?",
-  content:
-    'We love to see this question. You can sponsor the ETHMumbai by sending a message on Telegram at [@thisischandresh](https://t.me/thisischandresh) or via email at chandresh@ethmumbai.in.',
-},
+  }
 ];
 
 export const hackathonFAQ: FAQItem[] = [
@@ -106,11 +97,4 @@ export const hackathonFAQ: FAQItem[] = [
     content:
       "It's going to take place at World Trade Center, one of the most iconic and tallest buildings in Cuffe Parade.",
   },
-{
-  title: "How can I become a sponsor?",
-  content:
-    'We love to see this question. You can sponsor the ETHMumbai by sending a message on Telegram at [@thisischandresh](https://t.me/thisischandresh) or via email at chandresh@ethmumbai.in.',
-},
-
-
 ];

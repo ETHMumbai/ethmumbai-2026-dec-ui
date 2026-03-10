@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { conferenceSponsors, SponsorTier } from "@/lib/sponsorsData";
+import { hackathonSponsors, SponsorTier } from "@/lib/sponsorsData";
 
 /* ---------- TIER STYLES (SIZE SHRINKS PER TIER) ---------- */
 const tierStyles: Record<
@@ -29,14 +29,14 @@ const tierStyles: Record<
 
 export default function Sponsors() {
   /* ---------- GROUP BY TIER ---------- */
-  const sponsorsByTier: Record<SponsorTier, typeof conferenceSponsors> = {
+  const sponsorsByTier: Record<SponsorTier, typeof hackathonSponsors> = {
     one: [],
     two: [],
     three: [],
     four: [],
   };
 
-  conferenceSponsors.forEach((s) => {
+  hackathonSponsors.forEach((s) => {
     const tier = (s.tier ?? "three") as SponsorTier;
     sponsorsByTier[tier].push(s);
   });

@@ -7,7 +7,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Speakers from "@/components/conference/Speakers";
 // import Speakers from "@/components/hackathon/Speakers";
-import Sponsors from "@/components/Sponsors";
+import Sponsors from "@/components/conference/Sponsors";
 import Venue from "@/components/conference/Venue";
 import Agenda from "@/components/conference/Agenda";
 import ClosingCTA from "@/components/ClosingCTA";

@@ -157,8 +157,108 @@ export const currentSponsors: Sponsor[] = [
 
 export const conferenceSponsors: Sponsor[] = [
   {
-    logo: "/assets/sponsors/avail-logo.svg",
-    name: "Avail",
-    twitter: "https://x.com/AvailProject",
+    logo: "/assets/sponsors/bitgo.svg",
+    name: "BitGo",
+    twitter: "https://x.com/BitGo",
+    tier: "one"
   },
+  {
+    logo: "/assets/sponsors/starknet.svg",
+    name: "Starknet",
+    twitter: "https://x.com/Starknet",
+    tier: "two"
+  },
+  {
+    logo: "/assets/sponsors/buidlguidl-logo-color.svg",
+    name: "BuidlGuidl",
+    twitter: "https://x.com/buidlguidl",
+    tier: "two"
+  },
+  {
+    logo: "/assets/sponsors/hashed.svg",
+    name: "Hashed",
+    twitter: "https://x.com/HashedEM",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/tether.png",
+    name: "Tether",
+    twitter: "https://x.com/tether",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/fluid.svg",
+    name: "Fluid",
+    twitter: "https://x.com/0xFluid",
+    tier: "four",
+  },
+   {
+    logo: "/assets/sponsors/geode.svg",
+    name: "Geode",
+    twitter: "https://x.com/geodelabs",
+    tier: "four"
+  }
+];
+
+export const hackathonSponsors: Sponsor[] = [
+  {
+    logo: "/assets/sponsors/bitgo.svg",
+    name: "BitGo",
+    twitter: "https://x.com/BitGo",
+    tier: "one"
+  },
+  // {
+  //   logo: "/assets/sponsors/Avantis.svg",
+  //   name: "Avantis",
+  //   twitter: "https://x.com/avantisfi",
+  //   tier: "three"
+  // },
+  {
+    logo: "/assets/sponsors/ens.svg",
+    name: "ENS",
+    twitter: "https://x.com/ensdomains",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/boundless.svg",
+    name: "Boundless",
+    twitter: "https://x.com/boundless_xyz",
+    tier: "three"
+  },
+    {
+    logo: "/assets/sponsors/hashed.svg",
+    name: "Hashed",
+    twitter: "https://x.com/HashedEM",
+    tier: "three"
+  },
+  {
+    logo: "/assets/sponsors/tether.png",
+    name: "Tether",
+    twitter: "https://x.com/tether",
+    tier: "three"
+  },
+    {
+    logo: "/assets/sponsors/heyelsa.svg",
+    name: "HeyElsa",
+    twitter: "https://x.com/HeyElsaAI",
+    tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/canton.svg",
+    name: "Canton",
+    twitter: "https://x.com/CantonFdn",
+    tier: "four"
+  },
+   {
+    logo: "/assets/sponsors/geode.svg",
+    name: "Geode",
+    twitter: "https://x.com/geodelabs",
+    tier: "four"
+  },
+  {
+    logo: "/assets/sponsors/base.svg",
+    name: "Base",
+    twitter: "https://x.com/base",
+    tier: "four"
+  }
 ];

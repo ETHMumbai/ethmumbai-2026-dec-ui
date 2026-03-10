@@ -163,7 +163,12 @@ export const pastBountyIcons: Bounty[] = [
 
 
 export const currentBountyIcons: Bounty[] = [
-
+  {
+    logo: "/assets/hackathon/bounties/currentLogos/ethmumbai.svg",
+    name: "ETHMumbai",
+    twitter: "https://x.com/ethmumbai",
+    amount: "$2,000",
+  },
   {
     logo: "/assets/hackathon/bounties/currentLogos/bitgo.svg",
     name: "BitGo",
@@ -181,12 +186,6 @@ export const currentBountyIcons: Bounty[] = [
     logo: "/assets/hackathon/bounties/currentLogos/ens.svg",
     name: "ENS",
     twitter: "https://x.com/ensdomains",
-    amount: "$2,000",
-  },
-  {
-    logo: "/assets/hackathon/bounties/currentLogos/ethmumbai.svg",
-    name: "ETHMumbai",
-    twitter: "https://x.com/ethmumbai",
     amount: "$2,000",
   },
   {
