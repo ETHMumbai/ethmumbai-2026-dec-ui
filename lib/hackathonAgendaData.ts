@@ -41,6 +41,7 @@ export const hackathonAgenda: AgendaDay[] = [
       { time: "10 AM", title: "Judging" },
       { time: "12 PM", title: "Lunch" },
       { time: "4 PM", title: "Closing Ceremony" },
+      { time: "5 PM", title: "Happy Hour with Canton, Hashed & Tether" },
     ],
   },
 ];
