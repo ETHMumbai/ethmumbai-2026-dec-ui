@@ -131,7 +131,7 @@ export default function Sponsors() {
       </div>
 
       {/* CTA */}
-      <div className="flex justify-center mt-12">
+      {/* <div className="flex justify-center mt-12">
         <a
           href="https://tally.so/r/3NkdGb"
           target="_blank"
@@ -141,7 +141,7 @@ export default function Sponsors() {
             Become a Sponsor
           </button>
         </a>
-      </div>
+      </div> */}
     </section>
   );
 }
