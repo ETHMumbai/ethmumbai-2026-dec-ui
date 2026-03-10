@@ -27,15 +27,16 @@ export const hackathonAgenda: AgendaDay[] = [
   {
     day: "Day 2",
     items: [
-      { time: "1 AM", title: "Late Night Snack" },
+      { time: "8 AM", title: "Breakfast" },
       { time: "12 PM", title: "Lunch" },
+      { time: "4 PM", title: "Boundless Chaat Corner" },
       { time: "8 PM", title: "Dinner" },
     ],
   },
   {
     day: "Day 3",
     items: [
-      { time: "1 AM", title: "Late Night Snack" },
+      { time: "8 AM", title: "Breakfast" },
       { time: "9 AM", title: "Hacking Ends" },
       { time: "10 AM", title: "Judging" },
       { time: "12 PM", title: "Lunch" },
