@@ -153,14 +153,14 @@ export default function Navbar() {
               Hackathon
             </Link>
 
-            <Link
+            {/* <Link
               href="/tickets"
               // target="_blank"
               // rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Buy Tickets
-            </Link>
+            </Link> */}
           </div>
 
           {/* SOCIAL ICONS AT BOTTOM */}
