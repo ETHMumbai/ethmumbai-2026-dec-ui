@@ -41,7 +41,7 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <Link href="/tickets">
+          {/* <Link href="/tickets">
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]
@@ -49,7 +49,7 @@ export default function Hero() {
             >
               Buy Tickets
             </button>
-          </Link>
+          </Link> */}
 
            
             <button

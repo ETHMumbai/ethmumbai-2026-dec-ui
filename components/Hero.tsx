@@ -97,7 +97,7 @@ export default function Hero() {
 
         {/* Action Buttons */}
         <div className="mt-[1.5rem] sm:mt-[2rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-          <a href="tickets" target="_blank" rel="noopener noreferrer">
+          {/* <a href="tickets" target="_blank" rel="noopener noreferrer">
             <button
               className="bg-white border border-white text-[#E2231A]
                         font-semibold text-base px-6 py-3 rounded-[14px]
@@ -105,7 +105,7 @@ export default function Hero() {
             >
               Buy Tickets
             </button>
-          </a>
+          </a> */}
           <button
             style={{ cursor: "pointer" }}
             onClick={() => {
