@@ -40,9 +40,9 @@ export default function Navbar() {
           <Link href="/conference" className="hover:text-black transition">
             Conference
           </Link>
-          <Link href="/tickets" className="hover:text-black transition">
+          {/* <Link href="/tickets" className="hover:text-black transition">
             Buy Tickets
-          </Link>
+          </Link> */}
         </div>
 
         {/* Socials (desktop) */}
@@ -119,14 +119,14 @@ export default function Navbar() {
               Conference
             </Link>
 
-            <Link
+            {/* <Link
               href="/tickets"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#D63A2F] text-white text-xl px-12 py-4 rounded-full transition-all duration-200 hover:opacity-90"
             >
               Buy Tickets
-            </Link>
+            </Link> */}
           </div>
 
           {/* SOCIAL ICONS AT BOTTOM */}
