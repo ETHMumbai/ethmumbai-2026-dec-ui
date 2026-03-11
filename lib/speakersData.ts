@@ -444,6 +444,13 @@ export const conferenceSpeakers: Speaker[] = [
     imageScale: "h-[185%]",
   },
   {
+    name: "Aditya Gite",
+    company: "Fluid",
+    image: "/assets/speakers/adityagite.png",
+    xLink: "https://x.com/ad_git",
+    imageScale: "h-[115%]",
+  },
+  {
     name: "Adithya",
     company: "Starkware",
     image: "/assets/speakers/adithya-v2.png",
