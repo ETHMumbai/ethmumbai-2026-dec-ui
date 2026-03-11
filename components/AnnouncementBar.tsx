@@ -31,7 +31,7 @@ export default function AnnouncementBar() {
 
       case 1999:
         if (ticket.remainingQuantity > 0 && ticket.discount) {
-          return `${ticket.discount.percentage}% OFF until 11th March, 6 PM.`;
+          return `Ticket sale is now closed. You can buy tickets at the venue on 12 March.`;
         }
         return '';
 
@@ -81,9 +81,9 @@ export default function AnnouncementBar() {
           href="/tickets"
           className="ml-1 underline underline-offset-2 hover:opacity-80 transition"
         >
-          Buy now
+
         </Link>{" "}
-        🥳
+        
       </span>
     </div>
   );
