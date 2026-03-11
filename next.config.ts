@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         source: "/city-guide",
         destination: "https://docs.fileverse.io/0xe59f51d0fd360e0dc5c73f17d2cfaf314244bbb8/3#key=ePRLPaF9e7KSE7bRtYcwWv9txC1nomQ35W2t76GinXcGoja9UmydWlZlP4V7eSsq",
         permanent: false
+      },
+      {
+        source: "/tickets",
+        destination: "/",
+        permanent: false
       }
     ];
   },
