@@ -31,7 +31,7 @@ export default function AnnouncementBar() {
 
       case 1999:
         if (ticket.remainingQuantity > 0 && ticket.discount) {
-          return `Ticket sale is now closed. You can buy tickets at the venue on 12 March.`;
+          return `Ticket sale is now closed.`;
         }
         return '';
 
