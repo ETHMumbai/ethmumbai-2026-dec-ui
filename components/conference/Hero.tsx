@@ -40,7 +40,7 @@ export default function Hero() {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
+        {/* <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto"> */}
           {/* <Link href="/tickets">
             <button
               className="bg-white border border-white text-[#E2231A]
@@ -52,7 +52,7 @@ export default function Hero() {
           </Link> */}
 
            
-            <button
+            {/* <button
             onClick={() => {
               window.open("https://agenda.ethmumbai.in/", "_blank");
             }}
@@ -61,10 +61,10 @@ export default function Hero() {
                         hover:bg-gray-300 cursor-pointer transition-all duration-200"
             >
               Download App
-            </button>
+            </button> */}
       
 
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

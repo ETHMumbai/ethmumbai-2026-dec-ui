@@ -71,8 +71,8 @@ export default function Hero() {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto">
-              <Countdown />
+        {/* <div className="mt-[0.5rem] sm:mt-[1rem] flex flex-col sm:flex-row items-center gap-5 sm:gap-4 w-full sm:w-auto"> */}
+              {/* <Countdown /> */}
           {/* <button
             style={{ cursor: "pointer" }}
             onClick={() => {
@@ -95,7 +95,7 @@ export default function Hero() {
               Apply To Hack
             </button>
           </Link> */}
-        </div>
+        {/* </div> */}
       </div>
     </section>
   );

@@ -34,6 +34,48 @@ const Footer = () => {
             {/* <p className="font-medium text-lg">About Us</p> */}
 
             <div className="mt-6 flex flex-col gap-3 font-light">
+              {/* <a
+                href="https://www.mumbaiblockchainweek.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Mumbai Blockchain Week
+              </a>
+
+              <a
+                href="https://drive.google.com/drive/folders/1Pz_gd9-Nqy8ol9t1vuDiGK7mOTf4wtJs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                Brand Kit
+              </a>
+
+              <a
+                href="https://2024.ethmumbai.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                ETHMumbai 2024
+              </a> */}
+              {/* <a
+                href="https://agenda.ethmumbai.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
+              >
+                  Download App
+              </a> */}
+            </div>
+          </div>
+
+          {/* 1/4 width on desktop */}
+          <div className="p-4  text-white">
+            {/* <p className="font-medium text-lg">Join Us</p> */}
+
+            <div className="mt-6 flex flex-col gap-3 font-light">
               <a
                 href="https://www.mumbaiblockchainweek.com/"
                 target="_blank"
@@ -60,22 +102,6 @@ const Footer = () => {
               >
                 ETHMumbai 2024
               </a>
-              <a
-                href="https://agenda.ethmumbai.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
-              >
-                  Download App
-              </a>
-            </div>
-          </div>
-
-          {/* 1/4 width on desktop */}
-          <div className="p-4  text-white">
-            {/* <p className="font-medium text-lg">Join Us</p> */}
-
-            <div className="mt-6 flex flex-col gap-3 font-light">
               {/* <a
                 href="/tickets"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
