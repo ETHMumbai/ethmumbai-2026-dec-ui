@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-row xl:gap-30 xl:px-10 2xl:gap-40 2xl:px-20 md:gap-10 md:px-5 gap-5">
+        <div className="flex flex-col xl:gap-30 xl:px-10 2xl:gap-40 2xl:px-20 md:gap-10 md:px-5 gap-5">
           {/* 1/4 width on desktop */}
           <div className="p-4  text-white">
             {/* <p className="font-medium text-lg">About Us</p> */}
