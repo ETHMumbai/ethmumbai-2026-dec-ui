@@ -34,7 +34,7 @@ const Footer = () => {
             {/* <p className="font-medium text-lg">About Us</p> */}
 
             <div className="mt-6 flex flex-col gap-3 font-light">
-              {/* <a
+              <a
                 href="https://www.mumbaiblockchainweek.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 ETHMumbai 2024
-              </a> */}
+              </a>
               {/* <a
                 href="https://agenda.ethmumbai.in/"
                 target="_blank"
@@ -72,10 +72,10 @@ const Footer = () => {
           </div>
 
           {/* 1/4 width on desktop */}
-          <div className="p-4  text-white">
+          {/* <div className="p-4  text-white"> */}
             {/* <p className="font-medium text-lg">Join Us</p> */}
 
-            <div className="mt-6 flex flex-col gap-3 font-light">
+            {/* <div className="mt-6 flex flex-col gap-3 font-light">
               <a
                 href="https://www.mumbaiblockchainweek.com/"
                 target="_blank"
@@ -101,7 +101,7 @@ const Footer = () => {
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
               >
                 ETHMumbai 2024
-              </a>
+              </a> */}
               {/* <a
                 href="/tickets"
                 className="group bg-[#E2231A] text-white font-light w-fit hover:underline"
@@ -134,8 +134,8 @@ const Footer = () => {
               >
                 Apply to Sponsor
               </a> */}
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </div>
       </div>
 
