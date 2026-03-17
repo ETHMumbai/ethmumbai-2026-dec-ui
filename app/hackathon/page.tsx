@@ -18,7 +18,7 @@ import Sponsors from "@/components/hackathon/Sponsors";
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-black font-sans overflow-x-hidden">
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <Navbar />
       <main className="flex min-h-screen w-full flex-col">
         <Hero />

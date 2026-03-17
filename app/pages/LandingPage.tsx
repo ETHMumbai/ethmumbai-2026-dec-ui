@@ -26,7 +26,7 @@ export default function LandingPage() {
         </p>
       </section>
       <div className="flex min-h-screen flex-col bg-[#FFD600] font-sans">
-        <AnnouncementBar />
+        {/* <AnnouncementBar /> */}
         <Navbar />
         <main className="flex min-h-screen w-full flex-col">
           <Hero />
