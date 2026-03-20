@@ -112,6 +112,13 @@ export const judges: Judge[] = [
   //   xLink: "https://x.com/EthereumRemix",
   //   imageScale: "h-[140%]",
   // },
+  {
+    name: "Denver Jude",
+    company: "Devfolio",
+    image: "/assets/speakers/Denver Dsouza - Devfolio.png",
+    xLink: "https://x.com/denverjude",
+    imageScale: "h-[130%]",
+  },
  {
     name: "Devansh Mehta",
     company: "Ethereum Foundation",
@@ -140,13 +147,13 @@ export const judges: Judge[] = [
   //   xLink: "https://x.com/happys1ngh",
   //   imageScale: "h-[120%]",
   // },
-  {
-    name: "Kunal Gandhi",
-    company: "HeyElsa",
-    image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
-    xLink: "https://x.com/kunalvg",
-    imageScale: "h-[120%] right-[50%]",
-  },
+  // {
+  //   name: "Kunal Gandhi",
+  //   company: "HeyElsa",
+  //   image: "/assets/hackathon/judges/kunal_gandhi-removebg-preview.png",
+  //   xLink: "https://x.com/kunalvg",
+  //   imageScale: "h-[120%] right-[50%]",
+  // },
   {
     name: "Nandit Mehra",
     company: "Lighthouse",
