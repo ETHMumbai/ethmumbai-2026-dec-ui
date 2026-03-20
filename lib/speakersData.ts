@@ -162,11 +162,11 @@ export const pastSpeakers: Speaker[] = [
   //   imageScale: "h-[145%]",
   // },
   {
-    name: "Rahul Bhadoriya",
-    company: "Dacoit",
-    image: "/assets/speakers/Rahul_Bhadoriya.png",
-    xLink: "https://x.com/rahulbhadoriya",
-    imageScale: "h-[130%]",
+    name: "Vanshika Srivastava",
+    company: "Gnosis",
+    image: "/assets/hackathon/judges/Vanshika_Judge-removebg-preview.png",
+    xLink: "https://x.com/ThisisVanshika",
+    imageScale: "h-[118%]",
   },
   {
     name: "Reet Batra",
@@ -283,12 +283,12 @@ export const homeSpeakers: Speaker[] = [
     xLink: "https://x.com/ornellaweb3",
     imageScale: "h-[115%]",
   },
-     {
-    name: "Mykola Siusko",
-    company: "Web3Privacy",
-    image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
-    xLink: "https://x.com/nicksvyaznoy",
-    imageScale: "h-[140%]",
+  {
+    name: "Shyam Sridhar",
+    company: "Ethereum Foundation",
+    image: "/assets/speakers/Shyam_Sridhar2.png",
+    xLink: "https://x.com/ShyamSridhar7",
+    imageScale: "h-[130%]",
   },
     {
     name: "Devansh Mehta",
@@ -368,12 +368,12 @@ export const homeSpeakers: Speaker[] = [
     xLink: "https://x.com/akashneelesh",
     imageScale: "h-[130%]",
   },
-    {
-    name: "Rahul Bhadoriya",
-    company: "Dacoit",
-    image: "/assets/speakers/Rahul_Bhadoriya.png",
-    xLink: "https://x.com/rahulbhadoriya",
-    imageScale: "h-[130%]",
+  {
+    name: "Vanshika Srivastava",
+    company: "Gnosis",
+    image: "/assets/hackathon/judges/Vanshika_Judge-removebg-preview.png",
+    xLink: "https://x.com/ThisisVanshika",
+    imageScale: "h-[118%]",
   },
 
     {
@@ -562,13 +562,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/bajpaiharsh244",
     imageScale: "h-[125%]",
   },
-  {
-    name: "Heet Tike",
-    company: "noice",
-    image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
-    xLink: "https://x.com/heettike",
-    imageScale: "h-[120%]",
-  },
+  // {
+  //   name: "Heet Tike",
+  //   company: "noice",
+  //   image: "/assets/speakers/heet_tike_-_noice-removebg-preview.png",
+  //   xLink: "https://x.com/heettike",
+  //   imageScale: "h-[120%]",
+  // },
   {
     name: "Iptisha M",
     company: "Circulox",
@@ -618,13 +618,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/kunalvg",
     imageScale: "h-[120%] right-[50%]",
   },
-    {
-    name: "Mykola Siusko",
-    company: "Web3Privacy",
-    image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
-    xLink: "https://x.com/nicksvyaznoy",
-    imageScale: "h-[140%]",
-  },
+  //   {
+  //   name: "Mykola Siusko",
+  //   company: "Web3Privacy",
+  //   image: "/assets/speakers/Mykola_-_Web3Privacy-removebg-preview.png",
+  //   xLink: "https://x.com/nicksvyaznoy",
+  //   imageScale: "h-[140%]",
+  // },
    {
     name: "Naina Sachdev",
     company: "dev3pack",
@@ -686,13 +686,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/rachit",
     imageScale: "h-[115%]",
   },
-  {
-    name: "Rahul Bhadoriya",
-    company: "Dacoit",
-    image: "/assets/speakers/Rahul_Bhadoriya.png",
-    xLink: "https://x.com/rahulbhadoriya",
-    imageScale: "h-[130%]",
-  },
+  // {
+  //   name: "Rahul Bhadoriya",
+  //   company: "Dacoit",
+  //   image: "/assets/speakers/Rahul_Bhadoriya.png",
+  //   xLink: "https://x.com/rahulbhadoriya",
+  //   imageScale: "h-[130%]",
+  // },
   // {
   //   name: "Robin Roy",
   //   company: "Avail",
@@ -714,13 +714,13 @@ export const conferenceSpeakers: Speaker[] = [
     xLink: "https://x.com/yodl_meister",
     imageScale: "h-[120%]",
   },
-  {
-    name: "Sharvil Malik",
-    company: "CapX",
-    image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
-    xLink: "https://x.com/0xsharvil",
-    imageScale: "h-[138%]",
-  },
+  // {
+  //   name: "Sharvil Malik",
+  //   company: "CapX",
+  //   image: "/assets/speakers/Sharvil_-_Capx-removebg-preview.png",
+  //   xLink: "https://x.com/0xsharvil",
+  //   imageScale: "h-[138%]",
+  // },
   {
     name: "Shiv Bhonde ",
     company: "BuidlGuidl",
