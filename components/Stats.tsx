@@ -1,7 +1,7 @@
 "use client";
 
-import Stat from "../public/assets/subhero1/medium/stats.svg";
-import StatSm from "../public/assets/subhero1/small/stats.svg";
+import Stat from "../public/assets/subhero1/medium/stats_new.svg";
+import StatSm from "../public/assets/subhero1/small/stats_new.png";
 import Image from "next/image";
 
 export default function Stats() {
@@ -9,11 +9,11 @@ export default function Stats() {
     <section className="relative flex justify-center overflow-hidden bg-white border border-black text-white">
       {/* Medium Screens */}
       <div className="hidden md:flex">
-        <a
+        {/* <a
           href="https://2024.ethmumbai.in/"
           target="_blank"
           rel="noopener noreferrer"
-        >
+        > */}
           <Image
             src={Stat}
             alt=""
@@ -26,26 +26,26 @@ export default function Stats() {
       xl:px-40 xl:py-32  
     "
           />
-        </a>
+        {/* </a> */}
       </div>
 
       {/* Small Screens */}
       <div className="flex md:hidden">
-        <a
+        {/* <a
           href="https://2024.ethmumbai.in/"
           target="_blank"
           rel="noopener noreferrer"
-        >
+        > */}
           <Image
             src={StatSm}
             alt=""
             className="
       object-cover w-full h-full
-      px-6 py-10         
-      sm:px-12 sm:py-10
+       py-3         
+     
     "
           />
-        </a>
+        {/* </a> */}
       </div>
     </section>
   );
