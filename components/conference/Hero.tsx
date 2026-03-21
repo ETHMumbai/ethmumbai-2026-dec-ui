@@ -23,8 +23,8 @@ export default function Hero() {
         </h1>
 
         <p className="mt-[1rem] font-medium text-center text-lg sm:text-xl md:text-2xl lg:text-2xl text-gray-100">
-          A full-day conference with 50 speakers presenting talks on DeFi,
-          Privacy, and AI in front of 500 attendees.
+          A full-day conference with 48 speakers presenting talks on DeFi,
+          Privacy, and AI in front of 700+ attendees.
         </p>
 
         <div className="mt-[1.2rem] flex items-center gap-2 text-md sm:text-lg md:text-xl text-white">

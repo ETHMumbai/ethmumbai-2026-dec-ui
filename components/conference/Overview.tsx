@@ -20,7 +20,7 @@ export default function Hero() {
                     </p>
 
                     <p className="text-lg text-gray-800 mt-2 leading-relaxed">
-                        Join us for a full-day featuring 50 wonderful speakers presenting talks across three tracks: DeFi, Privacy, and AI. 
+                        Join us for a full-day featuring 48 wonderful speakers presenting talks across three tracks: DeFi, Privacy, and AI. 
                     </p>
 
                     <p className="text-lg text-gray-800 mt-2 leading-relaxed">

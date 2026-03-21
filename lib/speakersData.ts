@@ -420,12 +420,19 @@ export const homeSpeakers: Speaker[] = [
     imageScale: "h-[120%]",
   },
   {
-    name: "Thiru",
-    company: "Metis Foundation",
-    image: "/assets/hackathon/mentors/Thiru_Mentor-removebg-preview.png",
-    xLink: "https://x.com/0xthiru",
-    imageScale: "h-[115%]",
+    name: "Abhimanyu",
+    company: "Epoch Protocol",
+    image: "/assets/hackathon/mentors/Abhimanyu_Mentor-removebg-preview.png",
+    xLink: "https://x.com/sokkkkaaa",
+    imageScale: "h-[128%]",
   },
+  // {
+  //   name: "Thiru",
+  //   company: "Metis Foundation",
+  //   image: "/assets/hackathon/mentors/Thiru_Mentor-removebg-preview.png",
+  //   xLink: "https://x.com/0xthiru",
+  //   imageScale: "h-[115%]",
+  // },
  
 ];
 export const conferenceSpeakers: Speaker[] = [
