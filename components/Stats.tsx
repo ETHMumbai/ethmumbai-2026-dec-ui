@@ -1,7 +1,7 @@
 "use client";
 
 import Stat from "../public/assets/subhero1/medium/stats_new.svg";
-import StatSm from "../public/assets/subhero1/small/stats_new.png";
+import StatSm from "../public/assets/subhero1/small/stats_new.svg";
 import Image from "next/image";
 
 export default function Stats() {
@@ -14,10 +14,10 @@ export default function Stats() {
           target="_blank"
           rel="noopener noreferrer"
         > */}
-          <Image
-            src={Stat}
-            alt=""
-            className="
+        <Image
+          src={Stat}
+          alt=""
+          className="
       object-cover w-full h-full
       px-6 py-10 scale-100     
    
@@ -25,7 +25,7 @@ export default function Stats() {
       lg:px-32 lg:py-24  
       xl:px-40 xl:py-32  
     "
-          />
+        />
         {/* </a> */}
       </div>
 
@@ -36,15 +36,15 @@ export default function Stats() {
           target="_blank"
           rel="noopener noreferrer"
         > */}
-          <Image
-            src={StatSm}
-            alt=""
-            className="
+        <Image
+          src={StatSm}
+          alt=""
+          className="
       object-cover w-full h-full
-       py-20  scale-150       
+       py-10  px-5 scale-100       
      
     "
-          />
+        />
         {/* </a> */}
       </div>
     </section>
