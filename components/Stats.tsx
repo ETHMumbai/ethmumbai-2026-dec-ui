@@ -19,7 +19,7 @@ export default function Stats() {
             alt=""
             className="
       object-cover w-full h-full
-      px-6 py-10 scale-120     
+      px-6 py-10 scale-100     
    
       md:px-20 md:py-16   
       lg:px-32 lg:py-24  
@@ -41,7 +41,7 @@ export default function Stats() {
             alt=""
             className="
       object-cover w-full h-full
-       py-3         
+       py-20  scale-150       
      
     "
           />
