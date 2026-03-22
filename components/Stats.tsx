@@ -21,6 +21,11 @@ export default function Stats() {
 
       {/* Medium Screens */}
       <div className="hidden md:flex">
+        {/* <a
+          href="https://2024.ethmumbai.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+        > */}
         <Image
           src={Stat}
           alt=""
@@ -36,14 +41,21 @@ export default function Stats() {
 
       {/* Small Screens */}
       <div className="flex md:hidden">
+        {/* <a
+          href="https://2024.ethmumbai.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+        > */}
         <Image
           src={StatSm}
           alt=""
           className="
-            object-cover w-full h-full
-            py-10 px-5      
-          "
+      object-cover w-full h-full
+       py-10  px-5 scale-100       
+     
+    "
         />
+        {/* </a> */}
       </div>
     </section>
   );
