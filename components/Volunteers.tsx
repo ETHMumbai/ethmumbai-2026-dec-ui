@@ -13,10 +13,10 @@ export default function Volunteers() {
   return (
     <section
       id="conference-speakers"
-      className="w-full bg-[#D63A2F] py-10 px-4 sm:px-6 lg:px-8"
+      className="w-full bg-white py-10 px-4 sm:px-6 lg:px-8"
     >
       {/* <p className="text-center text-black text-sm font-medium mb-2">Built With Love By</p> */}
-      <h2 className="text-white text-4xl pb-3 sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
+      <h2 className="text-black text-4xl pb-3 sm:text-5xl md:text-6xl lg:text-6xl font-[MPlusRounded1c] tracking-tighter font-medium text-center mb-8">
         Volunteers
       </h2>
 
@@ -110,7 +110,7 @@ function SpeakerCard({ member }: { member: any }) {
         )}
       </div>
 
-      <h3 className="text-[16px] leading-6 tracking-[-0.31px] text-[#FFFFFF] text-center mb-1">
+      <h3 className="text-[16px] leading-6 tracking-[-0.31px] text-[#0f0f0f] text-center mb-1">
         {member.name}
       </h3>
     </div>
