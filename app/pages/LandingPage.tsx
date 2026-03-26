@@ -14,6 +14,7 @@ import Venue from "@/components/Venue";
 // import Speakers from "@/components/hackathon/Speakers";
 import ClosingCTA from "@/components/ClosingCTA";
 import Team from "@/components/Team";
+import Volunteers from "@/components/Volunteers";
 
 export default function LandingPage() {
   return (
@@ -37,6 +38,7 @@ export default function LandingPage() {
           <Partners />
           <Venue />
           <Team />
+          <Volunteers />
           <FAQ type="general" />
           {/* <ClosingCTA /> */}
           <Footer />
