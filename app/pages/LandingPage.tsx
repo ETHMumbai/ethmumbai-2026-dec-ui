@@ -15,7 +15,6 @@ import Venue from "@/components/Venue";
 import ClosingCTA from "@/components/ClosingCTA";
 import Team from "@/components/Team";
 import Volunteers from "@/components/Volunteers";
-import AfterMovie from "@/components/AfterMovie";
 
 export default function LandingPage() {
   return (
@@ -32,7 +31,6 @@ export default function LandingPage() {
         <Navbar />
         <main className="flex min-h-screen w-full flex-col">
           <Hero />
-          <AfterMovie />
           <Stats />
           <Overview />
           <Speakers />
