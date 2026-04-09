@@ -477,9 +477,9 @@ export default function Tweets() {
   }, [runMasonry]);
 
   return (
-    <section className="w-full py-16 bg-[#00A859]">
-      <h2 className="text-4xl text-white sm:text-5xl font-semibold text-center mb-12 tracking-tight">
-        What People Are Saying
+    <section className="w-full py-10 bg-[#00A859]">
+      <h2 className="text-white text-4xl sm:text-5xl md:text-6xl tracking-tighter font-[MPlusRounded1c] font-medium text-center mb-10">
+        Love from the Community
       </h2>
 
       <div className="flex justify-center px-6 sm:px-12 lg:px-20">
