@@ -1,6 +1,6 @@
 export interface Volunteer {
   name: string;
-  image: string;
+  image?: string;
   xLink?: string;
   imageScale?: string;
   bgColor?: string;
@@ -130,3 +130,23 @@ export const volunteers: Volunteer[] = [
     }
 
 ]
+
+export const noImgVolunteers: Volunteer[] = [
+    {
+    name: "AKASH",
+    xLink: "https://x.com/akashjana__"},
+    {
+    name: "MITANSH JAIN",
+    xLink: "https://x.com/mitansh_j07",
+   
+    },
+      {
+    name: "MOHAMMED PATLA",
+    xLink: "https://x.com/mohammedpatla",},
+    {
+    name: "RAJ PARAB",
+    xLink: "https://x.com/Rjparab",}
+
+
+
+  ]

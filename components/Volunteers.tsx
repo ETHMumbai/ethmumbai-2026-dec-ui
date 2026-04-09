@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { volunteers } from "../lib/volunteerData";
+import { noImgVolunteers, volunteers } from "../lib/volunteerData";
 
 const COLS_LG = 8;
 
@@ -74,6 +74,12 @@ export default function Volunteers() {
         </div>
       </div>
 
+      {noImgVolunteers.length > 0 && (
+  <div className="mt-6 flex justify-center px-4">
+    <SpeakerName members={noImgVolunteers} />
+  </div>
+)}
+  
       {/* CTA Button */}
       {/* <a
         href="https://docs.fileverse.io/0xe59f51d0fd360e0dc5c73f17d2cfaf314244bbb8/0#key=e-MSDsPvPh4H92CVFBCrivuIo6kqqsDT31ZcdqwBEcW3baeCn_vL4-F55ca08Tkc"
@@ -87,6 +93,42 @@ export default function Volunteers() {
         </div>
       </a> */}
     </section>
+  );
+}
+
+function SpeakerName({ members }: { members: any[] }) {
+  return (
+    <p className="text-black text-lg sm:text-xl md:text-2xl font-semibold tracking-[-0.5px] uppercase text-center">
+      AND{" "}
+      {members.map((member, index) => {
+        const isLast = index === members.length - 1;
+        const isSecondLast = index === members.length - 2;
+
+        return (
+          <span key={index}>
+            {member.xLink ? (
+              <a
+                href={member.xLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                // className="hover:underline"
+              >
+                {member.name}
+              </a>
+            ) : (
+              member.name
+            )}
+
+            {/* Add commas + AND formatting */}
+            {!isLast && (
+              <>
+                {isSecondLast ? " AND " : ", "}
+              </>
+            )}
+          </span>
+        );
+      })}
+    </p>
   );
 }
 
