@@ -75,7 +75,7 @@ export default function Volunteers() {
       </div>
 
       {noImgVolunteers.length > 0 && (
-  <div className="mt-6 flex justify-center px-4">
+  <div className="mt-0 flex justify-center px-4">
     <SpeakerName members={noImgVolunteers} />
   </div>
 )}
@@ -98,7 +98,7 @@ export default function Volunteers() {
 
 function SpeakerName({ members }: { members: any[] }) {
   return (
-    <p className="text-black text-lg sm:text-xl md:text-2xl font-semibold tracking-[-0.5px] uppercase text-center">
+    <p className="text-black text-lg sm:text-xl md:text-2xl font-medium tracking-[-0.5px] uppercase text-center">
       AND{" "}
       {members.map((member, index) => {
         const isLast = index === members.length - 1;
