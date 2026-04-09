@@ -16,6 +16,7 @@ import ClosingCTA from "@/components/ClosingCTA";
 import Team from "@/components/Team";
 import Volunteers from "@/components/Volunteers";
 import AfterMovie from "@/components/AfterMovie";
+import Tweets from "@/components/Tweets";
 
 export default function LandingPage() {
   return (
@@ -33,6 +34,7 @@ export default function LandingPage() {
         <main className="flex min-h-screen w-full flex-col">
           <Hero />
           <AfterMovie />
+          <Tweets />
           <Stats />
           <Overview />
           <Speakers />
